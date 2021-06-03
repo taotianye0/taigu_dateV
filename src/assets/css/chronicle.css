@@ -1,0 +1,103 @@
+.data-content {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+.con-box {
+    width: 19%;
+    height: 100%;
+    position: relative;
+    background: rgb(12, 95, 243, 0.2);
+    box-sizing: border-box;
+    padding-top: 30px;
+    position: relative;
+}
+.data > .data-content .title {
+    width: 150px;
+}
+/* 考核发布的信息 */
+.check-list {
+    height: 100%;
+    padding: 35px;
+    box-sizing: border-box;
+}
+.check-item {
+    padding: 0 15px;
+    border-left: 1px solid rgba(102, 198, 231, 0.2);
+    cursor: default;
+}
+.create-time {
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #5092c1;
+    position: relative;
+    margin-bottom: 13px;
+}
+.create-time::before {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    background: #04cef4;
+    border-radius: 50%;
+    box-shadow: 0 0 0px 3px rgba(44, 129, 255, 0.5);
+    position: absolute;
+    top: 4px;
+    left: -19px;
+    z-index: 2;
+}
+.check-title {
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #ffffff;
+    padding-bottom: 23px;
+    line-height: 30px;
+}
+/* box */
+.detail-box {
+    width: 100%;
+    height: calc(100% - 110px);
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 10;
+    background: #041446;
+    box-sizing: border-box;
+    padding: 35px 22px;
+    display: none;
+    overflow-y: auto;
+}
+.detail-box::-webkit-scrollbar {
+    width: 2px; /*高宽分别对应横竖滚动条的尺寸*/
+}
+
+.detail-box::-webkit-scrollbar-thumb {
+    /*滚动条里面小方块*/
+    border-radius: 10px;
+    background: #91a5e4;
+}
+.detail-box .create-time {
+    margin-left: 11px;
+}
+.detail-box .check-title {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #122f67;
+}
+.ql-editor {
+    padding-left: 0;
+    padding-right: 0;
+}
+.del-img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: calc(50% - 15px);
+    bottom: 35px;
+    z-index: 15;
+    display: none;
+}
+.details *{
+    color: #fff!important;
+}

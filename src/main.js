@@ -3,6 +3,10 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+// 重置样式
+import "./assets/css/reset.css";
+// 
+
 
 Vue.config.productionTip = false
 

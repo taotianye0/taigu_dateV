@@ -1,0 +1,366 @@
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.data {
+    width: 100%;
+    height: 100%;
+    background: url('../img/index_bg.png') center;
+    min-width: 1366px;
+    padding-top: 9px;
+}
+.data > .data-title {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.data-title > img {
+    width: 100%;
+}
+.header-content {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 2;
+}
+.title-center {
+    width: 30%;
+    text-align: center;
+    font-size: 28px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #ffffff;
+    background: linear-gradient(0deg, #aad4fe 0%, #ffffff 99.5849609375%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 15px;
+}
+.title-left,
+.title-right {
+    width: 35%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.title-left {
+    justify-content: flex-start;
+    padding-left: 3.4%;
+    padding-bottom: 1.8%;
+}
+#day {
+    font-size: 20px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #ffffff;
+    margin-right: 30px;
+}
+#weekend {
+    font-size: 20px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: #ffffff;
+    margin-right: 40px;
+}
+#time {
+    font-size: 28px;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: #ffffff;
+}
+.title-right {
+    text-align: right;
+    padding-right: 3.5%;
+    padding-top: 5px;
+}
+.title-right > img {
+    width: 29px;
+}
+.return-btn {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    background: url('../img/return_bg.png');
+    background-size: 100% 100%;
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    text-align: center;
+    line-height: 30px;
+    color: #ffffff;
+    margin-right: 15px;
+    cursor: default;
+}
+.back{
+    cursor: default;
+}
+/* 页面内容 */
+.data > .data-content {
+    width: 100%;
+    /* height: calc(100% - 105px); */
+    padding: 30px 25px 30px 25px;
+    box-sizing: border-box;
+}
+/* 左 */
+.data > .data-content > .con-left {
+    width: 25.6821%;
+    height: 100%;
+}
+.left-top,
+.left-center,
+.left-bottom,
+.right-top,
+.right-center,
+.right-bottom {
+    width: 100%;
+    height: calc((100% - 60px) / 3);
+    position: relative;
+    background: rgb(12, 95, 243, 0.2);
+    box-sizing: border-box;
+    padding-top: 30px;
+}
+.left-center,
+.right-center {
+    margin: 30px 0;
+}
+/* 科研成果转化 */
+.res-list {
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    padding-top: 20px;
+}
+.res-item {
+    width: 25%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.res-number {
+    width: 61px;
+    height: 61px;
+    text-align: center;
+    line-height: 51px;
+    border: 5px solid #2473ef;
+    /* border: 5px solid #33DDF8; */
+    border-radius: 50%;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+.res-text {
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.8);
+}
+/* 中 */
+.data > .data-content > .con-center {
+    width: 48.2077%;
+    height: 100%;
+    padding: 0 27px;
+    box-sizing: border-box;
+    position: relative;
+}
+.data > .data-content > .con-center > .cen-top {
+    width: 100%;
+    height: calc(100% - (100% - 60px) / 3 - 150px);
+    margin-bottom: 20px;
+}
+.cen-count {
+    width: 100%;
+    height: 100px;
+    padding-bottom: 30px;
+}
+.count-item {
+    width: 32%;
+    height: 100px;
+    background: url('../img/c_bg.png') no-repeat;
+    background-size: 100% 100%;
+    justify-content: space-evenly;
+}
+.count-item > img {
+    width: 54px;
+}
+.info > div:first-child {
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: #ffffff;
+}
+.info > div:last-child span:first-child {
+    font-size: 30px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #30d7e1;
+}
+.info > div:last-child span:last-child {
+    margin-left: 7px;
+    font-size: 16px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #30d7e1;
+}
+.data > .data-content > .con-center > .cen-bottom {
+    width: 100%;
+    height: calc((100% - 60px) / 3);
+    background: rgb(12, 95, 243, 0.2);
+    box-sizing: border-box;
+    position: relative;
+    padding-top: 30px;
+}
+/* 右 */
+.data > .data-content > .con-right {
+    width: 26.1102%;
+    height: 100%;
+}
+
+/* 标题 */
+.data > .data-content .title {
+    width: 260px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #ffffff;
+    padding-left: 24px;
+    background: url('../img/title_bg.png');
+    background-size: 100% 100%;
+    position: absolute;
+    left: 0;
+    top: -1px;
+    z-index: 1;
+}
+.data > .data-content .mark {
+    width: 39px;
+    height: 27px;
+    background: url('../img/title_mark.png');
+    background-size: 100% 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+/* 企业考评 */
+.check-val {
+    width: 174px;
+    height: 181px;
+    background: url('../img/circle_en.png') center;
+    padding-top: 6px;
+    box-sizing: border-box;
+    margin-right: 45px;
+}
+.check-text-item {
+    vertical-align: middle;
+    margin-bottom: 10px;
+    text-align: right;
+}
+.text-tip {
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 20px;
+}
+#check-success {
+    font-size: 28px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #0063ff;
+}
+#check-fail {
+    font-size: 28px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #0063ff;
+}
+#check-pro {
+    font-size: 28px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #54defe;
+}
+/* 项目进度 */
+.obj-process,
+.check-area {
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.process-area {
+    width: 222px;
+    height: 144px;
+    background: url('../img/circle_half.png') center;
+    background-size: contain;
+    text-align: center;
+    padding-top: 35px;
+    box-sizing: border-box;
+    margin-right: 40px;
+}
+.process-val {
+    font-size: 48px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #24fdec;
+    background: linear-gradient(0deg, #3f7bf1 0%, #55e2fe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.process-text {
+    text-align: right;
+}
+.process-text .first-child {
+    margin-bottom: 40px;
+}
+.p-title,
+.obj-count {
+    font-size: 16px;
+    font-family: Source Han Sans CN;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.9);
+    vertical-align: baseline;
+}
+#obj-count {
+    font-size: 28px;
+    font-family: Source Han Sans CN;
+    font-weight: bold;
+    color: #54defe;
+}
+#finish-count {
+    font-size: 28px;
+    font-family: Source Han Sans CN;
+    font-weight: 500;
+    color: #005ff6;
+}
+/* 图表 */
+.data > .data-content .charts {
+    width: 100%;
+    height: 100%;
+}
+/*  */
+.year-area {
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    padding: 30px 30px;
+}
+.year-item{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #fff;
+    background:rgb(32 56 109);
+    font-size: 16px;
+    margin-bottom: 20px;
+    cursor: default;
+}

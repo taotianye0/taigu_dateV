@@ -1,0 +1,148 @@
+.con-top {
+  width: 100%;
+  height: 45%;
+}
+.con-top > div {
+  width: calc((100% - 60px) / 3);
+  height: 100%;
+  position: relative;
+  background: rgb(12, 95, 243, 0.2);
+  background-size: 100% 100%;
+  box-sizing: border-box;
+  padding-top: 30px;
+}
+.con-c {
+  background: url("../img/center-bg.png") no-repeat;
+  background-size: 100% 100%;
+  margin: 0 30px;
+}
+/* 入孵企业 */
+.enterprise-list {
+  height: 100%;
+  padding: 25px 20px;
+  box-sizing: border-box;
+  overflow:hidden; 
+  position:relative;
+}
+.list-title {
+  width: 100%;
+  height: 33px;
+  line-height: 33px;
+  background: #1b89cd;
+  opacity: 0.6;
+}
+.title-item {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #ffffff;
+  opacity: 0.8;
+  box-sizing: border-box;
+  text-align: center;
+}
+.title-item span {
+  display: inline-block;
+  width: 8px;
+  height: 17px;
+  background: #1fd3ff;
+  transform: skewX(20deg);
+  vertical-align: middle;
+}
+.s1 {
+  background: #ffd561 !important;
+}
+.s2 {
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.list-item {
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+.list-item > div {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+.t1 {
+  width: 40%;
+  text-align: left;
+}
+.title-item.t1 {
+  padding-left: 12px;
+}
+.t2 {
+  width: 15%;
+  text-align: center;
+}
+.t3 {
+  width: 25%;
+  text-align: center;
+}
+.t4 {
+  width: 20%;
+  text-align: right;
+}
+.title-item.t4 {
+  text-align: center;
+}
+/* 考核发布的信息 */
+.check-list {
+  height: 100%;
+  padding: 35px;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.check-list::-webkit-scrollbar {
+  width: 2px; /*高宽分别对应横竖滚动条的尺寸*/
+}
+
+.check-list::-webkit-scrollbar-thumb {
+  /*滚动条里面小方块*/
+  border-radius: 10px;
+  background: #91a5e4;
+}
+.check-item {
+  padding: 0 15px;
+  border-left: 1px solid rgba(102, 198, 231, 0.2);
+}
+.create-time {
+  font-size: 16px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #5093c1;
+  position: relative;
+  margin-bottom: 13px;
+}
+.create-time::before {
+  content: '';
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: #04cef4;
+  border-radius: 50%;
+  box-shadow: 0 0 0px 3px rgba(44, 129, 255, 0.5);
+  position: absolute;
+  top: 4px;
+  left: -19px;
+  z-index: 2;
+}
+.check-title {
+  font-size: 18px;
+  font-family: Source Han Sans CN;
+  font-weight: 400;
+  color: #ffffff;
+  padding-bottom: 23px;
+}
+/* bottom */
+.con-bottom {
+  width: 100%;
+  height: calc(55% - 30px);
+  margin-top: 30px;
+  position: relative;
+  background: rgb(12, 95, 243, 0.2);
+  box-sizing: border-box;
+  padding-top: 30px;
+}
