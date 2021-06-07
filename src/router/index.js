@@ -1,24 +1,28 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from "vue";
+import Router from "vue-router";
+Vue.use(Router);
+
+const index = () => import("../pages/index/index");
+const supermap = () => import("../pages/superMap/index");
 
 
-
-
-const index = () => import("../pages/index");   //使用懒加载
-Vue.use(Router)
 
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'index',
+      path: "/",
       component: index,
-      children: [
-
-      ]
+      name:"主页",
+      children:[]
+    },
+    {
+      path: "/supermap",
+      component: supermap,
+      children:[]
+    },
+    {
+      path: "*",
+      redirect: "/login"
     }
   ]
-})
-
-
-
+});
