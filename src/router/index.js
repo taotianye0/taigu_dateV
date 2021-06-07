@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 Vue.use(Router);
 
-const index = () => import("../pages/index/index");
+const index = () => import("../pages/index");
 const supermap = () => import("../pages/superMap/index");
 
 
