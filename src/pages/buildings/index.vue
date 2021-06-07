@@ -1,8 +1,7 @@
 <template>
   <div>
 
-
-建筑页面建筑页面建筑页面建筑页面
+建筑页面
 
   </div>
 </template>
