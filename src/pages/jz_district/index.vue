@@ -1,16 +1,13 @@
 <template>
+<!-- 高新区九州园区 -->
   <div>
-      superMap 的组件
+    高新区九州园区
   </div>
-
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

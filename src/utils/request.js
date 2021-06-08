@@ -21,14 +21,14 @@ const baseUrl = "/api";
 axios.interceptors.response.use(res => {
   console.group("本次响应路径为:" + res.config.url);
   if (res.data.code !== 200) {
-    if (res.data.code == 403) {
-      warningAlert(res.data.msg);
-      setTimeout(() => {
-        router.push("/login");
-      }, 1000);
-      return;
-    }
-    errorAlert(res.data.msg);
+    // if (res.data.code == 403) {
+    //   warningAlert(res.data.msg);
+    //   setTimeout(() => {
+    //     router.push("/login");
+    //   }, 1000);
+    //   return;
+    // }
+    // errorAlert(res.data.msg);
     return;
   }
   console.log(res);

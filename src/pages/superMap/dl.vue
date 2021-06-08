@@ -1,16 +1,11 @@
 <template>
-  <div>
-
-建筑页面
-
-  </div>
+  <!-- 定连区 -->
+  <div></div>
 </template>
 
 <script>
 export default {
-components:{
-    
-}
+
 }
 </script>
 
