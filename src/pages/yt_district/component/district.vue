@@ -227,8 +227,7 @@ export default {
           containLabel: true,
         },
         xAxis: {
-          // type: "value",
-          // boundaryGap: [0, 0.01],
+         
           show:false
         },
         yAxis: {
