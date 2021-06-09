@@ -10,7 +10,9 @@ import "./assets/css/reset.css";
 import "./assets/js/reset"
 // 全局挂载less
 Vue.use(less);
-
+// 引入echarts
+import echarts from "echarts";
+Vue.prototype.$echarts = echarts;
 
 
 
