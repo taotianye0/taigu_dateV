@@ -16,7 +16,7 @@
       <div class="left_three">
         <div class="left_three_title">
           <i>行业占比</i>
-        <span>Industry accounted for</span>
+          <span>Industry accounted for</span>
         </div>
         <div class="business" ref="business"></div>
       </div>
@@ -29,8 +29,8 @@
     <!-- 右下角 -->
     <div class="right">
       <div class="left_three_title">
-         <i>企业年限</i>
-          <span>Enterprise fixed number of year</span>
+        <i>企业年限</i>
+        <span>Enterprise fixed number of year</span>
       </div>
       <div class="years" ref="years"></div>
     </div>
@@ -103,12 +103,13 @@ export default {
             color: "#BCC3D6",
             fontFamily: "Microsoft YaHei",
             fontWeight: 400,
-            fontSize: 14,
+            fontSize: 16,
           },
         },
         yAxis: {
           show: false,
         },
+        // grid: {top: '50%'},
         series: [
           {
             type: "line",
@@ -157,9 +158,8 @@ export default {
         },
         series: [
           {
-            // name: "访问来源",
             type: "pie",
-            radius: "70%",
+            radius: "78%",
             center: ["50%", "50%"],
             data: [
               { value: 300, name: "软件信息" },
@@ -174,7 +174,7 @@ export default {
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
-              fontSize: 16,
+              fontSize: 15,
               formatter: "{b} \n \n {d}%",
               padding: [0, -70, 0, -70],
             },
@@ -185,7 +185,7 @@ export default {
                 type: "radial",
               },
               smooth: 0,
-              length: 15,
+              length: 1,
               length2: 80,
             },
             itemStyle: {
@@ -211,19 +211,15 @@ export default {
       let years = this.$echarts.init(this.$refs.years);
       // 2.绘图配置项
       let option2 = {
-        title: {
-          text: "世界人口总量",
-          subtext: "数据来自网络",
-        },
         tooltip: {
           trigger: "axis",
           axisPointer: {
             type: "shadow",
           },
         },
-        legend: {
-          data: ["2011年", "2012年"],
-        },
+        // legend: {
+        //   data: ["2011年", "2012年"],
+        // },
         grid: {
           left: "3%",
           right: "4%",
@@ -231,8 +227,9 @@ export default {
           containLabel: true,
         },
         xAxis: {
-          type: "value",
-          boundaryGap: [0, 0.01],
+          // type: "value",
+          // boundaryGap: [0, 0.01],
+          show:false
         },
         yAxis: {
           type: "category",
@@ -242,13 +239,8 @@ export default {
           {
             name: "2011年",
             type: "bar",
-            data: [18203, 23489, 29034, 104970, 131744, 630230],
-          },
-          {
-            name: "2012年",
-            type: "bar",
-            data: [19325, 23438, 31000, 121594, 134141, 681807],
-          },
+            data: [18203, 23489,94970, 29034, 111744, 130230],
+          }
         ],
       };
       // 3,绘图
