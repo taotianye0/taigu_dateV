@@ -1,6 +1,10 @@
 <template>
   <!-- 高新区雁滩园区 -->
   <div>
+      <div class="supermap">
+      <!-- 超图 -->
+      <img src="../../assets/img/bg.jpg" title ="超图的位置">
+    </div>
     <!-- 区的页面组件 -->
     <v-district></v-district>
   </div>
@@ -15,5 +19,13 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.supermap {
+  width: 100vw;
+  height: 100vh;
+}
+img{
+width: 100vw;
+height: 100vh;
+}
 </style>

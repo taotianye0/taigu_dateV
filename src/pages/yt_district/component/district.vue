@@ -1,11 +1,17 @@
 <template>
   <div>
-    <div class="supermap">
-      <!-- 超图 -->
-    </div>
+  
     <!-- 左边 -->
     <div class="left">
-      <div class="left_one"></div>
+      <div class="left_one">
+         <div class="left_three_title">
+          <i>园区企业数据</i>
+          <span>Park enterprise data</span>
+        </div>
+        <div class="park">
+          
+        </div>
+      </div>
       <div class="left_two">
         <div class="left_three_title">
           <i>企业发展</i>
