@@ -1,5 +1,6 @@
 .justify {
   text-align: justify;
+  overflow: hidden;
 }
 .justify::after {
   content: "";

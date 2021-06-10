@@ -1,15 +1,56 @@
 <template>
   <div>
-  
     <!-- 左边 -->
     <div class="left">
       <div class="left_one">
-         <div class="left_three_title">
+        <div class="left_one_title">
           <i>园区企业数据</i>
           <span>Park enterprise data</span>
         </div>
         <div class="park">
-          
+          <div class="park_up">
+            <ul class="clearfix">
+              <li>
+                <p>企业总数</p>
+                <div>
+                  <i></i><span>1024<em>家</em> </span>
+                </div>
+              </li>
+              <li>
+                <p>招商项目</p>
+                <div>
+                  <span>180<em>个</em></span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="park_down">
+            <ul class="clearfix">
+              <li>
+                <i></i>
+                <p>26人</p>
+                <span>院士</span>
+                <span class="shu"></span>
+              </li>
+              <li>
+                <i></i>
+                <p>5000人</p>
+                <span>硕士</span>
+                 <span class="shu"></span>
+              </li>
+              <li>
+                <i></i>
+                <p>460人</p>
+                <span>博士</span>
+                 <span class="shu"></span>
+              </li>
+              <li>
+                <i></i>
+                <p>569人</p>
+                <span>海归</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="left_two">
@@ -34,7 +75,7 @@
     </div>
     <!-- 右下角 -->
     <div class="right">
-      <div class="left_three_title">
+      <div class="right_title">
         <i>企业年限</i>
         <span>Enterprise fixed number of year</span>
       </div>
@@ -69,7 +110,7 @@ export default {
       let develop = this.$echarts.init(this.$refs.develop);
       let option0 = {
         legend: {
-          top: "30",
+          top: "25",
           formatter: "{name}",
           textStyle: {
             color: "#BCC3D6",
@@ -115,7 +156,7 @@ export default {
         yAxis: {
           show: false,
         },
-        // grid: {top: '50%'},
+        grid: { left: "0%" },
         series: [
           {
             type: "line",
@@ -166,7 +207,7 @@ export default {
           {
             type: "pie",
             radius: "78%",
-            center: ["50%", "50%"],
+            center: ["45%", "50%"],
             data: [
               { value: 300, name: "软件信息" },
               { value: 350, name: "广告设计" },
@@ -233,8 +274,7 @@ export default {
           containLabel: true,
         },
         xAxis: {
-         
-          show:false
+          show: false,
         },
         yAxis: {
           type: "category",
@@ -244,8 +284,8 @@ export default {
           {
             name: "2011年",
             type: "bar",
-            data: [18203, 23489,94970, 29034, 111744, 130230],
-          }
+            data: [18203, 23489, 94970, 29034, 111744, 130230],
+          },
         ],
       };
       // 3,绘图
