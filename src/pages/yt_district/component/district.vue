@@ -36,13 +36,13 @@
                 <i></i>
                 <p>5000人</p>
                 <span>硕士</span>
-                 <span class="shu"></span>
+                <span class="shu"></span>
               </li>
               <li>
                 <i></i>
                 <p>460人</p>
                 <span>博士</span>
-                 <span class="shu"></span>
+                <span class="shu"></span>
               </li>
               <li>
                 <i></i>
@@ -145,8 +145,7 @@ export default {
           axisTick: {
             alignWithLabel: true,
           },
-          // 没起作用
-          nameTextStyle: {
+          axisLabel: {
             color: "#BCC3D6",
             fontFamily: "Microsoft YaHei",
             fontWeight: 400,
@@ -260,13 +259,8 @@ export default {
       let option2 = {
         tooltip: {
           trigger: "axis",
-          axisPointer: {
-            type: "shadow",
-          },
         },
-        // legend: {
-        //   data: ["2011年", "2012年"],
-        // },
+        
         grid: {
           left: "3%",
           right: "4%",
@@ -278,13 +272,56 @@ export default {
         },
         yAxis: {
           type: "category",
-          data: ["巴西", "印尼", "美国", "印度", "中国", "世界人口(万)"],
+          data: ["4 微型企业", "3 小型企业", "2 中型企业", "1 大型企业"],
+          nameLocation: "center",
+          axisLabel: {
+            color: "#00FCF9",
+            fontFamily: "Microsoft YaHei",
+            fontWeight: 400,
+            fontSize: 18,
+          },
+          axisLine: {
+            show: false,
+          },
+          axisTick: {
+            show: false,
+          },
         },
+
         series: [
           {
-            name: "2011年",
             type: "bar",
-            data: [18203, 23489, 94970, 29034, 111744, 130230],
+            barWidth: "45%",
+            data: [18, 23, 12, 14, 11, 5],
+            label: {
+              show: true,
+              position: "right",
+              formatter: "{c}年",
+              color: "#00FCF9",
+              fontFamily: "Microsoft YaHei",
+              fontWeight: 400,
+              fontSize: 18,
+            },
+            itemStyle: {
+              color: {
+                type: "linear",
+                x: 1,
+                y: 0,
+                x2: 0,
+                y2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#A36CFF", // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: "#33B8E4", // 100% 处的颜色
+                  },
+                ],
+                global: false, // 缺省为 false
+              },
+            },
           },
         ],
       };
