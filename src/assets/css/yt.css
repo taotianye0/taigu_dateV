@@ -36,7 +36,7 @@
   width: 27%;
   min-width: 5.08rem;
   height: 100vh;
-  background-color: rgba(11, 94, 243, 0.1);
+  background-color: "#2354AD";
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -176,17 +176,14 @@
   width: 100%;
   height: calc(100% - 0.62rem);
 }
-.years {
-  margin-top: -0.4remlegend;
-}
 .right {
   position: fixed;
-  bottom: 0.24rem;
+  bottom: 0.1rem;
   right: 0.24rem;
   width: 25%;
   min-width: 4.88rem;
-  height: 3.65rem;
-  background-color: rgba(11, 94, 243, 0.1);
+  height: 3.1rem;
+  background-color: "#2354AD";
   box-sizing: border-box;
   padding: 0.3rem 0 0 0.25rem;
 }

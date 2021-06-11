@@ -334,4 +334,8 @@ export default {
 
 <style scoped>
 @import "../../../assets/css/yt.css";
+.title .title_en{
+   font-size: 0.2rem;
+}
+
 </style>

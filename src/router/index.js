@@ -2,7 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 Vue.use(Router);
 
-const index = () => import("../pages/index");
+const index = () => import("../pages/index/index");
 const home =()=> import("../pages/home");
 const dl = () => import("../pages/dl_district/index");
 const jz = () => import("../pages/jz_district/index");
@@ -14,7 +14,7 @@ export default new Router({
   routes: [
     {
       path: "/home",
-      name: "兰州国家高新技术产业开发区",
+ 
       component: home,
       children: [
         {
@@ -46,6 +46,7 @@ export default new Router({
     },
     {
       path:"/",
+      name: "兰州国家高新技术产业开发区,LANZHOU NATIONAL HI TECH INDUSTRIAL DEVELOPMENT ZONE",
       component:index,
     },
     {

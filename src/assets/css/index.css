@@ -1,0 +1,144 @@
+html {
+  height: 100%;
+}
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: #051443;
+}
+.indexbg {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.indexbg img {
+  width: 100%;
+  height: 100%;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+  animation: mymove 1.5s infinite ease-in-out;
+}
+.wrap img {
+  width: 100%;
+}
+.box span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  cursor: pointer;
+  border-radius: 50%;
+  animation: animate 2s linear infinite;
+  animation-delay: calc(0.5s * var(--i));
+}
+.box:hover span {
+  border: 1px solid transparent;
+  background-color: rgba(240, 102, 95, 0.5);
+  opacity: 0;
+}
+@keyframes mymove {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes animate {
+  0% {
+    width: 0;
+    height: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+}
+.dl {
+  width: 10%;
+  height: 19%;
+  position: absolute;
+  left: 87%;
+  top: 29%;
+}
+.dl .name {
+  position: absolute;
+  left: -44%;
+  top: 53%;
+  color: #D69563;
+  font-size: 0.18rem;
+  width: 200%;
+}
+.hp {
+  width: 4%;
+  height: 12%;
+  position: absolute;
+  left: 84%;
+  top: 17%;
+}
+.hp .name {
+  position: absolute;
+  left: 120%;
+  top: 53%;
+  color: #D69563;
+  font-size: 0.18rem;
+  width: 200%;
+}
+.jz {
+  width: 19%;
+  height: 32%;
+  position: absolute;
+  left: 49%;
+  top: 27%;
+}
+.jz .name {
+  position: absolute;
+  left: 24%;
+  top: -7%;
+  color: #D69563;
+  font-size: 0.18rem;
+  width: 200%;
+}
+.yt {
+  width: 13%;
+  height: 17%;
+  position: absolute;
+  left: 73%;
+  top: 54%;
+}
+.yt .name {
+  position: absolute;
+  left: 98%;
+  top: 51%;
+  color: #D69563;
+  font-size: 0.18rem;
+  width: 200%;
+}
+.qlh {
+  width: 23%;
+  height: 29%;
+  position: absolute;
+  left: 19.5%;
+  top: 45%;
+}
+.qlh .name {
+  position: absolute;
+  left: 98%;
+  top: 51%;
+  color: #D69563;
+  font-size: 0.18rem;
+  width: 200%;
+}
