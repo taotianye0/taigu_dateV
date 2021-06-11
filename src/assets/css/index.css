@@ -5,7 +5,7 @@
   left: 0;
   top: 0;
 }
-.indexbg img {
+.indexbg > img {
   width: 100%;
   height: 100%;
 }
@@ -68,7 +68,7 @@
   position: absolute;
   left: -44%;
   top: 53%;
-  color: #D69563;
+  color: #d69563;
   font-size: 0.18rem;
   width: 200%;
 }
@@ -86,7 +86,7 @@
   position: absolute;
   left: 120%;
   top: 53%;
-  color: #D69563;
+  color: #d69563;
   font-size: 0.18rem;
   width: 200%;
 }
@@ -104,7 +104,7 @@
   position: absolute;
   left: 24%;
   top: -7%;
-  color: #D69563;
+  color: #d69563;
   font-size: 0.18rem;
   width: 200%;
 }
