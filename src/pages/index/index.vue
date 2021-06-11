@@ -10,8 +10,8 @@
   <!-- 高新区雁滩园区 -->
   <div>
     <div class="indexbg">
-      <!-- <img src="../../assets/img/index.png" /> -->
-      <img src="../../assets/img/indexBG.jpg" />
+      <img src="../../assets/img/index.png" />
+      <!-- <img src="../../assets/img/indexBG.jpg" /> -->
       <div class="dl">
         <div class="name">
           <p>定连园区</p>
@@ -140,6 +140,9 @@ export default {
     toJZpage() {
       this.$router.push("/home/jz");
     },
+    changeLight(){
+
+    }
   },
 };
 </script>
