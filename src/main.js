@@ -14,7 +14,11 @@ Vue.use(less);
 import echarts from "echarts";
 Vue.prototype.$echarts = echarts;
 
+// var Cesium = require('cesium/Cesium');
+// var widgets= require('cesium/Widgets/widgets.css');
 
+// Vue.prototype.Cesium = Cesium
+// Vue.prototype.widgets = widgets
 
 Vue.config.productionTip = false
 
@@ -23,5 +27,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
+  render: h => h(App),
   template: '<App/>'
 })
