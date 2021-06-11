@@ -3,7 +3,13 @@
   </div>
 </template>
 <script>
-const Cesium = window.Cesium;
+// const Cesium = window.Cesium;
+//导入Cesium源码中的Viewer组件，注意这里是用的Viewer组件的方式加载，而不是加载整个Cesium
+import Viewer from "cesium/Source/Widgets/Viewer/Viewer";
+//我们刚才所说的如何让Cesium知道静态资源在哪里的API
+import buildModuleUrl from "cesium/Source/Core/buildModuleUrl"
+//导入必须的样式表
+import "cesium/Source/Widgets/widgets.css";
 export default {
   data() {
     return {
@@ -15,6 +21,8 @@ export default {
     };
   },
   mounted: function () {
+    //设置静态资源目录
+        buildModuleUrl.setBaseUrl('../../static/Cesium/')
     let viewer = new Cesium.Viewer("cesium-container", {
       infoBox: false,
       selectionIndicator: false,
@@ -53,7 +61,7 @@ export default {
       .then(() => {
         this.addOverlay1();
       });
-    // this.addSpotLight();
+    this.addSpotLight();
     var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     handler.setInputAction(function (event) {
       //1.椭球面坐标:获取当前点击视线与椭球面相交处的坐标，在加载地形的场景上获取的坐标有误差
@@ -86,20 +94,7 @@ export default {
           },
           duration: 5, //持续时间
         });
-      } else {
-        viewer.camera.flyTo({
-          destination: new Cesium.Cartesian3(
-            3188650.6820279765,
-            939600.1448450445,
-            5444580.273847996
-          ),
-          orientation: {
-            heading: -0.1,
-            pitch: -0.47877092800193255,
-            roll: 6.283171325419627,
-          },
-        });
-      }
+      } 
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     setTimeout(function () {
       //   //飞行到项目标段中心点
@@ -144,7 +139,7 @@ export default {
     addSpotLight: function () {
       let scene = this.scene;
       let Cesium = window.Cesium;
-      var spotLight, spotLight2;
+      var spotLight;
       // 标识点光源
       var positions = new Cesium.Cartesian3(
         3187326.501174774,
@@ -157,32 +152,15 @@ export default {
         5444484.463146444
       );
       var options = {
-        color: new Cesium.Color(31 / 255, 84 / 255, 214 / 255, 0.1),
+        color: new Cesium.Color(255 / 255, 255 / 255, 255 / 255, 0.1),
         distance: 20000,
-        decay: 0,
-        intensity: 7,
+        decay: 1,
+        intensity: 1,
       };
       spotLight = new Cesium.SpotLight(positions, targetPosition, options);
       scene.addLightSource(spotLight);
 
-      var position2 = new Cesium.Cartesian3(
-        3186493.8134447704,
-        938000.0194418641,
-        5444872.424701958
-      );
-      var targetPosition2 = new Cesium.Cartesian3(
-        3187018.9721922115,
-        988853.4495226444,
-        5444484.463146444
-      );
-      var options2 = {
-        color: new Cesium.Color(31 / 255, 84 / 255, 214 / 255, 0.1),
-        distance: 1000,
-        decay: 0,
-        intensity: 7,
-      };
-      spotLight2 = new Cesium.SpotLight(position2, targetPosition2, options2);
-      scene.addLightSource(spotLight2);
+     
     },
 
     addOverlay: function () {
@@ -213,77 +191,77 @@ export default {
       function setHypsometric(layer) {
         hyp.emissionTextureArray = [
           {
-            url: "./assets/img/wenli16.jpg",
+            url: "../../assets/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "./assets/img/wenli17.jpg",
+            url: "../../assets/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 80,
             VTiling: 80,
           },
           {
-            url: "./assets/img/wenli16.jpg",
+            url: "../../assets/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "./assets/img/wenli16.jpg",
+            url: "../../assets/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "./assets/img/wenli20.jpg",
+            url: "../../assets/img/wenli20.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 50,
             VTiling: 50,
           },
           {
-            url: "./assets/img/wenli2.jpg",
+            url: "../../assets/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 30,
             VTiling: 30,
           },
           {
-            url: "./assets/img/wenli2.jpg",
+            url: "../../assets/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 20,
             VTiling: 20,
           },
           {
-            url: "./assets/img/wenli16.jpg",
+            url: "../../assets/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "./assets/img/wenli17.jpg",
+            url: "../../assets/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
             VTiling: 70,
           },
           {
-            url: "./assets/img/wenli15.jpg",
+            url: "../../assets/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "./assets/img/wenli15.jpg",
+            url: "../../assets/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
@@ -299,7 +277,7 @@ export default {
       // 修改地图底色 官网使用底图方式
       let imageLayer = this.viewer.imageryLayers.addImageryProvider(
         new Cesium.SingleTileImageryProvider({
-          url: "./assets/imgBlackMarble_2016-1.jpg",
+          url: "../../assets/img/imgBlackMarble_2016-1.jpg",
         })
       );
       console.log(imageLayer);

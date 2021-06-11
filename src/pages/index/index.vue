@@ -18,7 +18,7 @@
         </div>
         <div class="wrap"  @click="toDLpage()">
           <img src="../../assets/img/定连.png" />
-          <div class="box" @click="toDLpage()">
+          <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
             <span style="--i: 3"></span>
@@ -38,7 +38,7 @@
         </div>
         <div class="wrap"  @click="toHPpage()">
           <img src="../../assets/img/和平.png" />
-          <div class="box" @click="toHPpage()">
+          <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
             <span style="--i: 3"></span>
@@ -58,7 +58,7 @@
         </div>
         <div class="wrap"  @click="toJZpage()">
           <img src="../../assets/img/九州.png" />
-          <div class="box" @click="toJZpage()">
+          <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
             <span style="--i: 3"></span>
@@ -78,7 +78,7 @@
         </div>
         <div class="wrap"  @click="toYTpage()">
           <img src="../../assets/img/雁滩.png" />
-          <div class="box" @click="toYTpage()">
+          <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
             <span style="--i: 3"></span>
@@ -98,7 +98,7 @@
         </div>
         <div class="wrap"  @click="toQLHpage()">
           <img src="../../assets/img/七里河.png" />
-          <div class="box" @click="toQLHpage()">
+          <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
             <span style="--i: 3"></span>
