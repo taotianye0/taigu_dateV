@@ -1,15 +1,8 @@
 <template>
-  <div id="cesium-container" class="container">
-  </div>
+  <div id="cesium-container" class="container"></div>
 </template>
 <script>
 // const Cesium = window.Cesium;
-//导入Cesium源码中的Viewer组件，注意这里是用的Viewer组件的方式加载，而不是加载整个Cesium
-import Viewer from "cesium/Source/Widgets/Viewer/Viewer";
-//我们刚才所说的如何让Cesium知道静态资源在哪里的API
-import buildModuleUrl from "cesium/Source/Core/buildModuleUrl"
-//导入必须的样式表
-import "cesium/Source/Widgets/widgets.css";
 export default {
   data() {
     return {
@@ -21,17 +14,33 @@ export default {
     };
   },
   mounted: function () {
-    //设置静态资源目录
-        buildModuleUrl.setBaseUrl('../../static/Cesium/')
     let viewer = new Cesium.Viewer("cesium-container", {
       infoBox: false,
       selectionIndicator: false,
       isShowGlobe: true,
+      //加载在线谷歌地图
+      // imageryProvider: new Cesium.UrlTemplateImageryProvider({
+      //   url: "http://www.google.cn/maps/vt?lyrs=s&x={x}&y={y}&z={z}",
+      // }),
     });
     // viewer.imageryLayers.addImageryProvider(
     //   new Cesium.BingMapsImageryProvider({
     //     url: "https://dev.virtualearth.net",
     //     mapStyle: Cesium.BingMapsStyle.AERIAL,
+    //   })
+    // );
+    // viewer.imageryLayers.addImageryProvider(
+    //   new Cesium.ArcGisMapServerImageryProvider({
+    //     url: "http://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer",
+    //   })
+    // );
+    // viewer.imageryLayers.addImageryProvider(
+    //   new Cesium.UrlTemplateImageryProvider({
+    //     url: "http://t1.tianditu.cn/DataServer?T=cia_w&X={x}&Y={y}&L={z}",
+    //     layer: "tdtAnnoLayer",
+    //     style: "default",
+    //     format: "image/jpeg",
+    //     tileMatrixSetID: "GoogleMapsCompatible",
     //   })
     // );
     this.viewer = viewer;
@@ -94,8 +103,38 @@ export default {
           },
           duration: 5, //持续时间
         });
-      } 
+      }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    // var Exection = function TimeExecution() {
+    //   // 当前已经过去的时间，单位s
+    //   var delTime = Cesium.JulianDate.secondsDifference(
+    //     viewer.clock.currentTime,
+    //     viewer.clock.startTime
+    //   );
+    //   var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
+    //   viewer.scene.camera.setView({
+    //     destination: new Cesium.Cartesian3(
+    //       3187326.501174774,
+    //       938506.0412503146,
+    //       5444900.653218728
+    //     ), // 点的坐标
+    //     orientation: {
+    //       heading: heading,
+    //       pitch: pitch,
+    //     },
+    //   });
+    //   viewer.scene.camera.moveBackward(distance);
+    //   if (
+    //     Cesium.JulianDate.compare(
+    //       viewer.clock.currentTime,
+    //       viewer.clock.stopTime
+    //     ) >= 0
+    //   ) {
+    //     viewer.clock.onTick.removeEventListener(Exection);
+    //   }
+    // };
+    
+    // viewer.clock.onTick.addEventListener(Exection);
     setTimeout(function () {
       //   //飞行到项目标段中心点
       viewer.camera.flyTo({
@@ -128,9 +167,9 @@ export default {
       viewer.scene.scanEffect._period = 2000;
       // 扫描颜色
       viewer.scene.scanEffect.color = new Cesium.Color(
-        261 / 255,
-        242 / 255,
-        41 / 255,
+        248 / 255,
+        9 / 255,
+        9 / 255,
         1
       );
     }, 10000);
@@ -153,14 +192,12 @@ export default {
       );
       var options = {
         color: new Cesium.Color(255 / 255, 255 / 255, 255 / 255, 0.1),
-        distance: 20000,
+        distance: 3000,
         decay: 1,
-        intensity: 1,
+        intensity: 0.8,
       };
       spotLight = new Cesium.SpotLight(positions, targetPosition, options);
       scene.addLightSource(spotLight);
-
-     
     },
 
     addOverlay: function () {
@@ -175,7 +212,8 @@ export default {
       layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
       layer.setObjsColor(
         [2996],
-        new Cesium.Color(123 / 255, 212 / 255, 253 / 255, 1)
+        // new Cesium.Color(9 / 255, 277 / 255, 248 / 255, 0.9)
+        new Cesium.Color(0, 1, 1, 0.9)
       );
       //设置环境光(夜晚)
       // scene.lightSource.ambientLightColor = new Cesium.Color(110/255, 110/255, 110/255, 0.5);
@@ -191,77 +229,77 @@ export default {
       function setHypsometric(layer) {
         hyp.emissionTextureArray = [
           {
-            url: "../../assets/img/wenli16.jpg",
+            url: "../../static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../assets/img/wenli17.jpg",
+            url: "../../static/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 80,
             VTiling: 80,
           },
           {
-            url: "../../assets/img/wenli16.jpg",
+            url: "../../static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../assets/img/wenli16.jpg",
+            url: "../../static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../assets/img/wenli20.jpg",
+            url: "../../static/img/wenli20.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 50,
             VTiling: 50,
           },
           {
-            url: "../../assets/img/wenli2.jpg",
+            url: "../../static/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 30,
             VTiling: 30,
           },
           {
-            url: "../../assets/img/wenli2.jpg",
+            url: "../../static/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 20,
             VTiling: 20,
           },
           {
-            url: "../../assets/img/wenli16.jpg",
+            url: "../../static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../assets/img/wenli17.jpg",
+            url: "../../static/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
             VTiling: 70,
           },
           {
-            url: "../../assets/img/wenli15.jpg",
+            url: "../../static/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../assets/img/wenli15.jpg",
+            url: "../../static/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
@@ -277,7 +315,7 @@ export default {
       // 修改地图底色 官网使用底图方式
       let imageLayer = this.viewer.imageryLayers.addImageryProvider(
         new Cesium.SingleTileImageryProvider({
-          url: "../../assets/img/imgBlackMarble_2016-1.jpg",
+          url: "../../static/img/background.jpg",
         })
       );
       console.log(imageLayer);
