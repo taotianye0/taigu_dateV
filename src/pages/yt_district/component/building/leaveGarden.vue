@@ -182,7 +182,7 @@ export default {
     this.wheel();
   },
   methods: {
-    //入住企业模块 自动播放动画
+    //入住企业模块  自动播放动画
     wheel() {
       var area = document.querySelector(".listBox");
       var list = document.querySelector(".list");
