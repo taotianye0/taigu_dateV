@@ -1,13 +1,5 @@
 <template>
-  <!-- <div> -->
-  <!-- <router-link to="/home/yt" tag="div" class="yt">雁滩</router-link>
-     <router-link to="/home/hp" tag="div" class="hp">和平</router-link>
-     <router-link to="/home/qlh" tag="div" class="qlh">七里河</router-link>
-     <router-link to="/home/dl" tag="div" class="dl">定连</router-link>
-     <router-link to="/home/jz" tag="div" class="jz">九州</router-link> -->
-  <!-- </div> -->
-
-  <!-- 高新区雁滩园区 -->
+    <!-- 高新区雁滩园区 -->
   <div>
     <div class="indexbg">
       <img src="../../assets/img/index.png" />
@@ -112,7 +104,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> 
     <!-- 数据的组件 -->
     <v-district></v-district>
   </div>

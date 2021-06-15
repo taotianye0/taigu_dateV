@@ -1,14 +1,14 @@
 @import (reference) "base.less";
 
-// html {
-//   height: 100%;
-// }
+html {
+  height: 100%;
+}
 
-// body {
-//   width: 100%;
-//   height: 100%;
-//   position: relative;
-// }
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
 
 .indexbg {
   width: 100vw;
@@ -17,7 +17,7 @@
   left: 0;
   top: 0;
 
-  & > img {
+  &>img {
     width: 100%;
     height: 100%;
   }
@@ -52,21 +52,28 @@
   opacity: 0;
 }
 
+.wrap {
+  &>img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
 // 上下移动动画
 @keyframes mymove {
   0% {
     transform: translateY(0);
-    // transform: scale(1);
+    // transform: scale(0.9);
   }
 
   50% {
-    transform: translateY(10px);
-    // transform: scale(1.1);
+    transform: translateY(8px);
+    // transform: scale(1);
   }
 
   100% {
     transform: translateY(0);
-    // transform: scale(1);
+    // transform: scale(0.9);
   }
 }
 
@@ -93,20 +100,24 @@
   width: 10%;
   height: 19%;
   position: absolute;
-  left: 87%;
+  right: 3%;
   top: 29%;
 
   .name {
     position: absolute;
-    left: -44%;
+   right: 3%;
     top: 53%;
     color: #d69563;
     font-size: 0.18rem;
     width: 200%;
+    p{
+      padding-left: 33%;
+    }
   }
 
   .wrap {
     animation: mymove 1.5s infinite ease-in-out;
+
   }
 
 }
@@ -116,7 +127,7 @@
   height: 12%;
   position: absolute;
   left: 84%;
-  top: 17%;
+  top: 16.5%;
 
   .name {
     position: absolute;
@@ -157,12 +168,13 @@
   width: 13%;
   height: 17%;
   position: absolute;
-  left: 73%;
+  right: 14%;
   top: 54%;
+  z-index: 6;
 
   .name {
     position: absolute;
-    left: 98%;
+    left: -32%;
     top: 51%;
     color: #D69563;
     font-size: 0.18rem;
@@ -179,7 +191,7 @@
   height: 29%;
   position: absolute;
   left: 19.5%;
-  top: 46.5%;
+  top: 46%;
 
   .name {
     position: absolute;

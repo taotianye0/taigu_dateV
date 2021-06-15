@@ -1,0 +1,251 @@
+@import (reference) "base.less";
+
+
+.title {
+  position: fixed;
+  top: 0.3rem;
+  right: 0.31rem;
+  color: extract(@textCol, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  .title_cn {
+    height: 0.54rem;
+    font-size: 0.52rem;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: linear-gradient(0deg, #AAD4FE 0%, #FFFFFF 99.5849609375%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 0.03rem 4rem #0C55DF;
+  }
+
+  .title_en {
+    padding-top: 0.1rem;
+    height: 0.18rem;
+    font-size: 0.225rem;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: extract(@textCol, 1);
+
+  }
+
+}
+
+.small_title {
+  color: extract(@textCol, 1);
+  height: 0.57rem;
+
+  p.cn {
+    font-size: 0.22rem;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    line-height: 0.31rem;
+  }
+
+  p.en {
+    font-size: 0.2rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: extract(@textCol, 1);
+    line-height: 0.26rem;
+  }
+}
+
+.left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  min-width: 5.44rem;
+  width: 28.3%;
+  height: 100%;
+  //   background-color: rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  padding: 0.34rem 0.3rem 0;
+}
+
+.left_one {
+  width: 4.82rem;
+  height: 43%;
+
+  li.wrap {
+    margin: auto;
+    width: 4.82rem;
+    height: 1.1rem;
+    background: url(../img/52.png) no-repeat center;
+    background-size: 4.28rem 1rem;
+
+    li {
+      float: left;
+    }
+  }
+
+  li.in {
+    width: 1.55rem;
+    height: 1.1rem;
+    background: url(../img/园区.png) no-repeat center;
+    background-size: 1.2rem 0.8rem;
+  }
+
+  li.name {
+    width: 1.8rem;
+    height: 1.1rem;
+    text-align: center;
+    line-height: 1.1rem;
+    font-size: 0.2rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: extract(@textCol, 2);
+  }
+
+  li.text {
+    width: 1.2rem;
+    height: 1.1rem;
+    text-align: center;
+    line-height: 1.1rem;
+    font-size: 0.22rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #54DEFE;
+  }
+}
+
+.left_two {
+  width: 4.82rem;
+  height: 29%;
+
+  ul {
+    padding-top: 0.1rem;
+    padding-left: 0.27rem;
+    height: calc(100% - 0.57rem);
+  }
+
+  li {
+    height: 0.4rem;
+
+    div {
+      line-height: 0.28rem;
+      display: inline-block;
+      color: extract(@textCol, 2);
+      height: 0.28rem;
+    }
+  }
+
+  .item_name {
+    width: 3.4rem;
+    font-size: 0.2rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+  }
+
+  .item_time {
+    font-size: 0.2rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+  }
+
+  .list {
+    height: 1.9rem;
+    overflow: hidden;
+  }
+}
+
+.left_three {
+  width: 4.82rem;
+  height: 26.5%;
+
+  .con {
+      padding: 0.1rem;
+  }
+
+  li {
+    float: left;
+    width: 1.05rem;
+    height: 1.05rem;
+    border-radius: 50%;
+    background: url("../img/1193.png") no-repeat;
+    background-size: 1.05rem 1.05rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+}
+
+.wave {
+  position: absolute;
+  left: 9%;
+  top: 11%;
+  z-index: 4;
+  border: 1px solid silver;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  line-height: 50px;
+  margin: 0 auto;
+  font-size: 14px;
+  text-align: center;
+  overflow: hidden;
+  animation: water-wave linear infinite;
+  background: linear-gradient(to bottom, transparent 20%, #297FF8 80%);
+}
+
+.wave1 {
+  position: absolute;
+  top: 40%;
+  left: -15%;
+  background: #037bb8;
+  opacity: 0.7;
+  width: 200%;
+  height: 200%;
+  border-radius: 40%;
+  animation: inherit;
+  animation-duration: 5s;
+}
+
+.wave2 {
+  position: absolute;
+  top: 40%;
+  left: -35%;
+  background: #0eaffe;
+  opacity: .7;
+  width: 150%;
+  height: 150%;
+  border-radius: 35%;
+  animation: inherit;
+  animation-duration: 4s;
+}
+
+.wave3 {
+  position: absolute;
+  top: 50%;
+  left: -35%;
+  background: #0044ff;
+  opacity: .3;
+  width: 160%;
+  height: 150%;
+  border-radius: 33%;
+  animation: inherit;
+  animation-duration: 11s;
+}
+
+@keyframes water-wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.right {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  height: 84%;
+  width: 27.3%;
+  background-color: rgba(184, 175, 175, 0.5);
+}
