@@ -291,7 +291,7 @@ export default {
         series: [
           {
             type: "bar",
-            barWidth: "45%",
+            barWidth: "50%",
             data: [18, 23, 12, 14, 11, 5],
             label: {
               show: true,
