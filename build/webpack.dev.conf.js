@@ -71,12 +71,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         ignore: ['.*']
       }
     ])
-    // new copyWebpackPlugin([
-    //   {
-    //     from: __dirname + "/src/assets", //打包的静态资源目录地址
-    //     to: "./static" //打包到dist下面的public
-    //   }
-    // ])
+
   ]
 });
 
