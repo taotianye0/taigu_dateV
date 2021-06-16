@@ -14,42 +14,57 @@ export default {
     };
   },
   mounted: function () {
+    var cesiumAsset =
+      "https://blog.csdn.net/weixin_42448623/article/details/100284740";
+    var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
+    // 服务负载子域
+    var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
+    Cesium.Ion.defaultAccessToken = cesiumAsset;
     let viewer = new Cesium.Viewer("cesium-container", {
       infoBox: false,
-      selectionIndicator: false,
+      selectionIndicator: true,
       isShowGlobe: true,
-      //加载在线谷歌地图
-      // imageryProvider: new Cesium.UrlTemplateImageryProvider({
-      //   url: "http://www.google.cn/maps/vt?lyrs=s&x={x}&y={y}&z={z}",
-      // }),
-      imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
-        url: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
-      }),
-      terrainProvider: new Cesium.CesiumTerrainProvider({
-        // 加载火星在线地形
-        url: "http://data.marsgis.cn/terrain",
+      imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
+        //影像底图
+        url:
+          "http://t{s}.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=" +
+          tiandituTk,
+        subdomains: subdomains,
+        layer: "tdtImgLayer",
+        style: "default",
+        format: "image/jpeg",
+        tileMatrixSetID: "GoogleMapsCompatible", //使用谷歌的瓦片切片方式
+        show: true,
       }),
     });
-    // viewer.imageryLayers.addImageryProvider(
-    //   new Cesium.BingMapsImageryProvider({
-    //     url: "http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
-    //     mapStyle: Cesium.BingMapsStyle.AERIAL,
-    //   })
-    // );
-    // viewer.imageryLayers.addImageryProvider(
-    //   new Cesium.ArcGisMapServerImageryProvider({
-    //     url: "http://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer",
-    //   })
-    // );
-    // viewer.imageryLayers.addImageryProvider(
-    //   new Cesium.UrlTemplateImageryProvider({
-    //     url: "http://webst02.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scale=1&style=8",
-    //     layer: "tdtAnnoLayer",
-    //     style: "default",
-    //     format: "image/jpeg",
-    //     tileMatrixSetID: "GoogleMapsCompatible",
-    //   })
-    // );
+    viewer._cesiumWidget._creditContainer.style.display = "none"; // 隐藏cesium ion
+    viewer.imageryLayers.addImageryProvider(
+      new Cesium.WebMapTileServiceImageryProvider({
+        //影像注记
+        url:
+          "http://t{s}.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=" +
+          tiandituTk,
+        subdomains: subdomains,
+        layer: "tdtCiaLayer",
+        style: "default",
+        format: "image/jpeg",
+        tileMatrixSetID: "GoogleMapsCompatible",
+        show: true,
+      })
+    );
+
+    // 将三维球定位到中国
+    viewer.camera.flyTo({
+      destination: Cesium.Cartesian3.fromDegrees(103.84, 31.15, 17850000),
+      orientation: {
+        heading: Cesium.Math.toRadians(348.4202942851978),
+        pitch: Cesium.Math.toRadians(-89.74026687972041),
+        roll: Cesium.Math.toRadians(0),
+      },
+      complete: function callback() {
+        // 定位完成之后的回调函数
+      },
+    });
     this.viewer = viewer;
     this.scene = this.viewer.scene;
     this.camera = this.scene.camera;
@@ -242,83 +257,82 @@ export default {
         0.1
       );
       //设置场景颜色校正
-      console.log(this.$url);
       var hyp = new Cesium.HypsometricSetting();
       //设置自发光纹理
       function setHypsometric(layer) {
         hyp.emissionTextureArray = [
           {
-            url: "../../static/img/wenli16.jpg",
+            url: cesiumAsset + "/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../static/img/wenli17.jpg",
+            url: cesiumAsset + "/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 80,
             VTiling: 80,
           },
           {
-            url: "../../static/img/wenli16.jpg",
+            url: cesiumAsset + "/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../static/img/wenli16.jpg",
+            url: cesiumAsset + "/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../static/img/wenli20.jpg",
+            url: cesiumAsset + "/img/wenli20.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 50,
             VTiling: 50,
           },
           {
-            url: "../../static/img/wenli2.jpg",
+            url: cesiumAsset + "/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 30,
             VTiling: 30,
           },
           {
-            url: "../../static/img/wenli2.jpg",
+            url: cesiumAsset + "/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 20,
             VTiling: 20,
           },
           {
-            url: "../../static/img/wenli16.jpg",
+            url: cesiumAsset + "/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../static/img/wenli17.jpg",
+            url: cesiumAsset + "/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
             VTiling: 70,
           },
           {
-            url: "../../static/img/wenli15.jpg",
+            url: cesiumAsset + "/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "../../static/img/wenli15.jpg",
+            url: cesiumAsset + "/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
@@ -334,10 +348,9 @@ export default {
       // 修改地图底色 官网使用底图方式
       let imageLayer = this.viewer.imageryLayers.addImageryProvider(
         new Cesium.SingleTileImageryProvider({
-          url: "../../static/img/background.jpg",
+          url: cesiumAsset + "/img/background.jpg",
         })
       );
-      console.log(imageLayer);
     },
     addOverlay1: function () {
       let scene = this.scene;
