@@ -16,21 +16,21 @@
         <div class="con">
           <ul class="clearfix">
             <li class="wrap">
-              <ul>
+              <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">总规划建筑面积</li>
                 <li class="text">142万㎡</li>
               </ul>
             </li>
             <li class="wrap">
-              <ul>
+              <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">总规划建筑面积</li>
                 <li class="text">142万㎡</li>
               </ul>
             </li>
             <li class="wrap">
-              <ul>
+              <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">总规划建筑面积</li>
                 <li class="text">142万㎡</li>
@@ -120,27 +120,33 @@
         </div>
         <ul class="con">
           <li>
-            <div class="down"></div>
-            <div class="wave">
-              <!-- 水波纹效果 -->
-              <div class="wave1"></div>
-              <div class="wave2"></div>
+            <div class="up">
+              <div class="wave">
+                <!-- 水波纹效果 -->
+                <div class="wave1"></div>
+                <div class="wave2"></div>
+              </div>
+              <div class="down"></div>
             </div>
           </li>
-            <li>
-            <div class="down"></div>
-            <div class="wave">
-              <!-- 水波纹效果 -->
-              <div class="wave1"></div>
-              <div class="wave3"></div>
+          <li class="two">
+            <div class="up">
+              <div class="wave">
+                <!-- 水波纹效果 -->
+                <div class="wave4"></div>
+                <div class="wave3"></div>
+              </div>
+              <div class="down"></div>
             </div>
           </li>
-            <li>
-            <div class="down"></div>
-            <div class="wave">
-              <!-- 水波纹效果 -->
-              <div class="wave1"></div>
-              <div class="wave2"></div>
+          <li>
+            <div class="up">
+              <div class="wave">
+                <!-- 水波纹效果 -->
+                <div class="wave5"></div>
+                <div class="wave6"></div>
+              </div>
+              <div class="down"></div>
             </div>
           </li>
         </ul>
@@ -184,7 +190,6 @@ export default {
   methods: {
     //入住企业模块  自动播放动画
     wheel() {
-      var area = document.querySelector(".listBox");
       var list = document.querySelector(".list");
       var speed = 50;
       setInterval(() => {
