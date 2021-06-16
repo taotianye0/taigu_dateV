@@ -64,19 +64,19 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       inject: true
     }),
     // copy custom static assets
-    // new CopyWebpackPlugin([
-    //   {
-    //     from: path.resolve(__dirname, '../static'),
-    //     to: config.dev.assetsSubDirectory,
-    //     ignore: ['.*']
-    //   }
-    // ])
-    new copyWebpackPlugin([
+    new CopyWebpackPlugin([
       {
-        from: __dirname + "/src/assets", //打包的静态资源目录地址
-        to: "./static" //打包到dist下面的public
+        from: path.resolve(__dirname, '../static'),
+        to: config.dev.assetsSubDirectory,
+        ignore: ['.*']
       }
     ])
+    // new copyWebpackPlugin([
+    //   {
+    //     from: __dirname + "/src/assets", //打包的静态资源目录地址
+    //     to: "./static" //打包到dist下面的public
+    //   }
+    // ])
   ]
 });
 

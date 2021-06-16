@@ -166,10 +166,10 @@
           <ul class="clearfix">
             <li>
               <i class="one_left"></i>
-              <div class="one_right">
+              <p class="one_right">
                 <i>企业总数</i>
                 <span>102家</span>
-              </div>
+              </p>
             </li>
             <li>
               <i class="two_left"></i>
