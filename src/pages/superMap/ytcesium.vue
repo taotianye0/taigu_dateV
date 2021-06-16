@@ -1,5 +1,5 @@
 <template>
-  <div id="cesium-container" class="container"></div>
+  <div id="cesium-container" class="container" @click="child"></div>
 </template>
 <script>
 // const Cesium = window.Cesium;
@@ -11,6 +11,8 @@ export default {
       camera: {},
       pointLight3: undefined,
       pointLight4: undefined,
+      value: true,
+      selectids: 0,
     };
   },
   mounted: function () {
@@ -88,6 +90,7 @@ export default {
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       // 获取选中图元的id
       let selectid = selectlayer.getSelection()[0];
+      // this.selectids = selectid
       console.log(selectid);
       if (selectid == 2996) {
         viewer.camera.flyTo({
@@ -133,7 +136,7 @@ export default {
     //     viewer.clock.onTick.removeEventListener(Exection);
     //   }
     // };
-    
+
     // viewer.clock.onTick.addEventListener(Exection);
     setTimeout(function () {
       //   //飞行到项目标段中心点
@@ -175,6 +178,9 @@ export default {
     }, 10000);
   },
   methods: {
+    child() {
+      this.$emit("func", this.value);
+    },
     addSpotLight: function () {
       let scene = this.scene;
       let Cesium = window.Cesium;
