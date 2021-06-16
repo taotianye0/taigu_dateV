@@ -3,8 +3,8 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <!-- <img src="../../assets/img/bg.jpg" title ="超图的位置"> -->
-      <yt-CesiumCom @func="getclick"></yt-CesiumCom>
+      <img src="../../assets/img/bg.jpg" title ="超图的位置">
+      <!-- <yt-CesiumCom @func="getclick"></yt-CesiumCom> -->
     </div>
     <!-- 区的页面组件 -->
     <v-district v-show="isshow == false"></v-district>
@@ -33,8 +33,8 @@ export default {
   methods: {
     // 超图的点击事件
     getclick(val) {
-      if(val){
-      this.isshow=true;
+      if (val) {
+        this.isshow = true;
       }
     },
   },
