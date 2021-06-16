@@ -62,14 +62,13 @@
   min-width: 5.44rem;
   width: 28.3%;
   height: 100%;
-  //   background-color: rgba(255, 255, 255, 0.5);
   box-sizing: border-box;
-  padding: 0.34rem 0.3rem 0;
+  padding: 0.3rem 0.3rem 0;
 }
 
 .left_one {
   width: 4.82rem;
-  height: 43%;
+padding-bottom: 0.15rem;
 
   li.wrap {
     margin: auto;
@@ -87,7 +86,7 @@
     width: 1.55rem;
     height: 1.1rem;
     background: url(../img/园区.png) no-repeat center;
-    background-size: 1.2rem 0.8rem;
+    background-size: 1.15rem 0.8rem;
   }
 
   li.name {
@@ -117,11 +116,6 @@
   width: 4.82rem;
   height: 29%;
 
-  ul {
-    padding-top: 0.1rem;
-    padding-left: 0.27rem;
-    height: calc(100% - 0.57rem);
-  }
 
   li {
     height: 0.4rem;
@@ -147,8 +141,9 @@
     font-weight: 400;
   }
 
-  .list {
-    height: 1.9rem;
+  ul.list {
+    padding: 0.15rem 0 0 0.27rem;
+    height: 1.85rem;
     overflow: hidden;
   }
 }
@@ -158,20 +153,37 @@
   height: 26.5%;
 
   .con {
-      padding: 0.1rem;
+    width: 4.72rem;
+    padding: 0.1rem;
+    .flex;
   }
 
   li {
-    float: left;
-    width: 1.05rem;
-    height: 1.05rem;
-    border-radius: 50%;
-    background: url("../img/1193.png") no-repeat;
-    background-size: 1.05rem 1.05rem;
-    position: relative;
-    overflow: hidden;
+    // float: left;
+
+    .up {
+      width: 1.05rem;
+      height: 1.05rem;
+      border-radius: 50%;
+      background: url("../img/1193.png") no-repeat;
+      background-size: 1.05rem 1.05rem;
+      position: relative;
+    }
+
+    .down {
+      width: 1.3rem;
+      height: 1.3rem;
+      position: absolute;
+      bottom: -0.7rem;
+      left: -0.09rem;
+      background: url("../img/574.png") no-repeat center;
+      background-size: 1.3rem 1.3rem;
+    }
   }
 
+  li.two .up {
+    background: url("../img/11194.png") no-repeat;
+  }
 }
 
 .wave {
@@ -222,13 +234,53 @@
   position: absolute;
   top: 50%;
   left: -35%;
-  background: #0044ff;
+  background: #00c4a3;
   opacity: .3;
-  width: 160%;
-  height: 150%;
-  border-radius: 33%;
+  width: 200%;
+  height: 200%;
+  border-radius: 30%;
   animation: inherit;
-  animation-duration: 11s;
+  animation-duration: 4s;
+}
+
+.wave4 {
+  position: absolute;
+  top: 50%;
+  left: -35%;
+  background: #2dc5ac;
+  opacity: .5;
+  width: 200%;
+  height: 200%;
+  border-radius: 30%;
+  animation: inherit;
+  animation-duration: 5s;
+}
+
+
+.wave5 {
+  position: absolute;
+  top: 50%;
+  left: -35%;
+  background: #00d7fd;
+  opacity: .3;
+  width: 200%;
+  height: 200%;
+  border-radius: 40%;
+  animation: inherit;
+  animation-duration: 7s;
+}
+
+.wave6 {
+  position: absolute;
+  top: 40%;
+  left: -35%;
+  background: #367fec;
+  opacity: .7;
+  width: 150%;
+  height: 150%;
+  border-radius: 35%;
+  animation: inherit;
+  animation-duration: 5s;
 }
 
 @keyframes water-wave {
