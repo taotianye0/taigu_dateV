@@ -9,10 +9,8 @@ export default {
       viewer: {},
       scene: {},
       camera: {},
-      pointLight3: undefined,
-      pointLight4: undefined,
       value: true,
-      selectids: 0,
+      select: 0,
     };
   },
   mounted: function () {
@@ -24,10 +22,17 @@ export default {
       // imageryProvider: new Cesium.UrlTemplateImageryProvider({
       //   url: "http://www.google.cn/maps/vt?lyrs=s&x={x}&y={y}&z={z}",
       // }),
+      imageryProvider: new Cesium.ArcGisMapServerImageryProvider({
+        url: "https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+      }),
+      terrainProvider: new Cesium.CesiumTerrainProvider({
+        // 加载火星在线地形
+        url: "http://data.marsgis.cn/terrain",
+      }),
     });
     // viewer.imageryLayers.addImageryProvider(
     //   new Cesium.BingMapsImageryProvider({
-    //     url: "https://dev.virtualearth.net",
+    //     url: "http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
     //     mapStyle: Cesium.BingMapsStyle.AERIAL,
     //   })
     // );
@@ -38,7 +43,7 @@ export default {
     // );
     // viewer.imageryLayers.addImageryProvider(
     //   new Cesium.UrlTemplateImageryProvider({
-    //     url: "http://t1.tianditu.cn/DataServer?T=cia_w&X={x}&Y={y}&L={z}",
+    //     url: "http://webst02.is.autonavi.com/appmaptile?x={x}&y={y}&z={z}&lang=zh_cn&size=1&scale=1&style=8",
     //     layer: "tdtAnnoLayer",
     //     style: "default",
     //     format: "image/jpeg",
@@ -73,6 +78,8 @@ export default {
         this.addOverlay1();
       });
     this.addSpotLight();
+
+    let that = this;
     var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     handler.setInputAction(function (event) {
       //1.椭球面坐标:获取当前点击视线与椭球面相交处的坐标，在加载地形的场景上获取的坐标有误差
@@ -90,8 +97,7 @@ export default {
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       // 获取选中图元的id
       let selectid = selectlayer.getSelection()[0];
-      // this.selectids = selectid
-      console.log(selectid);
+      that.select = selectid;
       if (selectid == 2996) {
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
@@ -106,38 +112,10 @@ export default {
           },
           duration: 5, //持续时间
         });
+      } else {
+        that.getExection();
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-    // var Exection = function TimeExecution() {
-    //   // 当前已经过去的时间，单位s
-    //   var delTime = Cesium.JulianDate.secondsDifference(
-    //     viewer.clock.currentTime,
-    //     viewer.clock.startTime
-    //   );
-    //   var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
-    //   viewer.scene.camera.setView({
-    //     destination: new Cesium.Cartesian3(
-    //       3187326.501174774,
-    //       938506.0412503146,
-    //       5444900.653218728
-    //     ), // 点的坐标
-    //     orientation: {
-    //       heading: heading,
-    //       pitch: pitch,
-    //     },
-    //   });
-    //   viewer.scene.camera.moveBackward(distance);
-    //   if (
-    //     Cesium.JulianDate.compare(
-    //       viewer.clock.currentTime,
-    //       viewer.clock.stopTime
-    //     ) >= 0
-    //   ) {
-    //     viewer.clock.onTick.removeEventListener(Exection);
-    //   }
-    // };
-
-    // viewer.clock.onTick.addEventListener(Exection);
     setTimeout(function () {
       //   //飞行到项目标段中心点
       viewer.camera.flyTo({
@@ -179,7 +157,41 @@ export default {
   },
   methods: {
     child() {
-      this.$emit("func", this.value);
+      if (this.select == 2996) {
+        this.$emit("func", this.value);
+      }
+    },
+    getExection() {
+      var Exection = function TimeExecution() {
+        // 当前已经过去的时间，单位s
+        var delTime = Cesium.JulianDate.secondsDifference(
+          viewer.clock.currentTime,
+          viewer.clock.startTime
+        );
+        var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
+        viewer.scene.camera.setView({
+          destination: new Cesium.Cartesian3(
+            3187326.501174774,
+            938506.0412503146,
+            5444900.653218728
+          ), // 点的坐标
+          orientation: {
+            heading: heading,
+            pitch: pitch,
+          },
+        });
+        viewer.scene.camera.moveBackward(distance);
+        if (
+          Cesium.JulianDate.compare(
+            viewer.clock.currentTime,
+            viewer.clock.stopTime
+          ) >= 0
+        ) {
+          viewer.clock.onTick.removeEventListener(Exection);
+        }
+      };
+
+      // this.viewer.clock.onTick.addEventListener(Exection);
     },
     addSpotLight: function () {
       let scene = this.scene;
@@ -230,6 +242,7 @@ export default {
         0.1
       );
       //设置场景颜色校正
+      console.log(this.$url);
       var hyp = new Cesium.HypsometricSetting();
       //设置自发光纹理
       function setHypsometric(layer) {
