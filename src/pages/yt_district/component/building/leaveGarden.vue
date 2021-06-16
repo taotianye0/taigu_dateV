@@ -168,11 +168,15 @@
               <i class="one_left"></i>
               <p class="one_right">
                 <i>企业总数</i>
-                <span>102家</span>
+                <span>102 <em>家</em> </span>
               </p>
             </li>
             <li>
               <i class="two_left"></i>
+              <p class="one_right">
+                <i>招商项目</i>
+                <span>252 <em>个</em> </span>
+              </p>
             </li>
           </ul>
         </div>
@@ -181,6 +185,10 @@
         <div class="small_title">
           <p class="cn">专家导师</p>
           <p class="en">Expert teacher</p>
+        </div>
+        <div>
+          <div class="in"></div>
+          <div class="out"></div>
         </div>
       </div>
       <div class="right_three">
@@ -221,6 +229,7 @@ export default {
         }
       }, speed);
     },
+    
   },
 };
 </script>
