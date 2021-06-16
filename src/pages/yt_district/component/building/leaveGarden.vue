@@ -164,7 +164,16 @@
         </div>
         <div class="con">
           <ul class="clearfix">
-            <li></li>
+            <li>
+              <i class="one_left"></i>
+              <div class="one_right">
+                <i>企业总数</i>
+                <span>102家</span>
+              </div>
+            </li>
+            <li>
+              <i class="two_left"></i>
+            </li>
           </ul>
         </div>
       </div>
