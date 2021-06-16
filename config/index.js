@@ -111,7 +111,7 @@ module.exports = {
       })
     ],
     module: {
-      unknownContextCritical: /^.\/.*$/,
+      // unknownContextCritical: /^.\/.*$/,
       unknownContextCritical: false,
       rules: [
         {
