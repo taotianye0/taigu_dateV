@@ -7,9 +7,9 @@
       <yt-CesiumCom @func="getclick"></yt-CesiumCom>
     </div>
     <!-- 区的页面组件 -->
-    <v-district v-show="isshow == true"></v-district>
+    <v-district v-show="isshow == false"></v-district>
     <!-- 建筑 的组件 -->
-    <leave-garden v-show="isshow == false"></leave-garden>
+    <leave-garden v-show="isshow == true"></leave-garden>
   </div>
 </template>
 
@@ -31,8 +31,11 @@ export default {
     leaveGarden,
   },
   methods: {
+    // 超图的点击事件
     getclick(val) {
-      console.log(val);
+      if(val){
+      this.isshow=true;
+      }
     },
   },
 };

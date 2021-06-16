@@ -41,7 +41,7 @@
       </div>
       <div class="left_two">
         <div class="small_title">
-          <p class="cn">入住企业</p>
+          <p class="cn">入驻企业</p>
           <p class="en">In the enterprise</p>
         </div>
         <div class="listBox">
@@ -121,32 +121,35 @@
         <ul class="con">
           <li>
             <div class="up">
+              <!-- 水波纹效果 -->
               <div class="wave">
-                <!-- 水波纹效果 -->
+                <p><i>96</i>万</p>
                 <div class="wave1"></div>
                 <div class="wave2"></div>
               </div>
-              <div class="down"></div>
+              <div class="down">服务交易</div>
             </div>
           </li>
           <li class="two">
             <div class="up">
+              <!-- 水波纹效果 -->
               <div class="wave">
-                <!-- 水波纹效果 -->
+                <p><i>152</i>项</p>
                 <div class="wave4"></div>
                 <div class="wave3"></div>
               </div>
-              <div class="down"></div>
+              <div class="down">财税服务</div>
             </div>
           </li>
           <li>
             <div class="up">
+              <!-- 水波纹效果 -->
               <div class="wave">
-                <!-- 水波纹效果 -->
+                <p><i>552</i>项</p>
                 <div class="wave5"></div>
                 <div class="wave6"></div>
               </div>
-              <div class="down"></div>
+              <div class="down">项目申报</div>
             </div>
           </li>
         </ul>
@@ -158,6 +161,11 @@
         <div class="small_title">
           <p class="cn">园区企业</p>
           <p class="en">The park enterprises</p>
+        </div>
+        <div class="con">
+          <ul class="clearfix">
+            <li></li>
+          </ul>
         </div>
       </div>
       <div class="right_two">
