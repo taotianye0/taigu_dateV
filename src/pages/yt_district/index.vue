@@ -3,8 +3,8 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <img src="../../assets/img/bg.jpg" title ="超图的位置">
-      <!-- <yt-CesiumCom></yt-CesiumCom> -->
+      <!-- <img src="../../assets/img/bg.jpg" title ="超图的位置"> -->
+      <yt-CesiumCom @func="getclick"></yt-CesiumCom>
     </div>
     <!-- 区的页面组件 -->
     <v-district v-show="isshow == true"></v-district>
@@ -27,8 +27,13 @@ export default {
   },
   components: {
     vDistrict,
-    // ytCesiumCom,
+    ytCesiumCom,
     leaveGarden,
+  },
+  methods: {
+    getclick(val) {
+      console.log(val);
+    },
   },
 };
 </script>
