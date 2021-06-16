@@ -281,17 +281,43 @@
   bottom: 0;
   height: 84%;
   width: 27.3%;
-  background-color: rgba(184, 175, 175, 0.5);
 }
 .right_one {
   width: 100%;
   height: 22%;
 }
 .right_one .con {
-  padding: 0.3rem 0.3rem 0;
+  padding: 0.25rem 0.3rem 0 0.3rem;
   box-sizing: border-box;
   height: calc(100% - 0.57rem);
-  background-color: #f57a7a;
+}
+.right_one ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.right_one li {
+  width: 2rem;
+  height: 0.78rem;
+  background: url("../img/圆角矩形.png") no-repeat;
+  background-size: 2rem 0.78rem;
+}
+.right_one li .one_left,
+.right_one li .two_left {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.78rem;
+  background: url("../img/企业1.png") no-repeat right;
+  background-size: 0.35rem 0.35rem;
+}
+.right_one li .one_right {
+  color: #FFF;
+}
+.right_one li .one_right i span {
+  display: inline-block;
+}
+.right_one li .two_left {
+  background: url("../img/招商.png") no-repeat right;
 }
 .right_two {
   width: 100%;
