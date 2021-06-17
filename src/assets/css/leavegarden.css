@@ -284,6 +284,19 @@
   height: 84%;
   width: 27.3%;
 }
+.right .button {
+  width: 1.6rem;
+  height: 0.38rem;
+  line-height: 0.38rem;
+  border-radius: 0.15rem;
+  color: #BCC3D6;
+  background-color: #152E67;
+  font-size: 0.18rem;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  text-align: center;
+  cursor: ;
+}
 .right_one {
   width: 100%;
   height: 22%;

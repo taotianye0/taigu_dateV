@@ -9,7 +9,7 @@
     <!-- 区的页面组件 -->
     <leave-garden v-if="isshow"></leave-garden>
     <!-- 建筑 的组件 -->
-    <v-district v-else></v-district>
+    <v-district v-else @back="_back"></v-district>
   </div>
 </template>
 
@@ -37,6 +37,10 @@ export default {
         this.isshow = true;
       }
     },
+    _back(){
+      console.log("点击了");
+         this.isshow = true;
+    }
   },
 };
 </script>

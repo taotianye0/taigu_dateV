@@ -157,6 +157,8 @@
     </div>
     <!-- 右边数据 -->
     <div class="right">
+      <!-- 返回按钮 -->
+      <div class="button" @click="back()">⋘ 返回上一页面</div>
       <div class="right_one">
         <div class="small_title">
           <p class="cn">园区企业</p>
@@ -272,9 +274,6 @@ export default {
       var list = document.querySelector(".left_two .list");
       console.log(list);
       var speed = 50;
-      // console.log(list.scrollTop);
-      // console.log(list.scrollHeight);
-      // console.log(list.offsetHeight);
       console.log(Math.round(list.scrollHeight - list.offsetHeight));
       setInterval(() => {
         if (
@@ -1373,6 +1372,9 @@ export default {
           dataIndex: myChartPieIndex,
         });
       }, 5);
+    },
+    back() {
+      this.$emit("back");
     },
   },
 };
