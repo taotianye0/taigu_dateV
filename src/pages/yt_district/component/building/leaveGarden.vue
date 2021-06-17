@@ -222,9 +222,36 @@
         <div class="list">
           <ul>
             <li>
-              <p class="no">
-                <span class="bg"></span>
-                <i>NO.1</i>
+              <p>
+               NO.1
+              </p>
+              <i>软件信息</i>
+              <span>23.5%</span>
+            </li>
+                 <li>
+              <p>
+               NO.1
+              </p>
+              <i>软件信息</i>
+              <span>23.5%</span>
+            </li>
+                 <li>
+              <p>
+               NO.1
+              </p>
+              <i>软件信息</i>
+              <span>23.5%</span>
+            </li>
+                 <li>
+              <p>
+               NO.1
+              </p>
+              <i>软件信息</i>
+              <span>23.5%</span>
+            </li>
+                 <li>
+              <p>
+               NO.1
               </p>
               <i>软件信息</i>
               <span>23.5%</span>
