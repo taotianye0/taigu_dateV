@@ -425,7 +425,7 @@
   height: 0.35rem;
   background: linear-gradient(270deg, transparent 5%, #055eb6 95%);
 }
-.right_three .list li p,
+.right_three .list li p.on,
 .right_three .list li i,
 .right_three .list li span {
   width: 32%;
