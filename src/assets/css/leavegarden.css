@@ -369,9 +369,7 @@
   width: 0.9rem;
   height: 0.9rem;
   line-height: 0.9rem;
-  border: 2px solid #1885FF;
   text-align: center;
-  border-radius: 50%;
   color: #BCC3D6;
   font-size: 0.3rem;
 }
@@ -421,14 +419,14 @@
   height: 2.7rem;
 }
 .right_three .list li {
-  margin: 0.25rem 0;
+  margin: 0.2rem 0;
   height: 0.35rem;
-  background: linear-gradient(270deg, transparent 5%, #055eb6 95%);
+  background: url("../img/矩形11.png") no-repeat left;
 }
-.right_three .list li p.on,
+.right_three .list li p,
 .right_three .list li i,
 .right_three .list li span {
-  width: 32%;
+  width: 30%;
   display: inline-block;
   color: #BCC3D6;
   line-height: 0.35rem;
@@ -441,4 +439,9 @@
 }
 .right_three .list li span {
   text-align: right;
+}
+.right_three .list li p {
+  background: url("../img/no1bg.png") no-repeat 0.09rem;
+  background-size: 0.75rem 0.35rem;
+  padding-left: 0.2rem;
 }
