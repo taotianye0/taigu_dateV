@@ -197,17 +197,17 @@
               <p class="up">院士</p>
               <p class="down"><i>12</i> <span>/人</span></p>
             </li>
-             <li>
+            <li>
               <p class="up">硕士</p>
               <p class="down"><i>102</i> <span>/人</span></p>
             </li>
           </ul>
-            <ul class="clearfix two" >
+          <ul class="clearfix two">
             <li>
               <p class="up">博士</p>
               <p class="down"><i>52</i> <span>/人</span></p>
             </li>
-             <li>
+            <li>
               <p class="up">海归</p>
               <p class="down"><i>102</i> <span>/人</span></p>
             </li>
@@ -222,37 +222,27 @@
         <div class="list">
           <ul>
             <li>
-              <p>
-               NO.1
-              </p>
+              <p>NO.1</p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
-                 <li>
-              <p>
-               NO.1
-              </p>
+            <li>
+              <p>NO.1</p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
-                 <li>
-              <p>
-               NO.1
-              </p>
+            <li>
+              <p>NO.1</p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
-                 <li>
-              <p>
-               NO.1
-              </p>
+            <li>
+              <p>NO.1</p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
-                 <li>
-              <p>
-               NO.1
-              </p>
+            <li>
+              <p>NO.1</p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
@@ -279,8 +269,13 @@ export default {
   methods: {
     //入住企业模块  自动播放动画
     wheel() {
-      var list = document.querySelector(".list");
+      var list = document.querySelector(".left_two .list");
+      console.log(list);
       var speed = 50;
+      // console.log(list.scrollTop);
+      // console.log(list.scrollHeight);
+      // console.log(list.offsetHeight);
+      console.log(Math.round(list.scrollHeight - list.offsetHeight));
       setInterval(() => {
         if (
           list.scrollTop < Math.round(list.scrollHeight - list.offsetHeight)
@@ -298,7 +293,7 @@ export default {
       var myChart = this.$echarts.init(
         document.querySelector(".righttwo_left .in")
       );
-      console.log(myChart);
+
       var pieData = [
         {
           value: 22,
@@ -535,7 +530,6 @@ export default {
       var myChart = this.$echarts.init(
         document.querySelector(".righttwo_left .out")
       );
-      console.log(myChart);
       var pieData = [
         {
           value: 22,
