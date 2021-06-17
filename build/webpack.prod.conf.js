@@ -113,9 +113,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         to: config.build.assetsSubDirectory,
         ignore: [".*"]
       }
-    ])
-    
-
+    ]),
   ]
 });
 

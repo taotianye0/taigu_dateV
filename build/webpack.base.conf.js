@@ -22,11 +22,14 @@ module.exports = {
         : config.dev.assetsPublicPath,
     sourcePrefix: " " //让Webpack正确缩进多行字符串。
   },
+  amd:{
+    toUrlUndefined:true,  //添加这个设置
+  },
   resolve: {
     extensions: [".js", ".vue", ".json"],
     alias: {
       vue$: "vue/dist/vue.esm.js",
-      "@": resolve("src")
+      "@": resolve("src"),
     }
   },
   module: {
@@ -78,7 +81,7 @@ module.exports = {
       }
     ],
     unknownContextCritical: false,
-    unknownContextRegExp: /^.\/.*$/
+    // unknownContextRegExp: /^.\/.*$/
   },
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue

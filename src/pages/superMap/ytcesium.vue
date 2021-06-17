@@ -3,6 +3,11 @@
 </template>
 <script>
 // const Cesium = window.Cesium;
+// //我们刚才所说的如何让Cesium知道静态资源在哪里的API
+// import buildModuleUrl from "cesium/Source/Core/buildModuleUrl";
+// //导入必须的样式表
+// import "cesium/Source/Widgets/widgets.css";
+// let Cesium = require("cesium/Source/Cesium");//cesium1.6以上版本不支持import
 export default {
   data() {
     return {
@@ -14,56 +19,18 @@ export default {
     };
   },
   mounted: function () {
-    var cesiumAsset =
-      "https://blog.csdn.net/weixin_42448623/article/details/100284740";
-    var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
-    // 服务负载子域
-    var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
-    Cesium.Ion.defaultAccessToken = cesiumAsset;
+    //设置静态资源目录
+    // buildModuleUrl.setBaseUrl("../static/Cesium/");
+    // var cesiumAsset =
+    //   "https://blog.csdn.net/weixin_42448623/article/details/100284740";
+    // var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
+    // // 服务负载子域
+    // var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
+    // Cesium.Ion.defaultAccessToken = cesiumAsset;
     let viewer = new Cesium.Viewer("cesium-container", {
       infoBox: false,
       selectionIndicator: true,
       isShowGlobe: true,
-      imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
-        //影像底图
-        url:
-          "http://t{s}.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=" +
-          tiandituTk,
-        subdomains: subdomains,
-        layer: "tdtImgLayer",
-        style: "default",
-        format: "image/jpeg",
-        tileMatrixSetID: "GoogleMapsCompatible", //使用谷歌的瓦片切片方式
-        show: true,
-      }),
-    });
-    viewer._cesiumWidget._creditContainer.style.display = "none"; // 隐藏cesium ion
-    viewer.imageryLayers.addImageryProvider(
-      new Cesium.WebMapTileServiceImageryProvider({
-        //影像注记
-        url:
-          "http://t{s}.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=" +
-          tiandituTk,
-        subdomains: subdomains,
-        layer: "tdtCiaLayer",
-        style: "default",
-        format: "image/jpeg",
-        tileMatrixSetID: "GoogleMapsCompatible",
-        show: true,
-      })
-    );
-
-    // 将三维球定位到中国
-    viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(103.84, 31.15, 17850000),
-      orientation: {
-        heading: Cesium.Math.toRadians(348.4202942851978),
-        pitch: Cesium.Math.toRadians(-89.74026687972041),
-        roll: Cesium.Math.toRadians(0),
-      },
-      complete: function callback() {
-        // 定位完成之后的回调函数
-      },
     });
     this.viewer = viewer;
     this.scene = this.viewer.scene;
@@ -72,10 +39,33 @@ export default {
     this.scene.globe.show = true;
     this.camera.flyCircleLoop = true;
     this.scene.viewFlag = true;
-    let url =
+    // var token = "8c9a7d54ac20558e50738df50fcd1920";
+    // // 服务域名
+    // var tdtUrl = "https://t{s}.tianditu.gov.cn/";
+    // // 服务负载子域
+    // var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
+    // // 叠加影像服务
+    // var imgMap = new Cesium.UrlTemplateImageryProvider({
+    //   url: tdtUrl + "DataServer?T=img_w&x={x}&y={y}&l={z}&tk=" + token,
+    //   subdomains: subdomains,
+    //   tilingScheme: new Cesium.WebMercatorTilingScheme(),
+    //   maximumLevel: 18,
+    // });
+    // viewer.imageryLayers.addImageryProvider(imgMap);
+
+    // // 叠加国界服务
+    // var iboMap = new Cesium.UrlTemplateImageryProvider({
+    //   url: tdtUrl + "DataServer?T=ibo_w&x={x}&y={y}&l={z}&tk=" + token,
+    //   subdomains: subdomains,
+    //   tilingScheme: new Cesium.WebMercatorTilingScheme(),
+    //   maximumLevel: 10,
+    // });
+    // viewer.imageryLayers.addImageryProvider(iboMap);
+    // 超图
+    let url2 =
       "http://117.50.11.239:7090/iserver/services/3D-local3DCache-yty/rest/realspace/datas/yty/config";
     this.scene
-      .addS3MTilesLayerByScp(url, {
+      .addS3MTilesLayerByScp(url2, {
         name: "bim",
         packingRequest: 4,
       })
@@ -144,31 +134,34 @@ export default {
           pitch: -0.47877092800193255,
           roll: 6.283171325419627,
         },
+        complete: function callback() {
+          // 定位完成之后的回调函数
+          // 扫描
+          setTimeout(function () {
+            viewer.scene.scanEffect.show = true;
+            viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
+            var pos = new Cesium.Cartesian3(
+              3186893.8134447704,
+              939000.0194418641,
+              5444572.424701958
+            );
+            viewer.scene.scanEffect.centerPostion = pos;
+            // 扫描范围
+            viewer.scene.scanEffect._speed = 100;
+            // viewer.scene.scanEffect._lineWidth = 500;
+            // 扫描时间
+            viewer.scene.scanEffect._period = 2000;
+            // 扫描颜色
+            viewer.scene.scanEffect.color = new Cesium.Color(
+              248 / 255,
+              9 / 255,
+              9 / 255,
+              1
+            );
+          }, 10000);
+        },
       });
     }, 100);
-    // 扫描
-    window.setTimeout(function () {
-      viewer.scene.scanEffect.show = true;
-      viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
-      var pos = new Cesium.Cartesian3(
-        3186893.8134447704,
-        939000.0194418641,
-        5444572.424701958
-      );
-      viewer.scene.scanEffect.centerPostion = pos;
-      // 扫描范围
-      viewer.scene.scanEffect._speed = 100;
-      // viewer.scene.scanEffect._lineWidth = 500;
-      // 扫描时间
-      viewer.scene.scanEffect._period = 2000;
-      // 扫描颜色
-      viewer.scene.scanEffect.color = new Cesium.Color(
-        248 / 255,
-        9 / 255,
-        9 / 255,
-        1
-      );
-    }, 10000);
   },
   methods: {
     child() {
@@ -262,77 +255,77 @@ export default {
       function setHypsometric(layer) {
         hyp.emissionTextureArray = [
           {
-            url: cesiumAsset + "/img/wenli16.jpg",
+            url: "./static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: cesiumAsset + "/img/wenli17.jpg",
+            url: "./static/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 80,
             VTiling: 80,
           },
           {
-            url: cesiumAsset + "/img/wenli16.jpg",
+            url: "./static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: cesiumAsset + "/img/wenli16.jpg",
+            url: "./static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: cesiumAsset + "/img/wenli20.jpg",
+            url: "./static/img/wenli20.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 50,
             VTiling: 50,
           },
           {
-            url: cesiumAsset + "/img/wenli2.jpg",
+            url: "./static/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 30,
             VTiling: 30,
           },
           {
-            url: cesiumAsset + "/img/wenli2.jpg",
+            url: "./static/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 20,
             VTiling: 20,
           },
           {
-            url: cesiumAsset + "/img/wenli16.jpg",
+            url: "./static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: cesiumAsset + "/img/wenli17.jpg",
+            url: "./static/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
             VTiling: 70,
           },
           {
-            url: cesiumAsset + "/img/wenli15.jpg",
+            url: "./static/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: cesiumAsset + "/img/wenli15.jpg",
+            url: "./static/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
@@ -348,9 +341,10 @@ export default {
       // 修改地图底色 官网使用底图方式
       let imageLayer = this.viewer.imageryLayers.addImageryProvider(
         new Cesium.SingleTileImageryProvider({
-          url: cesiumAsset + "/img/background.jpg",
+          url: "./static/img/background.jpg",
         })
       );
+      console.log(imageLayer);
     },
     addOverlay1: function () {
       let scene = this.scene;
