@@ -20,7 +20,7 @@ export default {
   },
   mounted: function () {
     //设置静态资源目录
-    // buildModuleUrl.setBaseUrl("../../../static/Cesium/");
+    // buildModuleUrl.setBaseUrl("../static/Cesium/");
     // var cesiumAsset =
     //   "https://blog.csdn.net/weixin_42448623/article/details/100284740";
     // var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
@@ -255,77 +255,77 @@ export default {
       function setHypsometric(layer) {
         hyp.emissionTextureArray = [
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 80,
             VTiling: 80,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli20.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 50,
             VTiling: 50,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 30,
             VTiling: 30,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli2.jpg",
             USpeed: 0.5,
             VSpeed: 0,
             UTiling: 20,
             VTiling: 20,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli16.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli17.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
             VTiling: 70,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 100,
             VTiling: 100,
           },
           {
-            url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+            url: "./static/img/wenli15.jpg",
             USpeed: 0,
             VSpeed: 0,
             UTiling: 70,
@@ -341,7 +341,7 @@ export default {
       // 修改地图底色 官网使用底图方式
       let imageLayer = this.viewer.imageryLayers.addImageryProvider(
         new Cesium.SingleTileImageryProvider({
-          url: "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config",
+          url: "./static/img/background.jpg",
         })
       );
       console.log(imageLayer);

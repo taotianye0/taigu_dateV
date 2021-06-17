@@ -6,8 +6,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const path = require("path");
 
-let cesiumSource = "./node_modules/cesium/Source";
-let cesiumWorkers = "../Build/Cesium/Workers";
+
 
 module.exports = {
   // 基本路径  3.6之前的版本时 baseUrl
@@ -53,16 +52,14 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, "../dist"),
     assetsSubDirectory: "static",
-    assetsPublicPath: "",
+    assetsPublicPath: "/",
 
     /**
      * Source Maps
      */
-
     productionSourceMap: true,
     // https://webpack.js.org/configuration/devtool/#production
     devtool: "#source-map",
-
     // Gzip off by default as many popular static hosts such as
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
@@ -87,28 +84,16 @@ module.exports = {
       alias: {
         vue$: "vue/dist/vue.esm.js",
         "@": path.resolve("src"),
-        cesium: path.resolve(__dirname, cesiumSource)
       }
     },
     plugins: [
       new CopyWebpackPlugin([
-        { from: path.join(cesiumSource, cesiumWorkers), to: "Workers" }
-      ]),
-      new CopyWebpackPlugin([
-        { from: path.join(cesiumSource, "Assets"), to: "Assets" }
-      ]),
-      new CopyWebpackPlugin([
-        { from: path.join(cesiumSource, "Widgets"), to: "Widgets" }
-      ]),
-      new CopyWebpackPlugin([
         {
-          from: path.join(cesiumSource, "ThirdParty/Workers"),
-          to: "ThirdParty/Workers"
+          from: path.resolve(__dirname, '../static'),
+          to:'/static',
         }
       ]),
-      new webpack.DefinePlugin({
-        CESIUM_BASE_URL: JSON.stringify("./")
-      })
+
     ],
     module: {
       // unknownContextCritical: /^.\/.*$/,
