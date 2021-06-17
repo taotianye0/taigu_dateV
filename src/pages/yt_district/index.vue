@@ -7,9 +7,9 @@
       <yt-CesiumCom @func="getclick"></yt-CesiumCom>
     </div>
     <!-- 区的页面组件 -->
-    <v-district v-show="isshow == false"></v-district>
+    <leave-garden v-if="isshow"></leave-garden>
     <!-- 建筑 的组件 -->
-    <leave-garden v-show="isshow == true"></leave-garden>
+    <v-district v-else></v-district>
   </div>
 </template>
 

@@ -223,7 +223,8 @@
           <ul>
             <li>
               <p class="no">
-                
+                <span class="bg"></span>
+                <i>NO.1</i>
               </p>
               <i>软件信息</i>
               <span>23.5%</span>
