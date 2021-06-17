@@ -186,15 +186,49 @@
           <p class="cn">专家导师</p>
           <p class="en">Expert teacher</p>
         </div>
-        <div>
+        <div class="righttwo_left">
           <div class="in"></div>
           <div class="out"></div>
+          <div class="text">65%</div>
+        </div>
+        <div class="righttwo_fight">
+          <ul class="clearfix">
+            <li>
+              <p class="up">院士</p>
+              <p class="down"><i>12</i> <span>/人</span></p>
+            </li>
+             <li>
+              <p class="up">硕士</p>
+              <p class="down"><i>102</i> <span>/人</span></p>
+            </li>
+          </ul>
+            <ul class="clearfix two" >
+            <li>
+              <p class="up">博士</p>
+              <p class="down"><i>52</i> <span>/人</span></p>
+            </li>
+             <li>
+              <p class="up">海归</p>
+              <p class="down"><i>102</i> <span>/人</span></p>
+            </li>
+          </ul>
         </div>
       </div>
       <div class="right_three">
         <div class="small_title">
           <p class="cn">行业占比</p>
           <p class="en">Industry accounted for</p>
+        </div>
+        <div class="list">
+          <ul>
+            <li>
+              <p class="no">
+                
+              </p>
+              <i>软件信息</i>
+              <span>23.5%</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
@@ -211,6 +245,8 @@ export default {
   },
   mounted() {
     this.wheel();
+    this.teacherIn();
+    this.teacherOut();
   },
   methods: {
     //入住企业模块  自动播放动画
@@ -229,7 +265,1093 @@ export default {
         }
       }, speed);
     },
-    
+    // 专家导师 模块  里面的动图
+    teacherIn() {
+      var myChart = this.$echarts.init(
+        document.querySelector(".righttwo_left .in")
+      );
+      console.log(myChart);
+      var pieData = [
+        {
+          value: 22,
+          name: "name1",
+          itemStyle: {
+            normal: {
+              // color: 'rgba(42,42,187,1)'
+              color: {
+                //图形渐变颜色方法，四个数字分别代表，右，下，左，上，offset表示0%到100%
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 0, //从左到右 0-1
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#4b42f5", // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: "#3540bb", // 100% 处的颜色
+                  },
+                ],
+                globalCoord: false, // 缺省为 false
+              },
+            }, //正常颜色
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            }, //鼠标移入颜色
+          },
+        },
+        {
+          value: 22,
+          name: "name2",
+          itemStyle: {
+            normal: {
+              color: {
+                type: "linear",
+                x: 0,
+                y: 0,
+                x2: 0, //从左到右 0-1
+                y2: 1,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#3a48c1",
+                  },
+                  {
+                    offset: 1,
+                    color: "#4c70c2",
+                  },
+                ],
+                globalCoord: false,
+              },
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name3",
+          itemStyle: {
+            normal: {
+              color: "rgba(85,132,151,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name4",
+          itemStyle: {
+            normal: {
+              color: "rgba(87,179,180,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name5",
+          itemStyle: {
+            normal: {
+              color: "rgba(58,177,184,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name6",
+          itemStyle: {
+            normal: {
+              color: "rgba(29,173,194,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name7",
+          itemStyle: {
+            normal: {
+              color: "rgba(4,171,203,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name8",
+          itemStyle: {
+            normal: {
+              color: "rgba(3,177,203,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name9",
+          itemStyle: {
+            normal: {
+              color: "rgba(3,134,205,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "rgba(3,102,205,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "rgba(89,105,180,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "rgba(68,65,198,1)",
+            },
+            emphasis: {
+              color: "rgba(255,255,255,0.8)",
+            },
+          },
+        },
+      ];
+      let option = {
+        series: [
+          {
+            name: "动图",
+            type: "pie",
+            radius: ["48%", "64%"],
+            itemStyle: {
+              borderColor: "#0c092a", // 增加空隙，该颜色与背景色相同
+              borderWidth: 5, // 空隙大小
+            },
+            avoidLabelOverlap: false,
+            hoverAnimation: false, // 取消鼠标滑入放大的效果
+            animation: false, // 取消饼图展开的效果
+            label: {
+              normal: {
+                show: false,
+              },
+              emphasis: {
+                show: false,
+              },
+            },
+            labelLine: {
+              normal: {
+                show: false,
+              },
+            },
+            data: pieData,
+          },
+        ],
+      };
+      // 绘图
+      myChart.setOption(option);
+      var myChartPieIndex = 0;
+      var a = setInterval(function () {
+        var dataLen = option.series[0].data.length;
+        // 取消之前高亮的图形
+        myChart.dispatchAction({
+          type: "downplay",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+        myChartPieIndex = (myChartPieIndex + 1) % dataLen;
+        // 高亮当前图形
+        myChart.dispatchAction({
+          type: "highlight",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+      }, 80);
+    },
+    teacherOut() {
+      var myChart = this.$echarts.init(
+        document.querySelector(".righttwo_left .out")
+      );
+      console.log(myChart);
+      var pieData = [
+        {
+          value: 22,
+          name: "name1",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            }, //正常颜色
+            emphasis: {
+              color: "rgba(255,255,255)",
+            }, //鼠标移入颜色
+          },
+        },
+        {
+          value: 22,
+          name: "name2",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name3",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name4",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name5",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name6",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name7",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name8",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name9",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name10",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name11",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+        {
+          value: 22,
+          name: "name12",
+          itemStyle: {
+            normal: {
+              color: "#083973",
+            },
+            emphasis: {
+              color: "rgba(255,255,255)",
+            },
+          },
+        },
+      ];
+      let option = {
+        series: [
+          {
+            name: "动图",
+            type: "pie",
+            radius: ["65%", "80%"],
+            itemStyle: {
+              borderColor: "rgba(1,23,55,0.5)", // 增加空隙，该颜色与背景色相同
+              borderWidth: 5, // 空隙大小
+            },
+            avoidLabelOverlap: false,
+            hoverAnimation: false, // 取消鼠标滑入放大的效果
+            animation: false, // 取消饼图展开的效果
+            label: {
+              normal: {
+                show: false,
+              },
+              emphasis: {
+                show: false,
+              },
+            },
+            labelLine: {
+              normal: {
+                show: false,
+              },
+            },
+            data: pieData,
+          },
+        ],
+      };
+      // 绘图
+      myChart.setOption(option);
+      var myChartPieIndex = 0;
+      var a = setInterval(function () {
+        var dataLen = option.series[0].data.length;
+        // 取消之前高亮的图形
+        myChart.dispatchAction({
+          type: "downplay",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+        myChartPieIndex = (myChartPieIndex + 1) % dataLen;
+        // 高亮当前图形
+        myChart.dispatchAction({
+          type: "highlight",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+      }, 5);
+    },
   },
 };
 </script>

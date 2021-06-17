@@ -250,6 +250,27 @@ export default {
       };
       // 3,绘图
       business.setOption(option1);
+
+
+
+      //  var myChartPieIndex = 0;
+
+      // var a = setInterval(function () {
+      //   var dataLen = option.series[0].data.length;
+      //   // 取消之前高亮的图形
+      //   business.dispatchAction({
+      //     type: "downplay",
+      //     seriesIndex: 0,
+      //     dataIndex: myChartPieIndex,
+      //   });
+      //   myChartPieIndex = (myChartPieIndex + 1) % dataLen;
+      //   // 高亮当前图形
+      //   business.dispatchAction({
+      //     type: "highlight",
+      //     seriesIndex: 0,
+      //     dataIndex: myChartPieIndex,
+      //   });
+      // }, 100);
     },
     // 绘制企业年限 图
     drawyear() {
