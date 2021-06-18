@@ -73,7 +73,7 @@
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
         <!-- 返回按钮 -->
-      <div class="button" @click="toIndex">⋘ 返回上一页面</div>
+      <div class="button" @click="toIndex">⋘ 返回主页</div>
     </div>
     <!-- 右下角 -->
     <div class="right">
