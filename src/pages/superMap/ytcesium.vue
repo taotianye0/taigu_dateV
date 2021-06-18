@@ -3,13 +3,7 @@
 </template>
 <script>
 export default {
-  // props: ["isshow"],
-  // props:{
-  //   isshow: {
-  //        type: Boolean,
-  //        default: ''
-  //    },
-  // },
+
   data() {
     return {
       viewer: {},
@@ -20,15 +14,7 @@ export default {
       isshows: this.isshow,
     };
   },
-  created() {
-    this.$watch("isshows", function (newValue, oldValue) {
-      // if (this.isshows == false) {
-      //   console.log("123");
-      // }
-      // console.log(newValue, "newValue");
-      // console.log(oldValue, "oldValue");
-    });
-  },
+
   mounted: function () {
     // 点击建筑页面的返回按钮  ====》 接收的值
     this.$event.$on("aa", (e) => {
