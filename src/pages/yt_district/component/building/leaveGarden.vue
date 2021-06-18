@@ -132,7 +132,9 @@
                   <div class="wave1"></div>
                   <div class="wave2"></div>
                 </div>
-                <div class="down">服务交易</div>
+                <div class="down">
+                  <i>服务交易</i>
+                  </div>
               </div>
             </li>
             <li class="two">
@@ -144,7 +146,9 @@
                   <div class="wave4"></div>
                   <div class="wave3"></div>
                 </div>
-                <div class="down">财税服务</div>
+                <div class="down">
+                  <i>财税服务</i>
+                  </div>
               </div>
             </li>
             <li class="three">
@@ -156,7 +160,9 @@
                   <div class="wave5"></div>
                   <div class="wave6"></div>
                 </div>
-                <div class="down">项目申报</div>
+                <div class="down">
+                  <i>项目申报</i>
+                  </div>
               </div>
             </li>
           </ul>

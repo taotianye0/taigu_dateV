@@ -216,7 +216,7 @@
     .up {
       width: 100%;
       height: 100%;
-          position: relative;
+      position: relative;
     }
 
     .bg {
@@ -232,20 +232,27 @@
     .down {
       position: absolute;
       left: 4%;
-      top: 30%;
+      top: 39%;
       width: 100%;
       height: 100%;
       background: url("../img/574.png") no-repeat center;
       background-size: 100% 100%;
       text-align: center;
       color: extract(@textCol, 2);
-      line-height: 1.8rem;
       font-size: 0.2rem;
+
+      i {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 18%;
+        margin: 0 auto;
+      }
     }
   }
 
   li.two {
-    .up .bg{
+    .up .bg {
       background: url("../img/11194.png") no-repeat;
       background-size: 85% 89%;
     }
@@ -397,38 +404,41 @@
   .con {
     padding: 0.25rem 0.3rem 0 0.3rem;
     box-sizing: border-box;
+    width: 100%;
     height: calc(100% - 00.57rem);
   }
 
   ul {
-    .flex;
+    width: 100%;
+    height: 100%;
+        .flex;
   }
 
   li {
-    width: 2rem;
-    height: 0.78rem;
+    width:50%;
+    height: 100%;
     background: url("../img/圆角矩形.png") no-repeat;
-    background-size: 2rem 0.78rem;
+    background-size: 100% 100%;
     position: relative;
 
     .one_left,
     .two_left {
       display: inline-block;
-      width: 0.7rem;
-      height: 0.78rem;
-      background: url("../img/企业1.png") no-repeat right;
+      width: 100%;
+      height: 100%;
+      background: url("../img/企业1.png") no-repeat 15% center;;
       background-size: 0.35rem 0.35rem;
     }
 
 
     .one_right {
       display: inline-block;
-      width: 1rem;
-      height: 0.78rem;
+         width: 100%;
+      height: 100%;
       color: extract(@textCol, 1);
       text-align: center;
       position: absolute;
-      left: 0.8rem;
+      left: 10%;
 
       i,
       span {
@@ -458,7 +468,7 @@
     }
 
     .two_left {
-      background: url("../img/招商.png") no-repeat right;
+      background: url("../img/招商.png") no-repeat 15% center;
       background-size: 0.35rem 0.35rem;
     }
   }
