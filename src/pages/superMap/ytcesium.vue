@@ -14,10 +14,6 @@ export default {
       isshows: this.isshow,
     };
   },
-<<<<<<< HEAD
-
-=======
->>>>>>> 1e2fc612ac7064fae531bae9ec245a473f1974a4
   mounted: function () {
     // var cesiumAsset =
     //   "https://blog.csdn.net/weixin_42448623/article/details/100284740";
