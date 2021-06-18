@@ -25,11 +25,15 @@ export default {
       // if (this.isshows == false) {
       //   console.log("123");
       // }
-      console.log(newValue, "newValue");
-      console.log(oldValue, "oldValue");
+      // console.log(newValue, "newValue");
+      // console.log(oldValue, "oldValue");
     });
   },
   mounted: function () {
+    // 点击建筑页面的返回按钮  ====》 接收的值
+    this.$event.$on("aa", (e) => {
+      console.log(e, "值在这");
+    });
     // var cesiumAsset =
     //   "https://blog.csdn.net/weixin_42448623/article/details/100284740";
     // var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
