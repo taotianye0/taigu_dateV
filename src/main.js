@@ -13,6 +13,8 @@ Vue.use(less);
 // 引入echarts
 import echarts from "echarts";
 Vue.prototype.$echarts = echarts;
+// eventBus 挂载全局
+Vue.prototype.$event = new Vue;8
 
 // var Cesium = require('cesium/Cesium');
 // var widgets= require('cesium/Widgets/widgets.css');
@@ -20,7 +22,8 @@ Vue.prototype.$echarts = echarts;
 // Vue.prototype.Cesium = Cesium
 // Vue.prototype.widgets = widgets
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
 
 /* eslint-disable no-new */
 new Vue({

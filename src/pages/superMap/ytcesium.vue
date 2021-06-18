@@ -2,13 +2,14 @@
   <div id="cesium-container" class="container" @click="child"></div>
 </template>
 <script>
-// const Cesium = window.Cesium;
-// //我们刚才所说的如何让Cesium知道静态资源在哪里的API
-// import buildModuleUrl from "cesium/Source/Core/buildModuleUrl";
-// //导入必须的样式表
-// import "cesium/Source/Widgets/widgets.css";
-// let Cesium = require("cesium/Source/Cesium");//cesium1.6以上版本不支持import
 export default {
+  // props: ["isshow"],
+  // props:{
+  //   isshow: {
+  //        type: Boolean,
+  //        default: ''
+  //    },
+  // },
   data() {
     return {
       viewer: {},
@@ -16,11 +17,19 @@ export default {
       camera: {},
       value: true,
       select: 0,
+      isshows: this.isshow,
     };
   },
+  created() {
+    this.$watch("isshows", function (newValue, oldValue) {
+      // if (this.isshows == false) {
+      //   console.log("123");
+      // }
+      console.log(newValue, "newValue");
+      console.log(oldValue, "oldValue");
+    });
+  },
   mounted: function () {
-    //设置静态资源目录
-    // buildModuleUrl.setBaseUrl("../static/Cesium/");
     // var cesiumAsset =
     //   "https://blog.csdn.net/weixin_42448623/article/details/100284740";
     // var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
@@ -98,11 +107,13 @@ export default {
       if (Cesium.defined(earthPosition)) {
         console.log(earthPosition);
       }
+
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       // 获取选中图元的id
       let selectid = selectlayer.getSelection()[0];
       that.select = selectid;
+      console.log(that.isshows);
       if (selectid == 2996) {
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(

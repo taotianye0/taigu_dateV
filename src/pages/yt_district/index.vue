@@ -3,11 +3,11 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <img src="../../assets/img/bg.jpg" title ="超图的位置">
-      <!-- <yt-CesiumCom @func="getclick"></yt-CesiumCom> -->
+      <!-- <img src="../../assets/img/bg.jpg" title ="超图的位置"> -->
+      <yt-CesiumCom @func="getclick" :isshow="isshow"></yt-CesiumCom>
     </div>
     <!-- 区的页面组件 -->
-    <leave-garden v-if="isshow" @back="districtBack()" ></leave-garden>
+    <leave-garden v-if="isshow" @back="districtBack()"></leave-garden>
     <!-- 建筑 的组件 -->
     <v-district v-else></v-district>
   </div>
@@ -20,10 +20,18 @@ import leaveGarden from "./component/building/leaveGarden.vue";
 export default {
   data() {
     return {
-      // 显示隐藏区组件与建筑组件 true显示区的组件
+      // 显示隐藏区组件与建筑组件 false显示区的组件
       // isshow: true,
-      isshow: false,
+      // isshow: false,
+      isshow: null,
     };
+  },
+  watch: {
+    isshow: function (news, old) {
+      console.log(news, "new");
+      console.log(old, "old");
+      this.isshow = news;
+    },
   },
   components: {
     vDistrict,
@@ -37,13 +45,12 @@ export default {
         this.isshow = true;
       }
     },
-    districtBack(){
-        console.log("点击了");
-        // this.isshow = true;
-        this.isshow = false;
+    // 从建筑页面返回区页面
+    districtBack() {
+      console.log("点击了");
+      // this.isshow = true;
+      this.isshow = false;
     },
-
-
   },
 };
 </script>
