@@ -87,6 +87,7 @@ module.exports = {
       }
     },
     plugins: [
+      // 修改路径 s使得static中的图片参与打包
       new CopyWebpackPlugin([
         {
           from: path.resolve(__dirname, '../static'),

@@ -27,6 +27,32 @@
   font-weight: bold;
   color: #FFF;
 }
+.title .button,
+.title .button1 {
+  position: absolute;
+  top: 0.95rem;
+  width: 1.6rem;
+  height: 0.38rem;
+  line-height: 0.38rem;
+  border-radius: 0.15rem;
+  color: #BCC3D6;
+  background-color: #152E67;
+  font-size: 0.18rem;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+}
+.title .button1 {
+  right: 0;
+}
+.title .button1 a {
+  color: #BCC3D6;
+  display: block;
+}
+.title .button {
+  left: 0;
+}
 .left {
   position: fixed;
   left: 0;

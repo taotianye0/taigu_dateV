@@ -27,6 +27,22 @@
   font-weight: bold;
   color: #FFF;
 }
+.title .button {
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  width: 1.6rem;
+  height: 0.38rem;
+  line-height: 0.38rem;
+  border-radius: 0.15rem;
+  color: #BCC3D6;
+  background-color: #152E67;
+  font-size: 0.18rem;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+}
 .small_title {
   color: #FFF;
   height: 0.57rem;
@@ -44,38 +60,39 @@
   color: #FFF;
   line-height: 0.26rem;
 }
+/*左边数据页面样式*/
 .left {
   position: fixed;
   left: 0;
   top: 0;
-  min-width: 5.1rem;
+  min-width: 4.88rem;
   width: 28.3%;
   height: 100%;
   box-sizing: border-box;
   padding: 0.3rem 0.3rem 0;
 }
 .left_one {
-  width: 4.82rem;
+  width: calc(100% - 0.6rem);
   padding-bottom: 0.15rem;
 }
 .left_one li.wrap {
   margin: auto;
-  width: 4.82rem;
+  width: 100%;
   height: 1.1rem;
   background: url(../img/52.png) no-repeat center;
-  background-size: 4.28rem 1rem;
+  background-size: 100% 1rem;
 }
 .left_one li.wrap li {
   float: left;
 }
 .left_one li.in {
-  width: 1.55rem;
+  width: 25%;
   height: 1.1rem;
   background: url(../img/园区.png) no-repeat center;
-  background-size: 1.15rem 0.8rem;
+  background-size: 100% 0.8rem;
 }
 .left_one li.name {
-  width: 1.8rem;
+  width: 50%;
   height: 1.1rem;
   text-align: center;
   line-height: 1.1rem;
@@ -85,17 +102,16 @@
   color: #BCC3D6;
 }
 .left_one li.text {
-  width: 1.2rem;
   height: 1.1rem;
   text-align: center;
   line-height: 1.1rem;
-  font-size: 0.22rem;
+  font-size: 0.2rem;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: #54DEFE;
 }
 .left_two {
-  width: 4.82rem;
+  width: calc(100% - 0.6rem);
   height: 29%;
 }
 .left_two li {
@@ -108,7 +124,7 @@
   height: 0.28rem;
 }
 .left_two .item_name {
-  width: 3.4rem;
+  width: 70%;
   font-size: 0.2rem;
   font-family: Microsoft YaHei;
   font-weight: 400;
@@ -118,9 +134,13 @@
   font-family: Microsoft YaHei;
   font-weight: 400;
 }
-.left_two ul.list {
-  padding: 0.15rem 0 0 0.27rem;
-  height: 1.85rem;
+.left_two .listBox {
+  padding: 0.15rem 0 0.15rem 0.27rem;
+  box-sizing: border-box;
+  height: calc(100% - 0.57rem);
+}
+.left_two .listBox .list {
+  height: 100%;
   overflow: hidden;
 }
 .left_three {
@@ -136,7 +156,7 @@
 }
 .left_three li .up {
   width: 1.05rem;
-  height: 1.05rem;
+  height: calc(100% - 0.57rem);
   border-radius: 50%;
   background: url("../img/1193.png") no-repeat;
   background-size: 1.05rem 1.05rem;
@@ -146,7 +166,7 @@
   width: 1.3rem;
   height: 1.3rem;
   position: absolute;
-  bottom: -0.7rem;
+  bottom: -1.5rem;
   left: -0.09rem;
   background: url("../img/574.png") no-repeat center;
   background-size: 1.3rem 1.3rem;
@@ -170,9 +190,9 @@
   width: 0.85rem;
   height: 0.85rem;
   border-radius: 50%;
-  line-height: 50px;
+  line-height: 0.5rem;
   margin: 0 auto;
-  font-size: 14px;
+  font-size: 0.14rem;
   text-align: center;
   overflow: hidden;
   animation: water-wave linear infinite;
@@ -279,7 +299,7 @@
   position: fixed;
   right: 0;
   bottom: 0;
-  height: 84%;
+  height: 80%;
   width: 27.3%;
 }
 .right_one {
@@ -400,7 +420,7 @@
   line-height: 0.36rem;
 }
 .right_two .righttwo_fight p.up {
-  font-size: 20px;
+  font-size: 0.2rem;
   font-family: Microsoft YaHei;
   font-weight: 400;
 }
@@ -416,11 +436,11 @@
 }
 .right_three .list {
   width: 100%;
-  height: 2.7rem;
+  height: calc(100% - 0.57rem);
 }
 .right_three .list li {
-  margin: 0.2rem 0;
-  height: 0.35rem;
+  margin: 0.15rem 0;
+  height: 3%;
   background: url("../img/矩形11.png") no-repeat left;
 }
 .right_three .list li p,
@@ -429,7 +449,7 @@
   width: 30%;
   display: inline-block;
   color: #BCC3D6;
-  line-height: 0.35rem;
+  line-height: 0.3rem;
   font-size: 0.22rem;
   font-family: Microsoft YaHei;
   font-weight: 400;

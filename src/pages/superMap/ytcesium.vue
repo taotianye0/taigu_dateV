@@ -3,7 +3,13 @@
 </template>
 <script>
 export default {
-  props: ["isshow"],
+  // props: ["isshow"],
+  // props:{
+  //   isshow: {
+  //        type: Boolean,
+  //        default: ''
+  //    },
+  // },
   data() {
     return {
       viewer: {},
@@ -13,6 +19,15 @@ export default {
       select: 0,
       isshows: this.isshow,
     };
+  },
+  created() {
+    this.$watch("isshows", function (newValue, oldValue) {
+      // if (this.isshows == false) {
+      //   console.log("123");
+      // }
+      console.log(newValue, "newValue");
+      console.log(oldValue, "oldValue");
+    });
   },
   mounted: function () {
     // var cesiumAsset =
@@ -92,11 +107,13 @@ export default {
       if (Cesium.defined(earthPosition)) {
         console.log(earthPosition);
       }
+
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       // 获取选中图元的id
       let selectid = selectlayer.getSelection()[0];
       that.select = selectid;
+      console.log(that.isshows);
       if (selectid == 2996) {
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(

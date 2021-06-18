@@ -72,6 +72,8 @@
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
+       <!-- 返回按钮 -->
+      <div class="button1" > <a href="http://8.135.134.240:8021/login">跳转至后台 ⋙</a> </div>
     </div>
     <!-- 右下角 -->
     <div class="right">
@@ -251,8 +253,6 @@ export default {
       // 3,绘图
       business.setOption(option1);
 
-
-
       //  var myChartPieIndex = 0;
 
       // var a = setInterval(function () {
@@ -281,7 +281,7 @@ export default {
         tooltip: {
           trigger: "axis",
         },
-        
+
         grid: {
           left: "3%",
           right: "4%",
@@ -355,8 +355,7 @@ export default {
 
 <style scoped>
 @import "../../../assets/css/yt.css";
-.title .title_en{
-   font-size: 0.2rem;
+.title .title_en {
+  font-size: 0.2rem;
 }
-
 </style>

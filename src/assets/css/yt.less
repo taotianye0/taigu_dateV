@@ -35,6 +35,35 @@
 
   }
 
+  .button,
+  .button1 {
+    position: absolute;
+    top: 0.95rem;
+    width: 1.6rem;
+    height: 0.38rem;
+    line-height: 0.38rem;
+    border-radius: 0.15rem;
+    color: extract(@textCol, 2);
+    background-color: #152E67;
+    font-size: 0.18rem;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .button1 {
+    right: 0;
+
+    a {
+      color: extract(@textCol, 2);
+      display: block;
+    }
+  }
+
+  .button {
+    left: 0;
+  }
 }
 
 .left {
@@ -153,7 +182,7 @@
         font-family: "Microsoft YaHei";
         font-weight: 400;
       }
-      
+
       .shu {
         position: absolute;
         right: 0;
@@ -213,7 +242,7 @@
   height: calc(100% - 0.62rem);
 }
 
-.years{
+.years {
   margin-top: -0.4rem;
 }
 
@@ -229,7 +258,7 @@
   padding: 0.30rem 0 0 0.25rem;
 }
 
-.right_title{
+.right_title {
   height: 0.62rem;
   width: 100%;
   color: #fff;
