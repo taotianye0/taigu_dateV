@@ -91,8 +91,7 @@
 .left_one .park_up li {
   float: left;
   width: 50%;
-  height: 0.64rem;
-  line-height: 0.64rem;
+  height: 100%;
 }
 .left_one .park_up p {
   width: 1.3rem;
@@ -111,8 +110,9 @@
 }
 .left_one .park_up i {
   width: 0.4rem;
-  height: 0.64rem;
+  height: 100%;
   background: url(../img/企业.png) no-repeat left center;
+  background-size: 0.4rem 0.4rem;
 }
 .left_one .park_up span {
   padding-left: 0.2rem;
@@ -145,12 +145,12 @@
   width: 0.3rem;
   height: 0.3rem;
   background: url(../img/图层546.png) no-repeat left center;
-  background-size: 0.25rem;
+  background-size: 0.25rem 0.25rem;
 }
 .left_one .park_down li p {
   color: #54DEFE;
   font-size: 0.22rem;
-  line-height: 40px;
+  line-height: 0.4rem;
 }
 .left_one .park_down li span {
   color: #BCC3D6;
@@ -162,8 +162,9 @@
   position: absolute;
   right: 0;
   height: 0.9rem;
-  width: 2px;
+  width: 0.02rem;
   background: url(../img/q.png) no-repeat right center;
+  background-size: 0.02rem 0.02rem;
 }
 .left_two {
   width: 100%;
@@ -192,7 +193,7 @@
 }
 .left_one_title i,
 .left_one_title span {
-  line-height: 0.35px;
+  line-height: 0.35rem;
   display: block;
   font: 0.22rem "MicrosoftYaHei";
 }
@@ -223,7 +224,7 @@
 }
 .right_title i,
 .right_title span {
-  line-height: 0.35px;
+  line-height: 0.35rem;
   display: block;
   font: 0.22rem "MicrosoftYaHei";
 }
