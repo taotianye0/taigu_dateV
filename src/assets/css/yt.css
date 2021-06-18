@@ -27,9 +27,9 @@
   font-weight: bold;
   color: #FFF;
 }
-.title .button {
+.title .button,
+.title .button1 {
   position: absolute;
-  left: 0;
   top: 0.95rem;
   width: 1.6rem;
   height: 0.38rem;
@@ -42,6 +42,16 @@
   font-weight: 400;
   text-align: center;
   cursor: pointer;
+}
+.title .button1 {
+  right: 0;
+}
+.title .button1 a {
+  color: #BCC3D6;
+  display: block;
+}
+.title .button {
+  left: 0;
 }
 .left {
   position: fixed;

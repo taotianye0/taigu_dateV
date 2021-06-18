@@ -72,7 +72,8 @@
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
-    
+       <!-- 返回按钮 -->
+      <div class="button1" @click="toIndex"> <a href="http://8.135.134.240:8021/login">跳转至后台 ⋙</a> </div>
     </div>
     <!-- 右下角 -->
     <div class="right">
