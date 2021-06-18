@@ -21,8 +21,8 @@ export default {
   data() {
     return {
       // 显示隐藏区组件与建筑组件 false显示区的组件
-      isshow: true,
-      // isshow: false,
+      // isshow: true,
+      isshow: false,
     };
   },
   components: {
