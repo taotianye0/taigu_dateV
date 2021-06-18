@@ -5,6 +5,8 @@
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
+        <!-- 返回按钮 -->
+      <div class="button" @click="send">⋘ 返回上一页面</div>
     </div>
     <!-- 左边数据 -->
     <div class="left">
@@ -157,8 +159,6 @@
     </div>
     <!-- 右边数据 -->
     <div class="right">
-      <!-- 返回按钮 -->
-      <div class="button" @click="back()">⋘ 返回上一页面</div>
       <div class="right_one">
         <div class="small_title">
           <p class="cn">园区企业</p>
@@ -272,9 +272,7 @@ export default {
     //入住企业模块  自动播放动画
     wheel() {
       var list = document.querySelector(".left_two .list");
-      console.log(list);
       var speed = 50;
-      console.log(Math.round(list.scrollHeight - list.offsetHeight));
       setInterval(() => {
         if (
           list.scrollTop < Math.round(list.scrollHeight - list.offsetHeight)
@@ -1373,8 +1371,10 @@ export default {
         });
       }, 5);
     },
-    back() {
+    send() {
       this.$emit("back");
+      this.$emit("aa");
+      console.log("22222");
     },
   },
 };

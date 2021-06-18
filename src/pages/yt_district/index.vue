@@ -3,13 +3,13 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <!-- <img src="../../assets/img/bg.jpg" title ="超图的位置"> -->
-      <yt-CesiumCom @func="getclick"></yt-CesiumCom>
+      <img src="../../assets/img/bg.jpg" title ="超图的位置">
+      <!-- <yt-CesiumCom @func="getclick"></yt-CesiumCom> -->
     </div>
     <!-- 区的页面组件 -->
-    <leave-garden v-if="isshow"></leave-garden>
+    <leave-garden v-if="isshow" @back="districtBack()" ></leave-garden>
     <!-- 建筑 的组件 -->
-    <v-district v-else @back="_back"></v-district>
+    <v-district v-else></v-district>
   </div>
 </template>
 
@@ -37,10 +37,13 @@ export default {
         this.isshow = true;
       }
     },
-    _back(){
-      console.log("点击了");
-         this.isshow = true;
-    }
+    districtBack(){
+        console.log("点击了");
+        // this.isshow = true;
+        this.isshow = false;
+    },
+
+
   },
 };
 </script>

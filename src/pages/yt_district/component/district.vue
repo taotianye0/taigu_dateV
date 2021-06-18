@@ -72,6 +72,8 @@
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
+        <!-- 返回按钮 -->
+      <div class="button" @click="toIndex">⋘ 返回上一页面</div>
     </div>
     <!-- 右下角 -->
     <div class="right">
@@ -105,6 +107,10 @@ export default {
     this.drawyear();
   },
   methods: {
+    // 页面跳转
+    toIndex(){
+      this.$router.push("/");
+    },
     // 绘制企业发展 图
     drawDevelop() {
       let develop = this.$echarts.init(this.$refs.develop);
