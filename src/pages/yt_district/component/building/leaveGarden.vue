@@ -6,7 +6,7 @@
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
         <!-- 返回按钮 -->
-      <div class="button" @click="send">⋘ 返回上一页面</div>
+      <div class="button" @click="send(false)">⋘ 返回上一页面</div>
     </div>
     <!-- 左边数据 -->
     <div class="left">
@@ -1371,10 +1371,9 @@ export default {
         });
       }, 5);
     },
-    send() {
+    send(data) {
       this.$emit("back");
-      this.$emit("aa");
-      console.log("22222");
+      this.$event.$emit('aa',data);
     },
   },
 };
