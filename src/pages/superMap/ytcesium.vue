@@ -14,12 +14,11 @@ export default {
       isshows: this.isshow,
     };
   },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1e2fc612ac7064fae531bae9ec245a473f1974a4
   mounted: function () {
-    // 点击建筑页面的返回按钮  ====》 接收的值
-    this.$event.$on("aa", (e) => {
-      console.log(e, "值在这");
-    });
     // var cesiumAsset =
     //   "https://blog.csdn.net/weixin_42448623/article/details/100284740";
     // var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
@@ -82,7 +81,25 @@ export default {
         this.addOverlay1();
       });
     this.addSpotLight();
-
+    // 点击建筑页面的返回按钮  ====》 接收的值
+    this.$event.$on("aa", (e) => {
+      // console.log(e, "值在这");
+      if (e == false) {
+        viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            3188650.6820279765,
+            939600.1448450445,
+            5444580.273847996
+          ),
+          orientation: {
+            heading: -0.1,
+            pitch: -0.47877092800193255,
+            roll: 6.283171325419627,
+          },
+          duration: 5, //持续时间
+        });
+      }
+    });
     let that = this;
     var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     handler.setInputAction(function (event) {
@@ -103,7 +120,6 @@ export default {
       // 获取选中图元的id
       let selectid = selectlayer.getSelection()[0];
       that.select = selectid;
-      console.log(that.isshows);
       if (selectid == 2996) {
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
