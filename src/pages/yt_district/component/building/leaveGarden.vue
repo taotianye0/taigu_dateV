@@ -5,7 +5,7 @@
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
-        <!-- 返回按钮 -->
+      <!-- 返回按钮 -->
       <div class="button" @click="send(false)">⋘ 返回上一页面</div>
     </div>
     <!-- 左边数据 -->
@@ -113,6 +113,7 @@
               <div class="item_time">2018-02-02</div>
             </li>
           </ul>
+       
         </div>
       </div>
       <div class="left_three">
@@ -120,41 +121,52 @@
           <p class="cn">园区服务</p>
           <p class="en">The park service</p>
         </div>
-        <ul class="con">
-          <li>
-            <div class="up">
-              <!-- 水波纹效果 -->
-              <div class="wave">
-                <p><i>96</i>万</p>
-                <div class="wave1"></div>
-                <div class="wave2"></div>
+        <div class="con">
+          <ul class="clearfix">
+            <li class="one">
+              <div class="up">
+                <!-- 水波纹效果 -->
+                <div class="bg"></div>
+                <div class="wave">
+                  <p><i>96</i>万</p>
+                  <div class="wave1"></div>
+                  <div class="wave2"></div>
+                </div>
+                <div class="down">
+                  <i>服务交易</i>
+                  </div>
               </div>
-              <div class="down">服务交易</div>
-            </div>
-          </li>
-          <li class="two">
-            <div class="up">
-              <!-- 水波纹效果 -->
-              <div class="wave">
-                <p><i>152</i>项</p>
-                <div class="wave4"></div>
-                <div class="wave3"></div>
+            </li>
+            <li class="two">
+              <div class="up">
+                <!-- 水波纹效果 -->
+                <div class="bg"></div>
+                <div class="wave">
+                  <p><i>152</i>项</p>
+                  <div class="wave4"></div>
+                  <div class="wave3"></div>
+                </div>
+                <div class="down">
+                  <i>财税服务</i>
+                  </div>
               </div>
-              <div class="down">财税服务</div>
-            </div>
-          </li>
-          <li>
-            <div class="up">
-              <!-- 水波纹效果 -->
-              <div class="wave">
-                <p><i>552</i>项</p>
-                <div class="wave5"></div>
-                <div class="wave6"></div>
+            </li>
+            <li class="three">
+              <div class="up">
+                <!-- 水波纹效果 -->
+                <div class="bg"></div>
+                <div class="wave">
+                  <p><i>552</i>项</p>
+                  <div class="wave5"></div>
+                  <div class="wave6"></div>
+                </div>
+                <div class="down">
+                  <i>项目申报</i>
+                  </div>
               </div>
-              <div class="down">项目申报</div>
-            </div>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <!-- 右边数据 -->
@@ -1373,7 +1385,7 @@ export default {
     },
     send(data) {
       this.$emit("back");
-      this.$event.$emit('aa',data);
+      this.$event.$emit("aa", data);
     },
   },
 };

@@ -12,13 +12,13 @@
             <ul class="clearfix">
               <li>
                 <p>企业总数</p>
-                <div>
+                <div class="clearfix downBox">
                   <i></i><span>1024<em>家</em> </span>
                 </div>
               </li>
               <li>
                 <p>招商项目</p>
-                <div>
+                 <div class="clearfix downBox">
                   <span>180<em>个</em></span>
                 </div>
               </li>

@@ -44,7 +44,7 @@ export default {
         this.addOverlay();
       });
     let url1 =
-      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/DL/config ";
+      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/DL/config";
     this.scene
       .addS3MTilesLayerByScp(url1, {
         name: "road",
@@ -54,13 +54,13 @@ export default {
         this.addOverlay1();
       });
     let url2 =
-      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/LCY/config ";
+      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/LCY/config";
     this.scene.addS3MTilesLayerByScp(url2, {
       name: "syb",
       packingRequest: 4,
     });
     let url3 =
-      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/FHDS/config ";
+      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/FHDS/config";
     this.scene.addS3MTilesLayerByScp(url3, {
       name: "hatch",
       packingRequest: 4,
