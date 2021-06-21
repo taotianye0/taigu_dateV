@@ -3,13 +3,6 @@
 </template>
 <script>
 export default {
-  // props: ["isshow"],
-  // props:{
-  //   isshow: {
-  //        type: Boolean,
-  //        default: ''
-  //    },
-  // },
   data() {
     return {
       viewer: {},
@@ -23,7 +16,7 @@ export default {
   mounted: function () {
     // var cesiumAsset =
     //   "https://blog.csdn.net/weixin_42448623/article/details/100284740";
-    // var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
+    // // var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
     // // 服务负载子域
     // var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
     // Cesium.Ion.defaultAccessToken = cesiumAsset;
@@ -39,33 +32,11 @@ export default {
     this.scene.globe.show = true;
     this.camera.flyCircleLoop = true;
     this.scene.viewFlag = true;
-    // var token = "8c9a7d54ac20558e50738df50fcd1920";
-    // // 服务域名
-    // var tdtUrl = "https://t{s}.tianditu.gov.cn/";
-    // // 服务负载子域
-    // var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
-    // // 叠加影像服务
-    // var imgMap = new Cesium.UrlTemplateImageryProvider({
-    //   url: tdtUrl + "DataServer?T=img_w&x={x}&y={y}&l={z}&tk=" + token,
-    //   subdomains: subdomains,
-    //   tilingScheme: new Cesium.WebMercatorTilingScheme(),
-    //   maximumLevel: 18,
-    // });
-    // viewer.imageryLayers.addImageryProvider(imgMap);
-
-    // // 叠加国界服务
-    // var iboMap = new Cesium.UrlTemplateImageryProvider({
-    //   url: tdtUrl + "DataServer?T=ibo_w&x={x}&y={y}&l={z}&tk=" + token,
-    //   subdomains: subdomains,
-    //   tilingScheme: new Cesium.WebMercatorTilingScheme(),
-    //   maximumLevel: 10,
-    // });
-    // viewer.imageryLayers.addImageryProvider(iboMap);
     // 超图
-    let url2 =
-      "http://117.50.11.239:7090/iserver/services/3D-local3DCache-yty/rest/realspace/datas/yty/config";
+    let url =
+      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/JZ/config";
     this.scene
-      .addS3MTilesLayerByScp(url2, {
+      .addS3MTilesLayerByScp(url, {
         name: "bim",
         packingRequest: 4,
       })
@@ -73,7 +44,7 @@ export default {
         this.addOverlay();
       });
     let url1 =
-      "http://117.50.11.239:7090/iserver/services/3D-local3DCache-DL/rest/realspace/datas/DL/config";
+      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/DL/config ";
     this.scene
       .addS3MTilesLayerByScp(url1, {
         name: "road",
@@ -82,6 +53,24 @@ export default {
       .then(() => {
         this.addOverlay1();
       });
+    let url2 =
+      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/LCY/config ";
+    this.scene.addS3MTilesLayerByScp(url2, {
+      name: "syb",
+      packingRequest: 4,
+    });
+    let url3 =
+      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/FHDS/config ";
+    this.scene.addS3MTilesLayerByScp(url3, {
+      name: "hatch",
+      packingRequest: 4,
+    });
+    let url4 =
+      "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/CXDS/config";
+    this.scene.addS3MTilesLayerByScp(url4, {
+      name: "innovate",
+      packingRequest: 4,
+    });
     this.addSpotLight();
     // 点击建筑页面的返回按钮  ====》 接收的值
     this.$event.$on("aa", (e) => {
@@ -102,6 +91,25 @@ export default {
         });
       }
     });
+    // var time = setTimeout(function () {
+    //   var pos = new Cesium.Cartesian3(
+    //     3186893.8134447704,
+    //     939000.0194418641,
+    //     5444572.424701958
+    //   );
+    //   let heading = -0.1;
+    //   const pitch = -0.47877092800193255;
+    //   const roll = 2000;
+    //   let x = -0.1;
+    //   viewer.scene.preUpdate.addEventListener(function () {
+    //     x += 0.15;
+    //     heading = Cesium.Math.toRadians(x);
+    //     viewer.camera.lookAt(
+    //       pos,
+    //       new Cesium.HeadingPitchRange(heading, pitch, roll)
+    //     );
+    //   });
+    // }, 10000);
     let that = this;
     var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     handler.setInputAction(function (event) {
@@ -116,7 +124,6 @@ export default {
       if (Cesium.defined(earthPosition)) {
         console.log(earthPosition);
       }
-
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       // 获取选中图元的id
@@ -137,7 +144,7 @@ export default {
           duration: 5, //持续时间
         });
       } else {
-        that.getExection();
+        // that.getExection();
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     setTimeout(function () {
@@ -188,38 +195,38 @@ export default {
         this.$emit("func", this.value);
       }
     },
-    getExection() {
-      var Exection = function TimeExecution() {
-        // 当前已经过去的时间，单位s
-        var delTime = Cesium.JulianDate.secondsDifference(
-          viewer.clock.currentTime,
-          viewer.clock.startTime
-        );
-        var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
-        viewer.scene.camera.setView({
-          destination: new Cesium.Cartesian3(
-            3187326.501174774,
-            938506.0412503146,
-            5444900.653218728
-          ), // 点的坐标
-          orientation: {
-            heading: heading,
-            pitch: pitch,
-          },
-        });
-        viewer.scene.camera.moveBackward(distance);
-        if (
-          Cesium.JulianDate.compare(
-            viewer.clock.currentTime,
-            viewer.clock.stopTime
-          ) >= 0
-        ) {
-          viewer.clock.onTick.removeEventListener(Exection);
-        }
-      };
+    // getExection() {
+    //   var Exection = function TimeExecution() {
+    //     // 当前已经过去的时间，单位s
+    //     var delTime = Cesium.JulianDate.secondsDifference(
+    //       viewer.clock.currentTime,
+    //       viewer.clock.startTime
+    //     );
+    //     var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
+    //     viewer.scene.camera.setView({
+    //       destination: new Cesium.Cartesian3(
+    //         3187326.501174774,
+    //         938506.0412503146,
+    //         5444900.653218728
+    //       ), // 点的坐标
+    //       orientation: {
+    //         heading: heading,
+    //         pitch: pitch,
+    //       },
+    //     });
+    //     viewer.scene.camera.moveBackward(distance);
+    //     if (
+    //       Cesium.JulianDate.compare(
+    //         viewer.clock.currentTime,
+    //         viewer.clock.stopTime
+    //       ) >= 0
+    //     ) {
+    //       viewer.clock.onTick.removeEventListener(Exection);
+    //     }
+    //   };
 
-      // this.viewer.clock.onTick.addEventListener(Exection);
-    },
+    // this.viewer.clock.onTick.addEventListener(Exection);
+    // },
     addSpotLight: function () {
       let scene = this.scene;
       let Cesium = window.Cesium;
@@ -258,7 +265,7 @@ export default {
       layer.setObjsColor(
         [2996],
         // new Cesium.Color(9 / 255, 277 / 255, 248 / 255, 0.9)
-        new Cesium.Color(0, 1, 1, 0.9)
+        new Cesium.Color(0, 1, 1, 1)
       );
       //设置环境光(夜晚)
       // scene.lightSource.ambientLightColor = new Cesium.Color(110/255, 110/255, 110/255, 0.5);
