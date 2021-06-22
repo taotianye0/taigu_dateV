@@ -129,7 +129,7 @@ export default {
       let option0 = {
         grid: {
           left: "1%",
-          right: "10%",
+          right: "7%",
           bottom: "3%",
           top: "15%",
           containLabel: false,

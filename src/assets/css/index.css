@@ -57,13 +57,13 @@ body {
 }
 @keyframes myscale {
   0% {
-    transform: scale(0.9);
-  }
-  50% {
     transform: scale(1);
   }
+  50% {
+    transform: scale(1.2);
+  }
   100% {
-    transform: scale(0.9);
+    transform: scale(1);
   }
 }
 @keyframes animate {
@@ -132,7 +132,6 @@ body {
   top: -7%;
   color: #d69563;
   font-size: 0.18rem;
-  width: 200%;
 }
 .jz .wrap {
   animation: mymove 1.5s 0.5s infinite ease-in-out;
@@ -151,7 +150,6 @@ body {
   top: 51%;
   color: #D69563;
   font-size: 0.18rem;
-  width: 200%;
 }
 .yt .wrap {
   animation: mymove 1.5s 1.5s infinite ease-in-out;
@@ -169,11 +167,26 @@ body {
   top: 51%;
   color: #D69563;
   font-size: 0.18rem;
-  width: 200%;
+  width: 100%;
 }
 .qlh .wrap {
   animation: mymove 1.5s 0.75s infinite ease-in-out;
 }
 .light {
   background-color: rgba(231, 227, 227, 0.2);
+}
+.wrap_hover {
+  border: 1px solid transparent;
+  background-color: rgba(240, 102, 95, 0.5);
+  opacity: 0;
+}
+.name_scale {
+  animation: myscale 1.5s infinite ease-in-out;
+}
+.dl:hover .name,
+.hp:hover .name,
+.qlh:hover .name,
+.yt:hover .name,
+.jz:hover .name {
+  animation: myscale 1.5s infinite ease-in-out;
 }

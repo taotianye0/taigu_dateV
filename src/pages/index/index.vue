@@ -1,6 +1,6 @@
 <template>
-    <!-- 高新区雁滩园区 -->
-  <div>
+  <!-- 高新区雁滩园区 -->
+  <div class="big_bg">
     <div class="indexbg">
       <img src="../../assets/img/indexbg.png" />
       <!-- <img src="../../assets/img/indexBG.jpg" /> -->
@@ -8,7 +8,7 @@
         <div class="name">
           <p>定连园区</p>
         </div>
-        <div class="wrap"  @click="toDLpage()">
+        <div class="wrap" @click="toDLpage()">
           <img src="../../assets/img/定连.png" />
           <div class="box">
             <span style="--i: 1"></span>
@@ -28,7 +28,7 @@
         <div class="name">
           <p>和平园区</p>
         </div>
-        <div class="wrap"  @click="toHPpage()">
+        <div class="wrap" @click="toHPpage()">
           <img src="../../assets/img/和平.png" />
           <div class="box">
             <span style="--i: 1"></span>
@@ -48,7 +48,7 @@
         <div class="name">
           <p>九州园区</p>
         </div>
-        <div class="wrap"  @click="toJZpage()">
+        <div class="wrap" @click="toJZpage()">
           <img src="../../assets/img/九州.png" />
           <div class="box">
             <span style="--i: 1"></span>
@@ -68,7 +68,7 @@
         <div class="name">
           <p>雁滩园区</p>
         </div>
-        <div class="wrap"  @click="toYTpage()">
+        <div class="wrap" @click="toYTpage()">
           <img src="../../assets/img/雁滩.png" />
           <div class="box">
             <span style="--i: 1"></span>
@@ -88,7 +88,7 @@
         <div class="name">
           <p>七里河园区</p>
         </div>
-        <div class="wrap"  @click="toQLHpage()">
+        <div class="wrap" @click="toQLHpage()">
           <img src="../../assets/img/七里河.png" />
           <div class="box">
             <span style="--i: 1"></span>
@@ -104,7 +104,7 @@
           </div>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- 数据的组件 -->
     <v-district></v-district>
   </div>
@@ -113,9 +113,21 @@
 <script>
 import vDistrict from "./component/district.vue";
 export default {
+  data() {            
+    return {                              
+        time: null  // 定时器名称          
+    }        
+},
   components: {
     vDistrict,
   },
+  mounted() {
+    this.changeLight();
+  },
+beforeDestroy() {
+    clearInterval(this.time);        
+    this.time = null;
+},
   methods: {
     toDLpage() {
       this.$router.push("/home/dl");
@@ -132,9 +144,62 @@ export default {
     toJZpage() {
       this.$router.push("/home/jz");
     },
-    changeLight(){
+    changeLight() {
+      let dl = document.querySelectorAll(".dl .wrap span");
+      let dlname = document.querySelectorAll(".dl .name");
+      let hp = document.querySelectorAll(".hp .wrap span");
+      let hpname = document.querySelectorAll(".hp .name");
+      let yt = document.querySelectorAll(".yt .wrap span");
+      let ytname = document.querySelectorAll(".yt .name");
+      let qlh = document.querySelectorAll(".qlh .wrap span");
+      let qlhname = document.querySelectorAll(".qlh .name");
+      let jz = document.querySelectorAll(".jz .wrap span");
+      let jzname = document.querySelectorAll(".jz .name");
+      let num = 0;
+      console.log(num);
 
-    }
+      this.time = setInterval(() => {
+        num++;
+        console.log(num);
+        // 样式制空
+        if (num > 5) {
+          num = 1;
+        }
+        dl.forEach((item) => {
+          item.className = "wrap_hover";
+        });
+        if (num == 1) {
+          this.paiTa(dl, dlname);
+        }
+        if (num == 2) {
+          this.paiTa(hp, hpname);
+        }
+        if (num == 3) {
+          this.paiTa(yt, ytname);
+        }
+        if (num == 4) {
+          this.paiTa(qlh, qlhname);
+        }
+        if (num == 5) {
+          this.paiTa(jz, jzname);
+        }
+      }, 2000);
+    },
+    // 排他
+    paiTa(light, scale) {
+      let all = document.querySelectorAll(".box span");
+      let allname = document.querySelectorAll(".big_bg .name");
+      all.forEach((item) => {
+        item.className = " ";
+      });
+      allname.forEach((item) => {
+        item.className = "name";
+      });
+      light.forEach((item) => {
+        item.className = "wrap_hover";
+      });
+      scale.className = "name name_scale";
+    },
   },
 };
 </script>
