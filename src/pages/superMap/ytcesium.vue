@@ -32,41 +32,41 @@ export default {
       navigationInstructionsInitiallyVisible: false, //导航指令
       navigationHelpButton: false, //帮助信息
       selectionIndicator: false, // 选择
-      imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
-        //影像底图
-        url:
-          "http://t{s}.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=" +
-          tiandituTk,
-        subdomains: subdomains,
-        layer: "tdtImgLayer",
-        style: "default",
-        format: "image/jpeg",
-        tileMatrixSetID: "GoogleMapsCompatible", //使用谷歌的瓦片切片方式
-        show: true,
-      }),
+      // imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
+      //   //影像底图
+      //   url:
+      //     "http://t{s}.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=" +
+      //     tiandituTk,
+      //   subdomains: subdomains,
+      //   layer: "tdtImgLayer",
+      //   style: "default",
+      //   format: "image/jpeg",
+      //   tileMatrixSetID: "GoogleMapsCompatible", //使用谷歌的瓦片切片方式
+      //   show: true,
+      // }),
     });
-    viewer._cesiumWidget._creditContainer.style.display = "none"; // 隐藏cesium ion
-    viewer.imageryLayers.addImageryProvider(
-      new Cesium.WebMapTileServiceImageryProvider({
-        //影像注记
-        url:
-          "http://t{s}.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=" +
-          tiandituTk,
-        subdomains: subdomains,
-        layer: "tdtCiaLayer",
-        style: "default",
-        format: "image/jpeg",
-        tileMatrixSetID: "GoogleMapsCompatible",
-        show: true,
-      })
-    );
-
+    // viewer._cesiumWidget._creditContainer.style.display = "none"; // 隐藏cesium ion
     // viewer.imageryLayers.addImageryProvider(
-    //   new Cesium.BingMapsImageryProvider({
-    //     url: "https://dev.virtualearth.net",
-    //     mapStyle: Cesium.BingMapsStyle.AERIAL,
+    //   new Cesium.WebMapTileServiceImageryProvider({
+    //     //影像注记
+    //     url:
+    //       "http://t{s}.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=" +
+    //       tiandituTk,
+    //     subdomains: subdomains,
+    //     layer: "tdtCiaLayer",
+    //     style: "default",
+    //     format: "image/jpeg",
+    //     tileMatrixSetID: "GoogleMapsCompatible",
+    //     show: true,
     //   })
     // );
+
+    viewer.imageryLayers.addImageryProvider(
+      new Cesium.BingMapsImageryProvider({
+        url: "https://dev.virtualearth.net",
+        mapStyle: Cesium.BingMapsStyle.AERIAL,
+      })
+    );
     this.viewer = viewer;
     this.scene = this.viewer.scene;
     this.camera = this.scene.camera;
