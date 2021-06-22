@@ -271,8 +271,8 @@
 export default {
   data() {
     return {
-      pageTitle_cn: "兰州留学人员创业园", //页面标题
-      pageTitle_en: "Lanzhou Overseas Students Pioneer Park", //页面标题
+      pageTitle_cn: "创新大厦", //页面标题
+      pageTitle_en: "Innovative Building", //页面标题
     };
   },
   mounted() {

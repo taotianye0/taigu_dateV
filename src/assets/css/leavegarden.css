@@ -345,13 +345,20 @@
   box-sizing: border-box;
   width: 100%;
   height: calc(100% - 0.57rem);
+  position: relative;
 }
 .right_one ul {
   width: 100%;
-  height: 100%;
+  height: 80%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  margin: 0 auto;
 }
 .right_one li {
   width: 50%;
@@ -366,28 +373,31 @@
   width: 100%;
   height: 100%;
   background: url("../img/企业1.png") no-repeat 15% center;
-  background-size: 0.35rem 0.35rem;
+  background-size: 20% 50%;
 }
 .right_one li .one_right {
   display: inline-block;
   width: 100%;
-  height: 100%;
+  height: 65%;
   color: #FFF;
-  text-align: center;
   position: absolute;
   left: 10%;
+  top: 22%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 .right_one li .one_right i,
 .right_one li .one_right span {
-  display: inline-block;
+  display: block;
   width: 100%;
+  height: 80%;
 }
 .right_one li .one_right i {
-  margin-top: 0.13rem;
   font-size: 0.2rem;
   font-family: Microsoft YaHei;
   font-weight: 400;
-  line-height: 0.3rem;
 }
 .right_one li .one_right span {
   font-size: 0.22rem;
@@ -400,7 +410,7 @@
 }
 .right_one li .two_left {
   background: url("../img/招商.png") no-repeat 15% center;
-  background-size: 0.35rem 0.35rem;
+  background-size: 20% 50%;
 }
 .right_two {
   width: 100%;
@@ -410,41 +420,48 @@
 .right_two .righttwo_left {
   display: inline-block;
   position: absolute;
-  width: 2.4rem;
+  width: 40%;
   height: calc(100% - 0.57rem);
 }
-.right_two .righttwo_left .in {
+.right_two .righttwo_left .in,
+.right_two .righttwo_left .out,
+.right_two .righttwo_left .text {
   position: absolute;
-  width: 2.5rem;
+  left: 0%;
+  top: 0%;
+}
+.right_two .righttwo_left .in {
+  width: 100%;
   height: 100%;
 }
 .right_two .righttwo_left .text {
-  position: absolute;
-  left: 32.5%;
-  top: 28%;
+  top: 25%;
+  left: 26%;
   z-index: 2;
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 46%;
+  height: 46%;
   line-height: 0.9rem;
   text-align: center;
   color: #BCC3D6;
   font-size: 0.3rem;
 }
 .right_two .righttwo_left .out {
-  position: absolute;
-  width: 2.5rem;
+  width: 100%;
   height: 100%;
 }
 .right_two .righttwo_fight {
   position: absolute;
-  right: 0.28rem;
-  top: 0.57rem;
+  top: 30%;
+  bottom: 0;
+  right: 0;
+  margin: 0 auto;
   display: inline-block;
   height: calc(100% - 0.57rem);
-  width: 2rem;
+  width: 60%;
   color: #BCC3D6;
 }
 .right_two .righttwo_fight ul {
+  width: 100%;
   height: 50%;
 }
 .right_two .righttwo_fight ul.two .down i {
@@ -454,12 +471,12 @@
   float: left;
   width: 50%;
   text-align: left;
-  line-height: 0.36rem;
 }
 .right_two .righttwo_fight p.up {
   font-size: 0.2rem;
   font-family: Microsoft YaHei;
   font-weight: 400;
+  padding-bottom: 5%;
 }
 .right_two .righttwo_fight p.down i {
   color: #0eaffe;
@@ -470,35 +487,61 @@
 }
 .right_three {
   width: 100%;
+  height: 43%;
 }
 .right_three .list {
   width: 100%;
   height: calc(100% - 0.57rem);
 }
+.right_three .list ul {
+  width: 100%;
+  height: 100%;
+}
 .right_three .list li {
-  margin: 0.15rem 0;
-  height: 3%;
+  width: 100%;
+  margin: 3% 0;
+  height: 14%;
   background: url("../img/矩形11.png") no-repeat left;
+  background-size: 100% 100%;
+  position: relative;
 }
 .right_three .list li p,
 .right_three .list li i,
 .right_three .list li span {
   width: 30%;
+  height: 100%;
   display: inline-block;
   color: #BCC3D6;
-  line-height: 0.3rem;
   font-size: 0.22rem;
   font-family: Microsoft YaHei;
   font-weight: 400;
+  position: absolute;
+  margin: 0 auto;
 }
 .right_three .list li i {
   text-align: center;
+  top: 18%;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 .right_three .list li span {
   text-align: right;
+  top: 11%;
+  bottom: 0;
+  right: 5%;
 }
 .right_three .list li p {
   background: url("../img/no1bg.png") no-repeat 0.09rem;
-  background-size: 0.75rem 0.35rem;
+  background-size: 50% 100%;
   padding-left: 0.2rem;
+  top: 0%;
+  bottom: 0;
+  left: 0;
+}
+.right_three .list li p i {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  left: -38%;
 }
