@@ -8,23 +8,42 @@ export default {
       viewer: {},
       scene: {},
       camera: {},
-      value: true,
-      select: 0,
+      value: 0,
+      select: "",
       isshows: this.isshow,
     };
   },
   mounted: function () {
     // var cesiumAsset =
     //   "https://blog.csdn.net/weixin_42448623/article/details/100284740";
-    // // var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
+    // var token = "8c9a7d54ac20558e50738df50fcd1920";
     // // 服务负载子域
-    // var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
+    var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
+    // var tdtUrl = "https://t{s}.tianditu.gov.cn/";
     // Cesium.Ion.defaultAccessToken = cesiumAsset;
     let viewer = new Cesium.Viewer("cesium-container", {
-      infoBox: false,
-      selectionIndicator: true,
-      isShowGlobe: true,
+      animation: false, //是否显示动画控件
+      baseLayerPicker: false, //是否显示图层选择控件
+      geocoder: true, //是否显示地名查找控件
+      timeline: false, //是否显示时间线控件
+      sceneModePicker: true, //是否显示投影方式控件
+      navigationHelpButton: false, //是否显示帮助信息控件
+      infoBox: true, //是否显示点击要素之后显示的信息
     });
+    // 叠加影像服务
+    var imgMap = new Cesium.UrlTemplateImageryProvider({
+      url: "http://t{s}.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={x}&TILECOL={y}&tk=8c9a7d54ac20558e50738df50fcd1920",
+      subdomains: subdomains,
+      tilingScheme: new Cesium.WebMercatorTilingScheme(),
+      maximumLevel: 18,
+    });
+    viewer.imageryLayers.addImageryProvider(imgMap);
+    viewer.imageryLayers.addImageryProvider(
+      new Cesium.BingMapsImageryProvider({
+        url: "https://dev.virtualearth.net",
+        mapStyle: Cesium.BingMapsStyle.AERIAL,
+      })
+    );
     this.viewer = viewer;
     this.scene = this.viewer.scene;
     this.camera = this.scene.camera;
@@ -32,6 +51,7 @@ export default {
     this.scene.globe.show = true;
     this.camera.flyCircleLoop = true;
     this.scene.viewFlag = true;
+
     // 超图
     let url =
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/JZ/config";
@@ -55,10 +75,12 @@ export default {
       });
     let url2 =
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/LCY/config";
-    this.scene.addS3MTilesLayerByScp(url2, {
-      name: "syb",
-      packingRequest: 4,
-    });
+    this.scene
+      .addS3MTilesLayerByScp(url2, {
+        name: "syb",
+        packingRequest: 4,
+      })
+      .then(() => {});
     let url3 =
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/FHDS/config";
     this.scene.addS3MTilesLayerByScp(url3, {
@@ -80,7 +102,7 @@ export default {
           destination: new Cesium.Cartesian3(
             3188650.6820279765,
             939600.1448450445,
-            5444580.273847996
+            5444680.273847996
           ),
           orientation: {
             heading: -0.1,
@@ -121,30 +143,58 @@ export default {
       //3.地标坐标：获取点击处地球表面的世界坐标，不包括模型、倾斜摄影表面
       // var ray = viewer.camera.getPickRay(event.position);
       // var earthPosition = viewer.scene.globe.pick(ray, viewer.scene);
+      console.log(event);
       if (Cesium.defined(earthPosition)) {
         console.log(earthPosition);
       }
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
-      // 获取选中图元的id
-      let selectid = selectlayer.getSelection()[0];
-      that.select = selectid;
-      if (selectid == 2996) {
+      console.log(selectlayer.name);
+      that.select = selectlayer.name;
+      if (selectlayer.name == "syb") {
+        // 留创园
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
-            3186750.6820279765,
-            939350.1448450445,
-            5444850.273847996
+            3186770.6820279765,
+            939130.1448450445,
+            5444690.273847996
           ),
           orientation: {
-            heading: -2,
-            pitch: -0.47877092800193255,
-            roll: 6.283171325419627,
+            heading: -2.3,
+            pitch: -0.30877092800193955,
+            roll: 6.263171325419627,
           },
           duration: 5, //持续时间
         });
-      } else {
-        // that.getExection();
+      } else if (selectlayer.name == "innovate") {
+        // 创新大厦
+        viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            3187000.043022081,
+            938350.5645055493,
+            5444700.717966651
+          ),
+          orientation: {
+            heading: -5.2,
+            pitch: -0.30877092800193955,
+            roll: 6.263171325419627,
+          },
+          duration: 5, //持续时间
+        });
+      } else if (selectlayer.name == "hatch") {
+        // 孵化大厦
+        viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            3187100.586357547,
+            937716.5514422462,
+            5444745.639940157
+          ),
+          orientation: {
+            heading: 0.2799316670592491,
+            pitch: -0.30885981371978,
+            roll: 6.263170784103327,
+          },
+        });
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     setTimeout(function () {
@@ -152,8 +202,8 @@ export default {
       viewer.camera.flyTo({
         destination: new Cesium.Cartesian3(
           3188650.6820279765,
-          939600.1448450445,
-          5444580.273847996
+          939300.1448450445,
+          5444680.273847996
         ),
         orientation: {
           heading: -0.1,
@@ -162,71 +212,97 @@ export default {
         },
         complete: function callback() {
           // 定位完成之后的回调函数
-          // 扫描
-          setTimeout(function () {
-            viewer.scene.scanEffect.show = true;
-            viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
-            var pos = new Cesium.Cartesian3(
-              3186893.8134447704,
-              939000.0194418641,
-              5444572.424701958
-            );
-            viewer.scene.scanEffect.centerPostion = pos;
-            // 扫描范围
-            viewer.scene.scanEffect._speed = 100;
-            // viewer.scene.scanEffect._lineWidth = 500;
-            // 扫描时间
-            viewer.scene.scanEffect._period = 2000;
-            // 扫描颜色
-            viewer.scene.scanEffect.color = new Cesium.Color(
-              248 / 255,
-              9 / 255,
-              9 / 255,
-              1
-            );
-          }, 10000);
+          that.settime();
+          that.settime1();
+          // // 孵化大厦扫描
+          // setTimeout(function () {
+          //   viewer.scene.scanEffect.show = true;
+          //   viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
+          //   var pos = new Cesium.Cartesian3(
+          //     3187100.586357547,
+          //     937716.5514422462,
+          //     5444745.639940157
+          //   );
+          //   viewer.scene.scanEffect.centerPostion = pos;
+          //   // 扫描范围
+          //   viewer.scene.scanEffect._speed = 100;
+          //   // viewer.scene.scanEffect._lineWidth = 500;
+          //   // 扫描时间
+          //   viewer.scene.scanEffect._period = 2000;
+          //   // 扫描颜色
+          //   viewer.scene.scanEffect.color = new Cesium.Color(
+          //     248 / 255,
+          //     9 / 255,
+          //     9 / 255,
+          //     1
+          //   );
+          // }, 10000);
         },
       });
     }, 100);
   },
   methods: {
     child() {
-      if (this.select == 2996) {
-        this.$emit("func", this.value);
+      if (this.select == "syb") {
+        this.$emit("func", 1);
+      } else if (this.select == "innovate") {
+        this.$emit("func", 2);
+      } else if (this.select == "hatch") {
+        this.$emit("func", 3);
       }
     },
-    // getExection() {
-    //   var Exection = function TimeExecution() {
-    //     // 当前已经过去的时间，单位s
-    //     var delTime = Cesium.JulianDate.secondsDifference(
-    //       viewer.clock.currentTime,
-    //       viewer.clock.startTime
-    //     );
-    //     var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
-    //     viewer.scene.camera.setView({
-    //       destination: new Cesium.Cartesian3(
-    //         3187326.501174774,
-    //         938506.0412503146,
-    //         5444900.653218728
-    //       ), // 点的坐标
-    //       orientation: {
-    //         heading: heading,
-    //         pitch: pitch,
-    //       },
-    //     });
-    //     viewer.scene.camera.moveBackward(distance);
-    //     if (
-    //       Cesium.JulianDate.compare(
-    //         viewer.clock.currentTime,
-    //         viewer.clock.stopTime
-    //       ) >= 0
-    //     ) {
-    //       viewer.clock.onTick.removeEventListener(Exection);
-    //     }
-    //   };
-
-    // this.viewer.clock.onTick.addEventListener(Exection);
-    // },
+    settime() {
+      // 留创园扫描
+      setTimeout(function () {
+        let viewer = this.viewer;
+        viewer.scene.scanEffect.show = true;
+        viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
+        var pos = new Cesium.Cartesian3(
+          3186881.4793810537,
+          939005.5752705764,
+          5444525.315086002
+        );
+        viewer.scene.scanEffect.centerPostion = pos;
+        // 扫描范围
+        viewer.scene.scanEffect._speed = 100;
+        // viewer.scene.scanEffect._lineWidth = 500;
+        // 扫描时间
+        viewer.scene.scanEffect._period = 2000;
+        // 扫描颜色
+        viewer.scene.scanEffect.color = new Cesium.Color(
+          248 / 255,
+          9 / 255,
+          9 / 255,
+          1
+        );
+      }, 10000);
+    },
+    settime1() {
+      // 创新大厦扫描
+      setTimeout(function () {
+        let viewer = this.viewer;
+        viewer.scene.scanEffect.show = true;
+        viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
+        var pos = new Cesium.Cartesian3(
+          3187000.043022081,
+          938350.5645055493,
+          5444700.717966651
+        );
+        viewer.scene.scanEffect.centerPostion = pos;
+        // 扫描范围
+        viewer.scene.scanEffect._speed = 100;
+        // viewer.scene.scanEffect._lineWidth = 500;
+        // 扫描时间
+        viewer.scene.scanEffect._period = 2000;
+        // 扫描颜色
+        viewer.scene.scanEffect.color = new Cesium.Color(
+          248 / 255,
+          9 / 255,
+          9 / 255,
+          1
+        );
+      }, 10000);
+    },
     addSpotLight: function () {
       let scene = this.scene;
       let Cesium = window.Cesium;
