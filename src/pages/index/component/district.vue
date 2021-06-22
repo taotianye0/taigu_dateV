@@ -131,7 +131,7 @@ export default {
           left: "1%",
           right: "10%",
           bottom: "3%",
-          top:"15%",
+          top: "15%",
           containLabel: false,
         },
         tooltip: {
@@ -164,7 +164,7 @@ export default {
               "省级创新平台",
               "地方创新示范中心",
             ],
-             nameLocation: "center",
+            nameLocation: "center",
             // axisLabel: {
             //   color: "#00FCF9",
             //   fontFamily: "Microsoft YaHei",
@@ -178,12 +178,11 @@ export default {
               show: false,
             },
             axisLabel: false,
-         
           },
         ],
         yAxis: [
           {
-            show:false,
+            show: false,
             type: "value",
           },
         ],
@@ -194,7 +193,7 @@ export default {
             data: [1, 12, 43, 18, 17, 7, 23, 4, 47, 27, 43, 1],
             markPoint: {
               data: [
-                { type: "max", name: "最大值"},
+                { type: "max", name: "最大值" },
                 { type: "min", name: "最小值" },
                 // { coord: [1,12], value:12},
                 // { coord: [2,43], value:43},
@@ -283,9 +282,6 @@ export default {
               return a.value - b.value;
             }),
             roseType: "radius",
-            avoidLabelOverlap: false,
-            hoverAnimation: false, // 取消鼠标滑入放大的效果
-            animation: false, // 取消饼图展开的效果
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
@@ -356,8 +352,8 @@ export default {
         grid: {
           left: "3%",
           right: "4%",
-          top:'5%',
-          bottom:"2%",
+          top: "5%",
+          bottom: "2%",
           containLabel: true,
         },
         xAxis: {
