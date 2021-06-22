@@ -23,6 +23,20 @@
                 </div>
               </li>
             </ul>
+             <ul class="clearfix">
+              <li>
+                <p>企业总数</p>
+                <div>
+                  <i></i><span>1024<em>家</em> </span>
+                </div>
+              </li>
+              <li>
+                <p>招商项目</p>
+                <div>
+                  <span>180<em>个</em></span>
+                </div>
+              </li>
+            </ul>
           </div>
           <div class="park_down">
             <ul class="clearfix">
@@ -354,7 +368,7 @@ export default {
 </script>
 
 <style scoped>
-@import "../../../assets/css/yt.css";
+@import "../../../assets/css/indexdata.css";
 .title .title_en {
   font-size: 0.2rem;
 }

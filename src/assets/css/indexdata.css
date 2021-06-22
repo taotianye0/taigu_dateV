@@ -1,0 +1,231 @@
+.title {
+  position: fixed;
+  top: 0.3rem;
+  right: 0.31rem;
+  color: #FFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.title .title_cn {
+  height: 0.54rem;
+  font-size: 0.52rem;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: linear-gradient(0deg, #AAD4FE 0%, #FFFFFF 99.58496094%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0.03rem 4rem #0C55DF;
+}
+.title .title_en {
+  padding-top: 0.1rem;
+  height: 0.18rem;
+  font-size: 0.19rem;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #FFF;
+}
+.title .button,
+.title .button1 {
+  position: absolute;
+  top: 0.95rem;
+  width: 1.6rem;
+  height: 0.38rem;
+  line-height: 0.38rem;
+  border-radius: 0.15rem;
+  color: #BCC3D6;
+  background-color: #152E67;
+  font-size: 0.18rem;
+  font-family: Microsoft YaHei;
+  font-weight: 400;
+  text-align: center;
+  cursor: pointer;
+}
+.title .button1 {
+  right: 0;
+}
+.title .button1 a {
+  color: #BCC3D6;
+  display: block;
+}
+.title .button {
+  left: 0;
+}
+.left {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 0.35rem 0.4rem 0.1rem 0.4rem;
+  box-sizing: border-box;
+  width: 27%;
+  min-width: 5.08rem;
+  height: 100vh;
+  background-color: "#2354AD";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+.left_one {
+  width: 100%;
+  height: 35%;
+}
+.left_one .park {
+  width: 100%;
+  height: calc(100% - 0.72rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.left_one .park_up,
+.left_one .park_down {
+  width: 100%;
+  height: 40%;
+}
+.left_one .park_up {
+  box-sizing: border-box;
+  color: #BCC3D6;
+}
+.left_one .park_up li {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+.left_one .park_up p {
+  width: 1.3rem;
+  border-bottom: 1px solid #C0FFF8;
+  font-size: 0.22rem;
+  font-family: "Microsoft YaHei";
+  font-weight: 400;
+  line-height: 0.35rem;
+  margin-bottom: 0.1rem;
+}
+.left_one .park_up i,
+.left_one .park_up span {
+  font-size: 0.3rem;
+  color: #54DEFE;
+  display: block;
+  float: left;
+}
+.left_one .park_up i {
+  width: 0.4rem;
+  height: 0.4rem;
+  background: url(../img/企业.png) no-repeat;
+  background-size: 0.3rem 0.3rem;
+}
+.left_one .park_up span {
+  padding-left: 0.2rem;
+}
+.left_one .park_up em {
+  padding-left: 0.05rem;
+  font-size: 0.18rem;
+  color: #54DEFE;
+}
+.left_one .park_down ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.12rem;
+  margin-left: -0.3rem;
+}
+.left_one .park_down li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 20%;
+  position: relative;
+}
+.left_one .park_down li i,
+.left_one .park_down li span {
+  display: block;
+}
+.left_one .park_down li i {
+  width: 0.3rem;
+  height: 0.3rem;
+  background: url(../img/图层546.png) no-repeat left center;
+  background-size: 0.25rem 0.25rem;
+}
+.left_one .park_down li p {
+  color: #54DEFE;
+  font-size: 0.22rem;
+  line-height: 0.4rem;
+}
+.left_one .park_down li span {
+  color: #BCC3D6;
+  font-size: 0.16rem;
+  font-family: "Microsoft YaHei";
+  font-weight: 400;
+}
+.left_one .park_down li .shu {
+  position: absolute;
+  right: 0;
+  height: 0.9rem;
+  width: 0.02rem;
+  background: url(../img/q.png) no-repeat right center;
+  background-size: 0.02rem 0.02rem;
+}
+.left_two {
+  width: 100%;
+  height: 33%;
+  color: #FFF;
+}
+.left_three {
+  width: 100%;
+  height: 31%;
+}
+.left_three_title {
+  height: 0.62rem;
+  width: 100%;
+  color: #fff;
+}
+.left_three_title i,
+.left_three_title span {
+  display: block;
+  font: 0.22rem "MicrosoftYaHei";
+  line-height: 0.32rem;
+}
+.left_one_title {
+  height: 0.72rem;
+  width: 100%;
+  color: #fff;
+}
+.left_one_title i,
+.left_one_title span {
+  line-height: 0.35rem;
+  display: block;
+  font: 0.22rem "MicrosoftYaHei";
+}
+.business,
+.develop,
+.years {
+  width: 100%;
+  height: calc(100% - 0.62rem);
+}
+.years {
+  margin-top: -0.4rem;
+}
+.right {
+  position: fixed;
+  bottom: 0.1rem;
+  right: 0.24rem;
+  width: 25%;
+  min-width: 4.88rem;
+  height: 3.1rem;
+  background-color: "#2354AD";
+  box-sizing: border-box;
+  padding: 0.3rem 0 0 0.25rem;
+}
+.right_title {
+  height: 0.62rem;
+  width: 100%;
+  color: #fff;
+}
+.right_title i,
+.right_title span {
+  line-height: 0.35rem;
+  display: block;
+  font: 0.22rem "MicrosoftYaHei";
+}
