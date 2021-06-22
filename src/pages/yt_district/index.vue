@@ -3,18 +3,18 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <img src="../../assets/img/bg.jpg" title="超图的位置" />
-      <!-- <yt-CesiumCom @func="getclick" ></yt-CesiumCom> -->
+      <!-- <img src="../../assets/img/bg.jpg" title="超图的位置" /> -->
+      <yt-CesiumCom @func="getclick"></yt-CesiumCom>
     </div>
-    
+
     <!--留学生创业园 建筑 的组件 -->
     <leave-garden v-if="isshow == 1" @back="districtBack()"></leave-garden>
     <!--创新大厦 建筑 的组件 -->
     <Innovative-building v-else-if="isshow == 2" @back="districtBack()"></Innovative-building>
     <!--孵化大厦 建筑 的组件 -->
     <Incubation-building v-else-if="isshow == 3" @back="districtBack()"></Incubation-building>
-    <!-- 区的页面组件 -->  
-     <v-district v-else></v-district>
+    <!-- 区的页面组件 -->
+    <v-district v-else></v-district>
   </div>
 </template>
 
@@ -30,21 +30,22 @@ export default {
     return {
       // 显示隐藏区组件与建筑组件 1显示留学生创业园的组件 2表示创新大厦  3表示孵化大厦
       // isshow: 0,
-      isshow: 3,
+      isshow: 1,
     };
   },
   components: {
     vDistrict,
     ytCesiumCom,
-    leaveGarden,//留创园
-    IncubationBuilding,//孵化大厦
-    InnovativeBuilding,//创新大厦
+    leaveGarden, //留创园
+    IncubationBuilding, //孵化大厦
+    InnovativeBuilding, //创新大厦
   },
   methods: {
     // 超图的点击事件
     getclick(val) {
       if (val) {
-        // this.isshow = 1;
+        this.isshow = val;
+        console.log(val);
       }
     },
     // 从建筑页面返回区页面
