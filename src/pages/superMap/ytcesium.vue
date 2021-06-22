@@ -137,7 +137,7 @@ export default {
             pitch: -0.47877092800193255,
             roll: 6.283171325419627,
           },
-          duration: 1, //持续时间
+          duration: 5, //持续时间
           complete: function callback() {
             // 创新大厦扫描
             // setTimeout(function () {
@@ -175,9 +175,9 @@ export default {
       if (e == false) {
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
-            3188650.6820279765,
-            939600.1448450445,
-            5444680.273847996
+            -1238487.5114361974,
+            5007000.07057683,
+            3753346.084607418
           ),
           orientation: {
             heading: -0.1,
@@ -245,14 +245,14 @@ export default {
         // 创新大厦
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
-            3187000.043022081,
-            938350.5645055493,
-            5444700.717966651
+            -1237873.6199691885,
+            5005898.215701284,
+            3753811.1959734997
           ),
           orientation: {
-            heading: -5.2,
-            pitch: -0.30877092800193955,
-            roll: 6.263171325419627,
+            heading: 1.1661396370797075,
+            pitch: -0.47865140602711786,
+            roll: 6.283171324877447,
           },
           duration: 5, //持续时间
         });
@@ -260,14 +260,14 @@ export default {
         // 孵化大厦
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
-            3187100.586357547,
-            937716.5514422462,
-            5444745.639940157
+            -1237240.8328621706,
+            5006000.742842774,
+            3753900.111206762
           ),
           orientation: {
-            heading: 0.2799316670592491,
-            pitch: -0.30885981371978,
-            roll: 6.263170784103327,
+            heading: 0.32180464817195986,
+            pitch: -0.4786520862834105,
+            roll: 6.283171324322858,
           },
         });
       }
