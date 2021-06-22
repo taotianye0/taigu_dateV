@@ -204,9 +204,6 @@
   width: 100%;
   height: calc(100% - 0.62rem);
 }
-.years {
-  margin-top: -0.4rem;
-}
 .right {
   position: fixed;
   bottom: 0.1rem;

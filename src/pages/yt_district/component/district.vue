@@ -268,9 +268,10 @@ export default {
         },
         
         grid: {
-          left: "3%",
+             left: "3%",
           right: "4%",
-          bottom: "3%",
+          top: "5%",
+          bottom: "2%",
           containLabel: true,
         },
         xAxis: {

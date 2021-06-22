@@ -273,11 +273,11 @@ export default {
             radius: "78%",
             center: ["50%", "50%"],
             data: [
-              { value: 300, name: "软件信息" },
-              { value: 350, name: "广告设计" },
-              { value: 274, name: "工业生产" },
-              { value: 205, name: "电子商务" },
-              { value: 400, name: "生物医药" },
+              { value: 300, name: "##信息" },
+              { value: 350, name: "####" },
+              { value: 274, name: "##生产" },
+              { value: 205, name: "##商务" },
+              { value: 400, name: "##医药" },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
@@ -350,8 +350,8 @@ export default {
           trigger: "axis",
         },
         grid: {
-          left: "3%",
-          right: "4%",
+          left: "1%",
+          right: "3%",
           top: "5%",
           bottom: "2%",
           containLabel: true,
@@ -361,13 +361,13 @@ export default {
         },
         yAxis: {
           type: "category",
-          data: ["4 微型企业", "3 小型企业", "2 中型企业", "1 大型企业"],
+          data: ["###企业", "上市公司", "新兴产业企业", "高新技术企业"],
           nameLocation: "center",
           axisLabel: {
             color: "#00FCF9",
             fontFamily: "Microsoft YaHei",
             fontWeight: 400,
-            fontSize: 18,
+            fontSize: 16,
           },
           axisLine: {
             show: false,
@@ -381,11 +381,11 @@ export default {
           {
             type: "bar",
             barWidth: "50%",
-            data: [18, 23, 12, 14, 11, 5],
+            data: [100,25,30,308],
             label: {
               show: true,
               position: "right",
-              formatter: "{c}年",
+              formatter: "{c}户",
               color: "#00FCF9",
               fontFamily: "Microsoft YaHei",
               fontWeight: 400,
