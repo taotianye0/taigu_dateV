@@ -10,7 +10,7 @@ export default {
       camera: {},
       value: 0,
       select: "",
-      isshows: this.isshow,
+      isshow: false,
     };
   },
   mounted: function () {
@@ -32,41 +32,41 @@ export default {
       navigationInstructionsInitiallyVisible: false, //导航指令
       navigationHelpButton: false, //帮助信息
       selectionIndicator: false, // 选择
-      imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
-        //影像底图
-        url:
-          "http://t{s}.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=" +
-          tiandituTk,
-        subdomains: subdomains,
-        layer: "tdtImgLayer",
-        style: "default",
-        format: "image/jpeg",
-        tileMatrixSetID: "GoogleMapsCompatible", //使用谷歌的瓦片切片方式
-        show: true,
-      }),
+      // imageryProvider: new Cesium.WebMapTileServiceImageryProvider({
+      //   //影像底图
+      //   url:
+      //     "http://t{s}.tianditu.com/img_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=img&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default&format=tiles&tk=" +
+      //     tiandituTk,
+      //   subdomains: subdomains,
+      //   layer: "tdtImgLayer",
+      //   style: "default",
+      //   format: "image/jpeg",
+      //   tileMatrixSetID: "GoogleMapsCompatible", //使用谷歌的瓦片切片方式
+      //   show: true,
+      // }),
     });
     viewer._cesiumWidget._creditContainer.style.display = "none"; // 隐藏cesium ion
-    viewer.imageryLayers.addImageryProvider(
-      new Cesium.WebMapTileServiceImageryProvider({
-        //影像注记
-        url:
-          "http://t{s}.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=" +
-          tiandituTk,
-        subdomains: subdomains,
-        layer: "tdtCiaLayer",
-        style: "default",
-        format: "image/jpeg",
-        tileMatrixSetID: "GoogleMapsCompatible",
-        show: true,
-      })
-    );
-
     // viewer.imageryLayers.addImageryProvider(
-    //   new Cesium.BingMapsImageryProvider({
-    //     url: "https://dev.virtualearth.net",
-    //     mapStyle: Cesium.BingMapsStyle.AERIAL,
+    //   new Cesium.WebMapTileServiceImageryProvider({
+    //     //影像注记
+    //     url:
+    //       "http://t{s}.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=" +
+    //       tiandituTk,
+    //     subdomains: subdomains,
+    //     layer: "tdtCiaLayer",
+    //     style: "default",
+    //     format: "image/jpeg",
+    //     tileMatrixSetID: "GoogleMapsCompatible",
+    //     show: true,
     //   })
     // );
+
+    viewer.imageryLayers.addImageryProvider(
+      new Cesium.BingMapsImageryProvider({
+        url: "https://dev.virtualearth.net",
+        mapStyle: Cesium.BingMapsStyle.AERIAL,
+      })
+    );
     this.viewer = viewer;
     this.scene = this.viewer.scene;
     this.camera = this.scene.camera;
@@ -116,7 +116,7 @@ export default {
       name: "innovate",
       packingRequest: 4,
     });
-    // 将三维球定位到中国
+    // 将三维球定位
     viewer.camera.flyTo({
       destination: Cesium.Cartesian3.fromDegrees(103.901125, 36.05943, 10000),
       orientation: {
@@ -128,12 +128,12 @@ export default {
         // 定位完成之后的回调函数
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
-            -1238487.5114361974,
-            5007000.07057683,
-            3753346.084607418
+            -1240500.5114361974,
+            5007500.07057683,
+            3752746.084607418
           ),
           orientation: {
-            heading: -0.1,
+            heading: -0.7,
             pitch: -0.47877092800193255,
             roll: 6.283171325419627,
           },
@@ -168,7 +168,6 @@ export default {
         });
       },
     });
-    this.addSpotLight();
     // 点击建筑页面的返回按钮  ====》 接收的值
     this.$event.$on("aa", (e) => {
       // console.log(e, "值在这");
@@ -283,69 +282,7 @@ export default {
         this.$emit("func", 3);
       }
     },
-    addSpotLight: function () {
-      let scene = this.scene;
-      let Cesium = window.Cesium;
-      var spotLight, spotLight1, spotLight2;
-      // 标识点光源
-      var positions = new Cesium.Cartesian3(
-        3187326.501174774,
-        938506.0412503146,
-        5444900.653218728
-      );
-      var targetPosition = new Cesium.Cartesian3(
-        3187018.9721922115,
-        938853.4495226444,
-        5444484.463146444
-      );
-      var options = {
-        color: new Cesium.Color(255 / 255, 255 / 255, 255 / 255, 0.1),
-        distance: 3000,
-        decay: 1,
-        intensity: 0.8,
-      };
-      spotLight = new Cesium.SpotLight(positions, targetPosition, options);
-      scene.addLightSource(spotLight);
-      // 标识点光源
-      var positions = new Cesium.Cartesian3(
-        3187000.043022081,
-        938350.5645055493,
-        5444700.717966651
-      );
-      var targetPosition = new Cesium.Cartesian3(
-        3187018.9721922115,
-        938853.4495226444,
-        5444484.463146444
-      );
-      var options = {
-        color: new Cesium.Color(255 / 255, 255 / 255, 255 / 255, 0.1),
-        distance: 3000,
-        decay: 1,
-        intensity: 0.8,
-      };
-      spotLight1 = new Cesium.SpotLight(positions, targetPosition, options);
-      scene.addLightSource(spotLight1);
-      // 标识点光源
-      var positions = new Cesium.Cartesian3(
-        3187100.586357547,
-        937716.5514422462,
-        5444745.639940157
-      );
-      var targetPosition = new Cesium.Cartesian3(
-        3187018.9721922115,
-        938853.4495226444,
-        5444484.463146444
-      );
-      var options = {
-        color: new Cesium.Color(255 / 255, 255 / 255, 255 / 255, 0.1),
-        distance: 3000,
-        decay: 1,
-        intensity: 0.8,
-      };
-      spotLight2 = new Cesium.SpotLight(positions, targetPosition, options);
-      scene.addLightSource(spotLight2);
-    },
-
+    // 楼层样式
     addOverlay: function () {
       let scene = this.scene;
       var layer = scene.layers.find("bim");
@@ -466,6 +403,7 @@ export default {
       );
       console.log(imageLayer);
     },
+    // 道路颜色
     addOverlay1: function () {
       let scene = this.scene;
       var layer = scene.layers.find("road");
