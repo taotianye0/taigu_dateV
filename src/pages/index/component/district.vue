@@ -11,29 +11,27 @@
           <div class="park_up">
             <ul class="clearfix">
               <li>
+                <p>规划总面积</p>
+                <div>
+                  <span>182.77<em>平方公里</em></span>
+                </div>
+              </li>
+              <li>
+                <p>孵化总面积</p>
+                <div>
+                  <span>95万<em>平方米</em></span>
+                </div>
+              </li>
+              <li>
+                <p>地区生产总值</p>
+                <div>
+                  <span>####<em>家</em> </span>
+                </div>
+              </li>
+              <li>
                 <p>企业总数</p>
                 <div>
-                  <i></i><span>1024<em>家</em> </span>
-                </div>
-              </li>
-              <li>
-                <p>招商项目</p>
-                <div>
-                  <span>180<em>个</em></span>
-                </div>
-              </li>
-            </ul>
-             <ul class="clearfix">
-              <li>
-                <p>企业总数</p>
-                <div>
-                  <i></i><span>1024<em>家</em> </span>
-                </div>
-              </li>
-              <li>
-                <p>招商项目</p>
-                <div>
-                  <span>180<em>个</em></span>
+                  <span>####<em>个</em></span>
                 </div>
               </li>
             </ul>
@@ -42,25 +40,25 @@
             <ul class="clearfix">
               <li>
                 <i></i>
-                <p>26人</p>
-                <span>院士</span>
+                <p>23人</p>
+                <span>院士/专家</span>
                 <span class="shu"></span>
               </li>
               <li>
                 <i></i>
-                <p>5000人</p>
-                <span>硕士</span>
+                <p>9000人</p>
+                <span>硕士/副高</span>
                 <span class="shu"></span>
               </li>
               <li>
                 <i></i>
-                <p>460人</p>
-                <span>博士</span>
+                <p>120人</p>
+                <span>领军人才</span>
                 <span class="shu"></span>
               </li>
               <li>
                 <i></i>
-                <p>569人</p>
+                <p>##人</p>
                 <span>海归</span>
               </li>
             </ul>
@@ -69,8 +67,8 @@
       </div>
       <div class="left_two">
         <div class="left_three_title">
-          <i>企业发展</i>
-          <span>Enterprise development</span>
+          <i>科研力量</i>
+          <span>Research Capability</span>
         </div>
         <div class="develop" ref="develop"></div>
       </div>
@@ -86,8 +84,10 @@
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
-       <!-- 返回按钮 -->
-      <div class="button1" > <a href="http://8.135.134.240:8021/login">跳转至后台 ⋙</a> </div>
+      <!-- 返回按钮 -->
+      <div class="button1">
+        <a href="http://8.135.134.240:8021/login">跳转至后台 ⋙</a>
+      </div>
     </div>
     <!-- 右下角 -->
     <div class="right">
@@ -113,7 +113,7 @@ export default {
     // 园区名字
     this.pageTitle_cn = this.$route.name.split(",")[0];
     this.pageTitle_en = this.$route.name.split(",")[1];
-    // 绘制企业发展 图
+    // 绘制科研力量 图
     this.drawDevelop();
     // 绘制行业占比 图
     this.drawBusiness();
@@ -121,83 +121,133 @@ export default {
     this.drawyear();
   },
   methods: {
-    // 绘制企业发展 图
+    // 绘制科研力量 图
     drawDevelop() {
       let develop = this.$echarts.init(this.$refs.develop);
+      // 用于清除定时器
+      let tootipTimer = null;
       let option0 = {
-        legend: {
-          top: "25",
-          formatter: "{name}",
-          textStyle: {
-            color: "#BCC3D6",
-            fontWeight: 400,
-            fontFamily: "Microsoft YaHei",
-            fontSize: 16,
+        grid: {
+          left: "1%",
+          right: "10%",
+          bottom: "3%",
+          top:"15%",
+          containLabel: false,
+        },
+        tooltip: {
+          trigger: "axis",
+        },
+        toolbox: {
+          show: true,
+          feature: {
+            // dataView: { show: true, readOnly: false },
+            magicType: { show: true, type: ["line", "bar"] },
+            restore: { show: true },
+            saveAsImage: { show: true },
           },
-          icon: "rect",
         },
-        // tooltip: {
-        //   trigger: "axis",
-        // // showContent: false,//是否展示数据
-        //   triggerOn: "click", //点击时展示数据
-        // },
-        dataset: {
-          source: [
-            ["product", "2017", "2018", "2019", "2020", "2021"],
-            ["大型企业", 30.4, 85.1, 23.3, 93.8, 98.7],
-            ["中小型企业", 32.1, 85.7, 23.1, 53.4, 95.1],
-            ["微型企业", 47.2, 79.5, 46.4, 85.2, 22.5],
-          ],
-        },
-        xAxis: {
-          axisLine: {
-            lineStyle: {
-              color: "#0D52AC",
-              with: 2,
+        calculable: true,
+        xAxis: [
+          {
+            type: "category",
+            data: [
+              "国家实验室",
+              "国家重点实验室",
+              "省级重点实验室",
+              "省级实验室培育基地",
+              "省级工程实验室",
+              "国家级企业技术中心",
+              "省级企业技术中心",
+              "国家级工程研究中心",
+              "省级工程研究中心",
+              "国家级创新平台",
+              "省级创新平台",
+              "地方创新示范中心",
+            ],
+             nameLocation: "center",
+            // axisLabel: {
+            //   color: "#00FCF9",
+            //   fontFamily: "Microsoft YaHei",
+            //   fontWeight: 400,
+            //   fontSize: 12,
+            // },
+            axisLine: {
+              show: true,
             },
+            axisTick: {
+              show: false,
+            },
+            axisLabel: false,
+         
           },
-          type: "category",
-
-          axisTick: {
-            alignWithLabel: true,
+        ],
+        yAxis: [
+          {
+            show:false,
+            type: "value",
           },
-          axisLabel: {
-            color: "#BCC3D6",
-            fontFamily: "Microsoft YaHei",
-            fontWeight: 400,
-            fontSize: 16,
-          },
-        },
-        yAxis: {
-          show: false,
-        },
-        grid: { left: "0%" },
+        ],
         series: [
           {
-            type: "line",
-            smooth: true,
-            seriesLayoutBy: "row",
-            symbol: "none",
-            color: "#30B7C1",
-          },
-          {
-            type: "line",
-            smooth: true,
-            seriesLayoutBy: "row",
-            symbol: "none",
-            color: "#C33CFD",
-          },
-          {
-            type: "line",
-            smooth: true,
-            seriesLayoutBy: "row",
-            symbol: "none",
-            color: "#1E8BFF",
+            name: "个数",
+            type: "bar",
+            data: [1, 12, 43, 18, 17, 7, 23, 4, 47, 27, 43, 1],
+            markPoint: {
+              data: [
+                { type: "max", name: "最大值"},
+                { type: "min", name: "最小值" },
+                // { coord: [1,12], value:12},
+                // { coord: [2,43], value:43},
+              ],
+              animation: true,
+              animationThreshold: 2000,
+              animationDuration: function (idx) {
+                // 越往后的数据时长越大
+                return idx * 100;
+              },
+            },
+            barWidth: "70%",
+            itemStyle: {
+              color: {
+                type: "linear",
+                x: 0,
+                y: 1,
+                x2: 1,
+                y2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#3CCACB", // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: "#002DFF", // 100% 处的颜色
+                  },
+                ],
+                global: false, // 缺省为 false
+              },
+              shadowColor: "#0063FF",
+              shadowOffsetX: 3,
+              shadowOffsetY: -1,
+            },
+            emphasis: {
+              itemStyle: {
+                color: "rgba(0,0,255)",
+              },
+            },
           },
         ],
       };
       // 3,绘图
       develop.setOption(option0);
+      // 可调用clearLoop方法，清除定时器
+      tootipTimer && tootipTimer.clearLoop();
+      tootipTimer = null;
+      // 调用轮播的方法
+      tootipTimer = tools.loopShowTooltip(develop, option0, {
+        interval: 1500, // 轮播间隔时间
+        loopSeries: true, // 是否开启轮播循环
+      });
     },
     // 绘制行业占比 图
     drawBusiness() {
@@ -222,7 +272,7 @@ export default {
           {
             type: "pie",
             radius: "78%",
-            center: ["45%", "50%"],
+            center: ["50%", "50%"],
             data: [
               { value: 300, name: "软件信息" },
               { value: 350, name: "广告设计" },
@@ -233,12 +283,15 @@ export default {
               return a.value - b.value;
             }),
             roseType: "radius",
+            avoidLabelOverlap: false,
+            hoverAnimation: false, // 取消鼠标滑入放大的效果
+            animation: false, // 取消饼图展开的效果
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -70, 0, -70],
+              padding: [0, -65, 0, -66],
             },
             labelLine: {
               show: true,
@@ -248,10 +301,16 @@ export default {
               },
               smooth: 0,
               length: 1,
-              length2: 80,
+              length2: 75,
             },
             itemStyle: {
-              color: "#0063FF",
+              // color: "#0063FF",
+              normal: {
+                color: "#0063FF",
+              },
+              emphasis: {
+                color: "rgba(50,226,248,0.7)",
+              },
               shadowBlur: 200,
               shadowColor: "rgba(0, 0, 0, 0.5)",
             },
@@ -266,25 +325,24 @@ export default {
       };
       // 3,绘图
       business.setOption(option1);
-
-      //  var myChartPieIndex = 0;
-
-      // var a = setInterval(function () {
-      //   var dataLen = option.series[0].data.length;
-      //   // 取消之前高亮的图形
-      //   business.dispatchAction({
-      //     type: "downplay",
-      //     seriesIndex: 0,
-      //     dataIndex: myChartPieIndex,
-      //   });
-      //   myChartPieIndex = (myChartPieIndex + 1) % dataLen;
-      //   // 高亮当前图形
-      //   business.dispatchAction({
-      //     type: "highlight",
-      //     seriesIndex: 0,
-      //     dataIndex: myChartPieIndex,
-      //   });
-      // }, 100);
+      // 自动高亮动画
+      var myChartPieIndex = 0;
+      var a = setInterval(function () {
+        var dataLen = option1.series[0].data.length;
+        // 取消之前高亮的图形
+        business.dispatchAction({
+          type: "downplay",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+        myChartPieIndex = (myChartPieIndex + 1) % dataLen;
+        // 高亮当前图形
+        business.dispatchAction({
+          type: "highlight",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+      }, 1000);
     },
     // 绘制企业年限 图
     drawyear() {
@@ -295,11 +353,11 @@ export default {
         tooltip: {
           trigger: "axis",
         },
-
         grid: {
           left: "3%",
           right: "4%",
-          bottom: "3%",
+          top:'5%',
+          bottom:"2%",
           containLabel: true,
         },
         xAxis: {

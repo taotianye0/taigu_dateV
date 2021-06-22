@@ -63,20 +63,30 @@ body {
 @keyframes mymove {
   0% {
     transform: translateY(0);
-    // transform: scale(0.9);
   }
 
   50% {
     transform: translateY(8px);
-    // transform: scale(1);
   }
 
   100% {
     transform: translateY(0);
-    // transform: scale(0.9);
   }
 }
+// 放大动画
+@keyframes myscale {
+  0% {
+    transform: scale(0.9);
+  }
 
+  50% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.9);
+  }
+}
 // 扫描动画
 @keyframes animate {
   0% {
@@ -210,3 +220,10 @@ body {
 .light {
   background-color: rgba(231, 227, 227, 0.2);
 }
+
+// .wrap:hover{
+//   animation: myscale 1.5s 0.75s infinite ease-in-out;
+// }
+// .wrap:hover .name{
+//   animation: myscale 1.5s 0.75s infinite ease-in-out;
+// }

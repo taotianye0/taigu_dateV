@@ -22,6 +22,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-shadow: 0px 0.03rem 4rem #0C55DF;
+
   }
 
   .title_en {
@@ -69,10 +70,10 @@
   position: fixed;
   left: 0;
   top: 0;
-  padding: 0.35rem 0.40rem 0.1rem 0.40rem;
+  padding: 0.35rem 0 0.1rem 0.40rem;
   box-sizing: border-box;
-  width: 27%;
-  min-width: 5.08rem;
+  width: 24%;
+  min-width: 3.8rem;
   height: 100vh;
   background-color: "#2354AD";
   display: flex;
@@ -96,67 +97,61 @@
   .park_up,
   .park_down {
     width: 100%;
-    height: 40%;
+    height: 50%;
   }
 
   .park_up {
     box-sizing: border-box;
     color: extract(@textCol, 2);
-
+ul{
+  width: 100%;
+  height: 100%;
+}
     li {
       float: left;
       width: 50%;
-      height: 100%;
-      // line-height: 100%;
+      height: 60%;
     }
 
     p {
-      width: 1.30rem;
+      width: 65%;
       border-bottom: 1px solid #C0FFF8;
-      font-size: 0.22rem;
+      font-size: 0.18rem;
       font-family: "Microsoft YaHei";
       font-weight: 400;
-      line-height: 0.35rem;
-      margin-bottom: 0.1rem;
+      padding-bottom:3%;
+      margin-bottom: 2%;
     }
 
-    i,
     span {
-      font-size: 0.3rem;
+      font-size: 0.18rem;
       color: #54DEFE;
       display: block;
       float: left;
-    }
-
-    i {
-      width: 0.4rem;
-      height: 0.4rem;
-      background: url(../img/企业.png) no-repeat ;
-      background-size: 0.3rem 0.3rem;
-    }
-
-    span {
-      padding-left: 0.2rem;
+      margin-bottom: 0.05rem;
     }
 
     em {
       padding-left: 0.05rem;
-      font-size: 0.18rem;
+      font-size: 0.14rem;
       color: #54DEFE;
     }
   }
 
   .park_down {
+    padding-top: 5%;
     ul {
+      width: 90%;
+      height: 90%;
       .flex;
-      padding-top: 0.12rem;
-      margin-left: -0.3rem;
+      margin-left: -0.1rem;
     }
 
     li {
       .flex;
       flex-direction: column;
-      width: 20%;
+      width: 25%;
+      height: 90%;
       position: relative;
 
       i,
@@ -165,16 +160,15 @@
       }
 
       i {
-        width: 0.3rem;
-        height: 0.3rem;
+        width: 30%;
+        height: 30%;
         background: url(../img/图层546.png) no-repeat left center;
-        background-size: 0.25rem 0.25rem;
+        background-size: 100% 100%;
       }
 
       p {
         color: #54DEFE;
-        font-size: 0.22rem;
-        line-height: 0.4rem;
+        font-size: 0.18rem;
       }
 
       span {
@@ -244,16 +238,14 @@
   height: calc(100% - 0.62rem);
 }
 
-.years {
-  margin-top: -0.4rem;
-}
 
 .right {
   position: fixed;
   bottom: 0.1rem;
-  right: 0.24rem;
+  right: 3%;
   width: 25%;
-  min-width: 4.88rem;
+  height: 20%;
+  min-width: 4.5rem;
   height: 3.1rem;
   background-color: "#2354AD";
   box-sizing: border-box;

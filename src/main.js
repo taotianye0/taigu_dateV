@@ -7,7 +7,8 @@ import less from 'less';
 // css重置样式
 import "./assets/css/reset.css";
 // js全局挂载
-import "./assets/js/reset"
+import "./assets/js/reset";
+import "./assets/js/tooltip-auto-show";
 // 全局挂载less
 Vue.use(less);
 // 引入echarts
