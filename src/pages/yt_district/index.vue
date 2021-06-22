@@ -29,8 +29,8 @@ export default {
   data() {
     return {
       // 显示隐藏区组件与建筑组件 1显示留学生创业园的组件 2表示创新大厦  3表示孵化大厦
-      // isshow: 0,
-      isshow: 1,
+      isshow: 0,
+      // isshow: 1,
     };
   },
   components: {
