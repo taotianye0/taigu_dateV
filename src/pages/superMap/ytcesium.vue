@@ -45,11 +45,7 @@ export default {
       //   show: true,
       // }),
     });
-<<<<<<< HEAD
-    // viewer._cesiumWidget._creditContainer.style.display = "none"; // 隐藏cesium ion
-=======
     viewer._cesiumWidget._creditContainer.style.display = "none"; // 隐藏cesium ion
->>>>>>> d3de2b96407ef557ddca1303fa3d138956083c76
     // viewer.imageryLayers.addImageryProvider(
     //   new Cesium.WebMapTileServiceImageryProvider({
     //     //影像注记
