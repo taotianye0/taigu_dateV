@@ -4,8 +4,8 @@
     <div class="left">
       <div class="left_one">
         <div class="left_one_title">
-          <i>园区企业数据</i>
-          <span>Park enterprise data</span>
+          <i>园区概况</i>
+          <span>Park Overview</span>
         </div>
         <div class="park">
           <div class="park_up">
@@ -25,13 +25,13 @@
               <li>
                 <p>地区生产总值</p>
                 <div>
-                  <span>####<em>家</em> </span>
+                  <span>447亿<em>元</em> </span>
                 </div>
               </li>
               <li>
                 <p>企业总数</p>
                 <div>
-                  <span>####<em>个</em></span>
+                  <span>1.4万<em>户</em></span>
                 </div>
               </li>
             </ul>
@@ -68,14 +68,14 @@
       <div class="left_two">
         <div class="left_three_title">
           <i>科研力量</i>
-          <span>Research Capability</span>
+          <span>Research Strength</span>
         </div>
         <div class="develop" ref="develop"></div>
       </div>
       <div class="left_three">
         <div class="left_three_title">
           <i>行业占比</i>
-          <span>Industry accounted for</span>
+          <span>Business Proportion</span>
         </div>
         <div class="business" ref="business"></div>
       </div>
@@ -84,16 +84,13 @@
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
-      <!-- 返回按钮 -->
-      <div class="button1">
-        <a href="http://8.135.134.240:8021/login">跳转至后台 ⋙</a>
-      </div>
+   
     </div>
     <!-- 右下角 -->
     <div class="right">
       <div class="right_title">
-        <i>企业年限</i>
-        <span>Enterprise fixed number of year</span>
+        <i>企业发展</i>
+        <span>Enterprise Development</span>
       </div>
       <div class="years" ref="years"></div>
     </div>
@@ -207,47 +204,47 @@ export default {
             },
             barWidth: "70%",
             itemStyle: {
-              // color: {
-              //   type: "linear",
-              //   x: 0,
-              //   y: 1,
-              //   x2: 1,
-              //   y2: 0,
-              //   colorStops: [
-              //     {
-              //       offset: 0,
-              //       color: "#3CCACB", // 0% 处的颜色
-              //     },
-              //     {
-              //       offset: 1,
-              //       color: "#002DFF", // 100% 处的颜色
-              //     },
-              //   ],
-              //   global: false, // 缺省为 false
-              // },
-              // shadowColor: "#0063FF",
-              // shadowOffsetX: 3,
-              // shadowOffsetY: -1,
-              normal: {
-                //每根柱子颜色设置
-                color: function (params) {
-                  let colorList = [
-                   "#D85C5C",
-                    "#399D6F",
-                    "#1A63B1",
-                     "#D85C5C",
-                    "#399D6F",
-                    "#1A63B1", 
-                    "#D85C5C",
-                    "#399D6F",
-                    "#1A63B1", 
-                    "#D85C5C",
-                    "#399D6F",
-                    "#1A63B1",
-                  ];
-                  return colorList[params.dataIndex];
-                },
+              color: {
+                type: "linear",
+                x: 0,
+                y: 1,
+                x2: 1,
+                y2: 0,
+                colorStops: [
+                  {
+                    offset: 0,
+                    color: "#3CCACB", // 0% 处的颜色
+                  },
+                  {
+                    offset: 1,
+                    color: "#002DFF", // 100% 处的颜色
+                  },
+                ],
+                global: false, // 缺省为 false
               },
+              shadowColor: "#0063FF",
+              shadowOffsetX: 3,
+              shadowOffsetY: -1,
+              // normal: {
+              //   //每根柱子颜色设置
+              //   color: function (params) {
+              //     let colorList = [
+              //       "#D85C5C",
+              //       "#399D6F",
+              //       "#1A63B1",
+              //       "#D85C5C",
+              //       "#399D6F",
+              //       "#1A63B1",
+              //       "#D85C5C",
+              //       "#399D6F",
+              //       "#1A63B1",
+              //       "#D85C5C",
+              //       "#399D6F",
+              //       "#1A63B1",
+              //     ];
+              //     return colorList[params.dataIndex];
+              //   },
+              // },
             },
             emphasis: {
               itemStyle: {
@@ -279,25 +276,25 @@ export default {
           formatter: " <br/>{b} : {c} ({d}%)",
           triggerOn: "click",
         },
-        // visualMap: {
-        //   show: false,
-        //   min: 100,
-        //   max: 600,
-        //   inRange: {
-        //     colorLightness: [0, 1],
-        //   },
-        // },
+        visualMap: {
+          show: false,
+          min: 100,
+          max: 600,
+          inRange: {
+            colorLightness: [0, 1],
+          },
+        },
         series: [
           {
             type: "pie",
             radius: "78%",
             center: ["50%", "50%"],
             data: [
-              { value: 300, name: "##信息", itemStyle: { color: "#1C6BBF" } },
-              { value: 350, name: "####", itemStyle: { color: "#9A60B4" } },
-              { value: 274, name: "##生产", itemStyle: { color: "#FC8452" } },
-              { value: 205, name: "##商务", itemStyle: { color: "#EE6666" } },
-              { value: 400, name: "##医药", itemStyle: { color: "#3BA272" } },
+              { value: 300, name: "##信息"},
+              { value: 350, name: "####"},
+              { value: 274, name: "##生产" },
+              { value: 205, name: "##商务" },
+              { value: 400, name: "##医药"},
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
@@ -323,12 +320,12 @@ export default {
               length2: 75,
             },
             itemStyle: {
-              // normal: {
-              //   color: "#0063FF",
-              // },
-              // emphasis: {
-              //   color: "rgba(50,226,248,0.7)",
-              // },
+              normal: {
+                color: "#0063FF",
+              },
+              emphasis: {
+                color: "rgba(50,226,248,0.7)",
+              },
               shadowBlur: 200,
               shadowColor: "rgba(0, 0, 0, 0.5)",
             },
@@ -410,31 +407,29 @@ export default {
               formatter: "{c}户",
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
-              // fontFamily: "苹方",
               fontWeight: 400,
               fontSize: 16,
             },
             itemStyle: {
               normal: {
-                // color: {
-                //   type: "linear",
-                //   x: 1,
-                //   y: 0,
-                //   x2: 0,
-                //   y2: 0,
-                //   colorStops: [
-                //     {
-                //       offset: 0,
-                //       color: "#A36CFF", // 0% 处的颜色
-                //     },
-                //     {
-                //       offset: 1,
-                //       color: "#33B8E4", // 100% 处的颜色
-                //     },
-                //   ],
-                //   global: false, // 缺省为 false
-                // },
-                color: "#0063FF",
+                color: {
+                  type: "linear",
+                  x: 1,
+                  y: 0,
+                  x2: 0,
+                  y2: 0,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#A36CFF", // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "#33B8E4", // 100% 处的颜色
+                    },
+                  ],
+                  global: false, // 缺省为 false
+                },
               },
               emphasis: {
                 color: "rgba(70,237,238)",

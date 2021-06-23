@@ -7,13 +7,17 @@
       <div class="title_en">{{ pageTitle_en }}</div>
       <!-- 返回按钮 -->
       <div class="button" @click="send(false)">⋘ 返回上一页面</div>
+      <!-- 跳转至园区管理按钮 -->
+      <div class="button1">
+        <a href="#">园区管理 ⋙</a>
+      </div>
     </div>
     <!-- 左边数据 -->
     <div class="left">
       <div class="left_one">
         <div class="small_title">
-          <p class="cn">园区基本信息</p>
-          <p class="en">asic Information of the Park</p>
+          <p class="cn">园区概况</p>
+          <p class="en">Park Overview</p>
         </div>
         <div class="con">
           <ul class="clearfix">
@@ -44,7 +48,7 @@
       <div class="left_two">
         <div class="small_title">
           <p class="cn">入驻企业</p>
-          <p class="en">In the enterprise</p>
+          <p class="en">Settled Enterprise</p>
         </div>
         <div class="listBox">
           <ul class="list">
@@ -113,13 +117,12 @@
               <div class="item_time">2018-02-02</div>
             </li>
           </ul>
-       
         </div>
       </div>
       <div class="left_three">
         <div class="small_title">
           <p class="cn">园区服务</p>
-          <p class="en">The park service</p>
+          <p class="en">Park Service</p>
         </div>
         <div class="con">
           <ul class="clearfix">
@@ -134,7 +137,7 @@
                 </div>
                 <div class="down">
                   <i>服务交易</i>
-                  </div>
+                </div>
               </div>
             </li>
             <li class="two">
@@ -148,7 +151,7 @@
                 </div>
                 <div class="down">
                   <i>财税服务</i>
-                  </div>
+                </div>
               </div>
             </li>
             <li class="three">
@@ -162,7 +165,7 @@
                 </div>
                 <div class="down">
                   <i>项目申报</i>
-                  </div>
+                </div>
               </div>
             </li>
           </ul>
@@ -172,7 +175,7 @@
     <!-- 右边数据 -->
     <div class="right">
       <div class="right_one">
-        <div class="small_title">
+        <!-- <div class="small_title">
           <p class="cn">园区企业</p>
           <p class="en">The park enterprises</p>
         </div>
@@ -193,12 +196,12 @@
               </p>
             </li>
           </ul>
-        </div>
+        </div> -->
       </div>
       <div class="right_two">
         <div class="small_title">
-          <p class="cn">专家导师</p>
-          <p class="en">Expert teacher</p>
+          <p class="cn">引进人才</p>
+          <p class="en">Talent Introduction</p>
         </div>
         <div class="righttwo_left">
           <div class="in"></div>
@@ -231,7 +234,7 @@
       <div class="right_three">
         <div class="small_title">
           <p class="cn">行业占比</p>
-          <p class="en">Industry accounted for</p>
+          <p class="en">Business Proportion</p>
         </div>
         <div class="list">
           <ul>
@@ -271,8 +274,8 @@
 export default {
   data() {
     return {
-      pageTitle_cn: "科技孵化大厦", //页面标题
-      pageTitle_en: "Technology Incubation Building", //页面标题
+      pageTitle_cn: "兰州高新区科技孵化大厦", //页面标题
+      pageTitle_en: "Technology Incubation Mansion of Lanzhou High Tech Zone", //页面标题
     };
   },
   mounted() {
@@ -1393,4 +1396,9 @@ export default {
 
 <style scoped>
 @import "../../../../assets/css/leavegarden.css";
+
+.title .title_en {
+  font-size: 0.19rem;
+  /* letter-spacing: -0.02rem; */
+}
 </style>
