@@ -11,14 +11,14 @@
         <div class="wrap" @click="toDLpage()">
           <img src="../../assets/img/定连.png" />
           <div class="box">
-            <span style="--i: 1"></span>
+            <!-- <span style="--i: 1"></span> -->
             <span style="--i: 2"></span>
-            <span style="--i: 3"></span>
-            <span style="--i: 4"></span>
-            <span style="--i: 5"></span>
-            <span style="--i: 6"></span>
-            <span style="--i: 7"></span>
-            <span style="--i: 8"></span>
+            <!-- <span style="--i: 3"></span> -->
+            <!-- <span style="--i: 4"></span> -->
+            <!-- <span style="--i: 5"></span> -->
+            <!-- <span style="--i: 6"></span> -->
+            <!-- <span style="--i: 7"></span> -->
+            <!-- <span style="--i: 8"></span> -->
             <span style="--i: 9"></span>
             <span style="--i: 10"></span>
           </div>
@@ -33,12 +33,12 @@
           <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
-            <span style="--i: 3"></span>
+            <!-- <span style="--i: 3"></span>
             <span style="--i: 4"></span>
             <span style="--i: 5"></span>
             <span style="--i: 6"></span>
             <span style="--i: 7"></span>
-            <span style="--i: 8"></span>
+            <span style="--i: 8"></span> -->
             <span style="--i: 9"></span>
             <span style="--i: 10"></span>
           </div>
@@ -53,12 +53,12 @@
           <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
-            <span style="--i: 3"></span>
+            <!-- <span style="--i: 3"></span>
             <span style="--i: 4"></span>
             <span style="--i: 5"></span>
             <span style="--i: 6"></span>
             <span style="--i: 7"></span>
-            <span style="--i: 8"></span>
+            <span style="--i: 8"></span> -->
             <span style="--i: 9"></span>
             <span style="--i: 10"></span>
           </div>
@@ -73,12 +73,12 @@
           <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
-            <span style="--i: 3"></span>
+            <!-- <span style="--i: 3"></span>
             <span style="--i: 4"></span>
             <span style="--i: 5"></span>
             <span style="--i: 6"></span>
             <span style="--i: 7"></span>
-            <span style="--i: 8"></span>
+            <span style="--i: 8"></span> -->
             <span style="--i: 9"></span>
             <span style="--i: 10"></span>
           </div>
@@ -93,12 +93,12 @@
           <div class="box">
             <span style="--i: 1"></span>
             <span style="--i: 2"></span>
-            <span style="--i: 3"></span>
+            <!-- <span style="--i: 3"></span>
             <span style="--i: 4"></span>
             <span style="--i: 5"></span>
             <span style="--i: 6"></span>
             <span style="--i: 7"></span>
-            <span style="--i: 8"></span>
+            <span style="--i: 8"></span> -->
             <span style="--i: 9"></span>
             <span style="--i: 10"></span>
           </div>
@@ -113,21 +113,21 @@
 <script>
 import vDistrict from "./component/district.vue";
 export default {
-  data() {            
-    return {                              
-        time: null  // 定时器名称          
-    }        
-},
+  data() {
+    return {
+      time: null, // 定时器名称
+    };
+  },
   components: {
     vDistrict,
   },
   mounted() {
     this.changeLight();
   },
-beforeDestroy() {
-    clearInterval(this.time);        
+  beforeDestroy() {
+    clearInterval(this.time);
     this.time = null;
-},
+  },
   methods: {
     toDLpage() {
       this.$router.push("/home/dl");

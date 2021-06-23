@@ -4,8 +4,8 @@
     <div class="left">
       <div class="left_one">
         <div class="left_one_title">
-          <i>园区企业数据</i>
-          <span>Park enterprise data</span>
+           <i>园区概况</i>
+          <span>Park Overview</span>
         </div>
         <div class="park">
           <div class="park_up">
@@ -55,15 +55,15 @@
       </div>
       <div class="left_two">
         <div class="left_three_title">
-          <i>企业发展</i>
-          <span>Enterprise development</span>
+          <i>产业增加值</i>
+          <span> Industry value added</span>
         </div>
         <div class="develop" ref="develop"></div>
       </div>
       <div class="left_three">
         <div class="left_three_title">
           <i>行业占比</i>
-          <span>Industry accounted for</span>
+          <span>Business Proportion</span>
         </div>
         <div class="business" ref="business"></div>
       </div>
@@ -78,8 +78,8 @@
     <!-- 右下角 -->
     <div class="right">
       <div class="right_title">
-        <i>企业年限</i>
-        <span>Enterprise fixed number of year</span>
+       <i>企业发展</i>
+      <span>Enterprise Development</span>
       </div>
       <div class="years" ref="years"></div>
     </div>
@@ -99,11 +99,11 @@ export default {
     // 园区名字
     this.pageTitle_cn = this.$route.name.split(",")[0];
     this.pageTitle_en = this.$route.name.split(",")[1];
-    // 绘制企业发展 图
+    // 绘制产业增加值 图
     this.drawDevelop();
     // 绘制行业占比 图
     this.drawBusiness();
-    // 绘制企业年限 图
+    // 绘制企业发展 图
     this.drawyear();
   },
   methods: {
@@ -111,7 +111,7 @@ export default {
     toIndex() {
       this.$router.push("/");
     },
-    // 绘制企业发展 图
+    // 绘制产业增加值 图
     drawDevelop() {
       let develop = this.$echarts.init(this.$refs.develop);
       let option0 = {
@@ -391,4 +391,8 @@ export default {
 
 <style scoped>
 @import "../../../assets/css/yt.css";
+
+.title .title_en {
+  letter-spacing: 0.028rem;
+}
 </style>

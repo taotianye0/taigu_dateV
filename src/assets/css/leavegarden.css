@@ -27,9 +27,9 @@
   font-weight: bold;
   color: #FFF;
 }
-.title .button {
+.title .button,
+.title .button1 {
   position: absolute;
-  left: 0;
   top: 0.95rem;
   width: 1.6rem;
   height: 0.38rem;
@@ -43,6 +43,16 @@
   text-align: center;
   cursor: pointer;
 }
+.title .button1 {
+  right: 0;
+}
+.title .button1 a {
+  color: #BCC3D6;
+  display: block;
+}
+.title .button {
+  left: 0;
+}
 .small_title {
   color: #FFF;
   height: 0.57rem;
@@ -54,7 +64,7 @@
   line-height: 0.31rem;
 }
 .small_title p.en {
-  font-size: 0.2rem;
+  font-size: 0.16rem;
   font-family: Microsoft YaHei;
   font-weight: 400;
   color: #FFF;

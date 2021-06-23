@@ -33,9 +33,9 @@
 
   }
 
-  .button {
+  .button,
+  .button1 {
     position: absolute;
-    left: 0;
     top: 0.95rem;
     width: 1.6rem;
     height: 0.38rem;
@@ -48,6 +48,19 @@
     font-weight: 400;
     text-align: center;
     cursor: pointer;
+  }
+
+  .button1 {
+    right: 0;
+
+    a {
+      color: extract(@textCol, 2);
+      display: block;
+    }
+  }
+
+  .button {
+    left: 0;
   }
 
 }
@@ -64,7 +77,7 @@
   }
 
   p.en {
-    font-size: 0.2rem;
+    font-size: 0.16rem;
     font-family: Microsoft YaHei;
     font-weight: 400;
     color: extract(@textCol, 1);

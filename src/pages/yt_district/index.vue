@@ -4,7 +4,6 @@
     <div class="supermap" id="supermap">
       <!-- 超图 -->
       <!-- <img src="../../assets/img/bg.jpg" title="超图的位置" /> -->
-
       <yt-CesiumCom @func="getclick"></yt-CesiumCom>
     </div>
 
