@@ -145,6 +145,7 @@ export default {
             // 创新大厦扫描
             viewer.scene.scanEffect.show = true;
             viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
+            // scene.scanEffect.textureUrl = "./static/img/saomiao.png";
             var pos = new Cesium.Cartesian3(
               -1238508.0591207296,
               5005734.255154756,
@@ -187,8 +188,15 @@ export default {
       if (e == false) {
         var layer = viewer.scene.layers.find("bim");
         var layer1 = viewer.scene.layers.find("road");
+        var layer2 = viewer.scene.layers.find("syb");
+        var layer3 = viewer.scene.layers.find("innovate");
+        var layer4 = viewer.scene.layers.find("hatch");
         layer.visible = true;
         layer1.visible = true;
+        layer2.visible = true;
+        layer3.visible = true;
+        layer4.visible = true;
+        viewer.scene.scanEffect.show = true;
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
             -1240500.5114361974,
@@ -204,25 +212,7 @@ export default {
         });
       }
     });
-    // var time = setTimeout(function () {
-    //   var pos = new Cesium.Cartesian3(
-    //     -1240500.5114361974,
-    //     5007500.07057683,
-    //     3752746.084607418
-    //   );
-    //   let heading = -0.1;
-    //   const pitch = -0.47877092800193255;
-    //   const roll = 2000;
-    //   let x = -0.1;
-    //   viewer.scene.preUpdate.addEventListener(function () {
-    //     x += 0.15;
-    //     heading = Cesium.Math.toRadians(x);
-    //     viewer.camera.lookAt(
-    //       pos,
-    //       new Cesium.HeadingPitchRange(heading, pitch, roll)
-    //     );
-    //   });
-    // }, 10000);
+
     let that = this;
     var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     handler.setInputAction(function (event) {
@@ -247,9 +237,9 @@ export default {
         // 留创园
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
-            -1238690.4726560987,
-            5005733.138761906,
-            3753770.6485069036
+            -1238700.4726560987,
+            5005743.138761906,
+            3753780.6485069036
           ),
           orientation: {
             heading: 4.1945742079374515,
@@ -260,8 +250,32 @@ export default {
           complete: function callback() {
             var layer = viewer.scene.layers.find("bim");
             var layer1 = viewer.scene.layers.find("road");
+            var layer2 = viewer.scene.layers.find("innovate");
+            var layer3 = viewer.scene.layers.find("hatch");
             layer.visible = false;
             layer1.visible = false;
+            layer2.visible = false;
+            layer3.visible = false;
+            viewer.scene.scanEffect.show = false;
+            setTimeout(function () {
+              var pos = new Cesium.Cartesian3(
+                -1238500.174399915,
+                5005745.274836783,
+                3753620.6448958735
+              );
+              let heading = 4.1945742079374515;
+              const pitch = -0.478811382362184;
+              const roll = 300;
+              let x = -0.1;
+              viewer.scene.preUpdate.addEventListener(function () {
+                x += 0.55;
+                heading = Cesium.Math.toRadians(x);
+                viewer.camera.lookAt(
+                  pos,
+                  new Cesium.HeadingPitchRange(heading, pitch, roll)
+                );
+              });
+            }, 100);
           },
         });
       } else if (selectlayer.name == "innovate") {
@@ -282,8 +296,13 @@ export default {
           complete: function callback() {
             var layer = viewer.scene.layers.find("bim");
             var layer1 = viewer.scene.layers.find("road");
+            var layer2 = viewer.scene.layers.find("syb");
+            var layer3 = viewer.scene.layers.find("hatch");
             layer.visible = false;
             layer1.visible = false;
+            layer2.visible = false;
+            layer3.visible = false;
+            viewer.scene.scanEffect.show = false;
           },
         });
       } else if (selectlayer.name == "hatch") {
@@ -303,8 +322,13 @@ export default {
           complete: function callback() {
             var layer = viewer.scene.layers.find("bim");
             var layer1 = viewer.scene.layers.find("road");
+            var layer2 = viewer.scene.layers.find("syb");
+            var layer3 = viewer.scene.layers.find("innovate");
             layer.visible = false;
             layer1.visible = false;
+            layer2.visible = false;
+            layer3.visible = false;
+            viewer.scene.scanEffect.show = false;
           },
         });
       }
@@ -334,16 +358,18 @@ export default {
       layer.style3D.lineWidth = 1.5;
       layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 1);
       layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
-      layer.style3D.fillForeColor = new Cesium.Color( 18 / 255,
+      layer.style3D.fillForeColor = new Cesium.Color(
+        18 / 255,
         55 / 255,
         109 / 255,
-        0.9);
-      layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
-      layer.setObjsColor(
-        [2996],
-        // new Cesium.Color(9 / 255, 277 / 255, 248 / 255, 0.9)
-        new Cesium.Color(0, 1, 1, 1)
+        0.98
       );
+      layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
+      // layer.setObjsColor(
+      //   [2996],
+      //   // new Cesium.Color(9 / 255, 277 / 255, 248 / 255, 0.9)
+      //   new Cesium.Color(0, 1, 1, 1)
+      // );
       //设置环境光(夜晚)
       // scene.lightSource.ambientLightColor = new Cesium.Color(110/255, 110/255, 110/255, 0.5);
       // scene.lightSource.ambientLightColor = new Cesium.Color(
@@ -453,7 +479,7 @@ export default {
     addOverlay1: function () {
       let scene = this.scene;
       var layer = scene.layers.find("road");
-      layer.style3D.fillForeColor = new Cesium.Color(6, 2,0 , 0.35);
+      layer.style3D.fillForeColor = new Cesium.Color(6, 2, 0, 0.35);
       // 关闭太阳光
       scene.sun.show = false;
       // layer.style3D.lineWidth = 1.5;
@@ -475,126 +501,6 @@ export default {
       //   1
       // );
     },
-    //   addOverlay2: function () {
-    //     let scene = this.scene;
-    //     var layer = scene.layers.find("innovate");
-    //     // 关闭太阳光
-    //     scene.sun.show = false;
-    //     layer.style3D.lineWidth = 1.5;
-    //     layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 1);
-    //     layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
-    //     layer.style3D.fillForeColor = new Cesium.Color(1, 1.0, 1.0, 0.98);
-    //     layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
-    //     // layer.setObjsColor(
-    //     //   [2996],
-    //     //   // new Cesium.Color(9 / 255, 277 / 255, 248 / 255, 0.9)
-    //     //   new Cesium.Color(0, 1, 1, 1)
-    //     // );
-    //     //设置环境光(夜晚)
-    //     // scene.lightSource.ambientLightColor = new Cesium.Color(110/255, 110/255, 110/255, 0.5);
-    //     scene.lightSource.ambientLightColor = new Cesium.Color(
-    //       255 / 255,
-    //       255 / 255,
-    //       165 / 255,
-    //       0.1
-    //     );
-    //     //设置场景颜色校正
-    //     var hyp = new Cesium.HypsometricSetting();
-    //     //设置自发光纹理
-    //     function setHypsometric(layer) {
-    //       hyp.emissionTextureArray = [
-    //         {
-    //           url: "./static/img/wenli16.jpg",
-    //           USpeed: 0,
-    //           VSpeed: 0,
-    //           UTiling: 100,
-    //           VTiling: 100,
-    //         },
-    //         {
-    //           url: "./static/img/wenli17.jpg",
-    //           USpeed: 0,
-    //           VSpeed: 0,
-    //           UTiling: 80,
-    //           VTiling: 80,
-    //         },
-    //         {
-    //           url: "./static/img/wenli16.jpg",
-    //           USpeed: 0,
-    //           VSpeed: 0,
-    //           UTiling: 100,
-    //           VTiling: 100,
-    //         },
-    //         {
-    //           url: "./static/img/wenli16.jpg",
-    //           USpeed: 0,
-    //           VSpeed: 0,
-    //           UTiling: 100,
-    //           VTiling: 100,
-    //         },
-    //         {
-    //           url: "./static/img/wenli20.jpg",
-    //           USpeed: 0.5,
-    //           VSpeed: 0,
-    //           UTiling: 50,
-    //           VTiling: 50,
-    //         },
-    //         {
-    //           url: "./static/img/wenli2.jpg",
-    //           USpeed: 0.5,
-    //           VSpeed: 0,
-    //           UTiling: 30,
-    //           VTiling: 30,
-    //         },
-    //         {
-    //           url: "./static/img/wenli2.jpg",
-    //           USpeed: 0.5,
-    //           VSpeed: 0,
-    //           UTiling: 20,
-    //           VTiling: 20,
-    //         },
-    //         {
-    //           url: "./static/img/wenli16.jpg",
-    //           USpeed: 0,
-    //           VSpeed: 0,
-    //           UTiling: 100,
-    //           VTiling: 100,
-    //         },
-    //         {
-    //           url: "./static/img/wenli17.jpg",
-    //           USpeed: 0,
-    //           VSpeed: 0,
-    //           UTiling: 70,
-    //           VTiling: 70,
-    //         },
-    //         {
-    //           url: "./static/img/wenli15.jpg",
-    //           USpeed: 0,
-    //           VSpeed: 0,
-    //           UTiling: 100,
-    //           VTiling: 100,
-    //         },
-    //         {
-    //           url: "./static/img/wenli15.jpg",
-    //           USpeed: 0,
-    //           VSpeed: 0,
-    //           UTiling: 70,
-    //           VTiling: 70,
-    //         },
-    //       ];
-    //       layer.hypsometricSetting = {
-    //         hypsometricSetting: hyp,
-    //       };
-    //     }
-    //     scene.skyAtmosphere.show = false;
-    //     setHypsometric(layer); //夜景
-    //     // 修改地图底色 官网使用底图方式
-    //     let imageLayer = this.viewer.imageryLayers.addImageryProvider(
-    //       new Cesium.SingleTileImageryProvider({
-    //         url: "./static/img/background.jpg",
-    //       })
-    //     );
-    //     console.log(imageLayer);
-    //   },
   },
 };
 </script>
