@@ -17,7 +17,7 @@ export default {
     var cesiumAsset =
       "https://blog.csdn.net/weixin_42448623/article/details/100284740";
     var tiandituTk = "8c9a7d54ac20558e50738df50fcd1920";
-    // // 服务负载子域
+    // 服务负载子域
     var subdomains = ["0", "1", "2", "3", "4", "5", "6", "7"];
     Cesium.Ion.defaultAccessToken = cesiumAsset;
     let viewer = new Cesium.Viewer("cesium-container", {
