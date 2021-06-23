@@ -18,7 +18,7 @@
               </li>
               <li>
                 <p>招商项目</p>
-                 <div class="clearfix downBox">
+                <div class="clearfix downBox">
                   <span>180<em>个</em></span>
                 </div>
               </li>
@@ -72,7 +72,7 @@
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
-        <!-- 返回按钮 -->
+      <!-- 返回按钮 -->
       <div class="button" @click="toIndex">⋘ 返回主页</div>
     </div>
     <!-- 右下角 -->
@@ -108,7 +108,7 @@ export default {
   },
   methods: {
     // 页面跳转
-    toIndex(){
+    toIndex() {
       this.$router.push("/");
     },
     // 绘制企业发展 图
@@ -126,11 +126,11 @@ export default {
           },
           icon: "rect",
         },
-        // tooltip: {
-        //   trigger: "axis",
-        // // showContent: false,//是否展示数据
-        //   triggerOn: "click", //点击时展示数据
-        // },
+        tooltip: {
+          trigger: "axis",
+          // showContent: false,//是否展示数据
+          triggerOn: "click", //点击时展示数据
+        },
         dataset: {
           source: [
             ["product", "2017", "2018", "2019", "2020", "2021"],
@@ -212,23 +212,26 @@ export default {
           {
             type: "pie",
             radius: "78%",
-            center: ["45%", "50%"],
+            center: ["50%", "50%"],
             data: [
-              { value: 300, name: "软件信息" },
-              { value: 350, name: "广告设计" },
-              { value: 274, name: "工业生产" },
-              { value: 205, name: "电子商务" },
-              { value: 400, name: "生物医药" },
+              { value: 300, name: "##信息" },
+              { value: 350, name: "####" },
+              { value: 274, name: "##生产" },
+              { value: 205, name: "##商务" },
+              { value: 400, name: "##医药" },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
             roseType: "radius",
+            avoidLabelOverlap: false,
+            hoverAnimation: false, // 取消鼠标滑入放大的效果
+            animation: false, // 取消饼图展开的效果
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -70, 0, -70],
+              padding: [0, -65, 0, -66],
             },
             labelLine: {
               show: true,
@@ -238,10 +241,16 @@ export default {
               },
               smooth: 0,
               length: 1,
-              length2: 80,
+              length2: 75,
             },
             itemStyle: {
-              color: "#0063FF",
+              // color: "#0063FF",
+              normal: {
+                color: "#0063FF",
+              },
+              emphasis: {
+                color: "rgba(50,226,248)",
+              },
               shadowBlur: 200,
               shadowColor: "rgba(0, 0, 0, 0.5)",
             },
@@ -256,6 +265,24 @@ export default {
       };
       // 3,绘图
       business.setOption(option1);
+      // 自动高亮动画
+      var myChartPieIndex = 0;
+      var a = setInterval(function () {
+        var dataLen = option1.series[0].data.length;
+        // 取消之前高亮的图形
+        business.dispatchAction({
+          type: "downplay",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+        myChartPieIndex = (myChartPieIndex + 1) % dataLen;
+        // 高亮当前图形
+        business.dispatchAction({
+          type: "highlight",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+      }, 1000);
     },
     // 绘制企业年限 图
     drawyear() {
@@ -266,9 +293,9 @@ export default {
         tooltip: {
           trigger: "axis",
         },
-        
+
         grid: {
-             left: "3%",
+          left: "3%",
           right: "4%",
           top: "5%",
           bottom: "2%",
@@ -310,23 +337,28 @@ export default {
               fontSize: 18,
             },
             itemStyle: {
-              color: {
-                type: "linear",
-                x: 1,
-                y: 0,
-                x2: 0,
-                y2: 0,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: "#A36CFF", // 0% 处的颜色
-                  },
-                  {
-                    offset: 1,
-                    color: "#33B8E4", // 100% 处的颜色
-                  },
-                ],
-                global: false, // 缺省为 false
+              normal: {
+                color: {
+                  type: "linear",
+                  x: 1,
+                  y: 0,
+                  x2: 0,
+                  y2: 0,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#A36CFF", // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "#33B8E4", // 100% 处的颜色
+                    },
+                  ],
+                  global: false, // 缺省为 false
+                },
+              },
+              emphasis: {
+                color: "rgba(45,7,249)",
               },
             },
           },
@@ -334,6 +366,24 @@ export default {
       };
       // 3,绘图
       years.setOption(option2);
+      // 自动高亮动画
+      var myChartPieIndex = 0;
+      var a = setInterval(function () {
+        var dataLen = option2.series[0].data.length;
+        // 取消之前高亮的图形
+        years.dispatchAction({
+          type: "downplay",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+        myChartPieIndex = (myChartPieIndex + 1) % dataLen;
+        // 高亮当前图形
+        years.dispatchAction({
+          type: "highlight",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+      }, 1000);
     },
   },
 };

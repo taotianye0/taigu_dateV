@@ -282,6 +282,9 @@ export default {
               return a.value - b.value;
             }),
             roseType: "radius",
+             avoidLabelOverlap: false,
+            hoverAnimation: false, // 取消鼠标滑入放大的效果
+            animation: false, // 取消饼图展开的效果
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
@@ -392,23 +395,28 @@ export default {
               fontSize: 18,
             },
             itemStyle: {
-              color: {
-                type: "linear",
-                x: 1,
-                y: 0,
-                x2: 0,
-                y2: 0,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: "#A36CFF", // 0% 处的颜色
-                  },
-                  {
-                    offset: 1,
-                    color: "#33B8E4", // 100% 处的颜色
-                  },
-                ],
-                global: false, // 缺省为 false
+              normal: {
+                color: {
+                  type: "linear",
+                  x: 1,
+                  y: 0,
+                  x2: 0,
+                  y2: 0,
+                  colorStops: [
+                    {
+                      offset: 0,
+                      color: "#A36CFF", // 0% 处的颜色
+                    },
+                    {
+                      offset: 1,
+                      color: "#33B8E4", // 100% 处的颜色
+                    },
+                  ],
+                  global: false, // 缺省为 false
+                },
+              },
+              emphasis: {
+                color: "rgba(45,7,249)",
               },
             },
           },
@@ -416,7 +424,25 @@ export default {
       };
       // 3,绘图
       years.setOption(option2);
-    },
+      // 自动高亮动画
+      var myChartPieIndex = 0;
+      var a = setInterval(function () {
+        var dataLen = option2.series[0].data.length;
+        // 取消之前高亮的图形
+        years.dispatchAction({
+          type: "downplay",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+        myChartPieIndex = (myChartPieIndex + 1) % dataLen;
+        // 高亮当前图形
+        years.dispatchAction({
+          type: "highlight",
+          seriesIndex: 0,
+          dataIndex: myChartPieIndex,
+        });
+      }, 500)
+    }
   },
 };
 </script>
