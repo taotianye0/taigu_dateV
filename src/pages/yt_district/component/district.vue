@@ -4,7 +4,7 @@
     <div class="left">
       <div class="left_one">
         <div class="left_one_title">
-           <i>园区概况</i>
+          <i>园区概况</i>
           <span>Park Overview</span>
         </div>
         <div class="park">
@@ -78,8 +78,8 @@
     <!-- 右下角 -->
     <div class="right">
       <div class="right_title">
-       <i>企业发展</i>
-      <span>Enterprise Development</span>
+        <i>企业发展</i>
+        <span>Enterprise Development</span>
       </div>
       <div class="years" ref="years"></div>
     </div>
@@ -113,6 +113,8 @@ export default {
     },
     // 绘制产业增加值 图
     drawDevelop() {
+      // 用于清除定时器
+      let tootipTimer = null;
       let develop = this.$echarts.init(this.$refs.develop);
       let option0 = {
         legend: {
@@ -128,9 +130,17 @@ export default {
         },
         tooltip: {
           trigger: "axis",
-          // showContent: false,//是否展示数据
-          triggerOn: "click", //点击时展示数据
         },
+         toolbox: {
+          show: true,
+          feature: {
+            // dataView: { show: true, readOnly: false },
+            magicType: { show: true, type: ["line", "bar"] },
+            restore: { show: true },
+            saveAsImage: { show: true },
+          },
+        },
+           calculable: true,
         dataset: {
           source: [
             ["product", "2017", "2018", "2019", "2020", "2021"],
@@ -143,7 +153,7 @@ export default {
           axisLine: {
             lineStyle: {
               color: "#0D52AC",
-              with: 2,
+              with: 3,
             },
           },
           type: "category",
@@ -188,6 +198,14 @@ export default {
       };
       // 3,绘图
       develop.setOption(option0);
+      // 可调用clearLoop方法，清除定时器
+      tootipTimer && tootipTimer.clearLoop();
+      tootipTimer = null;
+      // 调用轮播的方法
+      tootipTimer = tools.loopShowTooltip(develop, option0, {
+        interval: 1000, // 轮播间隔时间
+        loopSeries: true, // 是否开启轮播循环
+      });
     },
     // 绘制行业占比 图
     drawBusiness() {
@@ -224,8 +242,8 @@ export default {
             }),
             roseType: "radius",
             avoidLabelOverlap: false,
-            hoverAnimation: false, // 取消鼠标滑入放大的效果
-            animation: false, // 取消饼图展开的效果
+            // hoverAnimation: false, // 取消鼠标滑入放大的效果
+            // animation: false, // 取消饼图展开的效果
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",

@@ -199,7 +199,7 @@ export default {
               animationThreshold: 2000,
               animationDuration: function (idx) {
                 // 越往后的数据时长越大
-                return idx * 100;
+                return idx * 200;
               },
             },
             barWidth: "70%",

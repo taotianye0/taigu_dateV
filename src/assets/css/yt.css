@@ -187,6 +187,9 @@
   font: 0.22rem "MicrosoftYaHei";
   line-height: 0.32rem;
 }
+.left_three_title span {
+  font-size: 0.16rem;
+}
 .left_one_title {
   height: 0.72rem;
   width: 100%;
@@ -197,6 +200,9 @@
   line-height: 0.35rem;
   display: block;
   font: 0.22rem "MicrosoftYaHei";
+}
+.left_one_title span {
+  font-size: 0.16rem;
 }
 .business,
 .develop,
@@ -225,4 +231,7 @@
   line-height: 0.35rem;
   display: block;
   font: 0.22rem "MicrosoftYaHei";
+}
+.right_title span {
+  font-size: 0.16rem;
 }

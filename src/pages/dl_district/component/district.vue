@@ -393,6 +393,6 @@ export default {
 @import "../../../assets/css/yt.css";
 
 .title .title_en {
-  letter-spacing: 0.028rem;
+  letter-spacing: 0.023rem;
 }
 </style>
