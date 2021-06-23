@@ -128,10 +128,10 @@ export default {
       let tootipTimer = null;
       let option0 = {
         grid: {
-          left: "1%",
+          left: "5%",
           right: "7%",
           bottom: "3%",
-          top: "15%",
+          top: "18%",
           containLabel: false,
         },
         tooltip: {
@@ -207,31 +207,51 @@ export default {
             },
             barWidth: "70%",
             itemStyle: {
-              color: {
-                type: "linear",
-                x: 0,
-                y: 1,
-                x2: 1,
-                y2: 0,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: "#3CCACB", // 0% 处的颜色
-                  },
-                  {
-                    offset: 1,
-                    color: "#002DFF", // 100% 处的颜色
-                  },
-                ],
-                global: false, // 缺省为 false
+              // color: {
+              //   type: "linear",
+              //   x: 0,
+              //   y: 1,
+              //   x2: 1,
+              //   y2: 0,
+              //   colorStops: [
+              //     {
+              //       offset: 0,
+              //       color: "#3CCACB", // 0% 处的颜色
+              //     },
+              //     {
+              //       offset: 1,
+              //       color: "#002DFF", // 100% 处的颜色
+              //     },
+              //   ],
+              //   global: false, // 缺省为 false
+              // },
+              // shadowColor: "#0063FF",
+              // shadowOffsetX: 3,
+              // shadowOffsetY: -1,
+              normal: {
+                //每根柱子颜色设置
+                color: function (params) {
+                  let colorList = [
+                   "#D85C5C",
+                    "#399D6F",
+                    "#1A63B1",
+                     "#D85C5C",
+                    "#399D6F",
+                    "#1A63B1", 
+                    "#D85C5C",
+                    "#399D6F",
+                    "#1A63B1", 
+                    "#D85C5C",
+                    "#399D6F",
+                    "#1A63B1",
+                  ];
+                  return colorList[params.dataIndex];
+                },
               },
-              shadowColor: "#0063FF",
-              shadowOffsetX: 3,
-              shadowOffsetY: -1,
             },
             emphasis: {
               itemStyle: {
-                color: "rgba(0,0,255)",
+                color: "rgba(70,237,238)",
               },
             },
           },
@@ -259,32 +279,32 @@ export default {
           formatter: " <br/>{b} : {c} ({d}%)",
           triggerOn: "click",
         },
-        visualMap: {
-          show: false,
-          min: 10,
-          max: 600,
-          inRange: {
-            colorLightness: [0, 1],
-          },
-        },
+        // visualMap: {
+        //   show: false,
+        //   min: 100,
+        //   max: 600,
+        //   inRange: {
+        //     colorLightness: [0, 1],
+        //   },
+        // },
         series: [
           {
             type: "pie",
             radius: "78%",
             center: ["50%", "50%"],
             data: [
-              { value: 300, name: "##信息" },
-              { value: 350, name: "####" },
-              { value: 274, name: "##生产" },
-              { value: 205, name: "##商务" },
-              { value: 400, name: "##医药" },
+              { value: 300, name: "##信息", itemStyle: { color: "#1C6BBF" } },
+              { value: 350, name: "####", itemStyle: { color: "#9A60B4" } },
+              { value: 274, name: "##生产", itemStyle: { color: "#FC8452" } },
+              { value: 205, name: "##商务", itemStyle: { color: "#EE6666" } },
+              { value: 400, name: "##医药", itemStyle: { color: "#3BA272" } },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
             roseType: "radius",
-             avoidLabelOverlap: false,
-            hoverAnimation: false, // 取消鼠标滑入放大的效果
-            animation: false, // 取消饼图展开的效果
+            avoidLabelOverlap: false,
+            // hoverAnimation: false, // 取消鼠标滑入放大的效果
+            // animation: false, // 取消饼图展开的效果
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
@@ -303,13 +323,12 @@ export default {
               length2: 75,
             },
             itemStyle: {
-              // color: "#0063FF",
-              normal: {
-                color: "#0063FF",
-              },
-              emphasis: {
-                color: "rgba(50,226,248,0.7)",
-              },
+              // normal: {
+              //   color: "#0063FF",
+              // },
+              // emphasis: {
+              //   color: "rgba(50,226,248,0.7)",
+              // },
               shadowBlur: 200,
               shadowColor: "rgba(0, 0, 0, 0.5)",
             },
@@ -364,10 +383,10 @@ export default {
         },
         yAxis: {
           type: "category",
-          data: ["###企业", "上市公司", "新兴产业企业", "高新技术企业"],
+          data: ["瞪羚企业", "上市公司", "骨干企业", "高新技术企业"],
           nameLocation: "center",
           axisLabel: {
-            color: "#00FCF9",
+            color: "#BCC3D6",
             fontFamily: "Microsoft YaHei",
             fontWeight: 400,
             fontSize: 16,
@@ -384,39 +403,41 @@ export default {
           {
             type: "bar",
             barWidth: "50%",
-            data: [100,25,30,308],
+            data: [100, 25, 30, 308],
             label: {
               show: true,
               position: "right",
               formatter: "{c}户",
-              color: "#00FCF9",
+              color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
+              // fontFamily: "苹方",
               fontWeight: 400,
-              fontSize: 18,
+              fontSize: 16,
             },
             itemStyle: {
               normal: {
-                color: {
-                  type: "linear",
-                  x: 1,
-                  y: 0,
-                  x2: 0,
-                  y2: 0,
-                  colorStops: [
-                    {
-                      offset: 0,
-                      color: "#A36CFF", // 0% 处的颜色
-                    },
-                    {
-                      offset: 1,
-                      color: "#33B8E4", // 100% 处的颜色
-                    },
-                  ],
-                  global: false, // 缺省为 false
-                },
+                // color: {
+                //   type: "linear",
+                //   x: 1,
+                //   y: 0,
+                //   x2: 0,
+                //   y2: 0,
+                //   colorStops: [
+                //     {
+                //       offset: 0,
+                //       color: "#A36CFF", // 0% 处的颜色
+                //     },
+                //     {
+                //       offset: 1,
+                //       color: "#33B8E4", // 100% 处的颜色
+                //     },
+                //   ],
+                //   global: false, // 缺省为 false
+                // },
+                color: "#0063FF",
               },
               emphasis: {
-                color: "rgba(45,7,249)",
+                color: "rgba(70,237,238)",
               },
             },
           },
@@ -441,8 +462,8 @@ export default {
           seriesIndex: 0,
           dataIndex: myChartPieIndex,
         });
-      }, 500)
-    }
+      }, 800);
+    },
   },
 };
 </script>
