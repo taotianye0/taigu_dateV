@@ -131,7 +131,7 @@ export default {
         tooltip: {
           trigger: "axis",
         },
-         toolbox: {
+        toolbox: {
           show: true,
           feature: {
             // dataView: { show: true, readOnly: false },
@@ -140,7 +140,7 @@ export default {
             saveAsImage: { show: true },
           },
         },
-           calculable: true,
+        calculable: true,
         dataset: {
           source: [
             ["product", "2017", "2018", "2019", "2020", "2021"],
@@ -157,7 +157,7 @@ export default {
             },
           },
           type: "category",
-
+            nameLocation: "center",
           axisTick: {
             alignWithLabel: true,
           },
