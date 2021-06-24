@@ -208,8 +208,9 @@ export default {
     // 点击建筑页面的返回按钮  ====》 接收的值
     this.$event.$on("aa", (e) => {
       this.val = 0;
-      console.log(this.val, "值在这");
+      // console.log(this.val, "值在这");
       if (e == false) {
+        // 飞行回原视角
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
             -1240000.5114361974,
@@ -287,7 +288,6 @@ export default {
         });
       } else if (selectlayer.name == "innovate") {
         // 创新大厦
-
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
             -1237873.6199691885,
@@ -733,6 +733,7 @@ export default {
       // 关闭太阳光
       scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
+      // 创新大厦的颜色
       layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 1);
       layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
       layer.style3D.fillForeColor = new Cesium.Color.CYAN();

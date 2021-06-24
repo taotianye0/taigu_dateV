@@ -90,18 +90,19 @@
   position: fixed;
   left: 0;
   top: 0;
-  min-width: 4.7rem;
-  width: 28%;
+  padding: 0.35rem 0.2rem 0.1rem 0.40rem;
+  box-sizing: border-box;
+  background: rgba(35,84,173, 0.2);
+  width: 22%;
+  min-width: 4rem;
   height: 100%;
-  padding: 0.3rem 0.3rem 0;
-  background: rgba(35, 84, 173, 0.2);
 }
 
 .left_one {
-  width: calc(100% - 0.6rem);
+  // width: calc(100% - 0.6rem);
   padding-bottom: 0.15rem;
-  height: 43%;
-
+  height: 33%;
+  width: 100%;
   .con {
     height: calc(100% - 0.57rem);
 
@@ -127,7 +128,7 @@
       height: 100%;
       box-sizing: border-box;
       text-align: center;
-      font-size: 0.2rem;
+      font-size: 0.18rem;
       font-family: Microsoft YaHei;
       font-weight: 400;
     }
@@ -157,7 +158,8 @@
     li.text {
       right: 0;
       width: 30%;
-      color: #54DEFE;
+      // color: #54DEFE;
+      color: extract(@textCol, 2);
     }
   }
 
@@ -166,7 +168,8 @@
 
 .left_two {
   width: calc(100% - 0.6rem);
-  height: 28%;
+  height: 38%;
+  width: 100%;
 
   li {
     height: 0.4rem;
@@ -181,13 +184,13 @@
 
   .item_name {
     width: 70%;
-    font-size: 0.2rem;
+    font-size: 0.16rem;
     font-family: Microsoft YaHei;
     font-weight: 400;
   }
 
   .item_time {
-    font-size: 0.2rem;
+    font-size: 0.16rem;
     font-family: Microsoft YaHei;
     font-weight: 400;
   }
@@ -206,23 +209,23 @@
 }
 
 .left_three {
-  width: 4.82rem;
+  width: 100%;
   height: 23%;
 
   .con {
-    width: 4.72rem;
+    width: 100%;
     height: calc(100% - 0.57rem);
 
     ul {
       width: 100%;
-      height: 70%;
+      height: 80%;
       padding: 0.1rem;
       .flex;
     }
   }
 
   li {
-    width: 25%;
+    width: 35%;
     height: 100%;
 
     .up {
@@ -251,7 +254,7 @@
       background-size: 100% 100%;
       text-align: center;
       color: extract(@textCol, 2);
-      font-size: 0.2rem;
+      font-size: 0.18rem;
 
       i {
         position: absolute;
@@ -601,7 +604,7 @@
 
 .right_three {
   width: 100%;
-  height: 55%;
+  height: 50%;
 
   .list {
     width: 100%;
@@ -627,7 +630,7 @@
         height: 100%;
         display: inline-block;
         color: extract(@textCol, 2);
-        font-size: 0.22rem;
+        font-size: 0.18rem;
         font-family: Microsoft YaHei;
         font-weight: 400;
         position: absolute;

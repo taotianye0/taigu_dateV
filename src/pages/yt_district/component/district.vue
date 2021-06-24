@@ -131,15 +131,15 @@ export default {
         tooltip: {
           trigger: "axis",
         },
-        toolbox: {
-          show: true,
-          feature: {
-            // dataView: { show: true, readOnly: false },
-            magicType: { show: true, type: ["line", "bar"] },
-            restore: { show: true },
-            saveAsImage: { show: true },
-          },
-        },
+        // toolbox: {
+        //   show: true,
+        //   feature: {
+        //     // dataView: { show: true, readOnly: false },
+        //     magicType: { show: true, type: ["line", "bar"] },
+        //     restore: { show: true },
+        //     saveAsImage: { show: true },
+        //   },
+        // },
         calculable: true,
         dataset: {
           source: [

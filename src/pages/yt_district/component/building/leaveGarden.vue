@@ -31,15 +31,15 @@
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
-                <li class="name">总规划建筑面积</li>
-                <li class="text">142万㎡</li>
+                <li class="name">企业数量</li>
+                <li class="text">253家</li>
               </ul>
             </li>
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
-                <li class="name">总规划建筑面积</li>
-                <li class="text">142万㎡</li>
+                <li class="name">留学人才</li>
+                <li class="text">58位</li>
               </ul>
             </li>
           </ul>
