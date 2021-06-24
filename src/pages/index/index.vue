@@ -105,7 +105,7 @@
         </div>
       </div>
     </div>
-    <!-- 数据的组件 -->
+    <!-- 两边数据的组件 -->
     <v-district></v-district>
   </div>
 </template>
