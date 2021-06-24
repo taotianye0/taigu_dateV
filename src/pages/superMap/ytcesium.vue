@@ -641,7 +641,6 @@ export default {
       // 关闭太阳光
       scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
-      // layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 0.5);
       layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
       layer.style3D.fillForeColor = new CCesium.Color.SPRINGGREEN();
       layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
