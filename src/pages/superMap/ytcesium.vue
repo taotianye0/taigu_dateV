@@ -94,11 +94,11 @@ export default {
       })
       .then(() => {
         this.addOverlay();
-        var layer = viewer.scene.layers.find("bim");
-        // 关闭太阳光
-        viewer.scene.sun.show = false;
-        layer.style3D.lineWidth = 1.5;
-        layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 1);
+        // var layer = viewer.scene.layers.find("bim");
+        // // 关闭太阳光
+        // viewer.scene.sun.show = false;
+        // layer.style3D.lineWidth = 1.5;
+        // layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 1);
       });
     let url1 =
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/DL/config";
@@ -128,7 +128,7 @@ export default {
         packingRequest: 4,
       })
       .then(() => {
-        this.addOverlay3();
+        this.addOverlay4();
       });
     let url4 =
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/CXDS/config";
@@ -138,7 +138,7 @@ export default {
         packingRequest: 4,
       })
       .then(() => {
-        this.addOverlay2();
+        this.addOverlay3();
       });
     // 将三维球定位
 
@@ -221,11 +221,24 @@ export default {
             pitch: -0.47877092800193255,
             roll: 6.283171325419627,
           },
-          duration: 6, //持续时间
+          duration: 5, //持续时间
           complete: function callback() {
-            // this.gettime();
-            // location.reload();
-            that.val = 0;
+            viewer.camera.flyTo({
+              destination: Cesium.Cartesian3.fromDegrees(
+                103.901125,
+                36.05943,
+                100000
+              ),
+              orientation: {
+                heading: Cesium.Math.toRadians(348.4202942851978),
+                pitch: Cesium.Math.toRadians(-89.74026687972041),
+                roll: Cesium.Math.toRadians(0),
+              },
+              duration: 6, //持续时间
+              complete: function callback() {
+                location.reload();
+              },
+            });
           },
         });
       }
@@ -266,8 +279,10 @@ export default {
           },
           duration: 5, //持续时间
           complete: function callback() {
-            // that.gettime();
             that.val = 1;
+            that.isshow = !that.isshow;
+            console.log(that.isshow, that.val);
+            // that.gettime();
           },
         });
       } else if (selectlayer.name == "innovate") {
@@ -322,127 +337,160 @@ export default {
     },
     gettime() {
       var viewer = this.viewer;
+      var startTime = Cesium.JulianDate.fromDate(new Date());
+      var stopTime = Cesium.JulianDate.addSeconds(
+        startTime,
+        1,
+        new Cesium.JulianDate()
+      );
       if (this.val == 2 || this.val == 0) {
         var options = {
           lng: 103.89155934168078,
           lat: 36.05350322030359,
           height: 1.578004941040925,
-          heading: 0.0,
-          pitch: 0.0,
-          roll: 0.0,
+          heading: 1.1661396370797075,
+          pitch: -0.47865140602711786,
+          roll: 6.283171324877447,
         };
       } else if (this.val == 1) {
         var options = {
           lng: 103.89658963464912,
           lat: 36.051262177199426,
           height: 54.889351745520514,
-          heading: 0.0,
-          pitch: 0.0,
-          roll: 0.0,
+
+          heading: 4.1945742079374515,
+          pitch: -0.478811382362184,
+          roll: 6.283171325420994,
+        };
+      } else if (this.val == 3) {
+        var options = {
+          lng: 103.89658963464912,
+          lat: 36.051262177199426,
+          height: 54.889351745520514,
+          heading: 0.32180464817195986,
+          pitch: -0.4786520862834105,
+          roll: 6.283171324322858,
         };
       }
-      setTimeout(() => {
-        var position = Cesium.Cartesian3.fromDegrees(
-          options.lng,
-          options.lat,
-          options.height
-        );
-        // 相机看点的角度，如果大于0那么则是从地底往上看，所以要为负值，这里取-30度
-        var pitch = Cesium.Math.toRadians(-30);
-        // 给定飞行一周所需时间，比如10s, 那么每秒转动度数
-        var angle = 360 / 30;
-        // 给定相机距离点多少距离飞行，这里取值为5000m
-        var distance = 350;
-        var startTime = Cesium.JulianDate.fromDate(new Date());
-        var stopTime = Cesium.JulianDate.addSeconds(
-          startTime,
-          0,
-          new Cesium.JulianDate()
-        );
-        console.log(startTime, stopTime, "start");
-        viewer.clock.startTime = startTime.clone(); // 开始时间
-        if (this.val == 0) {
-          console.log("stop");
-          viewer.clock.stopTime = stopTime.clone(); // 结速时间
-        }
 
-        viewer.clock.currentTime = startTime.clone(); // 当前时间
-        viewer.clock.clockRange = Cesium.ClockRange.CLAMPED; // 行为方式
-        viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK; // 时钟设置为当前系统时间; 忽略所有其他设置。
-        // 相机的当前heading
-        var initialHeading = viewer.camera.heading;
-        var Exection = function TimeExecution() {
-          // 当前已经过去的时间，单位s
-          var delTime = Cesium.JulianDate.secondsDifference(
-            viewer.clock.currentTime,
-            viewer.clock.startTime
+      if (this.isshow == true) {
+        setTimeout(() => {
+          var position = Cesium.Cartesian3.fromDegrees(
+            options.lng,
+            options.lat,
+            options.height
           );
-          var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
-          viewer.scene.camera.setView({
-            destination: position, // 点的坐标
-            orientation: {
-              heading: heading,
-              pitch: pitch,
-            },
-          });
-          viewer.scene.camera.moveBackward(distance);
+          // 相机看点的角度，如果大于0那么则是从地底往上看，所以要为负值，这里取-30度
+          var pitch = Cesium.Math.toRadians(-30);
+          // 给定飞行一周所需时间，比如10s, 那么每秒转动度数
+          var angle = 360 / 30;
+          // 给定相机距离点多少距离飞行，这里取值为5000m
+          var distance = 300;
 
-          if (
-            Cesium.JulianDate.compare(
-              viewer.clock.currentTime,
-              viewer.clock.stopTime
-            ) >= 0
-          ) {
-            viewer.clock.onTick.removeEventListener(Exection);
+          if (this.val == 1 || this.val == 2) {
+            console.log(this.val, "start");
+            viewer.clock.startTime = startTime.clone(); // 开始时间
+          } else {
+            console.log("stop");
+            viewer.clock.stopTime = stopTime.clone(); // 结速时间
           }
-        };
 
-        viewer.clock.onTick.addEventListener(Exection);
-      }, 1000);
-      //   setTimeout(() => {
-      //   var startTime = Cesium.JulianDate.fromDate(new Date());
-      //   console.log(startTime);
-      //   var stopTime = Cesium.JulianDate.addSeconds(
-      //     startTime,
-      //     10,
-      //     new Cesium.JulianDate()
-      //   );
-      //   viewer.clock.startTime = startTime.clone(); // 开始时间
-      //   viewer.clock.stopTime = stopTime.clone(); // 结速时间
-      //   viewer.clock.currentTime = startTime.clone(); // 当前时间
-      //   viewer.clock.clockRange = Cesium.ClockRange.CLAMPED; // 行为方式
-      //   viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK; // 时钟设置为当前系统时间; 忽略所有其他设置。 // 相机的当前heading
-      //   var initialHeading = viewer.camera.heading;
-      //   var Exection = function TimeExecution() {
-      //     // 当前已经过去的时间，单位s
-      //     var delTime = Cesium.JulianDate.secondsDifference(
-      //       viewer.clock.currentTime,
-      //       viewer.clock.startTime
-      //     );
-      //     var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
-      //     viewer.scene.camera.setView({
-      //       destination: Cesium.Cartesian3.fromDegrees(
-      //         103.89658963464912,
-      //         36.051262177199426,
-      //         54.889351745520514
-      //       ), // 点的坐
-      //       orientation: {
-      //         heading: heading,
-      //         pitch: pitch,
-      //       },
-      //     });
-      //     viewer.scene.camera.moveBackward(distance);
-      //     if (
-      //       Cesium.JulianDate.compare(
-      //         viewer.clock.currentTime,
-      //         viewer.clock.stopTime
-      //       ) >= 0
-      //     ) {
-      //       viewer.clock.onTick.removeEventListener(Exection);
-      //     }
-      //   };
-      //   viewer.clock.onTick.addEventListener(Exection);
-      // }, 5000);
+          viewer.clock.currentTime = startTime.clone(); // 当前时间
+          viewer.clock.clockRange = Cesium.ClockRange.CLAMPED; // 行为方式
+          viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK; // 时钟设置为当前系统时间; 忽略所有其他设置。
+          // 相机的当前heading
+          var initialHeading = viewer.camera.heading;
+          var Exection = function TimeExecution() {
+            // 当前已经过去的时间，单位s
+            var delTime = Cesium.JulianDate.secondsDifference(
+              viewer.clock.currentTime,
+              viewer.clock.startTime
+            );
+            var heading =
+              Cesium.Math.toRadians(delTime * angle) + initialHeading;
+            viewer.scene.camera.setView({
+              destination: position, // 点的坐标
+              orientation: {
+                heading: heading,
+                pitch: pitch,
+              },
+            });
+            viewer.scene.camera.moveBackward(distance);
+
+            if (
+              Cesium.JulianDate.compare(
+                viewer.clock.currentTime,
+                viewer.clock.stopTime
+              ) >= 0
+            ) {
+              viewer.clock.onTick.removeEventListener(Exection);
+            }
+          };
+
+          viewer.clock.onTick.addEventListener(Exection);
+        }, 1000);
+      } else {
+        setTimeout(() => {
+          var position = Cesium.Cartesian3.fromDegrees(
+            options.lng,
+            options.lat,
+            options.height
+          );
+          // 相机看点的角度，如果大于0那么则是从地底往上看，所以要为负值，这里取-30度
+          var pitch = Cesium.Math.toRadians(-30);
+          // 给定飞行一周所需时间，比如10s, 那么每秒转动度数
+          var angle = 360 / 30;
+          // 给定相机距离点多少距离飞行，这里取值为5000m
+          var distance = 300;
+          // var startTime = Cesium.JulianDate.fromDate(new Date());
+          // var stopTime = Cesium.JulianDate.addSeconds(
+          //   startTime,
+          //   0,
+          //   new Cesium.JulianDate()
+          // );
+          if (this.val == 1 || this.val == 2) {
+            console.log(this.val, "start");
+            viewer.clock.startTime = startTime.clone(); // 开始时间
+          } else {
+            console.log("stop");
+            viewer.clock.stopTime = stopTime.clone(); // 结速时间
+          }
+
+          viewer.clock.currentTime = startTime.clone(); // 当前时间
+          viewer.clock.clockRange = Cesium.ClockRange.CLAMPED; // 行为方式
+          viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK; // 时钟设置为当前系统时间; 忽略所有其他设置。
+          // 相机的当前heading
+          var initialHeading = viewer.camera.heading;
+          var Exection = function TimeExecution() {
+            // 当前已经过去的时间，单位s
+            var delTime = Cesium.JulianDate.secondsDifference(
+              viewer.clock.currentTime,
+              viewer.clock.startTime
+            );
+            var heading =
+              Cesium.Math.toRadians(delTime * angle) + initialHeading;
+            viewer.scene.camera.setView({
+              destination: position, // 点的坐标
+              orientation: {
+                heading: heading,
+                pitch: pitch,
+              },
+            });
+            viewer.scene.camera.moveBackward(distance);
+
+            if (
+              Cesium.JulianDate.compare(
+                viewer.clock.currentTime,
+                viewer.clock.stopTime
+              ) >= 0
+            ) {
+              viewer.clock.onTick.removeEventListener(Exection);
+            }
+          };
+
+          viewer.clock.onTick.addEventListener(Exection);
+        }, 1000);
+      }
     },
     // 楼层样式
     addOverlay: function () {
@@ -679,15 +727,115 @@ export default {
       scene.skyAtmosphere.show = false;
       setHypsometric(layer); //夜景
     },
-    // 孵化大厦
     addOverlay3: function () {
+      let scene = this.scene;
+      var layer = scene.layers.find("innovate");
+      // 关闭太阳光
+      scene.sun.show = false;
+      layer.style3D.lineWidth = 1.5;
+      layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 1);
+      layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
+      layer.style3D.fillForeColor = new Cesium.Color.CYAN();
+      layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
+      //设置场景颜色校正
+      // var hyp = new Cesium.HypsometricSetting();
+      // //设置自发光纹理
+      // function setHypsometric(layer) {
+      //   hyp.emissionTextureArray = [
+      //     {
+      //       url: "./static/img/wenli16.jpg",
+      //       USpeed: 0,
+      //       VSpeed: 0,
+      //       UTiling: 100,
+      //       VTiling: 100,
+      //     },
+      //     {
+      //       url: "./static/img/wenli17.jpg",
+      //       USpeed: 0,
+      //       VSpeed: 0,
+      //       UTiling: 80,
+      //       VTiling: 80,
+      //     },
+      //     {
+      //       url: "./static/img/wenli16.jpg",
+      //       USpeed: 0,
+      //       VSpeed: 0,
+      //       UTiling: 100,
+      //       VTiling: 100,
+      //     },
+      //     {
+      //       url: "./static/img/wenli16.jpg",
+      //       USpeed: 0,
+      //       VSpeed: 0,
+      //       UTiling: 100,
+      //       VTiling: 100,
+      //     },
+      //     {
+      //       url: "./static/img/wenli20.jpg",
+      //       USpeed: 0.5,
+      //       VSpeed: 0,
+      //       UTiling: 50,
+      //       VTiling: 50,
+      //     },
+      //     {
+      //       url: "./static/img/wenli2.jpg",
+      //       USpeed: 0.5,
+      //       VSpeed: 0,
+      //       UTiling: 30,
+      //       VTiling: 30,
+      //     },
+      //     {
+      //       url: "./static/img/wenli2.jpg",
+      //       USpeed: 0.5,
+      //       VSpeed: 0,
+      //       UTiling: 20,
+      //       VTiling: 20,
+      //     },
+      //     {
+      //       url: "./static/img/wenli16.jpg",
+      //       USpeed: 0,
+      //       VSpeed: 0,
+      //       UTiling: 100,
+      //       VTiling: 100,
+      //     },
+      //     {
+      //       url: "./static/img/wenli17.jpg",
+      //       USpeed: 0,
+      //       VSpeed: 0,
+      //       UTiling: 70,
+      //       VTiling: 70,
+      //     },
+      //     {
+      //       url: "./static/img/wenli15.jpg",
+      //       USpeed: 0,
+      //       VSpeed: 0,
+      //       UTiling: 100,
+      //       VTiling: 100,
+      //     },
+      //     {
+      //       url: "./static/img/wenli15.jpg",
+      //       USpeed: 0,
+      //       VSpeed: 0,
+      //       UTiling: 70,
+      //       VTiling: 70,
+      //     },
+      //   ];
+      //   layer.hypsometricSetting = {
+      //     hypsometricSetting: hyp,
+      //   };
+      // }
+      // scene.skyAtmosphere.show = false;
+      // setHypsometric(layer); //夜景
+    },
+    addOverlay4: function () {
       let scene = this.scene;
       var layer = scene.layers.find("hatch");
       // 关闭太阳光
       scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
+      layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 1);
       layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
-      layer.style3D.fillForeColor = new CCesium.Color.SPRINGGREEN();
+      layer.style3D.fillForeColor = new Cesium.Color.CYAN();
       layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
       //设置场景颜色校正
       var hyp = new Cesium.HypsometricSetting();
