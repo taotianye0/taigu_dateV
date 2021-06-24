@@ -2,7 +2,7 @@
   <!-- 高新区雁滩园区 -->
   <div class="big_bg">
     <div class="indexbg">
-      <img src="../../assets/img/indexbg.png" />
+      <img src="../../../static/img/indexbg.png" />
       <!-- <img src="../../assets/img/indexBG.jpg" /> -->
       <div class="dl">
         <div class="name">
