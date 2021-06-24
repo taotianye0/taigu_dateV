@@ -75,10 +75,11 @@
   position: fixed;
   left: 0;
   top: 0;
-  min-width: 4.88rem;
-  width: 28.3%;
+  min-width: 4.7rem;
+  width: 28%;
   height: 100%;
   padding: 0.3rem 0.3rem 0;
+  background: rgba(35, 84, 173, 0.2);
 }
 .left_one {
   width: calc(100% - 0.6rem);
@@ -340,91 +341,17 @@
 }
 .right {
   min-width: 4.8rem;
+  padding: 0.2rem 0.1rem 0.1rem 0.2rem;
   position: fixed;
   right: 0;
   bottom: 0;
-  height: 80%;
-  width: 27.3%;
-}
-.right_one {
-  width: 100%;
-  height: 22%;
-}
-.right_one .con {
-  padding: 0.25rem 0.3rem 0 0.3rem;
-  box-sizing: border-box;
-  width: 100%;
-  height: calc(100% - 0.57rem);
-  position: relative;
-}
-.right_one ul {
-  width: 100%;
-  height: 80%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  margin: 0 auto;
-}
-.right_one li {
-  width: 50%;
-  height: 100%;
-  background: url("../img/圆角矩形.png") no-repeat;
-  background-size: 100% 100%;
-  position: relative;
-}
-.right_one li .one_left,
-.right_one li .two_left {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  background: url("../img/企业1.png") no-repeat 15% center;
-  background-size: 20% 50%;
-}
-.right_one li .one_right {
-  display: inline-block;
-  width: 100%;
-  height: 65%;
-  color: #FFF;
-  position: absolute;
-  left: 10%;
-  top: 22%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.right_one li .one_right i,
-.right_one li .one_right span {
-  display: block;
-  width: 100%;
-  height: 80%;
-}
-.right_one li .one_right i {
-  font-size: 0.2rem;
-  font-family: Microsoft YaHei;
-  font-weight: 400;
-}
-.right_one li .one_right span {
-  font-size: 0.22rem;
-  font-family: Microsoft YaHei;
-  font-weight: bold;
-  color: #30D7E1;
-}
-.right_one li .one_right span em {
-  font-size: 0.14rem;
-}
-.right_one li .two_left {
-  background: url("../img/招商.png") no-repeat 15% center;
-  background-size: 20% 50%;
+  height: 60%;
+  width: 25%;
+  background: rgba(35, 84, 173, 0.2);
 }
 .right_two {
   width: 100%;
-  height: 34%;
+  height: 45%;
   position: relative;
 }
 .right_two .righttwo_left {
@@ -497,7 +424,7 @@
 }
 .right_three {
   width: 100%;
-  height: 43%;
+  height: 55%;
 }
 .right_three .list {
   width: 100%;

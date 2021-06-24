@@ -57,10 +57,11 @@
   position: fixed;
   left: 0;
   top: 0;
-  padding: 0.35rem 0.4rem 0.1rem 0.4rem;
+  padding: 0.35rem 0.1rem 0.1rem 0.4rem;
   box-sizing: border-box;
-  width: 27%;
-  min-width: 5.08rem;
+  background: rgba(35, 84, 173, 0.2);
+  width: 24%;
+  min-width: 4rem;
   height: 100vh;
   background-color: "#2354AD";
   display: flex;
@@ -214,6 +215,7 @@
   position: fixed;
   bottom: 0.1rem;
   right: 0.24rem;
+  background: rgba(35, 84, 173, 0.2);
   width: 25%;
   min-width: 4.88rem;
   height: 3.1rem;
