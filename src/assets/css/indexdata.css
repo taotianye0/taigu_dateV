@@ -13,7 +13,7 @@
   font-size: 0.52rem;
   font-family: Microsoft YaHei;
   font-weight: bold;
-  color: #FFFFFF;
+  color: #FFF;
   background: linear-gradient(0deg, #AAD4FE 0%, #FFFFFF 99.58496094%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -108,7 +108,7 @@
 }
 .left_one .park_up span {
   font-size: 0.18rem;
-  color: #54DEFE;
+  color: #BCC3D6;
   display: block;
   float: left;
   margin-bottom: 0.05rem;
@@ -116,7 +116,7 @@
 .left_one .park_up em {
   padding-left: 0.05rem;
   font-size: 0.14rem;
-  color: #54DEFE;
+  color: #BCC3D6;
 }
 .left_one .park_down {
   padding-top: 5%;
@@ -149,7 +149,7 @@
   background-size: 100% 100%;
 }
 .left_one .park_down li p {
-  color: #54DEFE;
+  color: #BCC3D6;
   font-size: 0.18rem;
 }
 .left_one .park_down li span {
@@ -178,7 +178,7 @@
 .left_three_title {
   height: 0.62rem;
   width: 100%;
-  color: #fff;
+  color: #FFF;
 }
 .left_three_title i,
 .left_three_title span {
@@ -192,7 +192,7 @@
 .left_one_title {
   height: 0.72rem;
   width: 100%;
-  color: #fff;
+  color: #FFF;
 }
 .left_one_title i,
 .left_one_title span {
@@ -224,7 +224,7 @@
 .right_title {
   height: 0.62rem;
   width: 100%;
-  color: #fff;
+  color: #FFF;
 }
 .right_title i,
 .right_title span {

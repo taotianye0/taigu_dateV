@@ -327,7 +327,7 @@ export default {
           data: ["4 微型企业", "3 小型企业", "2 中型企业", "1 大型企业"],
           nameLocation: "center",
           axisLabel: {
-            color: "#00FCF9",
+            color: "#BCC3D6",
             fontFamily: "Microsoft YaHei",
             fontWeight: 400,
             fontSize: 18,
@@ -349,7 +349,7 @@ export default {
               show: true,
               position: "right",
               formatter: "{c}年",
-              color: "#00FCF9",
+              color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
               fontWeight: 400,
               fontSize: 18,

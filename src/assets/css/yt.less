@@ -18,7 +18,7 @@
     font-size: 0.52rem;
     font-family: Microsoft YaHei;
     font-weight: bold;
-    color: #FFFFFF;
+    color: extract(@textCol, 1);
     background: linear-gradient(0deg, #AAD4FE 0%, #FFFFFF 99.5849609375%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -247,7 +247,8 @@
 
     span {
       font-size: 0.18rem;
-      color: #54DEFE;
+      // color: #54DEFE;
+      color: extract(@textCol, 2);
       display: block;
       float: left;
       margin-bottom: 0.05rem;
@@ -256,7 +257,8 @@
     em {
       padding-left: 0.05rem;
       font-size: 0.14rem;
-      color: #54DEFE;
+      // color: #54DEFE;
+      color: extract(@textCol, 2);
     }
   }
 
@@ -291,7 +293,8 @@
       }
 
       p {
-        color: #54DEFE;
+        // color: #54DEFE;
+        color: extract(@textCol, 2);
         font-size: 0.18rem;
       }
 
