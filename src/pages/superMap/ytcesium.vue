@@ -210,6 +210,8 @@ export default {
           break;
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    // handler.setInputAction(function (event) {},
+    // Cesium.ScreenSpaceEventType.MOUSE_MOVE);
   },
   methods: {
     // 停止按钮显示隐藏
