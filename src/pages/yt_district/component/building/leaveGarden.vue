@@ -25,21 +25,21 @@
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">总规划建筑面积</li>
-                <li class="text">142万㎡</li>
+                <li class="text">1.6万㎡</li>
               </ul>
             </li>
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">企业数量</li>
-                <li class="text">253家</li>
+                <li class="text">67家</li>
               </ul>
             </li>
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">留学人才</li>
-                <li class="text">58位</li>
+                <li class="text">##位</li>
               </ul>
             </li>
           </ul>
@@ -56,8 +56,33 @@
               <div class="item_name">甘肃远瞻信息科技有限公司</div>
               <div class="item_time">2018-02-02</div>
             </li>
+
             <li>
-              <div class="item_name">甘肃######有限公司</div>
+              <div class="item_name">甘肃###科技有限公司</div>
+              <div class="item_time">2018-02-02</div>
+            </li>
+            <li>
+              <div class="item_name">甘肃****有限公司</div>
+              <div class="item_time">2018-02-02</div>
+            </li>
+            <li>
+              <div class="item_name">甘肃远瞻信息科技有限公司</div>
+              <div class="item_time">2018-02-02</div>
+            </li>
+            <li>
+              <div class="item_name">
+                <span class="name_loger"
+                  >甘肃#####$$$$*******#####有限公司</span
+                >
+              </div>
+              <div class="item_time">2018-02-02</div>
+            </li>
+            <li>
+              <div class="item_name">
+                <span class="name_loger"
+                  >甘肃#####$$$$*******#####有限公司</span
+                >
+              </div>
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
@@ -73,7 +98,11 @@
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
-              <div class="item_name">甘肃######有限公司</div>
+              <div class="item_name">
+                <span class="name_loger"
+                  >甘肃#####$$$$*******#####有限公司</span
+                >
+              </div>
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
@@ -89,23 +118,11 @@
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
-              <div class="item_name">甘肃######有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃######有限公司</div>
+              <div class="item_name">
+                <span class="name_loger"
+                  >甘肃#####$$$$*******#####有限公司</span
+                >
+              </div>
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
@@ -131,12 +148,12 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>96</i>万</p>
+                  <p><i>138</i>项</p>
                   <div class="wave1"></div>
                   <div class="wave2"></div>
                 </div>
                 <div class="down">
-                  <i>服务交易</i>
+                  <i>技术合作</i>
                 </div>
               </div>
             </li>
@@ -145,12 +162,12 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>152</i>项</p>
+                  <p><i>138</i>项</p>
                   <div class="wave4"></div>
                   <div class="wave3"></div>
                 </div>
                 <div class="down">
-                  <i>财税服务</i>
+                  <i>知识产权</i>
                 </div>
               </div>
             </li>
@@ -159,12 +176,12 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>552</i>项</p>
+                  <p><i>25</i>项</p>
                   <div class="wave5"></div>
                   <div class="wave6"></div>
                 </div>
                 <div class="down">
-                  <i>项目申报</i>
+                  <i>科技服务</i>
                 </div>
               </div>
             </li>
@@ -212,21 +229,21 @@
           <ul class="clearfix">
             <li>
               <p class="up">院士</p>
-              <p class="down"><i>12</i> <span>/人</span></p>
+              <p class="down"><i>##</i> <span>/人</span></p>
             </li>
             <li>
               <p class="up">硕士</p>
-              <p class="down"><i>102</i> <span>/人</span></p>
+              <p class="down"><i>##</i> <span>/人</span></p>
             </li>
           </ul>
           <ul class="clearfix two">
             <li>
               <p class="up">博士</p>
-              <p class="down"><i>52</i> <span>/人</span></p>
+              <p class="down"><i>##</i> <span>/人</span></p>
             </li>
             <li>
               <p class="up">海归</p>
-              <p class="down"><i>102</i> <span>/人</span></p>
+              <p class="down"><i>##</i> <span>/人</span></p>
             </li>
           </ul>
         </div>
@@ -240,29 +257,29 @@
           <ul>
             <li>
               <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
+              <i>电子信息</i>
+              <span>55%</span>
             </li>
             <li>
+              <p><i>NO.2</i></p>
+              <i>生物医药</i>
+              <span>22%</span>
+            </li>
+            <li>
+              <p><i>NO.3</i></p>
+              <i>节能环保</i>
+              <span>15%</span>
+            </li>
+            <li>
+              <p><i>NO.4</i></p>
+              <i>其他</i>
+              <span>8%</span>
+            </li>
+            <!-- <li>
               <p><i>NO.1</i></p>
               <i>软件信息</i>
               <span>23.5%</span>
-            </li>
-            <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
-            </li>
-            <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
-            </li>
-            <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
