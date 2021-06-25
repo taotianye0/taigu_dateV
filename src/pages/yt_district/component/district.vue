@@ -13,7 +13,7 @@
               <li>
                 <p>规划总面积</p>
                 <div class="clearfix downBox">
-                 <span>####<em>平方公里</em></span>
+                 <span>12.26<em>平方公里</em></span>
                 </div>
               </li>
               <li>

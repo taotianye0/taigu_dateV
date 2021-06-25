@@ -159,7 +159,6 @@
     li.text {
       right: 0;
       width: 30%;
-      // color: #54DEFE;
       color: extract(@textCol, 2);
     }
   }
@@ -168,34 +167,34 @@
 }
 
 .left_two {
-  width: calc(100% - 0.6rem);
   height: 38%;
   width: 100%;
 
   li {
     height: 0.4rem;
+   .flex;
 
     div {
-      line-height: 0.28rem;
       display: inline-block;
       color: extract(@textCol, 2);
-      height: 0.28rem;
     }
   }
 
   .item_name {
     width: 70%;
+    height: 100%;
     font-size: 0.16rem;
     font-family: Microsoft YaHei;
     font-weight: 400;
     overflow: hidden;
+    // position: relative;
   }
 
   .name_loger {
     display: inline-block;
     height: 100%;
     white-space: nowrap;
-    animation:mymove 8s 4s  infinite normal ease-in;
+    animation:mymove 8s 2s  infinite normal ease-in;
   }
 
   //文字从左到右滚动 (右进左出) && 划过暂停 ，
@@ -223,9 +222,11 @@
 
 
   .item_time {
+    height: 100%;
     font-size: 0.16rem;
     font-family: Microsoft YaHei;
     font-weight: 400;
+   
   }
 
 

@@ -6,10 +6,12 @@
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
       <!-- 返回按钮 -->
-      <div class="button" @click="send(false)">⋘ 返回上一页面</div>
+      <div class="button" @click="send(false)" v-if="isshow">
+        ⋘ 返回上一页面
+      </div>
       <!-- 跳转至园区管理按钮 -->
       <div class="button1">
-        <a href="#">园区管理 ⋙</a>
+        <a href="http://8.135.134.240:8022/">园区管理 ⋙</a>
       </div>
     </div>
     <!-- 左边数据 -->
@@ -293,19 +295,28 @@ export default {
     return {
       pageTitle_cn: "中国兰州留学人员创业园", //页面标题
       pageTitle_en: "China Lanzhou Overseas Students Pioneer Park", //页面标题
+      isshow: false,
+      timer: null,
     };
   },
   mounted() {
     this.wheel();
     this.teacherIn();
     this.teacherOut();
+    this.$event.$on("show", (e) => {
+      this.isshow = e;
+    });
+  },
+  beforeDestroy() {
+    clearInterval(this.timer);
+    this.timer = null;
   },
   methods: {
     //入住企业模块  自动播放动画
     wheel() {
       var list = document.querySelector(".left_two .list");
-      var speed = 50;
-      setInterval(() => {
+      var speed = 1500;
+    this.timer =  setInterval(() => {
         if (
           list.scrollTop < Math.round(list.scrollHeight - list.offsetHeight)
         ) {
