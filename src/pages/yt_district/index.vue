@@ -45,12 +45,15 @@ export default {
     getclick(val) {
       if (val) {
         this.isshow = val;
-        console.log(val);
+        // console.log(val);
       }
     },
     // 从建筑页面返回区页面
     districtBack() {
       this.isshow = null;
+      // if(!this.isshow){
+      //   this.$router.push("/home/yt");
+      // }
     },
   },
 };
