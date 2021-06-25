@@ -109,7 +109,6 @@ export default {
     // 点击建筑页面的返回按钮  ====》 接收的值
     that.$event.$on("aa", (e) => {
       this.hide = false;
-      // console.log(that.val, "值在这");
       if (e == false) {
         that.flyTosecond();
       }
