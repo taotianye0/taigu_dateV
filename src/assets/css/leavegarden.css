@@ -31,7 +31,6 @@
 .title .button1 {
   position: absolute;
   top: 0.95rem;
-  width: 1.6rem;
   height: 0.38rem;
   line-height: 0.38rem;
   border-radius: 0.15rem;
@@ -44,7 +43,8 @@
   cursor: pointer;
 }
 .title .button1 {
-  right: 0;
+  right: 30%;
+  width: 1.4rem;
 }
 .title .button1 a {
   color: #BCC3D6;
@@ -52,6 +52,7 @@
 }
 .title .button {
   left: 0;
+  width: 1.6rem;
 }
 .small_title {
   color: #FFF;

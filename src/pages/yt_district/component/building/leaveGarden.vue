@@ -315,7 +315,7 @@ export default {
     //入住企业模块  自动播放动画
     wheel() {
       var list = document.querySelector(".left_two .list");
-      var speed = 1500;
+      var speed = 50;
     this.timer =  setInterval(() => {
         if (
           list.scrollTop < Math.round(list.scrollHeight - list.offsetHeight)
