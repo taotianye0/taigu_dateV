@@ -6,7 +6,7 @@
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
       <!-- 返回按钮 -->
-      <div class="button" @click="send(false)">⋘ 返回上一页面</div>
+      <div class="button" @click="send(false)" v-if="isshow">⋘ 返回上一页面</div>
       <!-- 跳转至园区管理按钮 -->
       <div class="button1">
         <a href="#">园区管理 ⋙</a>
@@ -131,7 +131,9 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>96</i>万</p>
+                  <p>
+                    <i>96</i>万
+                  </p>
                   <div class="wave1"></div>
                   <div class="wave2"></div>
                 </div>
@@ -145,7 +147,9 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>152</i>项</p>
+                  <p>
+                    <i>152</i>项
+                  </p>
                   <div class="wave4"></div>
                   <div class="wave3"></div>
                 </div>
@@ -159,7 +163,9 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>552</i>项</p>
+                  <p>
+                    <i>552</i>项
+                  </p>
                   <div class="wave5"></div>
                   <div class="wave6"></div>
                 </div>
@@ -196,7 +202,7 @@
               </p>
             </li>
           </ul>
-        </div> -->
+        </div>-->
       </div>
       <div class="right_two">
         <div class="small_title">
@@ -212,21 +218,33 @@
           <ul class="clearfix">
             <li>
               <p class="up">院士</p>
-              <p class="down"><i>12</i> <span>/人</span></p>
+              <p class="down">
+                <i>12</i>
+                <span>/人</span>
+              </p>
             </li>
             <li>
               <p class="up">硕士</p>
-              <p class="down"><i>102</i> <span>/人</span></p>
+              <p class="down">
+                <i>102</i>
+                <span>/人</span>
+              </p>
             </li>
           </ul>
           <ul class="clearfix two">
             <li>
               <p class="up">博士</p>
-              <p class="down"><i>52</i> <span>/人</span></p>
+              <p class="down">
+                <i>52</i>
+                <span>/人</span>
+              </p>
             </li>
             <li>
               <p class="up">海归</p>
-              <p class="down"><i>102</i> <span>/人</span></p>
+              <p class="down">
+                <i>102</i>
+                <span>/人</span>
+              </p>
             </li>
           </ul>
         </div>
@@ -239,27 +257,37 @@
         <div class="list">
           <ul>
             <li>
-              <p><i>NO.1</i></p>
+              <p>
+                <i>NO.1</i>
+              </p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
             <li>
-              <p><i>NO.1</i></p>
+              <p>
+                <i>NO.1</i>
+              </p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
             <li>
-              <p><i>NO.1</i></p>
+              <p>
+                <i>NO.1</i>
+              </p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
             <li>
-              <p><i>NO.1</i></p>
+              <p>
+                <i>NO.1</i>
+              </p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
             <li>
-              <p><i>NO.1</i></p>
+              <p>
+                <i>NO.1</i>
+              </p>
               <i>软件信息</i>
               <span>23.5%</span>
             </li>
@@ -276,12 +304,16 @@ export default {
     return {
       pageTitle_cn: "中国兰州留学人员创业园", //页面标题
       pageTitle_en: "China Lanzhou Overseas Students Pioneer Park", //页面标题
+      isshow: false,
     };
   },
   mounted() {
     this.wheel();
     this.teacherIn();
     this.teacherOut();
+    this.$event.$on("show", (e) => {
+      this.isshow = e;
+    });
   },
   methods: {
     //入住企业模块  自动播放动画
