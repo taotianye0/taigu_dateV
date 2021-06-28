@@ -5,7 +5,7 @@
       <ul>
         <li v-if="this.select=='logistics'" @click="rotateByPosition(flag)">停止旋转</li>
         <li
-          v-else-if="this.select=='biology1'||this.select=='biology1'"
+          v-else-if="this.select=='biology1'||this.select=='biology2'"
           @click="rotateByPosition(flag1)"
         >停止旋转</li>
       </ul>
@@ -138,7 +138,7 @@ export default {
       console.log(x, y, z, h, p, r);
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
-      // console.log(selectlayer.name);
+      console.log(selectlayer.name);
       if (selectlayer.name !== undefined) {
         that.select = selectlayer.name;
       }
@@ -166,7 +166,30 @@ export default {
             },
           });
           break;
-        case "biology1" || "biology2":
+        case "biology1":
+          // 生物园
+          viewer.camera.flyTo({
+            destination: new Cesium.Cartesian3(
+              -1251141.9190089318,
+              5010576.969080759,
+              3743694.681275339
+            ),
+            orientation: {
+              heading: -1,
+              pitch: -0.47877092800193255,
+              roll: 6.283171325419627,
+            },
+            duration: 5, //持续时间
+            complete: function callback() {
+              var flag = {
+                isshow: false,
+                selectid: 2,
+              };
+              that.rotateByPosition(flag);
+            },
+          });
+          break;
+        case "biology2":
           // 生物园
           viewer.camera.flyTo({
             destination: new Cesium.Cartesian3(
@@ -209,10 +232,12 @@ export default {
         case "logistics":
           this.$emit("func", 1);
           break;
-        case "biology1" || "biology2":
+        case "biology1":
           this.$emit("func", 2);
           break;
-
+        case "biology2":
+          this.$emit("func", 2);
+          break;
         default:
           break;
       }
@@ -573,7 +598,7 @@ export default {
   width: 100%;
 }
 .container >>> .cesium-viewer-navigationContainer {
-  display: none ;
+  display: none;
 }
 .button,
 .button1 {
