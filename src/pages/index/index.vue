@@ -146,21 +146,21 @@ export default {
     },
     changeLight() {
       let dl = document.querySelectorAll(".dl .wrap span");
-      let dlname = document.querySelectorAll(".dl .name");
+      let dlname = document.querySelector(".dl .name");
       let hp = document.querySelectorAll(".hp .wrap span");
-      let hpname = document.querySelectorAll(".hp .name");
+      let hpname = document.querySelector(".hp .name");
       let yt = document.querySelectorAll(".yt .wrap span");
-      let ytname = document.querySelectorAll(".yt .name");
+      let ytname = document.querySelector(".yt .name");
       let qlh = document.querySelectorAll(".qlh .wrap span");
-      let qlhname = document.querySelectorAll(".qlh .name");
+      let qlhname = document.querySelector(".qlh .name");
       let jz = document.querySelectorAll(".jz .wrap span");
-      let jzname = document.querySelectorAll(".jz .name");
+      let jzname = document.querySelector(".jz .name");
       let num = 0;
-      console.log(num);
 
       this.time = setInterval(() => {
         num++;
         console.log(num);
+
         // 样式制空
         if (num > 5) {
           num = 1;
@@ -183,7 +183,7 @@ export default {
         if (num == 5) {
           this.paiTa(jz, jzname);
         }
-      }, 2000);
+      }, 2500);
     },
     // 排他
     paiTa(light, scale) {
