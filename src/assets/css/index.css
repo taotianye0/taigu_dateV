@@ -60,7 +60,7 @@ body {
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(1.5);
   }
   100% {
     transform: scale(1);
@@ -89,11 +89,11 @@ body {
 }
 .dl .name {
   position: absolute;
-  right: 3%;
+  right: 20%;
   top: 53%;
   color: #d69563;
   font-size: 0.18rem;
-  width: 200%;
+  width: 175%;
 }
 .dl .name p {
   padding-left: 33%;
@@ -167,7 +167,7 @@ body {
   top: 51%;
   color: #D69563;
   font-size: 0.18rem;
-  width: 100%;
+  width: 30%;
 }
 .qlh .wrap {
   animation: mymove 1.5s 0.75s infinite ease-in-out;
