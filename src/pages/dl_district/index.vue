@@ -5,25 +5,30 @@
       <!-- 超图 -->
       <img src="../../assets/img/bg.jpg" title="超图的位置" />
     </div>
-    <v-district></v-district> 
+    <logistic-park v-if="isshow == 1"></logistic-park>
+    <biological-park v-else-if="isshow == 2"></biological-park>
+    <v-district v-else></v-district>
   </div>
 </template>
 
 <script>
 import vDistrict from "./component/district.vue";
-
+import logisticPark from "./component/building/LogisticPark.vue"; //物流园
+import biologicalPark from "./component/building/BiologicalPark.vue"; // 生物园
 
 export default {
   data() {
     return {
-      // 显示隐藏区组件与建筑组件 1显示留学生创业园的组件 2表示创新大厦  3表示孵化大厦
-      isshow: 0,
-      // isshow: 1,
+      // 显示隐藏区组件与建筑组件 1显示物流园的组件 2表示生物园
+      // isshow: 0,
+      isshow: 2,
     };
   },
   components: {
     vDistrict,
-    },
+    logisticPark,
+    biologicalPark,
+  },
   methods: {
     // 超图的点击事件
     getclick(val) {
