@@ -3,7 +3,8 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <img src="../../assets/img/bg.jpg" title="超图的位置" />
+      <!-- <img src="../../assets/img/bg.jpg" title="超图的位置" /> -->
+      <dl-cesiumCom></dl-cesiumCom>
     </div>
     <v-district></v-district> 
   </div>
@@ -11,6 +12,7 @@
 
 <script>
 import vDistrict from "./component/district.vue";
+import dlCesiumCom from "../superMap/dl.vue";
 
 
 export default {
@@ -23,6 +25,7 @@ export default {
   },
   components: {
     vDistrict,
+    dlCesiumCom
     },
   methods: {
     // 超图的点击事件

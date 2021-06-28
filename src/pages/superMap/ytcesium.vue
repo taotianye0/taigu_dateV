@@ -611,7 +611,7 @@ export default {
   height: 0.38rem;
   z-index: 1000;
   color: #bcc3d6;
-  right: 12%;
+  right: 10.5%;
   top: 1.25rem;
   line-height: 0.38rem;
   font-size: 0.18rem;
