@@ -60,23 +60,15 @@
             </li>
 
             <li>
-              <div class="item_name">甘肃###科技有限公司</div>
+              <div class="item_name">兰州前导经济文化咨询有限公司</div>
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
-              <div class="item_name">甘肃****有限公司</div>
+              <div class="item_name">兰州宝琉科技有限公司</div>
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
+              <div class="item_name">兰州阳普科技有限公司</div>
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
@@ -88,7 +80,15 @@
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
-              <div class="item_name">甘肃###科技有限公司</div>
+              <div class="item_name">
+                <span class="name_loger"
+                  >甘肃#####$$$$*******#####有限公司</span
+                >
+              </div>
+              <div class="item_time">2018-02-02</div>
+            </li>
+            <li>
+              <div class="item_name">兰州科庆仪器仪表有限公司</div>
               <div class="item_time">2018-02-02</div>
             </li>
             <li>
