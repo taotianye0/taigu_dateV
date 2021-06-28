@@ -11,15 +11,15 @@
           <div class="park_up">
             <ul class="clearfix">
               <li>
-                <p>企业总数</p>
+                <p>规划总面积</p>
                 <div class="clearfix downBox">
-                  <i></i><span>1024<em>家</em> </span>
+                 <span>12.26<em>平方公里</em></span>
                 </div>
               </li>
               <li>
-                <p>招商项目</p>
+                <p>企业总数</p>
                 <div class="clearfix downBox">
-                  <span>180<em>个</em></span>
+                  <span>5610<em>个</em></span>
                 </div>
               </li>
             </ul>
@@ -28,25 +28,25 @@
             <ul class="clearfix">
               <li>
                 <i></i>
-                <p>26人</p>
-                <span>院士</span>
+                <p>8人</p>
+                <span>院士/专家</span>
                 <span class="shu"></span>
               </li>
               <li>
                 <i></i>
-                <p>5000人</p>
-                <span>硕士</span>
+                <p>4657人</p>
+                <span>硕士/副高</span>
                 <span class="shu"></span>
               </li>
               <li>
                 <i></i>
-                <p>460人</p>
-                <span>博士</span>
+                <p>65人</p>
+                <span>领军人才</span>
                 <span class="shu"></span>
               </li>
               <li>
                 <i></i>
-                <p>569人</p>
+                <p>751人</p>
                 <span>海归</span>
               </li>
             </ul>
@@ -143,10 +143,10 @@ export default {
         calculable: true,
         dataset: {
           source: [
-            ["product", "2017", "2018", "2019", "2020", "2021"],
-            ["大型企业", 30.4, 85.1, 23.3, 93.8, 98.7],
-            ["中小型企业", 32.1, 85.7, 23.1, 53.4, 95.1],
-            ["微型企业", 47.2, 79.5, 46.4, 85.2, 22.5],
+            ["product", "2017", "2018", "2019", "2020"],
+            ["大型企业", 30.4, 80.1, 83.3, 93.8],
+            ["中小型企业", 32.1, 85.7, 23.1, 53.4],
+            ["微型企业", 77.2, 79.5, 46.4, 85.2],
           ],
         },
         xAxis: {
@@ -157,7 +157,7 @@ export default {
             },
           },
           type: "category",
-            nameLocation: "center",
+          nameLocation: "center",
           axisTick: {
             alignWithLabel: true,
           },
@@ -218,25 +218,25 @@ export default {
           formatter: " <br/>{b} : {c} ({d}%)",
           triggerOn: "click",
         },
-        visualMap: {
-          show: false,
-          min: 10,
-          max: 600,
-          inRange: {
-            colorLightness: [0, 1],
-          },
-        },
+        // visualMap: {
+        //   show: false,
+        // min: 20,
+        // max: 700,
+        // inRange: {
+        //   colorLightness: [0, 1],
+        // },
+        // },
         series: [
           {
             type: "pie",
-            radius: "78%",
-            center: ["50%", "50%"],
+            radius: "76%",
+            center: ["50%", "55%"],
             data: [
-              { value: 300, name: "##信息" },
-              { value: 350, name: "####" },
-              { value: 274, name: "##生产" },
-              { value: 205, name: "##商务" },
-              { value: 400, name: "##医药" },
+              { value: 500, name: "电子信息", itemStyle: { color: "#2688E0" } },
+              { value: 50, name: "其他", itemStyle: { color: "#064782" } },
+              { value: 130, name: "工业生产", itemStyle: { color: "#060D77" } },
+              { value: 100, name: "节能环保", itemStyle: { color: "#2550A6" } },
+              { value: 220, name: "生物医药", itemStyle: { color: "#333DE5" } },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
@@ -249,7 +249,7 @@ export default {
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -65, 0, -66],
+              padding: [0, -60, 0, -50],
             },
             labelLine: {
               show: true,
@@ -258,8 +258,8 @@ export default {
                 type: "radial",
               },
               smooth: 0,
-              length: 1,
-              length2: 75,
+              length: 10,
+              length2: 55,
             },
             itemStyle: {
               // color: "#0063FF",
@@ -324,7 +324,7 @@ export default {
         },
         yAxis: {
           type: "category",
-          data: ["4 微型企业", "3 小型企业", "2 中型企业", "1 大型企业"],
+          data: ["瞪羚企业", "上市公司", "骨干企业", "高新技术企业"],
           nameLocation: "center",
           axisLabel: {
             color: "#BCC3D6",
@@ -344,11 +344,11 @@ export default {
           {
             type: "bar",
             barWidth: "45%",
-            data: [18, 23, 12, 14, 11, 5],
+            data: [63,10,12,123],
             label: {
               show: true,
               position: "right",
-              formatter: "{c}年",
+              formatter: "{c}户",
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
               fontWeight: 400,
@@ -376,7 +376,7 @@ export default {
                 },
               },
               emphasis: {
-                color: "rgba(45,7,249)",
+                color: "#A36CFF",
               },
             },
           },

@@ -4,22 +4,22 @@
     <div class="left">
       <div class="left_one">
         <div class="left_one_title">
-           <i>园区概况</i>
+          <i>园区概况</i>
           <span>Park Overview</span>
         </div>
         <div class="park">
           <div class="park_up">
             <ul class="clearfix">
               <li>
-                <p>企业总数</p>
+                <p>规划总面积</p>
                 <div class="clearfix downBox">
-                  <i></i><span>1024<em>家</em> </span>
+                  <span>21.52<em>平方公里</em></span>
                 </div>
               </li>
               <li>
-                <p>招商项目</p>
+                <p>企业总数</p>
                 <div class="clearfix downBox">
-                  <span>180<em>个</em></span>
+                  <span>3560<em>个</em></span>
                 </div>
               </li>
             </ul>
@@ -28,25 +28,25 @@
             <ul class="clearfix">
               <li>
                 <i></i>
+                <p>4人</p>
+                <span>院士/专家</span>
+                <span class="shu"></span>
+              </li>
+              <li>
+                <i></i>
+                <p>1561人</p>
+                <span>硕士/副高</span>
+                <span class="shu"></span>
+              </li>
+              <li>
+                <i></i>
                 <p>26人</p>
-                <span>院士</span>
+                <span>领军人才</span>
                 <span class="shu"></span>
               </li>
               <li>
                 <i></i>
-                <p>5000人</p>
-                <span>硕士</span>
-                <span class="shu"></span>
-              </li>
-              <li>
-                <i></i>
-                <p>460人</p>
-                <span>博士</span>
-                <span class="shu"></span>
-              </li>
-              <li>
-                <i></i>
-                <p>569人</p>
+                <p>101人</p>
                 <span>海归</span>
               </li>
             </ul>
@@ -78,8 +78,8 @@
     <!-- 右下角 -->
     <div class="right">
       <div class="right_title">
-       <i>企业发展</i>
-      <span>Enterprise Development</span>
+        <i>企业发展</i>
+        <span>Enterprise Development</span>
       </div>
       <div class="years" ref="years"></div>
     </div>
@@ -133,10 +133,10 @@ export default {
         },
         dataset: {
           source: [
-            ["product", "2017", "2018", "2019", "2020", "2021"],
-            ["大型企业", 30.4, 85.1, 23.3, 93.8, 98.7],
-            ["中小型企业", 32.1, 85.7, 23.1, 53.4, 95.1],
-            ["微型企业", 47.2, 79.5, 46.4, 85.2, 22.5],
+            ["product", "2017", "2018", "2019", "2020"],
+            ["大型企业", 30.4, 85.1, 23.3, 43.8],
+            ["中小型企业", 52.1, 85.7, 23.1, 5.4],
+            ["微型企业", 77.2, 79.5, 46.4, 85.2],
           ],
         },
         xAxis: {
@@ -202,7 +202,7 @@ export default {
         },
         visualMap: {
           show: false,
-          min: 10,
+          min: 1,
           max: 600,
           inRange: {
             colorLightness: [0, 1],
@@ -214,11 +214,11 @@ export default {
             radius: "78%",
             center: ["50%", "50%"],
             data: [
-              { value: 300, name: "##信息" },
-              { value: 350, name: "####" },
-              { value: 274, name: "##生产" },
-              { value: 205, name: "##商务" },
-              { value: 400, name: "##医药" },
+              { value: 400, name: "电子信息" },
+              { value: 150, name: "其他" },
+              { value: 130, name: "工业生产" },
+              { value: 180, name: "节能环保" },
+              { value: 220, name: "生物医药" },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
@@ -306,7 +306,7 @@ export default {
         },
         yAxis: {
           type: "category",
-          data: ["4 微型企业", "3 小型企业", "2 中型企业", "1 大型企业"],
+          data: ["瞪羚企业", "上市公司", "骨干企业", "高新技术企业"],
           nameLocation: "center",
           axisLabel: {
             color: "#00FCF9",
@@ -326,11 +326,11 @@ export default {
           {
             type: "bar",
             barWidth: "45%",
-            data: [18, 23, 12, 14, 11, 5],
+            data: [39,7,8,77],
             label: {
               show: true,
               position: "right",
-              formatter: "{c}年",
+              formatter: "{c}户",
               color: "#00FCF9",
               fontFamily: "Microsoft YaHei",
               fontWeight: 400,
@@ -358,7 +358,7 @@ export default {
                 },
               },
               emphasis: {
-                color: "rgba(45,7,249)",
+                color: "#A36CFF",
               },
             },
           },

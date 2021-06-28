@@ -58,7 +58,7 @@
               </li>
               <li>
                 <i></i>
-                <p>##人</p>
+                <p>923人</p>
                 <span>海归</span>
               </li>
             </ul>
@@ -278,8 +278,8 @@ export default {
         },
         visualMap: {
           show: false,
-          min: 100,
-          max: 600,
+          min: 10,
+          max: 500,
           inRange: {
             colorLightness: [0, 1],
           },
@@ -290,11 +290,11 @@ export default {
             radius: "78%",
             center: ["50%", "50%"],
             data: [
-              { value: 300, name: "##信息"},
-              { value: 350, name: "####"},
-              { value: 274, name: "##生产" },
-              { value: 205, name: "##商务" },
-              { value: 400, name: "##医药"},
+              { value: 320, name: "电子信息"},
+              { value: 100, name: "节能环保"},
+              { value: 300, name: "生物医药"},
+              { value: 100, name: "其他" },
+              { value: 180, name: "工业生产" },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
@@ -359,7 +359,7 @@ export default {
         });
       }, 1000);
     },
-    // 绘制企业年限 图
+    // 绘制企业发展 图
     drawyear() {
       // 1.初始化绘图容器
       let years = this.$echarts.init(this.$refs.years);
@@ -400,7 +400,7 @@ export default {
           {
             type: "bar",
             barWidth: "50%",
-            data: [100, 25, 30, 308],
+            data: [157, 25, 30, 308],
             label: {
               show: true,
               position: "right",

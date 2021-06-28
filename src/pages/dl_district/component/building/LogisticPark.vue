@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!--留学人员创业园 建筑-->
+    <!--物流园 建筑-->
     <!-- 右上角 标题 -->
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
@@ -11,7 +11,7 @@
       </div>
       <!-- 跳转至园区管理按钮 -->
       <div class="button1">
-        <a href="http://8.135.134.240:8022/">园区管理 ⋙</a>
+        <a href="#">园区管理 ⋙</a>
       </div>
     </div>
     <!-- 左边数据 -->
@@ -293,8 +293,8 @@
 export default {
   data() {
     return {
-      pageTitle_cn: "中国兰州留学人员创业园", //页面标题
-      pageTitle_en: "China Lanzhou Overseas Students Pioneer Park", //页面标题
+      pageTitle_cn: "兰州高新区现代医药物流园", //页面标题
+      pageTitle_en: "Modern Pharmaceutical Logistics Park of Lanzhou High Tech Zone", //页面标题
       isshow: false,
       timer: null,
     };
@@ -1416,7 +1416,7 @@ export default {
     },
     send(data) {
       this.$emit("back");
-      this.$event.$emit("aa", data);
+      this.$event.$emit("dl", data);
     },
   },
 };
@@ -1426,6 +1426,7 @@ export default {
 @import "../../../../assets/css/leavegarden.css";
 
 .title .title_en {
-  letter-spacing: 0.01rem;
+  letter-spacing: 0.004rem;
+  font-size: 0.18rem;
 }
 </style>

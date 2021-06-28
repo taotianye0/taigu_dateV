@@ -609,9 +609,16 @@ export default {
   position: absolute;
   width: 1rem;
   height: 0.38rem;
-  z-index: 1000;
+  z-index: 10;
   color: #bcc3d6;
+<<<<<<< HEAD
   right: 10.5%;
+=======
+  top: 0;
+  bottom: 0;
+  right: 0.25rem;
+  margin: 0 auto;
+>>>>>>> 24f4c1338314a96e6bb51fa80d2ef463203751bf
   top: 1.25rem;
   line-height: 0.38rem;
   font-size: 0.18rem;
