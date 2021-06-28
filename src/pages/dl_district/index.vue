@@ -4,10 +4,10 @@
     <div class="supermap" id="supermap">
       <!-- 超图 -->
       <!-- <img src="../../assets/img/bg.jpg" title="超图的位置" /> -->
-      <dl-cesiumCom></dl-cesiumCom>
+      <dl-cesiumCom @func="getclick"></dl-cesiumCom>
     </div>
-    <logistic-park v-if="isshow == 1"></logistic-park>
-    <biological-park v-else-if="isshow == 2"></biological-park>
+    <logistic-park @back="districtBack()" v-if="isshow == 1"></logistic-park>
+    <biological-park @back="districtBack()" v-else-if="isshow == 2"></biological-park>
     <v-district v-else></v-district>
   </div>
 </template>

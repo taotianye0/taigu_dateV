@@ -3,9 +3,11 @@
     <div id="cesium-container" class="container" @click="child"></div>
     <div class="button" @click="hidden(true)" v-if="hide">
       <ul>
-        <li v-if="this.select=='syb'" @click="rotateByPosition(flag)">停止旋转</li>
-        <li v-else-if="this.select=='innovate'" @click="rotateByPosition(flag1)">停止旋转</li>
-        <li v-else-if="this.select=='hatch'" @click="rotateByPosition(flag2)">停止旋转</li>
+        <li v-if="this.select=='logistics'" @click="rotateByPosition(flag)">停止旋转</li>
+        <li
+          v-else-if="this.select=='biology1'||this.select=='biology1'"
+          @click="rotateByPosition(flag1)"
+        >停止旋转</li>
       </ul>
     </div>
     <div class="button1" v-if="concel" @click="rotateByPosition(flag3)">停止旋转</div>
@@ -28,10 +30,6 @@ export default {
       flag1: {
         isshow: true,
         selectid: 2,
-      },
-      flag2: {
-        isshow: true,
-        selectid: 3,
       },
       flag3: {
         isshow: true,
@@ -81,7 +79,7 @@ export default {
       });
     this.scene
       .addS3MTilesLayerByScp(url2, {
-        name: "syb",
+        name: "logistics",
         packingRequest: 4,
       })
       .then(() => {
@@ -89,7 +87,7 @@ export default {
       });
     this.scene
       .addS3MTilesLayerByScp(url3, {
-        name: "hatch",
+        name: "biology2",
         packingRequest: 4,
       })
       .then(() => {
@@ -97,7 +95,7 @@ export default {
       });
     this.scene
       .addS3MTilesLayerByScp(url4, {
-        name: "innovate",
+        name: "biology1",
         packingRequest: 4,
       })
       .then(() => {
@@ -107,7 +105,7 @@ export default {
     // 飞行到二级页面
     that.flyTosecond();
     // 点击建筑页面的返回按钮  ====》 接收的值
-    that.$event.$on("aa", (e) => {
+    that.$event.$on("dl", (e) => {
       this.hide = false;
       if (e == false) {
         that.flyTosecond();
@@ -128,6 +126,16 @@ export default {
       if (Cesium.defined(earthPosition)) {
         console.log(earthPosition);
       }
+      var position = viewer.scene.pickPosition(event.position);
+      //将笛卡尔坐标转化为经纬度坐标
+      var cartographic = Cesium.Cartographic.fromCartesian(position);
+      var x = Cesium.Math.toDegrees(cartographic.longitude);
+      var y = Cesium.Math.toDegrees(cartographic.latitude);
+      var z = cartographic.height;
+      var h = viewer.scene.camera.heading;
+      var p = viewer.scene.camera.pitch;
+      var r = viewer.scene.camera.roll;
+      console.log(x, y, z, h, p, r);
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       // console.log(selectlayer.name);
@@ -135,13 +143,13 @@ export default {
         that.select = selectlayer.name;
       }
       switch (selectlayer.name) {
-        case "syb":
-          // 留创园
+        case "logistics":
+          // 物流园
           viewer.camera.flyTo({
             destination: new Cesium.Cartesian3(
-              -1256654.8389045447,
-              5011900.9356593015,
-              3743028.2594116577
+              -1255585.494900049,
+              5010562.694711306,
+              3743327.072412085
             ),
             orientation: {
               heading: -1,
@@ -158,47 +166,24 @@ export default {
             },
           });
           break;
-        case "innovate":
-          // 创新大厦
+        case "biology1" || "biology2":
+          // 生物园
           viewer.camera.flyTo({
             destination: new Cesium.Cartesian3(
-              -1237753.6199691885,
-              5005998.215701284,
-              3753831.1959734997
+              -1251141.9190089318,
+              5010576.969080759,
+              3743694.681275339
             ),
             orientation: {
-              heading: 1.1661396370797075,
-              pitch: -0.47865140602711786,
-              roll: 6.283171324877447,
+              heading: -1,
+              pitch: -0.47877092800193255,
+              roll: 6.283171325419627,
             },
             duration: 5, //持续时间
             complete: function callback() {
               var flag = {
                 isshow: false,
                 selectid: 2,
-              };
-              that.rotateByPosition(flag);
-            },
-          });
-          break;
-        case "hatch":
-          // 孵化大厦
-          viewer.camera.flyTo({
-            destination: new Cesium.Cartesian3(
-              -1237240.8328621706,
-              5006000.742842774,
-              3753900.111206762
-            ),
-            orientation: {
-              heading: 0.32180464817195986,
-              pitch: -0.4786520862834105,
-              roll: 6.283171324322858,
-            },
-            duration: 5, //持续时间
-            complete: function callback() {
-              var flag = {
-                isshow: false,
-                selectid: 3,
               };
               that.rotateByPosition(flag);
             },
@@ -221,14 +206,11 @@ export default {
     // 二级给三级页面传值
     child() {
       switch (this.select) {
-        case "syb":
+        case "logistics":
           this.$emit("func", 1);
           break;
-        case "innovate":
+        case "biology1" || "biology2":
           this.$emit("func", 2);
-          break;
-        case "hatch":
-          this.$emit("func", 3);
           break;
 
         default:
@@ -236,128 +218,114 @@ export default {
       }
     },
     // 建筑物旋转 传入不同flag 进行旋转
-    // rotateByPosition: function (flag) {
-    //   console.log(flag);
+    rotateByPosition: function (flag) {
+      console.log(flag);
 
-    //   let viewer = this.viewer;
-    //   switch (flag.selectid) {
-    //     case 1:
-    //       var options = {
-    //         lng: 103.89658963464912,
-    //         lat: 36.051262177199426,
-    //         height: 54.889351745520514,
-    //         heading: 4.1945742079374515,
-    //         pitch: -0.478811382362184,
-    //         roll: 6.283171325420994,
-    //         angle: 360 / 60,
-    //         distance: 300,
-    //       };
-    //       this.hide = true;
-    //       this.concel = false;
-    //       break;
-    //     case 2:
-    //       var options = {
-    //         lng: 103.89156919082117,
-    //         lat: 36.05349164952365,
-    //         height: 45.840420097123555,
-    //         heading: 0.32180464817195986,
-    //         pitch: -0.47865140602711786,
-    //         roll: 6.283171324877447,
-    //         angle: 360 / 60,
-    //         distance: 300,
-    //       };
-    //       this.hide = true;
-    //       this.concel = false;
-    //       break;
-    //     case 3:
-    //       var options = {
-    //         lng: 103.88325184141213,
-    //         lat: 36.05525210245023,
-    //         height: 53.389768732255995,
-    //         heading: 4.1945742079374515,
-    //         pitch: -0.4786520862834105,
-    //         roll: 6.283171324322858,
-    //         angle: 360 / 60,
-    //         distance: 300,
-    //       };
-    //       this.hide = true;
-    //       this.concel = false;
-    //       break;
-    //     case 4:
-    //       var options = {
-    //         lng: 103.89156919082117,
-    //         lat: 36.05349164952365,
-    //         height: 45.840420097123555,
-    //         heading: 0.32180464817195986,
-    //         pitch: -0.47865140602711786,
-    //         roll: 6.283171324877447,
-    //         angle: 360 / 180,
-    //         distance: 2500,
-    //       };
-    //       this.concel = true;
-    //       this.hide = false;
-    //       break;
-    //     default:
-    //       break;
-    //   }
-    //   var position = Cesium.Cartesian3.fromDegrees(
-    //     options.lng,
-    //     options.lat,
-    //     options.height
-    //   );
-    //   var pitch = Cesium.Math.toRadians(-30);
-    //   // 给定飞行一周所需时间，比如10s, 那么每秒转动度数
-    //   var angle = options.angle;
-    //   // 给定相机距离点多少距离飞行，这里取值为5000m
-    //   var distance = options.distance;
-    //   var startTime = Cesium.JulianDate.fromDate(new Date());
+      let viewer = this.viewer;
+      switch (flag.selectid) {
+        case 1:
+          var options = {
+            lng: 104.05073538965229,
+            lat: 35.94020404969259,
+            height: 29.230304164494164,
+            heading: 5.283004399469078,
+            pitch: -0.4783369549373009,
+            roll: 6.283171324681479,
+            angle: 360 / 60,
+            distance: 1000,
+          };
+          this.hide = true;
+          this.concel = false;
+          break;
+        case 2:
+          var options = {
+            lng: 104.01275438329772,
+            lat: 35.941837523205685,
+            height: 9.78196501440898,
+            heading: 5.282608933596764,
+            pitch: -0.478300020091893,
+            roll: 6.283171324956896,
+            angle: 360 / 60,
+            distance: 450,
+          };
+          this.hide = true;
+          this.concel = false;
+          break;
+        case 4:
+          var options = {
+            lng: 104.03387582499394,
+            lat: 35.94061456582498,
+            height: -1.323288445775916,
+            heading: 5.283185307179586,
+            pitch: -0.47877092800193477,
+            roll: 6.283171325419627,
+            angle: 360 / 180,
+            distance: 5500,
+          };
+          this.concel = true;
+          this.hide = false;
+          break;
+        default:
+          break;
+      }
+      var position = Cesium.Cartesian3.fromDegrees(
+        options.lng,
+        options.lat,
+        options.height
+      );
+      var pitch = Cesium.Math.toRadians(-30);
+      // 给定飞行一周所需时间，比如10s, 那么每秒转动度数
+      var angle = options.angle;
+      // 给定相机距离点多少距离飞行，这里取值为5000m
+      var distance = options.distance;
+      var startTime = Cesium.JulianDate.fromDate(new Date());
 
-    //   var stopTime = Cesium.JulianDate.addSeconds(
-    //     startTime,
-    //     2000,
-    //     new Cesium.JulianDate()
-    //   );
-    //   if (flag.isshow == true) {
-    //     var stopTime = Cesium.JulianDate.addSeconds(
-    //       startTime,
-    //       1,
-    //       new Cesium.JulianDate()
-    //     );
-    //   }
-    //   console.log(startTime, stopTime);
-    //   viewer.clock.startTime = startTime.clone(); // 开始时间
-    //   viewer.clock.stopTime = stopTime.clone(); // 结速时间
-    //   viewer.clock.currentTime = startTime.clone(); // 当前时间
-    //   viewer.clock.clockRange = Cesium.ClockRange.CLAMPED; // 行为方式
-    //   viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK; // 时钟设置为当前系统时间; 忽略所有其他设置。
-    //   // 相机的当前heading
-    //   var initialHeading = viewer.camera.heading;
-    //   var Exection = function TimeExecution() {
-    //     // 当前已经过去的时间，单位s
-    //     var delTime = Cesium.JulianDate.secondsDifference(
-    //       viewer.clock.currentTime,
-    //       viewer.clock.startTime
-    //     );
-    //     var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
-    //     viewer.scene.camera.setView({
-    //       destination: position, // 点的坐
-    //       orientation: {
-    //         heading: heading,
-    //         pitch: pitch,
-    //       },
-    //     });
-    //     viewer.scene.camera.moveBackward(distance);
-    //     if (
-    //       Cesium.JulianDate.compare(
-    //         viewer.clock.currentTime,
-    //         viewer.clock.stopTime
-    //       ) >= 0
-    //     ) {
-    //       viewer.clock.onTick.removeEventListener(Exection);
-    //     }
-    //   };
-    //   viewer.clock.onTick.addEventListener(Exection);
-    // },
+      var stopTime = Cesium.JulianDate.addSeconds(
+        startTime,
+        2000,
+        new Cesium.JulianDate()
+      );
+      if (flag.isshow == true) {
+        var stopTime = Cesium.JulianDate.addSeconds(
+          startTime,
+          1,
+          new Cesium.JulianDate()
+        );
+      }
+      console.log(startTime, stopTime);
+      viewer.clock.startTime = startTime.clone(); // 开始时间
+      viewer.clock.stopTime = stopTime.clone(); // 结速时间
+      viewer.clock.currentTime = startTime.clone(); // 当前时间
+      viewer.clock.clockRange = Cesium.ClockRange.CLAMPED; // 行为方式
+      viewer.clock.clockStep = Cesium.ClockStep.SYSTEM_CLOCK; // 时钟设置为当前系统时间; 忽略所有其他设置。
+      // 相机的当前heading
+      var initialHeading = viewer.camera.heading;
+      var Exection = function TimeExecution() {
+        // 当前已经过去的时间，单位s
+        var delTime = Cesium.JulianDate.secondsDifference(
+          viewer.clock.currentTime,
+          viewer.clock.startTime
+        );
+        var heading = Cesium.Math.toRadians(delTime * angle) + initialHeading;
+        viewer.scene.camera.setView({
+          destination: position, // 点的坐
+          orientation: {
+            heading: heading,
+            pitch: pitch,
+          },
+        });
+        viewer.scene.camera.moveBackward(distance);
+        if (
+          Cesium.JulianDate.compare(
+            viewer.clock.currentTime,
+            viewer.clock.stopTime
+          ) >= 0
+        ) {
+          viewer.clock.onTick.removeEventListener(Exection);
+        }
+      };
+      viewer.clock.onTick.addEventListener(Exection);
+    },
     // 飞行到二级页面
     flyTosecond() {
       var that = this;
@@ -413,11 +381,11 @@ export default {
 
           viewer.scene.scanEffect.add(pos2);
           // viewer.scene.scanEffect.add(pos3);
-          // var flag = {
-          //   isshow: false,
-          //   selectid: 4,
-          // };
-          // that.rotateByPosition(flag);
+          var flag = {
+            isshow: false,
+            selectid: 4,
+          };
+          that.rotateByPosition(flag);
         },
       });
     },
@@ -552,7 +520,7 @@ export default {
     // 留创园样式
     addOverlay2: function () {
       let scene = this.scene;
-      var layer = scene.layers.find("syb");
+      var layer = scene.layers.find("logistics");
       // 关闭太阳光
       scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
@@ -569,7 +537,7 @@ export default {
     // 创新大厦样式
     addOverlay3: function () {
       let scene = this.scene;
-      var layer = scene.layers.find("innovate");
+      var layer = scene.layers.find("biology1");
       // 关闭太阳光
       scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
@@ -581,7 +549,7 @@ export default {
     // 孵化大厦样式
     addOverlay4: function () {
       let scene = this.scene;
-      var layer = scene.layers.find("hatch");
+      var layer = scene.layers.find("biology2");
       // 关闭太阳光
       scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
@@ -604,6 +572,9 @@ export default {
   height: 100vh;
   width: 100%;
 }
+.container >>> .cesium-viewer-navigationContainer {
+  display: none ;
+}
 .button,
 .button1 {
   position: absolute;
@@ -611,7 +582,7 @@ export default {
   height: 0.38rem;
   z-index: 1000;
   color: #bcc3d6;
-  right: 10.5%;
+  right: 2%;
   top: 1.25rem;
   line-height: 0.38rem;
   font-size: 0.18rem;

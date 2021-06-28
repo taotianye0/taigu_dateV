@@ -604,6 +604,9 @@ export default {
   height: 100vh;
   width: 100%;
 }
+.container >>> .cesium-viewer-navigationContainer {
+  display: none ;
+}
 .button,
 .button1 {
   position: absolute;
