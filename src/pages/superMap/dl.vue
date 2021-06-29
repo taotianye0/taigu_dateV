@@ -126,99 +126,61 @@ export default {
       if (Cesium.defined(earthPosition)) {
         console.log(earthPosition);
       }
-      var position = viewer.scene.pickPosition(event.position);
-      //将笛卡尔坐标转化为经纬度坐标
-      var cartographic = Cesium.Cartographic.fromCartesian(position);
-      var x = Cesium.Math.toDegrees(cartographic.longitude);
-      var y = Cesium.Math.toDegrees(cartographic.latitude);
-      var z = cartographic.height;
-      var h = viewer.scene.camera.heading;
-      var p = viewer.scene.camera.pitch;
-      var r = viewer.scene.camera.roll;
-      console.log(x, y, z, h, p, r);
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       console.log(selectlayer.name);
       if (selectlayer.name !== undefined) {
         that.select = selectlayer.name;
       }
-      switch (selectlayer.name) {
-        case "logistics":
-          // 物流园
-          viewer.camera.flyTo({
-            destination: new Cesium.Cartesian3(
-              -1255585.494900049,
-              5010562.694711306,
-              3743327.072412085
-            ),
-            orientation: {
-              heading: -1,
-              pitch: -0.47877092800193255,
-              roll: 6.283171325419627,
-            },
-            duration: 5, //持续时间
-            complete: function callback() {
-              var flag = {
-                isshow: false,
-                selectid: 1,
-              };
-              that.rotateByPosition(flag);
-            },
-          });
-          break;
-        case "biology1":
-          // 生物园
-          viewer.camera.flyTo({
-            destination: new Cesium.Cartesian3(
-              -1251141.9190089318,
-              5010576.969080759,
-              3743694.681275339
-            ),
-            orientation: {
-              heading: -1,
-              pitch: -0.47877092800193255,
-              roll: 6.283171325419627,
-            },
-            duration: 5, //持续时间
-            complete: function callback() {
-              var flag = {
-                isshow: false,
-                selectid: 2,
-              };
-              that.rotateByPosition(flag);
-            },
-          });
-          break;
-        case "biology2":
-          // 生物园
-          viewer.camera.flyTo({
-            destination: new Cesium.Cartesian3(
-              -1251141.9190089318,
-              5010576.969080759,
-              3743694.681275339
-            ),
-            orientation: {
-              heading: -1,
-              pitch: -0.47877092800193255,
-              roll: 6.283171325419627,
-            },
-            duration: 5, //持续时间
-            complete: function callback() {
-              var flag = {
-                isshow: false,
-                selectid: 2,
-              };
-              that.rotateByPosition(flag);
-            },
-          });
-          break;
-
-        default:
-          break;
+      if (selectlayer.name == "logistics") {
+        // 物流园
+        viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            -1255585.494900049,
+            5010562.694711306,
+            3743327.072412085
+          ),
+          orientation: {
+            heading: -1,
+            pitch: -0.47877092800193255,
+            roll: 6.283171325419627,
+          },
+          duration: 5, //持续时间
+          complete: function callback() {
+            var flag = {
+              isshow: false,
+              selectid: 1,
+            };
+            that.rotateByPosition(flag);
+          },
+        });
+      } else if (
+        selectlayer.name == "biology1" ||
+        selectlayer.name == "biology2"
+      ) {
+        // 生物园
+        viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            -1251141.9190089318,
+            5010576.969080759,
+            3743694.681275339
+          ),
+          orientation: {
+            heading: -1,
+            pitch: -0.47877092800193255,
+            roll: 6.283171325419627,
+          },
+          duration: 5, //持续时间
+          complete: function callback() {
+            var flag = {
+              isshow: false,
+              selectid: 2,
+            };
+            that.rotateByPosition(flag);
+          },
+        });
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-    // handler.setInputAction(function (event) {},
-    // Cesium.ScreenSpaceEventType.MOUSE_MOVE);
   },
   methods: {
     // 停止按钮显示隐藏
@@ -228,18 +190,10 @@ export default {
     },
     // 二级给三级页面传值
     child() {
-      switch (this.select) {
-        case "logistics":
-          this.$emit("func", 1);
-          break;
-        case "biology1":
-          this.$emit("func", 2);
-          break;
-        case "biology2":
-          this.$emit("func", 2);
-          break;
-        default:
-          break;
+      if (this.select == "logistics") {
+        this.$emit("func", 1);
+      } else if (this.select == "biology1" || this.select == "biology2") {
+        this.$emit("func", 2);
       }
     },
     // 建筑物旋转 传入不同flag 进行旋转
