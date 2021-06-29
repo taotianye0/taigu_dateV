@@ -192,28 +192,28 @@
                 <i>NO.1</i>
               </p>
               <i>电子信息</i>
-              <span>35.7%</span>
+              <span>39.7%</span>
             </li>
             <li>
               <p>
                 <i>NO.2</i>
               </p>
               <i>生物医药</i>
-              <span>21.3%</span>
+              <span>24.3%</span>
             </li>
             <li>
               <p>
                 <i>NO.3</i>
               </p>
               <i>现代服务页</i>
-              <span>17.8%</span>
+              <span>12.8%</span>
             </li>
             <li>
               <p>
                 <i>NO.4</i>
               </p>
               <i>商贸</i>
-              <span>12.5%</span>
+              <span>10.5%</span>
             </li>
             <li>
               <p>
