@@ -242,8 +242,8 @@ export default {
         series: [
           {
             type: "pie",
-            radius: "76%",
-            center: ["50%", "55%"],
+            radius: "70%",
+            center: ["50%", "57%"],
             data: [
               { value: 500, name: "电子信息", itemStyle: { color: "#2688E0" } },
               { value: 50, name: "其他", itemStyle: { color: "#064782" } },
@@ -261,7 +261,7 @@ export default {
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -60, 0, -50],
+              padding: [0, -60, 0, -40],
             },
             labelLine: {
               show: true,
@@ -274,7 +274,6 @@ export default {
               length2: 55,
             },
             itemStyle: {
-              // color: "#0063FF",
               normal: {
                 color: "#0063FF",
               },

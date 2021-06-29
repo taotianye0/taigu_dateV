@@ -287,8 +287,8 @@ export default {
         series: [
           {
             type: "pie",
-            radius: "78%",
-            center: ["50%", "50%"],
+            radius: "71%",
+            center: ["50%", "51%"],
             data: [
               { value: 320, name: "电子信息"},
               { value: 100, name: "节能环保"},
@@ -307,7 +307,7 @@ export default {
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -65, 0, -66],
+              padding: [0, -60, 0, -55],
             },
             labelLine: {
               show: true,
@@ -316,8 +316,8 @@ export default {
                 type: "radial",
               },
               smooth: 0,
-              length: 1,
-              length2: 75,
+              length: 5,
+              length2: 70,
             },
             itemStyle: {
               normal: {
