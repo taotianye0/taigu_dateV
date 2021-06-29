@@ -27,7 +27,7 @@
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">总规划建筑面积</li>
-                <li class="text">1.6万㎡</li>
+                <li class="text">6.8万㎡</li>
               </ul>
             </li>
             <li class="wrap">
@@ -40,8 +40,8 @@
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
-                <li class="name">留学人才</li>
-                <li class="text">##位</li>
+                 <li class="name">人才数量</li>
+                <li class="text">1602位</li>
               </ul>
             </li>
           </ul>
@@ -54,86 +54,9 @@
         </div>
         <div class="listBox">
           <ul class="list">
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
+            <li v-for="(item, index) in companyList" :key="index">
+              <div class="item_name">{{ item.companyName }}</div>
+              <div class="item_time">{{ item.time }}</div>
             </li>
           </ul>
         </div>
@@ -150,7 +73,7 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>138</i>项</p>
+                  <p><i>108</i>项</p>
                   <div class="wave1"></div>
                   <div class="wave2"></div>
                 </div>
@@ -164,7 +87,7 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>138</i>项</p>
+                  <p><i>38</i>项</p>
                   <div class="wave4"></div>
                   <div class="wave3"></div>
                 </div>
@@ -231,21 +154,21 @@
           <ul class="clearfix">
             <li>
               <p class="up">院士</p>
-              <p class="down"><i>##</i> <span>/人</span></p>
+              <p class="down"><i>3</i> <span>/人</span></p>
             </li>
             <li>
               <p class="up">硕士</p>
-              <p class="down"><i>##</i> <span>/人</span></p>
+              <p class="down"><i>201</i> <span>/人</span></p>
             </li>
           </ul>
           <ul class="clearfix two">
             <li>
-              <p class="up">博士</p>
-              <p class="down"><i>##</i> <span>/人</span></p>
+              <p class="up">领军人才</p>
+              <p class="down"><i>6</i> <span>/人</span></p>
             </li>
             <li>
               <p class="up">海归</p>
-              <p class="down"><i>##</i> <span>/人</span></p>
+              <p class="down"><i>36</i> <span>/人</span></p>
             </li>
           </ul>
         </div>
@@ -259,29 +182,32 @@
           <ul>
             <li>
               <p><i>NO.1</i></p>
-              <i>电子信息</i>
+              <i>生物医药</i>
               <span>55%</span>
             </li>
             <li>
               <p><i>NO.2</i></p>
-              <i>生物医药</i>
+              <i>电子信息</i>
               <span>22%</span>
             </li>
-            <li>
-              <p><i>NO.3</i></p>
-              <i>节能环保</i>
-              <span>15%</span>
+             <li>
+              <p>
+                <i>NO.3</i>
+              </p>
+              <i>现代服务页</i>
+              <span>10%</span>
             </li>
             <li>
               <p><i>NO.4</i></p>
-              <i>其他</i>
+              <i>节能环保</i>
               <span>8%</span>
             </li>
-            <!-- <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
-            </li> -->
+            <li>
+              <p><i>NO.5</i></p>
+              <i>其他</i>
+              <span>5%</span>
+            </li>
+         
           </ul>
         </div>
       </div>
@@ -294,9 +220,35 @@ export default {
   data() {
     return {
       pageTitle_cn: "兰州国家生物医药产业基地创新园", //页面标题
-      pageTitle_en: "Lanzhou National Biomedical Industry Base and Innovation Park", //页面标题
+      pageTitle_en:
+        "Lanzhou National Biomedical Industry Base and Innovation Park", //页面标题
       isshow: false,
       timer: null,
+      companyList: [
+        { companyName: "甘肃久源药业", time: "2005-05-16" },
+        { companyName: "甘肃鸿申商贸有限公司", time: "2012-03-31" },
+        {
+          companyName: "中航技国际经贸发展有限公司",
+          time: "2014-01-22",
+        },
+        { companyName: "兰州中导报业经营有限公司", time: "2012-05-31" },
+        { companyName: "甘肃宏发电力工程有限公司", time: "2008-07-31" },
+        { companyName: "兰州中信展业有限公司", time: "2010-01-04" },
+        { companyName: "甘肃新方圆电子科技有限公司", time: "2003-12-22" },
+        { companyName: "兰州瑞航科技有限公司", time: "2009-06-05" },
+        { companyName: "兰州科庆仪器仪表有限责任公司", time: "1998-03-24" },
+        { companyName: "兰州创源科技公司", time: "2001-01-16" },
+        { companyName: "兰州兰大小精灵有限责任公司", time: "1996-04-16" },
+        { companyName: "甘肃龙江尼什水电开发公司", time: "2003-11-26" },
+        { companyName: "甘肃泰达机电科技有限公司", time: "2005-04-29" },
+        { companyName: "兰州科林生物医药有限公司", time: "1992-04-23" },
+        { companyName: "兰州陇润伟业科技有限公司", time: "2001-06-18" },
+        { companyName: "兰州中联电子有限公司", time: "2009-03-16" },
+        { companyName: "兰州玉康生物制品有限公司", time: "2011-11-25" },
+        { companyName: "甘肃众业达电器有限公司", time: "2006-12-13" },
+        { companyName: "兰州新一方医疗器械有限公司", time: "2011-05-05" },
+        { companyName: "兰东自动化有限公司", time: "2020-06-24" },
+      ],
     };
   },
   mounted() {
@@ -316,7 +268,7 @@ export default {
     wheel() {
       var list = document.querySelector(".left_two .list");
       var speed = 50;
-    this.timer =  setInterval(() => {
+      this.timer = setInterval(() => {
         if (
           list.scrollTop < Math.round(list.scrollHeight - list.offsetHeight)
         ) {

@@ -128,15 +128,14 @@ export default {
         },
         tooltip: {
           trigger: "axis",
-          // showContent: false,//是否展示数据
-          triggerOn: "click", //点击时展示数据
         },
         dataset: {
           source: [
             ["product", "2017", "2018", "2019", "2020"],
-            ["大型企业", 30.4, 85.1, 23.3, 43.8],
-            ["中小型企业", 52.1, 85.7, 23.1, 5.4],
-            ["微型企业", 77.2, 79.5, 46.4, 85.2],
+            ["第二产业增加值", 138.3,	146.2 ,	159.3 ,	175.5 ],
+            ["第三产业增加值", 19.8	,22.3	,25.5	,27.3],
+            ["固定资产投资额",52.5,	60.9	,73.2	,77.5],
+            ["社会消费品零售总额",22.9,	25.3,	29.2,	31.8],
           ],
         },
         xAxis: {
@@ -161,28 +160,42 @@ export default {
         yAxis: {
           show: false,
         },
-        grid: { left: "0%" },
+          grid: {
+          left: "-7%",
+          right: "10%",
+          top: "25%",
+          bottom: "0%",
+          containLabel: true,
+        },
         series: [
-          {
+               {
             type: "line",
             smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
-            color: "#30B7C1",
+             color: "#C33CFD",
           },
           {
             type: "line",
             smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
-            color: "#C33CFD",
+       
+               color: "#1E8BFF",
           },
           {
             type: "line",
             smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
-            color: "#1E8BFF",
+                color: "#30B7C1",
+          },
+          {
+            type: "line",
+            smooth: true,
+            seriesLayoutBy: "row",
+            symbol: "none",
+         
           },
         ],
       };

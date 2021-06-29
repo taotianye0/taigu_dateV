@@ -27,21 +27,21 @@
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">总规划建筑面积</li>
-                <li class="text">1.6万㎡</li>
+                <li class="text">12.7万㎡</li>
               </ul>
             </li>
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">企业数量</li>
-                <li class="text">67家</li>
+                <li class="text">21家</li>
               </ul>
             </li>
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
-                <li class="name">留学人才</li>
-                <li class="text">##位</li>
+                <li class="name">人才数量</li>
+                <li class="text">502位</li>
               </ul>
             </li>
           </ul>
@@ -54,86 +54,9 @@
         </div>
         <div class="listBox">
           <ul class="list">
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">
-                <span class="name_loger"
-                  >甘肃#####$$$$*******#####有限公司</span
-                >
-              </div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
+            <li v-for="(item, index) in companyList" :key="index">
+              <div class="item_name">{{ item.companyName }}</div>
+              <div class="item_time">{{ item.time }}</div>
             </li>
           </ul>
         </div>
@@ -150,7 +73,7 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>138</i>项</p>
+                  <p><i>38</i>项</p>
                   <div class="wave1"></div>
                   <div class="wave2"></div>
                 </div>
@@ -164,7 +87,7 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>138</i>项</p>
+                  <p><i>18</i>项</p>
                   <div class="wave4"></div>
                   <div class="wave3"></div>
                 </div>
@@ -178,7 +101,7 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>25</i>项</p>
+                  <p><i>23</i>项</p>
                   <div class="wave5"></div>
                   <div class="wave6"></div>
                 </div>
@@ -231,21 +154,21 @@
           <ul class="clearfix">
             <li>
               <p class="up">院士</p>
-              <p class="down"><i>##</i> <span>/人</span></p>
+              <p class="down"><i>1</i> <span>/人</span></p>
             </li>
             <li>
               <p class="up">硕士</p>
-              <p class="down"><i>##</i> <span>/人</span></p>
+              <p class="down"><i>120</i> <span>/人</span></p>
             </li>
           </ul>
           <ul class="clearfix two">
             <li>
-              <p class="up">博士</p>
-              <p class="down"><i>##</i> <span>/人</span></p>
+              <p class="up">领军人才</p>
+              <p class="down"><i>3</i> <span>/人</span></p>
             </li>
             <li>
               <p class="up">海归</p>
-              <p class="down"><i>##</i> <span>/人</span></p>
+              <p class="down"><i>30</i> <span>/人</span></p>
             </li>
           </ul>
         </div>
@@ -259,29 +182,31 @@
           <ul>
             <li>
               <p><i>NO.1</i></p>
-              <i>电子信息</i>
+              <i>生物##医药</i>
               <span>55%</span>
             </li>
             <li>
               <p><i>NO.2</i></p>
-              <i>生物医药</i>
+              <i>电子##信息</i>
               <span>22%</span>
             </li>
-            <li>
-              <p><i>NO.3</i></p>
-              <i>节能环保</i>
-              <span>15%</span>
+             <li>
+              <p>
+                <i>NO.3</i>
+              </p>
+              <i>现代##服务页</i>
+              <span>10%</span>
             </li>
             <li>
               <p><i>NO.4</i></p>
-              <i>其他</i>
+              <i>节##能环保</i>
               <span>8%</span>
             </li>
-            <!-- <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
-            </li> -->
+            <li>
+              <p><i>NO.5</i></p>
+              <i>其他</i>
+              <span>5%</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -294,9 +219,27 @@ export default {
   data() {
     return {
       pageTitle_cn: "兰州高新区现代医药物流园", //页面标题
-      pageTitle_en: "Modern Pharmaceutical Logistics Park of Lanzhou High Tech Zone", //页面标题
+      pageTitle_en:
+        "Modern Pharmaceutical Logistics Park of Lanzhou High Tech Zone", //页面标题
       isshow: false,
       timer: null,
+      companyList: [
+        { companyName: "兰州万桥智####限公司", time: "2001-04-18" },
+        { companyName: "甘肃泛植生物科技有限公司", time: "2015-12-01" },
+        { companyName: "兰&&&&科技有限公司", time: "2004-12-06" },
+        { companyName: "兰州荣&&&&&有限责任公司", time: "2004-09-04" },
+        { companyName: "甘肃一德节能环保有限公司", time: "2006-04-06" },
+        { companyName: "甘肃稳健医疗科技有限公司", time: "2013-01-28" },
+        { companyName: "甘肃$$$$$$$团有限公司", time: "2007-04-25" },
+        { companyName: "兰州鸿&&&7设计有限公司", time: "2004-10-26" },
+        { companyName: "兰州安众信息科技有限公司", time: "2014-04-11" },
+        { companyName: "甘肃力合科技设备有限公司", time: "2015-12-02" },
+        { companyName: "甘肃鼎######材有限公司", time: "2016-06-17" },
+        { companyName: "甘肃兰菲环保科技有限公司", time: "2015-01-27" },
+        { companyName: "兰#######科技有限公司", time: "2004-06-07" },
+        { companyName: "甘肃万新科技有限公司", time: "2002-09-13" },
+        { companyName: "兰######物科技有限公司", time: "2003-06-25" },
+      ],
     };
   },
   mounted() {
@@ -316,7 +259,7 @@ export default {
     wheel() {
       var list = document.querySelector(".left_two .list");
       var speed = 50;
-    this.timer =  setInterval(() => {
+      this.timer = setInterval(() => {
         if (
           list.scrollTop < Math.round(list.scrollHeight - list.offsetHeight)
         ) {

@@ -23,7 +23,7 @@ export default {
     return {
       // 显示隐藏区组件与建筑组件 1显示物流园的组件 2表示生物园
       isshow: 0,
-      // isshow: 2,
+      // isshow: 1,
     };
   },
   components: {
