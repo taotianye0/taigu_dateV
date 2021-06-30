@@ -70,6 +70,24 @@ export default {
       })
       .then(() => {
         this.addOverlay();
+        this.viewer.scene.bloomEffect.show = true;
+        this.viewer.scene.bloomEffect.bloomIntensity = 1;
+        viewer.scene.hdrEnabled = true;
+        viewer.scene.scanEffect.show = true;
+        let viewer = this.viewer;
+        let scene = this.scene;
+        let screenSpaceEventHandler = new Cesium.ScreenSpaceEventHandler(
+          scene.canvas
+        );
+        screenSpaceEventHandler.setInputAction(function () {
+          // 获取选中的S3M图层
+          let selectlayer = viewer.scene.layers.getSelectedLayer();
+          // 获取选中图元的id
+          let selectid = selectlayer.getSelection()[0];
+          console.log(selectid);
+          var layer = scene.layers.find("bim");
+          layer.setObjsColor([selectid], new Cesium.Color(0, 0, 1, 1));
+        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
       });
     this.scene
       .addS3MTilesLayerByScp(url1, {
@@ -88,14 +106,6 @@ export default {
         this.addOverlay2();
       });
     this.scene
-      .addS3MTilesLayerByScp(url3, {
-        name: "hatch",
-        packingRequest: 4,
-      })
-      .then(() => {
-        this.addOverlay4();
-      });
-    this.scene
       .addS3MTilesLayerByScp(url4, {
         name: "innovate",
         packingRequest: 4,
@@ -103,12 +113,20 @@ export default {
       .then(() => {
         this.addOverlay3();
       });
+    this.scene
+      .addS3MTilesLayerByScp(url3, {
+        name: "hatch",
+        packingRequest: 4,
+      })
+      .then(() => {
+        this.addOverlay4();
+      });
     let that = this;
     // 飞行到二级页面
     that.flyTosecond();
     // 点击建筑页面的返回按钮  ====》 接收的值
     that.$event.$on("aa", (e) => {
-      this.hide = false;
+      that.hide = false;
       if (e == false) {
         that.flyTosecond();
       }
@@ -120,7 +138,7 @@ export default {
       //var earthPosition = viewer.camera.pickEllipsoid(event.position,viewer.scene.globe.ellipsoid);
       //2.场景坐标:获取场景中任意点击处的对应的世界坐标，需要开启“地形深度检测”（在未开启“地形深度检测”的情况下只能在3DTile上准确获取空间坐标，开启“地形深度检测”后，viewer.scene.pickPosition 也能在非3DTile上准确获取坐标）
       viewer.scene.globe.depthTestAgainstTerrain = true;
-      var earthPosition = viewer.scene.pickPosition(event.position);
+      // var earthPosition = viewer.scene.pickPosition(event.position);
       //3.地标坐标：获取点击处地球表面的世界坐标，不包括模型、倾斜摄影表面
       // var ray = viewer.camera.getPickRay(event.position);
       // var earthPosition = viewer.scene.globe.pick(ray, viewer.scene);
@@ -130,7 +148,7 @@ export default {
       // }
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
-      // console.log(selectlayer.name);
+      console.log(selectlayer.name);
       if (selectlayer.name !== undefined) {
         that.select = selectlayer.name;
       }
@@ -209,8 +227,7 @@ export default {
           break;
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-    // handler.setInputAction(function (event) {},
-    // Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+    // handler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_CLICK);
   },
   methods: {
     // 停止按钮显示隐藏
@@ -292,7 +309,7 @@ export default {
             pitch: -0.47865140602711786,
             roll: 6.283171324877447,
             angle: 360 / 180,
-            distance: 2500,
+            distance: 2000,
           };
           this.concel = true;
           this.hide = false;
@@ -314,7 +331,7 @@ export default {
 
       var stopTime = Cesium.JulianDate.addSeconds(
         startTime,
-        2000,
+        100000,
         new Cesium.JulianDate()
       );
       if (flag.isshow == true) {
@@ -605,7 +622,7 @@ export default {
   width: 100%;
 }
 .container >>> .cesium-viewer-navigationContainer {
-  display: none ;
+  display: none;
 }
 .button,
 .button1 {

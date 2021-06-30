@@ -87,20 +87,21 @@ export default {
       });
     this.scene
       .addS3MTilesLayerByScp(url3, {
-        name: "biology2",
-        packingRequest: 4,
-      })
-      .then(() => {
-        this.addOverlay4();
-      });
-    this.scene
-      .addS3MTilesLayerByScp(url4, {
         name: "biology1",
         packingRequest: 4,
       })
       .then(() => {
         this.addOverlay3();
       });
+    this.scene
+      .addS3MTilesLayerByScp(url4, {
+        name: "biology2",
+        packingRequest: 4,
+      })
+      .then(() => {
+        this.addOverlay4();
+      });
+
     let that = this;
     // 飞行到二级页面
     that.flyTosecond();
@@ -258,10 +259,9 @@ export default {
       // 给定相机距离点多少距离飞行，这里取值为5000m
       var distance = options.distance;
       var startTime = Cesium.JulianDate.fromDate(new Date());
-
       var stopTime = Cesium.JulianDate.addSeconds(
         startTime,
-        2000,
+        100000,
         new Cesium.JulianDate()
       );
       if (flag.isshow == true) {
@@ -346,20 +346,12 @@ export default {
             21 / 255,
             1
           );
-
           let pos2 = new Cesium.Cartesian3(
             -1250385.9314839512,
             5010156.95361875,
             3743743.8326520287
           );
-          // let pos3 = new Cesium.Cartesian3(
-          //   -1237250.8879051239,
-          //   5005783.087518156,
-          //   3753961.419175015
-          // );
-
           viewer.scene.scanEffect.add(pos2);
-          // viewer.scene.scanEffect.add(pos3);
           var flag = {
             isshow: false,
             selectid: 4,
@@ -496,7 +488,7 @@ export default {
       // 关闭太阳光
       scene.sun.show = false;
     },
-    // 留创园样式
+    // 物流园样式
     addOverlay2: function () {
       let scene = this.scene;
       var layer = scene.layers.find("logistics");
@@ -513,7 +505,7 @@ export default {
       layer.style3D.fillForeColor = new Cesium.Color.CYAN();
       layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
     },
-    // 创新大厦样式
+    // 生物园1样式
     addOverlay3: function () {
       let scene = this.scene;
       var layer = scene.layers.find("biology1");
@@ -525,7 +517,7 @@ export default {
       layer.style3D.fillForeColor = new Cesium.Color.CYAN();
       layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
     },
-    // 孵化大厦样式
+    // 生物园2样式
     addOverlay4: function () {
       let scene = this.scene;
       var layer = scene.layers.find("biology2");
