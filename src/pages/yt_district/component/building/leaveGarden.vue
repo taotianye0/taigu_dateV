@@ -1396,7 +1396,5 @@ export default {
 .right {
   height: 50%;
 }
-.right_two .righttwo_left .text {
-  top: 22%;
-}
+
 </style>

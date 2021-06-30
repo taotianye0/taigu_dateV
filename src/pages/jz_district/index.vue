@@ -3,15 +3,13 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <img src="../../assets/img/bg.jpg" title="超图的位置" />
     </div>
-    <v-district></v-district> 
+    <v-district></v-district>
   </div>
 </template>
 
 <script>
 import vDistrict from "./component/district.vue";
-
 
 export default {
   data() {
@@ -23,7 +21,7 @@ export default {
   },
   components: {
     vDistrict,
-    },
+  },
   methods: {
     // 超图的点击事件
     getclick(val) {
@@ -44,6 +42,8 @@ export default {
 .supermap {
   width: 100vw;
   height: 100vh;
+  background: url("../../assets/img/bg.jpg") no-repeat;
+  background-size: 100% 100%;
 }
 img {
   width: 100vw;
