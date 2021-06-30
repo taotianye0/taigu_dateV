@@ -10,9 +10,15 @@
     <!--留学生创业园 建筑 的组件 -->
     <leave-garden v-if="isshow == 1" @back="districtBack()"></leave-garden>
     <!--创新大厦 建筑 的组件 -->
-    <Innovative-building v-else-if="isshow == 2" @back="districtBack()"></Innovative-building>
+    <Innovative-building
+      v-else-if="isshow == 2"
+      @back="districtBack()"
+    ></Innovative-building>
     <!--孵化大厦 建筑 的组件 -->
-    <Incubation-building v-else-if="isshow == 3" @back="districtBack()"></Incubation-building>
+    <Incubation-building
+      v-else-if="isshow == 3"
+      @back="districtBack()"
+    ></Incubation-building>
     <!-- 区的页面组件 -->
     <v-district v-else></v-district>
   </div>
@@ -30,7 +36,7 @@ export default {
     return {
       // 显示隐藏区组件与建筑组件 1显示留学生创业园的组件 2表示创新大厦  3表示孵化大厦
       isshow: 0,
-      // isshow: 1,
+      // isshow: 3,
     };
   },
   components: {
@@ -51,9 +57,6 @@ export default {
     // 从建筑页面返回区页面
     districtBack() {
       this.isshow = null;
-      // if(!this.isshow){
-      //   this.$router.push("/home/yt");
-      // }
     },
   },
 };

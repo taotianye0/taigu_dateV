@@ -1,12 +1,14 @@
 <template>
   <div>
-    <!--留学人员创业园 建筑-->
+    <!--兰州高新区科技孵化大厦 建筑-->
     <!-- 右上角 标题 -->
     <div class="title">
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
       <!-- 返回按钮 -->
-      <div class="button" @click="send(false)"  v-if="isshow">⋘ 返回上一页面</div>
+      <div class="button" @click="send(false)" v-if="isshow">
+        ⋘ 返回上一页面
+      </div>
       <!-- 跳转至园区管理按钮 -->
       <div class="button1">
         <a href="#">园区管理 ⋙</a>
@@ -31,15 +33,15 @@
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
-                <li class="name">总规划建筑面积</li>
-                <li class="text">142万㎡</li>
+                <li class="name">企业数量</li>
+                <li class="text">68家</li>
               </ul>
             </li>
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
-                <li class="name">总规划建筑面积</li>
-                <li class="text">142万㎡</li>
+                <li class="name">人才数量</li>
+                <li class="text">1054位</li>
               </ul>
             </li>
           </ul>
@@ -52,69 +54,16 @@
         </div>
         <div class="listBox">
           <ul class="list">
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
+            <li v-for="(item, index) in companyList" :key="index">
+              <div class="item_name">{{ item.companyName }}</div>
+              <div class="item_time">{{ item.time }}</div>
             </li>
+
             <li>
-              <div class="item_name">甘肃######有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃######有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃######有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃远瞻信息科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃######有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃###科技有限公司</div>
-              <div class="item_time">2018-02-02</div>
-            </li>
-            <li>
-              <div class="item_name">甘肃****有限公司</div>
-              <div class="item_time">2018-02-02</div>
+              <div class="item_name">
+                <span class="name_loger">甘肃智威新业电子科技发展有限公司</span>
+              </div>
+              <div class="item_time">2010-12-13</div>
             </li>
           </ul>
         </div>
@@ -131,12 +80,12 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>96</i>万</p>
+                  <p><i>126</i>项</p>
                   <div class="wave1"></div>
                   <div class="wave2"></div>
                 </div>
                 <div class="down">
-                  <i>服务交易</i>
+                  <i>技术合作</i>
                 </div>
               </div>
             </li>
@@ -145,12 +94,12 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>152</i>项</p>
+                  <p><i>81</i>项</p>
                   <div class="wave4"></div>
                   <div class="wave3"></div>
                 </div>
                 <div class="down">
-                  <i>财税服务</i>
+                  <i>知识产权</i>
                 </div>
               </div>
             </li>
@@ -159,12 +108,12 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>552</i>项</p>
+                  <p><i>52</i>项</p>
                   <div class="wave5"></div>
                   <div class="wave6"></div>
                 </div>
                 <div class="down">
-                  <i>项目申报</i>
+                  <i>科技服务</i>
                 </div>
               </div>
             </li>
@@ -212,21 +161,21 @@
           <ul class="clearfix">
             <li>
               <p class="up">院士</p>
-              <p class="down"><i>12</i> <span>/人</span></p>
+              <p class="down"><i>2</i> <span>/人</span></p>
             </li>
             <li>
               <p class="up">硕士</p>
-              <p class="down"><i>102</i> <span>/人</span></p>
+              <p class="down"><i>120</i> <span>/人</span></p>
             </li>
           </ul>
           <ul class="clearfix two">
             <li>
-              <p class="up">博士</p>
-              <p class="down"><i>52</i> <span>/人</span></p>
+              <p class="up">领军人才</p>
+              <p class="down"><i>12</i> <span>/人</span></p>
             </li>
             <li>
               <p class="up">海归</p>
-              <p class="down"><i>102</i> <span>/人</span></p>
+              <p class="down"><i>140</i> <span>/人</span></p>
             </li>
           </ul>
         </div>
@@ -239,29 +188,39 @@
         <div class="list">
           <ul>
             <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
+              <p>
+                <i>NO.1</i>
+              </p>
+              <i>电子信息</i>
+              <span>39.7%</span>
             </li>
             <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
+              <p>
+                <i>NO.2</i>
+              </p>
+              <i>生物医药</i>
+              <span>24.3%</span>
             </li>
             <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
+              <p>
+                <i>NO.3</i>
+              </p>
+              <i>现代服务页</i>
+              <span>12.8%</span>
             </li>
             <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
+              <p>
+                <i>NO.4</i>
+              </p>
+              <i>商贸</i>
+              <span>10.5%</span>
             </li>
             <li>
-              <p><i>NO.1</i></p>
-              <i>软件信息</i>
-              <span>23.5%</span>
+              <p>
+                <i>NO.5</i>
+              </p>
+              <i>节能环保</i>
+              <span>5.2%</span>
             </li>
           </ul>
         </div>
@@ -276,7 +235,28 @@ export default {
     return {
       pageTitle_cn: "兰州高新区科技孵化大厦", //页面标题
       pageTitle_en: "Technology Incubation Mansion of Lanzhou High Tech Zone", //页面标题
-      isshow:false
+      isshow: false,
+      companyList: [
+        { companyName: "兰州万桥智能科技有限公司", time: "2001-04-18" },
+        { companyName: "甘肃泛植生物科技有限公司", time: "2015-12-01" },
+        { companyName: "兰州中林智能科技有限公司", time: "2004-12-06" },
+        { companyName: "兰州荣晔生物科技有限责任公司", time: "2004-09-04" },
+        { companyName: "甘肃一德节能环保有限公司", time: "2006-04-06" },
+        { companyName: "甘肃稳健医疗科技有限公司", time: "2013-01-28" },
+        { companyName: "甘肃美兴合医疗设备有限公司", time: "2007-07-16" },
+        { companyName: "兰州百源基因技术有限公司", time: "2004-12-06" },
+        { companyName: "甘肃迪康医疗科技有限公司", time: "2014-03-06" },
+        { companyName: "甘肃宝海实业集团有限公司", time: "2007-04-25" },
+        { companyName: "兰州鸿业城市设计有限公司", time: "2004-10-26" },
+        { companyName: "兰州新一方医疗器械有限公司", time: "2011-05-05" },
+        { companyName: "兰州安众信息科技有限公司", time: "2014-04-11" },
+        { companyName: "甘肃力合科技设备有限公司", time: "2015-12-02" },
+        { companyName: "甘肃鼎衡医疗器材有限公司", time: "2016-06-17" },
+        { companyName: "甘肃兰菲环保科技有限公司", time: "2015-01-27" },
+        { companyName: "兰州美通音响科技有限公司", time: "2004-06-07" },
+        { companyName: "甘肃万新科技有限公司", time: "2002-09-13" },
+        { companyName: "兰州凯博生物科技有限公司", time: "2003-06-25" },
+      ],
     };
   },
   mounted() {
@@ -300,7 +280,7 @@ export default {
         } else {
           setTimeout(() => {
             list.scrollTop = 0;
-          }, 1500);
+          }, 3500);
         }
       }, speed);
     },

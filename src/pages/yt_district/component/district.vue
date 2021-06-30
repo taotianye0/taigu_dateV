@@ -13,7 +13,7 @@
               <li>
                 <p>规划总面积</p>
                 <div class="clearfix downBox">
-                 <span>12.26<em>平方公里</em></span>
+                  <span>12.26<em>平方公里</em></span>
                 </div>
               </li>
               <li>
@@ -144,9 +144,10 @@ export default {
         dataset: {
           source: [
             ["product", "2017", "2018", "2019", "2020"],
-            ["大型企业", 30.4, 80.1, 83.3, 93.8],
-            ["中小型企业", 32.1, 85.7, 23.1, 53.4],
-            ["微型企业", 77.2, 79.5, 46.4, 85.2],
+            ["第二产业增加值", 14, 15.3, 17.1, 19.0],
+            ["第三产业增加值", 25.5, 29.6, 35.1, 37.2],
+            ["固定资产投资额", 58.1, 67.4, 78.5, 84.0],
+            ["社会消费品零售总额", 15.8, 17.5, 19.2, 20.3],
           ],
         },
         xAxis: {
@@ -171,28 +172,40 @@ export default {
         yAxis: {
           show: false,
         },
-        grid: { left: "0%" },
+        grid: {
+          left: "-5%",
+          right: "10%",
+          top: "25%",
+          bottom: "0%",
+          containLabel: true,
+        },
         series: [
           {
             type: "line",
             smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
-            color: "#30B7C1",
+            color: "#00FFE9",
           },
           {
             type: "line",
             smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
-            color: "#C33CFD",
           },
           {
             type: "line",
             smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
-            color: "#1E8BFF",
+            color: "#00FF00",
+          },
+          {
+            type: "line",
+            smooth: true,
+            seriesLayoutBy: "row",
+            symbol: "none",
+            color: "#FF00B2",
           },
         ],
       };
@@ -229,8 +242,8 @@ export default {
         series: [
           {
             type: "pie",
-            radius: "76%",
-            center: ["50%", "55%"],
+            radius: "70%",
+            center: ["50%", "57%"],
             data: [
               { value: 500, name: "电子信息", itemStyle: { color: "#2688E0" } },
               { value: 50, name: "其他", itemStyle: { color: "#064782" } },
@@ -242,14 +255,13 @@ export default {
             }),
             roseType: "radius",
             avoidLabelOverlap: false,
-            // hoverAnimation: false, // 取消鼠标滑入放大的效果
-            // animation: false, // 取消饼图展开的效果
+
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -60, 0, -50],
+              padding: [0, -60, 0, -40],
             },
             labelLine: {
               show: true,
@@ -262,7 +274,6 @@ export default {
               length2: 55,
             },
             itemStyle: {
-              // color: "#0063FF",
               normal: {
                 color: "#0063FF",
               },
@@ -344,7 +355,7 @@ export default {
           {
             type: "bar",
             barWidth: "45%",
-            data: [63,10,12,123],
+            data: [63, 10, 12, 123],
             label: {
               show: true,
               position: "right",

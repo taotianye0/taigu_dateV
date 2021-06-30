@@ -9,7 +9,7 @@
         </div>
         <div class="park">
           <div class="park_up">
-           <ul class="clearfix">
+            <ul class="clearfix">
               <li>
                 <p>规划总面积</p>
                 <div class="clearfix downBox">
@@ -25,7 +25,7 @@
             </ul>
           </div>
           <div class="park_down">
-           <ul class="clearfix">
+            <ul class="clearfix">
               <li>
                 <i></i>
                 <p>3人</p>
@@ -128,15 +128,14 @@ export default {
         },
         tooltip: {
           trigger: "axis",
-          // showContent: false,//是否展示数据
-          triggerOn: "click", //点击时展示数据
         },
         dataset: {
           source: [
             ["product", "2017", "2018", "2019", "2020"],
-            ["大型企业", 30.4, 85.1, 23.3, 93.8],
-            ["中小型企业", 32.1, 85.7,53.4, 95.1],
-            ["微型企业", 47.2, 46.4, 85.2, 22.5],
+            ["第二产业增加值", 9.8, 11.6, 13.8, 14.4],
+            ["第三产业增加值", 2.7, 3.1, 3.6, 3.8],
+            ["固定资产投资额", 13.4, 15.5, 17.8, 18.9],
+            ["社会消费品零售总额", 23.8, 26.3, 29.4, 31.2],
           ],
         },
         xAxis: {
@@ -161,8 +160,20 @@ export default {
         yAxis: {
           show: false,
         },
-        grid: { left: "0%" },
+        grid: {
+          left: "-5%",
+          right: "10%",
+          top: "28%",
+          bottom: "0%",
+          containLabel: true,
+        },
         series: [
+            {
+            type: "line",
+            smooth: true,
+            seriesLayoutBy: "row",
+            symbol: "none",
+          },
           {
             type: "line",
             smooth: true,

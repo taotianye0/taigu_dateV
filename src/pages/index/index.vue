@@ -2,8 +2,16 @@
   <!-- 高新区雁滩园区 -->
   <div class="big_bg">
     <div class="indexbg">
-      <img src="../../../static/img/indexbg.png" />
+      <!-- <img src="../../../static/img/indexbg.png" /> -->
       <!-- <img src="../../assets/img/indexBG.jpg" /> -->
+      <div class="indexbgimg">
+        <div class="b b1"></div>
+        <div class="b b2"></div>
+        <div class="b b3"></div>
+        <div class="b b4"></div>
+        <div class="b b5"></div>
+        <div class="b b6"></div>
+      </div>
       <div class="dl">
         <div class="name">
           <p>定连园区</p>

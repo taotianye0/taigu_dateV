@@ -114,6 +114,7 @@ export default {
     // 绘制产业增加值 图
     drawDevelop() {
       let develop = this.$echarts.init(this.$refs.develop);
+      let tootipTimer = null;
       let option0 = {
         legend: {
           top: "25",
@@ -128,15 +129,15 @@ export default {
         },
         tooltip: {
           trigger: "axis",
-          // showContent: false,//是否展示数据
-          triggerOn: "click", //点击时展示数据
         },
         dataset: {
           source: [
             ["product", "2017", "2018", "2019", "2020"],
-            ["大型企业", 30.4, 85.1, 23.3, 98.7],
-            ["中小型企业", 85.7, 23.1, 53.4, 95.1],
-            ["微型企业", 47.2, 79.5, 85.2, 22.5],
+            ["第一产业增加值", 0.93, 0.98, 1, 1.02],
+            ["第二产业增加值", 3.7, 4.7, 5.4, 5.6],
+            ["第三产业增加值", 7.1, 8.2, 9.3, 10.1],
+            ["固定资产投资额", 24.2, 28.1, 33.5, 35.7],
+            ["社会消费品零售总额", 18.5, 20.5, 23.3, 24],
           ],
         },
         xAxis: {
@@ -147,7 +148,6 @@ export default {
             },
           },
           type: "category",
-
           axisTick: {
             alignWithLabel: true,
           },
@@ -161,33 +161,61 @@ export default {
         yAxis: {
           show: false,
         },
-        grid: { left: "0%" },
+        grid: {
+          left: "-5%",
+          right: "10%",
+          top: "37%",
+          bottom: "0%",
+          containLabel: true,
+        },
         series: [
           {
             type: "line",
-            smooth: true,
+            // smooth: true,
+            seriesLayoutBy: "row",
+            symbol: "none",
+          },
+          {
+            type: "line",
+            // smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
             color: "#30B7C1",
           },
           {
             type: "line",
-            smooth: true,
+            // smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
             color: "#C33CFD",
           },
           {
             type: "line",
-            smooth: true,
+            // smooth: true,
             seriesLayoutBy: "row",
             symbol: "none",
             color: "#1E8BFF",
           },
+          {
+            type: "line",
+            // smooth: true,
+            seriesLayoutBy: "row",
+            symbol: "none",
+            color: "#FFDF00",
+          },
         ],
       };
+
       // 3,绘图
       develop.setOption(option0);
+      // 可调用clearLoop方法，清除定时器
+      tootipTimer && tootipTimer.clearLoop();
+      tootipTimer = null;
+      // 调用轮播的方法
+      tootipTimer = tools.loopShowTooltip(develop, option0, {
+        interval: 1500, // 轮播间隔时间
+        loopSeries: true, // 是否开启轮播循环
+      });
     },
     // 绘制行业占比 图
     drawBusiness() {
@@ -211,27 +239,27 @@ export default {
         series: [
           {
             type: "pie",
-            radius: "78%",
-            center: ["50%", "50%"],
+            radius: "75%",
+            center: ["50%", "51%"],
             data: [
-              { value: 400, name: "电子信息" },
-              { value: 150, name: "其他" },
-              { value: 100, name: "工业生产" },
-              { value: 180, name: "节能环保" },
-              { value: 300, name: "生物医药" },
+              { value: 200, name: "电子信息" },
+              { value: 50, name: "其他" },
+              { value: 200, name: "工业生产" },
+              { value: 150, name: "节能环保" },
+              { value: 400, name: "生物医药" },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
             roseType: "radius",
             avoidLabelOverlap: false,
-            hoverAnimation: false, // 取消鼠标滑入放大的效果
-            animation: false, // 取消饼图展开的效果
+            // hoverAnimation: false, // 取消鼠标滑入放大的效果
+            // animation: false, // 取消饼图展开的效果
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -65, 0, -66],
+              padding: [0, -55, 0, -60],
             },
             labelLine: {
               show: true,
@@ -241,10 +269,9 @@ export default {
               },
               smooth: 0,
               length: 1,
-              length2: 75,
+              length2: 70,
             },
             itemStyle: {
-              // color: "#0063FF",
               normal: {
                 color: "#0063FF",
               },
@@ -306,7 +333,7 @@ export default {
         },
         yAxis: {
           type: "category",
-       data: ["瞪羚企业", "上市公司", "骨干企业", "高新技术企业"],
+          data: ["瞪羚企业", "上市公司", "骨干企业", "高新技术企业"],
           nameLocation: "center",
           axisLabel: {
             color: "#00FCF9",
@@ -326,7 +353,7 @@ export default {
           {
             type: "bar",
             barWidth: "45%",
-            data: [12,1,1,26],
+            data: [12, 1, 1, 26],
             label: {
               show: true,
               position: "right",
@@ -358,7 +385,7 @@ export default {
                 },
               },
               emphasis: {
-                color: "#33B8E4",
+                color: "#A36CFF",
               },
             },
           },

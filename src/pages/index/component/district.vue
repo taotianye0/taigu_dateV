@@ -287,13 +287,13 @@ export default {
         series: [
           {
             type: "pie",
-            radius: "78%",
-            center: ["50%", "50%"],
+            radius: "70%",
+            center: ["50%", "52%"],
             data: [
               { value: 320, name: "电子信息"},
-              { value: 100, name: "节能环保"},
+              { value: 150, name: "节能环保"},
               { value: 300, name: "生物医药"},
-              { value: 100, name: "其他" },
+              { value: 50, name: "其他" },
               { value: 180, name: "工业生产" },
             ].sort(function (a, b) {
               return a.value - b.value;
@@ -307,7 +307,7 @@ export default {
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -65, 0, -66],
+              padding: [0, -50, 0, -45],
             },
             labelLine: {
               show: true,
@@ -316,8 +316,8 @@ export default {
                 type: "radial",
               },
               smooth: 0,
-              length: 1,
-              length2: 75,
+              length: 5,
+              length2: 80,
             },
             itemStyle: {
               normal: {

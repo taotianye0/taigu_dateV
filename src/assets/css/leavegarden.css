@@ -163,7 +163,7 @@
   display: inline-block;
   height: 100%;
   white-space: nowrap;
-  animation: mymove 8s 2s infinite normal ease-in;
+  animation: mymove 8s 8s infinite normal ease-in;
 }
 @keyframes mymove {
   0% {
@@ -187,7 +187,7 @@
   font-weight: 400;
 }
 .left_two .listBox {
-  padding: 0.15rem 0 0.15rem 0.27rem;
+  padding: 0.15rem 0 0.15rem 0.15rem;
   box-sizing: border-box;
   height: calc(100% - 0.57rem);
 }
@@ -398,12 +398,12 @@
   height: 100%;
 }
 .right_two .righttwo_left .text {
-  top: 25%;
-  left: 26%;
+  top: 40%;
+  left: 50%;
+  margin-left: -23%;
   z-index: 2;
   width: 46%;
   height: 46%;
-  line-height: 0.9rem;
   text-align: center;
   color: #BCC3D6;
   font-size: 0.3rem;
