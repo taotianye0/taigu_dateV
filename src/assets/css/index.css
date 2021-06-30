@@ -13,9 +13,41 @@ body {
   left: 0;
   top: 0;
 }
-.indexbg > img {
-  width: 100%;
+.indexbgimg {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto;
   height: 100%;
+  width: 100%;
+}
+.indexbgimg .b {
+  background-color: #f37e7e;
+  height: 100%;
+  width: 100%;
+}
+.indexbgimg .b1 {
+  background: url(../img/indexbg01.gif) no-repeat;
+  background-size: 100% 100%;
+}
+.indexbgimg .b2 {
+  background: url(../img/indexbg02.gif) no-repeat;
+  background-size: 100% 100%;
+}
+.indexbgimg .b3 {
+  background: url(../img/indexbg03.gif) no-repeat;
+  background-size: 100% 100%;
+}
+.indexbgimg .b4 {
+  background: url(../img/indexbg04.gif) no-repeat;
+  background-size: 100% 100%;
+}
+.indexbgimg .b5 {
+  background: url(../img/indexbg05.gif) no-repeat;
+  background-size: 100% 100%;
+}
+.indexbgimg .b6 {
+  background: url(../img/indexbg06.gif) no-repeat;
+  background-size: 100% 100%;
 }
 .wrap {
   width: 100%;

@@ -163,7 +163,7 @@ export default {
           grid: {
           left: "-7%",
           right: "10%",
-          top: "25%",
+          top: "33%",
           bottom: "0%",
           containLabel: true,
         },
@@ -224,14 +224,14 @@ export default {
         series: [
           {
             type: "pie",
-            radius: "78%",
-            center: ["50%", "50%"],
+            radius: "72%",
+            center: ["50%", "51%"],
             data: [
-              { value: 400, name: "电子信息" },
-              { value: 150, name: "其他" },
-              { value: 130, name: "工业生产" },
-              { value: 180, name: "节能环保" },
-              { value: 220, name: "生物医药" },
+              { value: 320, name: "电子信息"},
+              { value: 180, name: "节能环保"},
+              { value: 120, name: "生物医药"},
+              { value: 80, name: "其他" },
+              { value: 300, name: "工业生产" },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
@@ -244,7 +244,7 @@ export default {
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -65, 0, -66],
+              padding: [0, -40, 0, -55],
             },
             labelLine: {
               show: true,
@@ -253,8 +253,8 @@ export default {
                 type: "radial",
               },
               smooth: 0,
-              length: 1,
-              length2: 75,
+              length: 5,
+              length2: 55,
             },
             itemStyle: {
               // color: "#0063FF",

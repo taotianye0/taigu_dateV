@@ -164,7 +164,7 @@ export default {
         grid: {
           left: "-5%",
           right: "10%",
-          top: "25%",
+          top: "37%",
           bottom: "0%",
           containLabel: true,
         },
@@ -239,27 +239,27 @@ export default {
         series: [
           {
             type: "pie",
-            radius: "78%",
-            center: ["50%", "50%"],
+            radius: "75%",
+            center: ["50%", "51%"],
             data: [
-              { value: 400, name: "电子信息" },
-              { value: 150, name: "其他" },
-              { value: 100, name: "工业生产" },
-              { value: 180, name: "节能环保" },
-              { value: 300, name: "生物医药" },
+              { value: 200, name: "电子信息" },
+              { value: 50, name: "其他" },
+              { value: 200, name: "工业生产" },
+              { value: 150, name: "节能环保" },
+              { value: 400, name: "生物医药" },
             ].sort(function (a, b) {
               return a.value - b.value;
             }),
             roseType: "radius",
             avoidLabelOverlap: false,
-            hoverAnimation: false, // 取消鼠标滑入放大的效果
-            animation: false, // 取消饼图展开的效果
+            // hoverAnimation: false, // 取消鼠标滑入放大的效果
+            // animation: false, // 取消饼图展开的效果
             label: {
               color: "#BCC3D6",
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
-              padding: [0, -65, 0, -66],
+              padding: [0, -55, 0, -60],
             },
             labelLine: {
               show: true,
@@ -269,7 +269,7 @@ export default {
               },
               smooth: 0,
               length: 1,
-              length2: 75,
+              length2: 70,
             },
             itemStyle: {
               normal: {

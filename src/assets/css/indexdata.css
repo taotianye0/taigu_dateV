@@ -210,10 +210,6 @@
   width: 100%;
   height: calc(100% - 0.62rem);
 }
-.business {
-  position: relative;
-  z-index: 6;
-}
 .right {
   position: fixed;
   bottom: 0.1rem;
