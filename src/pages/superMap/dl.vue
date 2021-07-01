@@ -114,109 +114,82 @@ export default {
     });
     // 点击事件
     var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
-    // handler.setInputAction(function (event) {
-    //   //1.椭球面坐标:获取当前点击视线与椭球面相交处的坐标，在加载地形的场景上获取的坐标有误差
-    //   //var earthPosition = viewer.camera.pickEllipsoid(event.position,viewer.scene.globe.ellipsoid);
-    //   //2.场景坐标:获取场景中任意点击处的对应的世界坐标，需要开启“地形深度检测”（在未开启“地形深度检测”的情况下只能在3DTile上准确获取空间坐标，开启“地形深度检测”后，viewer.scene.pickPosition 也能在非3DTile上准确获取坐标）
-    //   viewer.scene.globe.depthTestAgainstTerrain = true;
-    //   var earthPosition = viewer.scene.pickPosition(event.position);
-    //   //3.地标坐标：获取点击处地球表面的世界坐标，不包括模型、倾斜摄影表面
-    //   // var ray = viewer.camera.getPickRay(event.position);
-    //   // var earthPosition = viewer.scene.globe.pick(ray, viewer.scene);
-    //   // console.log(event);
-    //   if (Cesium.defined(earthPosition)) {
-    //     console.log(earthPosition);
-    //   }
-    //   // var position = viewer.scene.pickPosition(event.position);
-    //   // //将笛卡尔坐标转化为经纬度坐标
-    //   // var cartographic = Cesium.Cartographic.fromCartesian(position);
-    //   // var x = Cesium.Math.toDegrees(cartographic.longitude);
-    //   // var y = Cesium.Math.toDegrees(cartographic.latitude);
-    //   // var z = cartographic.height;
-    //   // var h = viewer.scene.camera.heading;
-    //   // var p = viewer.scene.camera.pitch;
-    //   // var r = viewer.scene.camera.roll;
-    //   // console.log(x, y, z, h, p, r);
-    //   // 获取选中的S3M图层
-    //   let selectlayer = viewer.scene.layers.getSelectedLayer();
-    //   console.log(selectlayer.name);
-    //   if (selectlayer.name !== undefined) {
-    //     that.select = selectlayer.name;
-    //   }
-    //   if (selectlayer.name == "logistics") {
-    //     // 物流园
-    //     viewer.camera.flyTo({
-    //       destination: new Cesium.Cartesian3(
-    //         -1255585.494900049,
-    //         5010562.694711306,
-    //         3743327.072412085
-    //       ),
-    //       orientation: {
-    //         heading: -1,
-    //         pitch: -0.47877092800193255,
-    //         roll: 6.283171325419627,
-    //       },
-    //       duration: 5, //持续时间
-    //       complete: function callback() {
-    //         var flag = {
-    //           isshow: false,
-    //           selectid: 1,
-    //         };
-    //         that.rotateByPosition(flag);
-    //       },
-    //     });
-    //   } else if (
-    //     selectlayer.name == "biology1" ||
-    //     selectlayer.name == "biology2"
-    //   ) {
-    //     // 生物园
-    //     viewer.camera.flyTo({
-    //       destination: new Cesium.Cartesian3(
-    //         -1251141.9190089318,
-    //         5010576.969080759,
-    //         3743694.681275339
-    //       ),
-    //       orientation: {
-    //         heading: -1,
-    //         pitch: -0.47877092800193255,
-    //         roll: 6.283171325419627,
-    //       },
-    //       duration: 5, //持续时间
-    //       complete: function callback() {
-    //         var flag = {
-    //           isshow: false,
-    //           selectid: 2,
-    //         };
-    //         that.rotateByPosition(flag);
-    //       },
-    //     });
-    //   }
-    // }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-
-    //单击显示点位坐标信息
-    handler.setInputAction(function (lclickment) {
-      //得到当前三维场景
-      var scene = viewer.scene;
-      //得到当前三维场景的椭球体
-      var ellipsoid = scene.globe.ellipsoid;
-      // var cartesian = Cesium.Viewer.camera.pickEllipsoid(lclickment.position, ellipsoid);
-      var cartesian = viewer.scene.pickPosition(lclickment.position);
-      // var positionPick = cartesian;
-      // var pinBuilder = new Cesium.PinBuilder();
-      if (cartesian) {
-        var cartographic = ellipsoid.cartesianToCartographic(cartesian);
-        var lon = Cesium.Math.toDegrees(cartographic.longitude).toFixed(7);
-        var lat = Cesium.Math.toDegrees(cartographic.latitude).toFixed(7);
-        //地理高度
-        //height = (cartographic.height+1).toFixed(2);
-        //console.log(lon+","+lat+","+height);
-        //相机高度
-        var height = viewer.camera.positionCartographic.height.toFixed(0);
-        var heading = Cesium.Math.toDegrees(viewer.camera.heading).toFixed(2);
-        var pitch = Cesium.Math.toDegrees(viewer.camera.pitch).toFixed(2);
-        console.log(
-          lon + "," + lat + "," + height + "," + heading + "," + pitch
-        );
+    handler.setInputAction(function (event) {
+      //1.椭球面坐标:获取当前点击视线与椭球面相交处的坐标，在加载地形的场景上获取的坐标有误差
+      //var earthPosition = viewer.camera.pickEllipsoid(event.position,viewer.scene.globe.ellipsoid);
+      //2.场景坐标:获取场景中任意点击处的对应的世界坐标，需要开启“地形深度检测”（在未开启“地形深度检测”的情况下只能在3DTile上准确获取空间坐标，开启“地形深度检测”后，viewer.scene.pickPosition 也能在非3DTile上准确获取坐标）
+      viewer.scene.globe.depthTestAgainstTerrain = true;
+      var earthPosition = viewer.scene.pickPosition(event.position);
+      //3.地标坐标：获取点击处地球表面的世界坐标，不包括模型、倾斜摄影表面
+      // var ray = viewer.camera.getPickRay(event.position);
+      // var earthPosition = viewer.scene.globe.pick(ray, viewer.scene);
+      // console.log(event);
+      if (Cesium.defined(earthPosition)) {
+        console.log(earthPosition);
+      }
+      // var position = viewer.scene.pickPosition(event.position);
+      // //将笛卡尔坐标转化为经纬度坐标
+      // var cartographic = Cesium.Cartographic.fromCartesian(position);
+      // var x = Cesium.Math.toDegrees(cartographic.longitude);
+      // var y = Cesium.Math.toDegrees(cartographic.latitude);
+      // var z = cartographic.height;
+      // var h = viewer.scene.camera.heading;
+      // var p = viewer.scene.camera.pitch;
+      // var r = viewer.scene.camera.roll;
+      // console.log(x, y, z, h, p, r);
+      // 获取选中的S3M图层
+      let selectlayer = viewer.scene.layers.getSelectedLayer();
+      console.log(selectlayer.name);
+      if (selectlayer.name !== undefined) {
+        that.select = selectlayer.name;
+      }
+      if (selectlayer.name == "logistics") {
+        // 物流园
+        viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            -1255585.494900049,
+            5010562.694711306,
+            3743327.072412085
+          ),
+          orientation: {
+            heading: -1,
+            pitch: -0.47877092800193255,
+            roll: 6.283171325419627,
+          },
+          duration: 5, //持续时间
+          complete: function callback() {
+            var flag = {
+              isshow: false,
+              selectid: 1,
+            };
+            that.rotateByPosition(flag);
+          },
+        });
+      } else if (
+        selectlayer.name == "biology1" ||
+        selectlayer.name == "biology2"
+      ) {
+        // 生物园
+        viewer.camera.flyTo({
+          destination: new Cesium.Cartesian3(
+            -1251141.9190089318,
+            5010576.969080759,
+            3743694.681275339
+          ),
+          orientation: {
+            heading: -1,
+            pitch: -0.47877092800193255,
+            roll: 6.283171325419627,
+          },
+          duration: 5, //持续时间
+          complete: function callback() {
+            var flag = {
+              isshow: false,
+              selectid: 2,
+            };
+            that.rotateByPosition(flag);
+          },
+        });
       }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
   },
@@ -263,7 +236,7 @@ export default {
             pitch: -0.478300020091893,
             roll: 6.283171324956896,
             angle: 360 / 60,
-            distance: 450,
+            distance: 1000,
           };
           this.hide = true;
           this.concel = false;

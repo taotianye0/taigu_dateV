@@ -158,80 +158,80 @@ export default {
       if (selectlayer.name !== undefined) {
         that.select = selectlayer.name;
       }
-      // switch (selectlayer.name) {
-      //   case "syb":
-      //     // 留创园
-      //     viewer.camera.flyTo({
-      //       destination: new Cesium.Cartesian3(
-      //         -1238700.4726560987,
-      //         5005743.138761906,
-      //         3753780.6485069036
-      //       ),
-      //       orientation: {
-      //         heading: 4.1945742079374515,
-      //         pitch: -0.478811382362184,
-      //         roll: 6.283171325420994,
-      //       },
-      //       duration: 5, //持续时间
-      //       complete: function callback() {
-      //         // var flag = {
-      //         //   isshow: false,
-      //         //   selectid: 1,
-      //         // };
-      //         // that.rotateByPosition(flag);
-      //       },
-      //     });
-      //     break;
-      //   case "innovate":
-      //     // 创新大厦
-      //     viewer.camera.flyTo({
-      //       destination: new Cesium.Cartesian3(
-      //         -1237753.6199691885,
-      //         5005998.215701284,
-      //         3753831.1959734997
-      //       ),
-      //       orientation: {
-      //         heading: 1.1661396370797075,
-      //         pitch: -0.47865140602711786,
-      //         roll: 6.283171324877447,
-      //       },
-      //       duration: 5, //持续时间
-      //       complete: function callback() {
-      //         // var flag = {
-      //         //   isshow: false,
-      //         //   selectid: 2,
-      //         // };
-      //         // that.rotateByPosition(flag);
-      //       },
-      //     });
-      //     break;
-      //   case "hatch":
-      //     // 孵化大厦
-      //     viewer.camera.flyTo({
-      //       destination: new Cesium.Cartesian3(
-      //         -1237240.8328621706,
-      //         5006000.742842774,
-      //         3753900.111206762
-      //       ),
-      //       orientation: {
-      //         heading: 0.32180464817195986,
-      //         pitch: -0.4786520862834105,
-      //         roll: 6.283171324322858,
-      //       },
-      //       duration: 5, //持续时间
-      //       complete: function callback() {
-      //         // var flag = {
-      //         //   isshow: false,
-      //         //   selectid: 3,
-      //         // };
-      //         // that.rotateByPosition(flag);
-      //       },
-      //     });
-      //     break;
+      switch (selectlayer.name) {
+        case "syb":
+          // 留创园
+          viewer.camera.flyTo({
+            destination: new Cesium.Cartesian3(
+              -1238700.4726560987,
+              5005743.138761906,
+              3753780.6485069036
+            ),
+            orientation: {
+              heading: 4.1945742079374515,
+              pitch: -0.478811382362184,
+              roll: 6.283171325420994,
+            },
+            duration: 5, //持续时间
+            complete: function callback() {
+              var flag = {
+                isshow: false,
+                selectid: 1,
+              };
+              that.rotateByPosition(flag);
+            },
+          });
+          break;
+        case "innovate":
+          // 创新大厦
+          viewer.camera.flyTo({
+            destination: new Cesium.Cartesian3(
+              -1237753.6199691885,
+              5005998.215701284,
+              3753831.1959734997
+            ),
+            orientation: {
+              heading: 1.1661396370797075,
+              pitch: -0.47865140602711786,
+              roll: 6.283171324877447,
+            },
+            duration: 5, //持续时间
+            complete: function callback() {
+              var flag = {
+                isshow: false,
+                selectid: 2,
+              };
+              that.rotateByPosition(flag);
+            },
+          });
+          break;
+        case "hatch":
+          // 孵化大厦
+          viewer.camera.flyTo({
+            destination: new Cesium.Cartesian3(
+              -1237240.8328621706,
+              5006000.742842774,
+              3753900.111206762
+            ),
+            orientation: {
+              heading: 0.32180464817195986,
+              pitch: -0.4786520862834105,
+              roll: 6.283171324322858,
+            },
+            duration: 5, //持续时间
+            complete: function callback() {
+              var flag = {
+                isshow: false,
+                selectid: 3,
+              };
+              that.rotateByPosition(flag);
+            },
+          });
+          break;
 
-      //   default:
-      //     break;
-      // }
+        default:
+          break;
+      }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
   },
   methods: {
