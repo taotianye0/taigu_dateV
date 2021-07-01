@@ -34,14 +34,14 @@
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">企业数量</li>
-                <li class="text">21家</li>
+                <li class="text">81家</li>
               </ul>
             </li>
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">人才数量</li>
-                <li class="text">502位</li>
+                <li class="text">1002位</li>
               </ul>
             </li>
           </ul>
@@ -182,24 +182,24 @@
           <ul>
             <li>
               <p><i>NO.1</i></p>
-              <i>生物##医药</i>
-              <span>55%</span>
+              <i>现代服务业</i>
+              <span>65%</span>
             </li>
             <li>
               <p><i>NO.2</i></p>
-              <i>电子##信息</i>
-              <span>22%</span>
+              <i>电子信息</i>
+              <span>12%</span>
             </li>
              <li>
               <p>
                 <i>NO.3</i>
               </p>
-              <i>现代##服务页</i>
+              <i>生物医药</i>
               <span>10%</span>
             </li>
             <li>
               <p><i>NO.4</i></p>
-              <i>节##能环保</i>
+              <i>节能环保</i>
               <span>8%</span>
             </li>
             <li>
@@ -224,21 +224,13 @@ export default {
       isshow: false,
       timer: null,
       companyList: [
-        { companyName: "兰州万桥智####限公司", time: "2001-04-18" },
         { companyName: "甘肃泛植生物科技有限公司", time: "2015-12-01" },
-        { companyName: "兰&&&&科技有限公司", time: "2004-12-06" },
-        { companyName: "兰州荣&&&&&有限责任公司", time: "2004-09-04" },
         { companyName: "甘肃一德节能环保有限公司", time: "2006-04-06" },
         { companyName: "甘肃稳健医疗科技有限公司", time: "2013-01-28" },
-        { companyName: "甘肃$$$$$$$团有限公司", time: "2007-04-25" },
-        { companyName: "兰州鸿&&&7设计有限公司", time: "2004-10-26" },
         { companyName: "兰州安众信息科技有限公司", time: "2014-04-11" },
         { companyName: "甘肃力合科技设备有限公司", time: "2015-12-02" },
-        { companyName: "甘肃鼎######材有限公司", time: "2016-06-17" },
         { companyName: "甘肃兰菲环保科技有限公司", time: "2015-01-27" },
-        { companyName: "兰#######科技有限公司", time: "2004-06-07" },
         { companyName: "甘肃万新科技有限公司", time: "2002-09-13" },
-        { companyName: "兰######物科技有限公司", time: "2003-06-25" },
       ],
     };
   },
@@ -249,6 +241,7 @@ export default {
     this.$event.$on("show", (e) => {
       this.isshow = e;
     });
+    
   },
   beforeDestroy() {
     clearInterval(this.timer);
@@ -258,6 +251,7 @@ export default {
     //入住企业模块  自动播放动画
     wheel() {
       var list = document.querySelector(".left_two .list");
+   
       var speed = 50;
       this.timer = setInterval(() => {
         if (
