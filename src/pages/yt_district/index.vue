@@ -3,7 +3,6 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <!-- <img src="../../assets/img/bg.jpg" title="超图的位置" /> -->
       <yt-CesiumCom @func="getclick"></yt-CesiumCom>
     </div>
 
@@ -66,6 +65,8 @@ export default {
 .supermap {
   width: 100vw;
   height: 100vh;
+  background: url("../../assets/img/bg.jpg") no-repeat;
+  background-size: 100% 100%;
 }
 img {
   width: 100vw;

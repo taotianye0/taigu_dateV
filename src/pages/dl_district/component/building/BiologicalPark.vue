@@ -34,14 +34,14 @@
               <ul class="clearfix">
                 <li class="in"></li>
                 <li class="name">企业数量</li>
-                <li class="text">67家</li>
+                <li class="text">27家</li>
               </ul>
             </li>
             <li class="wrap">
               <ul class="clearfix">
                 <li class="in"></li>
                  <li class="name">人才数量</li>
-                <li class="text">1602位</li>
+                <li class="text">602位</li>
               </ul>
             </li>
           </ul>
@@ -73,7 +73,7 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>108</i>项</p>
+                  <p><i>38</i>项</p>
                   <div class="wave1"></div>
                   <div class="wave2"></div>
                 </div>
@@ -87,7 +87,7 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>38</i>项</p>
+                  <p><i>18</i>项</p>
                   <div class="wave4"></div>
                   <div class="wave3"></div>
                 </div>
@@ -158,7 +158,7 @@
             </li>
             <li>
               <p class="up">硕士</p>
-              <p class="down"><i>201</i> <span>/人</span></p>
+              <p class="down"><i>41</i> <span>/人</span></p>
             </li>
           </ul>
           <ul class="clearfix two">
@@ -168,7 +168,7 @@
             </li>
             <li>
               <p class="up">海归</p>
-              <p class="down"><i>36</i> <span>/人</span></p>
+              <p class="down"><i>16</i> <span>/人</span></p>
             </li>
           </ul>
         </div>
@@ -183,7 +183,7 @@
             <li>
               <p><i>NO.1</i></p>
               <i>生物医药</i>
-              <span>55%</span>
+              <span>60%</span>
             </li>
             <li>
               <p><i>NO.2</i></p>
@@ -194,18 +194,18 @@
               <p>
                 <i>NO.3</i>
               </p>
-              <i>现代服务页</i>
+              <i>现代服务业</i>
               <span>10%</span>
             </li>
             <li>
               <p><i>NO.4</i></p>
               <i>节能环保</i>
-              <span>8%</span>
+              <span>5%</span>
             </li>
             <li>
               <p><i>NO.5</i></p>
               <i>其他</i>
-              <span>5%</span>
+              <span>3%</span>
             </li>
          
           </ul>

@@ -47,6 +47,8 @@ export default {
 .supermap {
   width: 100vw;
   height: 100vh;
+    background: url("../../assets/img/bg.jpg") no-repeat;
+    background-size: 100% 100%;
 }
 img {
   width: 100vw;
