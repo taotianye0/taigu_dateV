@@ -3,15 +3,16 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <img src="../../assets/img/bg.jpg" title="超图的位置" />
+      <!-- <img src="../../assets/img/bg.jpg" title="超图的位置" /> -->
+      <jz-cesiumCom @func="getclick"></jz-cesiumCom>
     </div>
-    <v-district></v-district> 
+    <v-district></v-district>
   </div>
 </template>
 
 <script>
 import vDistrict from "./component/district.vue";
-
+import jzCesiumCom from "../superMap/jz.vue";
 
 export default {
   data() {
@@ -23,7 +24,8 @@ export default {
   },
   components: {
     vDistrict,
-    },
+    jzCesiumCom,
+  },
   methods: {
     // 超图的点击事件
     getclick(val) {

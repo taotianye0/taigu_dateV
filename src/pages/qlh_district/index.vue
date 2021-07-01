@@ -3,17 +3,17 @@
   <div>
     <div class="supermap" id="supermap">
       <!-- 超图 -->
-      <img src="../../assets/img/bg.jpg" title="超图的位置" />
+      <!-- <img src="../../assets/img/bg.jpg" title="超图的位置" /> -->
+      <qlh-cesiumCom @func="getclick"></qlh-cesiumCom>
     </div>
 
-  
-    <v-district></v-district> 
+    <v-district></v-district>
   </div>
 </template>
 
 <script>
 import vDistrict from "./component/district.vue";
-
+import qlhCesiumCom from "../superMap/qlh.vue";
 
 export default {
   data() {
@@ -25,7 +25,8 @@ export default {
   },
   components: {
     vDistrict,
-    },
+    qlhCesiumCom,
+  },
   methods: {
     // 超图的点击事件
     getclick(val) {
