@@ -44,6 +44,7 @@ export default {
       infoBox: false,
       selectionIndicator: false,
       isShowGlobe: true,
+      selectEnabled: true,
     });
     this.viewer = viewer;
     this.scene = this.viewer.scene;
@@ -63,31 +64,16 @@ export default {
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/FHDS/config"; //孵化大厦超图
     let url4 =
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/CXDS/config"; //创新大厦超图
+    let url5 =
+      "http://117.50.11.239:7090/iserver/services/3D-lz/rest/realspace/datas/WT"; //创新大厦超图
     this.scene
       .addS3MTilesLayerByScp(url, {
         name: "bim",
         packingRequest: 4,
+        
       })
       .then(() => {
         this.addOverlay();
-        this.viewer.scene.bloomEffect.show = true;
-        this.viewer.scene.bloomEffect.bloomIntensity = 1;
-        viewer.scene.hdrEnabled = true;
-        viewer.scene.scanEffect.show = true;
-        let viewer = this.viewer;
-        let scene = this.scene;
-        let screenSpaceEventHandler = new Cesium.ScreenSpaceEventHandler(
-          scene.canvas
-        );
-        screenSpaceEventHandler.setInputAction(function () {
-          // 获取选中的S3M图层
-          let selectlayer = viewer.scene.layers.getSelectedLayer();
-          // 获取选中图元的id
-          let selectid = selectlayer.getSelection()[0];
-          console.log(selectid);
-          var layer = scene.layers.find("bim");
-          layer.setObjsColor([selectid], new Cesium.Color(0, 0, 1, 1));
-        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
       });
     this.scene
       .addS3MTilesLayerByScp(url1, {
@@ -121,6 +107,10 @@ export default {
       .then(() => {
         this.addOverlay4();
       });
+    this.scene.addS3MTilesLayerByScp(url5, {
+      name: "hatchs",
+      packingRequest: 4,
+    });
     let that = this;
     // 飞行到二级页面
     that.flyTosecond();
@@ -142,92 +132,107 @@ export default {
       //3.地标坐标：获取点击处地球表面的世界坐标，不包括模型、倾斜摄影表面
       // var ray = viewer.camera.getPickRay(event.position);
       // var earthPosition = viewer.scene.globe.pick(ray, viewer.scene);
-      // console.log(event);
+      // console.log(event,ray);
       // if (Cesium.defined(earthPosition)) {
       //   console.log(earthPosition);
       // }
+      // var position = viewer.scene.pickPosition(event.position);
+      // // var position = {
+      // //   x: -1238700.4726560987,
+      // //   y: 5005743.138761906,
+      // //   z: 3753780.6485069036,
+      // // };
+      // console.log(position);
+      // //将笛卡尔坐标转化为经纬度坐标
+      // var cartographic = Cesium.Cartographic.fromCartesian(position);
+      // var x = Cesium.Math.toDegrees(cartographic.longitude);
+      // var y = Cesium.Math.toDegrees(cartographic.latitude);
+      // var z = cartographic.height;
+      // var h = viewer.scene.camera.heading;
+      // var p = viewer.scene.camera.pitch;
+      // var r = viewer.scene.camera.roll;
+      // console.log(x, y, z, h, p, r);
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       console.log(selectlayer.name);
       if (selectlayer.name !== undefined) {
         that.select = selectlayer.name;
       }
-      switch (selectlayer.name) {
-        case "syb":
-          // 留创园
-          viewer.camera.flyTo({
-            destination: new Cesium.Cartesian3(
-              -1238700.4726560987,
-              5005743.138761906,
-              3753780.6485069036
-            ),
-            orientation: {
-              heading: 4.1945742079374515,
-              pitch: -0.478811382362184,
-              roll: 6.283171325420994,
-            },
-            duration: 5, //持续时间
-            complete: function callback() {
-              var flag = {
-                isshow: false,
-                selectid: 1,
-              };
-              that.rotateByPosition(flag);
-            },
-          });
-          break;
-        case "innovate":
-          // 创新大厦
-          viewer.camera.flyTo({
-            destination: new Cesium.Cartesian3(
-              -1237753.6199691885,
-              5005998.215701284,
-              3753831.1959734997
-            ),
-            orientation: {
-              heading: 1.1661396370797075,
-              pitch: -0.47865140602711786,
-              roll: 6.283171324877447,
-            },
-            duration: 5, //持续时间
-            complete: function callback() {
-              var flag = {
-                isshow: false,
-                selectid: 2,
-              };
-              that.rotateByPosition(flag);
-            },
-          });
-          break;
-        case "hatch":
-          // 孵化大厦
-          viewer.camera.flyTo({
-            destination: new Cesium.Cartesian3(
-              -1237240.8328621706,
-              5006000.742842774,
-              3753900.111206762
-            ),
-            orientation: {
-              heading: 0.32180464817195986,
-              pitch: -0.4786520862834105,
-              roll: 6.283171324322858,
-            },
-            duration: 5, //持续时间
-            complete: function callback() {
-              var flag = {
-                isshow: false,
-                selectid: 3,
-              };
-              that.rotateByPosition(flag);
-            },
-          });
-          break;
+      // switch (selectlayer.name) {
+      //   case "syb":
+      //     // 留创园
+      //     viewer.camera.flyTo({
+      //       destination: new Cesium.Cartesian3(
+      //         -1238700.4726560987,
+      //         5005743.138761906,
+      //         3753780.6485069036
+      //       ),
+      //       orientation: {
+      //         heading: 4.1945742079374515,
+      //         pitch: -0.478811382362184,
+      //         roll: 6.283171325420994,
+      //       },
+      //       duration: 5, //持续时间
+      //       complete: function callback() {
+      //         // var flag = {
+      //         //   isshow: false,
+      //         //   selectid: 1,
+      //         // };
+      //         // that.rotateByPosition(flag);
+      //       },
+      //     });
+      //     break;
+      //   case "innovate":
+      //     // 创新大厦
+      //     viewer.camera.flyTo({
+      //       destination: new Cesium.Cartesian3(
+      //         -1237753.6199691885,
+      //         5005998.215701284,
+      //         3753831.1959734997
+      //       ),
+      //       orientation: {
+      //         heading: 1.1661396370797075,
+      //         pitch: -0.47865140602711786,
+      //         roll: 6.283171324877447,
+      //       },
+      //       duration: 5, //持续时间
+      //       complete: function callback() {
+      //         // var flag = {
+      //         //   isshow: false,
+      //         //   selectid: 2,
+      //         // };
+      //         // that.rotateByPosition(flag);
+      //       },
+      //     });
+      //     break;
+      //   case "hatch":
+      //     // 孵化大厦
+      //     viewer.camera.flyTo({
+      //       destination: new Cesium.Cartesian3(
+      //         -1237240.8328621706,
+      //         5006000.742842774,
+      //         3753900.111206762
+      //       ),
+      //       orientation: {
+      //         heading: 0.32180464817195986,
+      //         pitch: -0.4786520862834105,
+      //         roll: 6.283171324322858,
+      //       },
+      //       duration: 5, //持续时间
+      //       complete: function callback() {
+      //         // var flag = {
+      //         //   isshow: false,
+      //         //   selectid: 3,
+      //         // };
+      //         // that.rotateByPosition(flag);
+      //       },
+      //     });
+      //     break;
 
-        default:
-          break;
-      }
+      //   default:
+      //     break;
+      // }
     }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-    // handler.removeInputAction(Cesium.ScreenSpaceEventType.LEFT_CLICK);
   },
   methods: {
     // 停止按钮显示隐藏
@@ -322,7 +327,7 @@ export default {
         options.lat,
         options.height
       );
-      var pitch = Cesium.Math.toRadians(-30);
+      var pitch = Cesium.Math.toRadians(-25);
       // 给定飞行一周所需时间，比如10s, 那么每秒转动度数
       var angle = options.angle;
       // 给定相机距离点多少距离飞行，这里取值为5000m
