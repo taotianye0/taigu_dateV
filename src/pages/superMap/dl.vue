@@ -50,7 +50,7 @@ export default {
     this.scene.globe.show = true;
     this.camera.flyCircleLoop = true;
     this.scene.viewFlag = true;
-    // this.child();
+    this.child();
     let url =
       "http://117.50.11.239:7090/iserver/services/3D-lz/rest/realspace/datas/JZ/config"; //楼层超图
     let url1 =

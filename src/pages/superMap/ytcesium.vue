@@ -136,22 +136,6 @@ export default {
       // if (Cesium.defined(earthPosition)) {
       //   console.log(earthPosition);
       // }
-      // var position = viewer.scene.pickPosition(event.position);
-      // // var position = {
-      // //   x: -1238700.4726560987,
-      // //   y: 5005743.138761906,
-      // //   z: 3753780.6485069036,
-      // // };
-      // console.log(position);
-      // //将笛卡尔坐标转化为经纬度坐标
-      // var cartographic = Cesium.Cartographic.fromCartesian(position);
-      // var x = Cesium.Math.toDegrees(cartographic.longitude);
-      // var y = Cesium.Math.toDegrees(cartographic.latitude);
-      // var z = cartographic.height;
-      // var h = viewer.scene.camera.heading;
-      // var p = viewer.scene.camera.pitch;
-      // var r = viewer.scene.camera.roll;
-      // console.log(x, y, z, h, p, r);
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       console.log(selectlayer.name);
@@ -163,9 +147,9 @@ export default {
           // 留创园
           viewer.camera.flyTo({
             destination: new Cesium.Cartesian3(
-              -1238700.4726560987,
-              5005743.138761906,
-              3753780.6485069036
+              -1238750.4726560987,
+              5005723.138761906,
+              3753830.6485069036
             ),
             orientation: {
               heading: 4.1945742079374515,
@@ -272,7 +256,7 @@ export default {
             pitch: -0.478811382362184,
             roll: 6.283171325420994,
             angle: 360 / 60,
-            distance: 300,
+            distance: 400,
           };
           this.hide = true;
           this.concel = false;
@@ -300,7 +284,7 @@ export default {
             pitch: -0.4786520862834105,
             roll: 6.283171324322858,
             angle: 360 / 60,
-            distance: 300,
+            distance: 210,
           };
           this.hide = true;
           this.concel = false;
