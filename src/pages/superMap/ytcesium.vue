@@ -8,7 +8,7 @@
         <li v-else-if="this.select=='hatch'" @click="rotateByPosition(flag2)">停止旋转</li>
       </ul>
     </div>
-    <div class="button1" v-if="concel" @click="rotateByPosition(flag3)">停止旋转</div>
+    <div class="button1" v-else @click="rotateByPosition(flag3)">停止旋转</div>
   </div>
 </template>
 <script>
@@ -70,7 +70,6 @@ export default {
       .addS3MTilesLayerByScp(url, {
         name: "bim",
         packingRequest: 4,
-        
       })
       .then(() => {
         this.addOverlay();
@@ -148,7 +147,7 @@ export default {
           viewer.camera.flyTo({
             destination: new Cesium.Cartesian3(
               -1238750.4726560987,
-              5005723.138761906,
+              5005753.138761906,
               3753830.6485069036
             ),
             orientation: {
@@ -171,11 +170,11 @@ export default {
           viewer.camera.flyTo({
             destination: new Cesium.Cartesian3(
               -1237753.6199691885,
-              5005998.215701284,
-              3753831.1959734997
+              5006008.215701284,
+              3753851.1959734997
             ),
             orientation: {
-              heading: 1.1661396370797075,
+              heading: 1.3061396370797075,
               pitch: -0.47865140602711786,
               roll: 6.283171324877447,
             },
@@ -256,7 +255,7 @@ export default {
             pitch: -0.478811382362184,
             roll: 6.283171325420994,
             angle: 360 / 60,
-            distance: 400,
+            distance: 345,
           };
           this.hide = true;
           this.concel = false;
@@ -270,7 +269,7 @@ export default {
             pitch: -0.47865140602711786,
             roll: 6.283171324877447,
             angle: 360 / 60,
-            distance: 300,
+            distance: 350,
           };
           this.hide = true;
           this.concel = false;

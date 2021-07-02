@@ -294,7 +294,7 @@ export default {
     addOverlay1: function () {
       let scene = this.scene;
       var layer = scene.layers.find("road");
-      layer.style3D.fillForeColor = new Cesium.Color(6, 2, 0, 0.35);
+      layer.style3D.fillForeColor = new Cesium.Color(6, 2, 0, 0.2);
       // 关闭太阳光
       scene.sun.show = false;
     },

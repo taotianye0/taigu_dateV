@@ -6,9 +6,7 @@
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
       <!-- 返回按钮 -->
-      <div class="button" @click="send(false)" v-if="isshow">
-        ⋘ 返回上一页面
-      </div>
+      <div class="button" @click="send(false)" v-if="isshow">⋘ 返回上一页面</div>
       <!-- 跳转至园区管理按钮 -->
       <div class="button1">
         <a href="http://8.135.134.240:8022/">园区管理 ⋙</a>
@@ -54,7 +52,7 @@
         </div>
         <div class="listBox">
           <ul class="list">
-             <li v-for="(item, index) in companyList" :key="index">
+            <li v-for="(item, index) in companyList" :key="index">
               <div class="item_name">{{ item.companyName }}</div>
               <div class="item_time">{{ item.time }}</div>
             </li>
@@ -65,8 +63,7 @@
                 >
               </div>
               <div class="item_time">1993-03-01</div>
-            </li> -->
-           
+            </li>-->
           </ul>
         </div>
       </div>
@@ -82,7 +79,9 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>108</i>项</p>
+                  <p>
+                    <i>108</i>项
+                  </p>
                   <div class="wave1"></div>
                   <div class="wave2"></div>
                 </div>
@@ -96,7 +95,9 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>88</i>项</p>
+                  <p>
+                    <i>88</i>项
+                  </p>
                   <div class="wave4"></div>
                   <div class="wave3"></div>
                 </div>
@@ -110,7 +111,9 @@
                 <!-- 水波纹效果 -->
                 <div class="bg"></div>
                 <div class="wave">
-                  <p><i>25</i>项</p>
+                  <p>
+                    <i>25</i>项
+                  </p>
                   <div class="wave5"></div>
                   <div class="wave6"></div>
                 </div>
@@ -147,7 +150,7 @@
               </p>
             </li>
           </ul>
-        </div> -->
+        </div>-->
       </div>
       <div class="right_two">
         <div class="small_title">
@@ -163,21 +166,33 @@
           <ul class="clearfix">
             <li>
               <p class="up">院士</p>
-              <p class="down"><i>2</i> <span>/人</span></p>
+              <p class="down">
+                <i>2</i>
+                <span>/人</span>
+              </p>
             </li>
             <li>
               <p class="up">硕士</p>
-              <p class="down"><i>96</i> <span>/人</span></p>
+              <p class="down">
+                <i>96</i>
+                <span>/人</span>
+              </p>
             </li>
           </ul>
           <ul class="clearfix two">
             <li>
               <p class="up">领军人才</p>
-              <p class="down"><i>10</i> <span>/人</span></p>
+              <p class="down">
+                <i>10</i>
+                <span>/人</span>
+              </p>
             </li>
             <li>
               <p class="up">海归</p>
-              <p class="down"><i>181</i> <span>/人</span></p>
+              <p class="down">
+                <i>181</i>
+                <span>/人</span>
+              </p>
             </li>
           </ul>
         </div>
@@ -190,22 +205,30 @@
         <div class="list">
           <ul>
             <li>
-              <p><i>NO.1</i></p>
+              <p>
+                <i>NO.1</i>
+              </p>
               <i>电子信息</i>
               <span>55%</span>
             </li>
             <li>
-              <p><i>NO.2</i></p>
+              <p>
+                <i>NO.2</i>
+              </p>
               <i>生物医药</i>
               <span>22%</span>
             </li>
             <li>
-              <p><i>NO.3</i></p>
+              <p>
+                <i>NO.3</i>
+              </p>
               <i>节能环保</i>
               <span>15%</span>
             </li>
             <li>
-              <p><i>NO.4</i></p>
+              <p>
+                <i>NO.4</i>
+              </p>
               <i>其他</i>
               <span>8%</span>
             </li>
@@ -213,7 +236,7 @@
               <p><i>NO.1</i></p>
               <i>软件信息</i>
               <span>23.5%</span>
-            </li> -->
+            </li>-->
           </ul>
         </div>
       </div>
@@ -1396,5 +1419,4 @@ export default {
 .right {
   height: 50%;
 }
-
 </style>

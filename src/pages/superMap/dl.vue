@@ -148,7 +148,7 @@ export default {
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
             -1255585.494900049,
-            5010562.694711306,
+            5010452.694711306,
             3743327.072412085
           ),
           orientation: {
