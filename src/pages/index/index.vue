@@ -1,7 +1,6 @@
 <template>
   <!-- 高新区雁滩园区 -->
   <div>
-    <Loading v-if="isLoading" />
     <div class="big_bg">
       <div class="indexbg">
         <!-- <img src="../../../static/img/indexbg.png" /> -->
@@ -122,23 +121,18 @@
 </template>
 
 <script>
-import Loading from "./../../components/Loading1.vue";
+
 import vDistrict from "./component/district.vue";
 export default {
   data() {
     return {
       time: null, // 定时器名称
-      isLoading: true,
     };
   },
   components: {
     vDistrict,
-    Loading,
   },
-  activated() {
-    //Loading效果
-    this.isLoading = false;
-  },
+ 
   mounted() {
     this.changeLight();
   },
@@ -163,10 +157,7 @@ export default {
       this.$router.push("/home/jz");
     },
     changeLight() {
-      //Loading效果
-      // console.log(this.isLoading);
-      this.isLoading = false;
-      let dl = document.querySelectorAll(".dl .wrap span");
+        let dl = document.querySelectorAll(".dl .wrap span");
       let dlname = document.querySelector(".dl .name");
       let hp = document.querySelectorAll(".hp .wrap span");
       let hpname = document.querySelector(".hp .name");

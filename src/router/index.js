@@ -11,7 +11,8 @@ const qlh = () => import("../pages/qlh_district/index");
 const yt = () => import("../pages/yt_district/index");
 const text = () => import("../components/text.vue");
 
-export default new Router({
+
+let router = new Router({
   routes: [
     {
       path: "/home",
@@ -59,3 +60,6 @@ export default new Router({
     }
   ]
 });
+
+
+export default router;
