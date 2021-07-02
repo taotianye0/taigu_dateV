@@ -64,8 +64,6 @@ export default {
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/FHDS/config"; //孵化大厦超图
     let url4 =
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/CXDS/config"; //创新大厦超图
-    let url5 =
-      "http://117.50.11.239:7090/iserver/services/3D-lz/rest/realspace/datas/WT"; //创新大厦超图
     this.scene
       .addS3MTilesLayerByScp(url, {
         name: "bim",
@@ -106,10 +104,6 @@ export default {
       .then(() => {
         this.addOverlay4();
       });
-    this.scene.addS3MTilesLayerByScp(url5, {
-      name: "hatchs",
-      packingRequest: 4,
-    });
     let that = this;
     // 飞行到二级页面
     that.flyTosecond();
@@ -136,35 +130,15 @@ export default {
       //   console.log(earthPosition);
       // }
       // 获取选中的S3M图层
-      let selectlayer = viewer.scene.layers.getSelectedLayer();
-      console.log(selectlayer.name);
+      let selectlayer = null;
+      console.log(selectlayer, "pr");
+      selectlayer = viewer.scene.layers.getSelectedLayer();
+      // console.log(selectlayer);
+      console.log(selectlayer.name, "next");
       if (selectlayer.name !== undefined) {
         that.select = selectlayer.name;
       }
       switch (selectlayer.name) {
-        case "syb":
-          // 留创园
-          viewer.camera.flyTo({
-            destination: new Cesium.Cartesian3(
-              -1238750.4726560987,
-              5005753.138761906,
-              3753830.6485069036
-            ),
-            orientation: {
-              heading: 4.1945742079374515,
-              pitch: -0.478811382362184,
-              roll: 6.283171325420994,
-            },
-            duration: 5, //持续时间
-            complete: function callback() {
-              var flag = {
-                isshow: false,
-                selectid: 1,
-              };
-              that.rotateByPosition(flag);
-            },
-          });
-          break;
         case "innovate":
           // 创新大厦
           viewer.camera.flyTo({
@@ -211,7 +185,29 @@ export default {
             },
           });
           break;
-
+        case "syb":
+          // 留创园
+          viewer.camera.flyTo({
+            destination: new Cesium.Cartesian3(
+              -1238750.4726560987,
+              5005753.138761906,
+              3753830.6485069036
+            ),
+            orientation: {
+              heading: 4.1945742079374515,
+              pitch: -0.478811382362184,
+              roll: 6.283171325420994,
+            },
+            duration: 5, //持续时间
+            complete: function callback() {
+              var flag = {
+                isshow: false,
+                selectid: 1,
+              };
+              that.rotateByPosition(flag);
+            },
+          });
+          break;
         default:
           break;
       }
@@ -618,7 +614,7 @@ export default {
   width: 1rem;
   height: 0.38rem;
   z-index: 10;
-  color: #bcc3d6;
+  color: #fff;
   top: 0;
   bottom: 0;
   right: 0.25rem;

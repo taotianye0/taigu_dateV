@@ -562,7 +562,7 @@ export default {
   width: 1rem;
   height: 0.38rem;
   z-index: 1000;
-  color: #bcc3d6;
+  color: #fff;
   right: 2%;
   top: 1.25rem;
   line-height: 0.38rem;
