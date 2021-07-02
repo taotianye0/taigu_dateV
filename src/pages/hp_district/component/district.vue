@@ -321,7 +321,7 @@ export default {
             data: ["瞪羚企业", "上市公司", "骨干企业", "高新技术企业"],
           nameLocation: "center",
           axisLabel: {
-            color: "#00FCF9",
+            color: "#fff",
             fontFamily: "Microsoft YaHei",
             fontWeight: 400,
             fontSize: 18,
@@ -343,7 +343,7 @@ export default {
               show: true,
               position: "right",
               formatter: "{c}户",
-              color: "#00FCF9",
+              color: "#fff",
               fontFamily: "Microsoft YaHei",
               fontWeight: 400,
               fontSize: 18,

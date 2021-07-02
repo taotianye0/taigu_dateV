@@ -34,7 +34,7 @@
   height: 0.38rem;
   line-height: 0.38rem;
   border-radius: 0.15rem;
-  color: #BCC3D6;
+  color: #FFF;
   background-color: #152E67;
   font-size: 0.18rem;
   font-family: Microsoft YaHei;
@@ -47,7 +47,7 @@
   width: 1.4rem;
 }
 .title .button1 a {
-  color: #BCC3D6;
+  color: #FFF;
   display: block;
 }
 .title .button {
@@ -97,7 +97,7 @@
   margin: auto;
   width: 100%;
   height: 33.3%;
-  background: url(../img/52.png) no-repeat center;
+  background: url(../img/1133393.png) no-repeat center;
   background-size: 100% 85%;
 }
 .left_one li.wrap ul {
@@ -130,12 +130,12 @@
   left: 0;
   right: 0;
   width: 50%;
-  color: #BCC3D6;
+  color: #FFF;
 }
 .left_one li.wrap li.text {
   right: 0;
   width: 30%;
-  color: #BCC3D6;
+  color: #FFF;
 }
 .left_two {
   height: 38%;
@@ -149,7 +149,7 @@
 }
 .left_two li div {
   display: inline-block;
-  color: #BCC3D6;
+  color: #FFF;
 }
 .left_two .item_name {
   width: 70%;
@@ -238,7 +238,7 @@
   background: url("../img/574.png") no-repeat center;
   background-size: 100% 100%;
   text-align: center;
-  color: #BCC3D6;
+  color: #FFF;
   font-size: 0.18rem;
 }
 .left_three li .down i {
@@ -405,7 +405,7 @@
   width: 46%;
   height: 46%;
   text-align: center;
-  color: #BCC3D6;
+  color: #FFF;
   font-size: 0.3rem;
 }
 .right_two .righttwo_left .out {
@@ -421,7 +421,7 @@
   display: inline-block;
   height: calc(100% - 0.57rem);
   width: 60%;
-  color: #BCC3D6;
+  color: #FFF;
 }
 .right_two .righttwo_fight ul {
   width: 100%;
@@ -474,7 +474,7 @@
   width: 30%;
   height: 100%;
   display: inline-block;
-  color: #BCC3D6;
+  color: #FFF;
   font-size: 0.18rem;
   font-family: Microsoft YaHei;
   font-weight: 400;
