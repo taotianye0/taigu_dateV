@@ -163,6 +163,9 @@ export default {
       this.$router.push("/home/jz");
     },
     changeLight() {
+      //Loading效果
+      // console.log(this.isLoading);
+      this.isLoading = false;
       let dl = document.querySelectorAll(".dl .wrap span");
       let dlname = document.querySelector(".dl .name");
       let hp = document.querySelectorAll(".hp .wrap span");
@@ -177,8 +180,6 @@ export default {
 
       this.time = setInterval(() => {
         num++;
-        console.log(num);
-
         // 样式制空
         if (num > 5) {
           num = 1;
