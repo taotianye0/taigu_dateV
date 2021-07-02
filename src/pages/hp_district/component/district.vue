@@ -119,7 +119,7 @@ export default {
           top: "25",
           formatter: "{name}",
           textStyle: {
-            color: "#BCC3D6",
+            color: "#fff",
             fontWeight: 400,
             fontFamily: "Microsoft YaHei",
             fontSize: 16,
@@ -151,7 +151,7 @@ export default {
             alignWithLabel: true,
           },
           axisLabel: {
-            color: "#BCC3D6",
+            color: "#fff",
             fontFamily: "Microsoft YaHei",
             fontWeight: 400,
             fontSize: 16,
@@ -239,7 +239,7 @@ export default {
             hoverAnimation: false, // 取消鼠标滑入放大的效果
             animation: false, // 取消饼图展开的效果
             label: {
-              color: "#BCC3D6",
+              color: "#fff",
               fontFamily: "Microsoft YaHei",
               fontSize: 15,
               formatter: "{b} \n \n {d}%",
@@ -248,7 +248,7 @@ export default {
             labelLine: {
               show: true,
               lineStyle: {
-                color: "#BCC3D6",
+                color: "#fff",
                 type: "radial",
               },
               smooth: 0,
@@ -321,7 +321,7 @@ export default {
             data: ["瞪羚企业", "上市公司", "骨干企业", "高新技术企业"],
           nameLocation: "center",
           axisLabel: {
-            color: "#00FCF9",
+            color: "#fff",
             fontFamily: "Microsoft YaHei",
             fontWeight: 400,
             fontSize: 18,
@@ -343,7 +343,7 @@ export default {
               show: true,
               position: "right",
               formatter: "{c}户",
-              color: "#00FCF9",
+              color: "#fff",
               fontFamily: "Microsoft YaHei",
               fontWeight: 400,
               fontSize: 18,
