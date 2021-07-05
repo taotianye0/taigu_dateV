@@ -9,8 +9,10 @@ const jz = () => import("../pages/jz_district/index");
 const hp = () => import("../pages/hp_district/index");
 const qlh = () => import("../pages/qlh_district/index");
 const yt = () => import("../pages/yt_district/index");
+const text = () => import("../components/text.vue");
 
-export default new Router({
+
+let router = new Router({
   routes: [
     {
       path: "/home",
@@ -48,9 +50,16 @@ export default new Router({
       name: "兰州国家高新技术产业开发区,Lanzhou National High Tech Industrial Development Zone",
       component:index,
     },
+    // {
+    //   path:"/text",
+    //   component:text
+    // },
     {
       path: "*",
       redirect: "/"
     }
   ]
 });
+
+
+export default router;

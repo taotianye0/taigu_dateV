@@ -1,40 +1,23 @@
-
 <template>
-  <div>  
-    <div id="appLoading" v-if="path == '/'">
-      <div id="loader-wrapper">
-        <div id="loader"></div>
-        <div class="loader-section section-left"></div>
-        <div class="loader-section section-right"></div>
-        <div class="load_title">正在加载系统资源，请耐心等待</div>
-      </div>
-    </div>
-    <div id="#app"  v-else>
-      <!-- 一级路由出口 -->
-      <router-view></router-view>
-    </div>
-  
-  </div>
+ 
+  <div id="app">
+	    <div id="loader-wrapper">
+		    <div id="loader"></div>
+		    <div class="loader-section section-left"></div>
+		    <div class="loader-section section-right"></div>
+		    <div class="load_title">正在加载系统资源，请耐心等待</div>
+        </div>
+	</div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      path: null,
-    };
-  },
-
-  mounted() {
-    this.path = this.$router.path;
-   
-  },
+  name: "Loading",
 };
 </script>
 
-
 <style scoped>
-#appLoading {
+#app {
   height: 100%;
   margin: 0px;
   padding: 0px;
@@ -139,7 +122,7 @@ export default {
   top: 0;
   width: 51%;
   height: 100%;
-  background: rgba(29, 53, 89, 1);
+  background: rgba(29,53,89,1);
   z-index: 1000;
   -webkit-transform: translateX(0);
   -ms-transform: translateX(0);
@@ -214,4 +197,6 @@ export default {
   color: #fff;
   opacity: 0.5;
 }
+
 </style>
+

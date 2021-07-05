@@ -16,7 +16,10 @@ import echarts from "echarts";
 Vue.prototype.$echarts = echarts;
 // eventBus 挂载全局
 Vue.prototype.$event = new Vue;
-
+// //引入插件
+// import Loading from './components/Loading'
+// //全局注册插件
+// Vue.component('Loading',Loading)
 
 Vue.config.productionTip = false;
 
