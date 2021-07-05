@@ -1,14 +1,6 @@
 <template>
   <div>
     <div id="cesium-container" class="container" @click="child"></div>
-    <div class="button" @click="hidden(true)" v-if="hide">
-      <ul>
-        <li v-if="this.select=='syb'" @click="rotateByPosition(flag)">停止旋转</li>
-        <li v-else-if="this.select=='innovate'" @click="rotateByPosition(flag1)">停止旋转</li>
-        <li v-else-if="this.select=='hatch'" @click="rotateByPosition(flag2)">停止旋转</li>
-      </ul>
-    </div>
-    <div class="button1" v-else @click="rotateByPosition(flag3)">停止旋转</div>
   </div>
 </template>
 <script>
@@ -18,26 +10,18 @@ export default {
       viewer: {},
       scene: {},
       camera: {},
-      select: "",
-      hide: false,
-      concel: false,
-      flag: {
-        isshow: true,
-        selectid: 1,
-      },
-      flag1: {
-        isshow: true,
-        selectid: 2,
-      },
-      flag2: {
-        isshow: true,
-        selectid: 3,
-      },
-      flag3: {
-        isshow: true,
-        selectid: 4,
-      },
+      select: undefined,
+      selectname: "bim",
+      hide: true,
     };
+  },
+  watch: {
+    select(newval, oldval) {
+      console.log(newval, oldval);
+      this.flight(newval);
+      this.child(newval);
+      this.selectname = newval;
+    },
   },
   mounted: function () {
     let viewer = new Cesium.Viewer("cesium-container", {
@@ -53,7 +37,6 @@ export default {
     this.scene.globe.show = true;
     this.camera.flyCircleLoop = true;
     this.scene.viewFlag = true;
-    this.child();
     let url =
       "http://117.50.11.239:7090/iserver/services/3D-YTYQ/rest/realspace/datas/JZ/config"; //楼层超图
     let url1 =
@@ -109,8 +92,9 @@ export default {
     that.flyTosecond();
     // 点击建筑页面的返回按钮  ====》 接收的值
     that.$event.$on("aa", (e) => {
-      that.hide = false;
       if (e == false) {
+        that.selectname = "bim";
+        that.hide = false;
         that.flyTosecond();
       }
     });
@@ -130,15 +114,82 @@ export default {
       //   console.log(earthPosition);
       // }
       // 获取选中的S3M图层
-      let selectlayer = null;
-      console.log(selectlayer, "pr");
-      selectlayer = viewer.scene.layers.getSelectedLayer();
+      // let selectlayer = null;
+      // console.log(selectlayer, "pr");
+      var selectlayer = viewer.scene.layers.getSelectedLayer();
       // console.log(selectlayer);
-      console.log(selectlayer.name, "next");
+      // console.log(selectlayer.name, "next");
+
       if (selectlayer.name !== undefined) {
         that.select = selectlayer.name;
       }
-      switch (selectlayer.name) {
+    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    handler.setInputAction(function (e) {
+      console.log(that.selectname, that.hide);
+      if (that.hide == true) {
+        switch (that.selectname) {
+          case "innovate":
+            // 创新大厦
+            var flag = {
+              isshow: true,
+              selectid: 2,
+            };
+            that.rotateByPosition(flag);
+            break;
+          case "hatch":
+            // 孵化大厦
+            var flag = {
+              isshow: true,
+              selectid: 3,
+            };
+            that.rotateByPosition(flag);
+            break;
+          case "syb":
+            // 留创园
+            var flag = {
+              isshow: true,
+              selectid: 1,
+            };
+            that.rotateByPosition(flag);
+            break;
+          case "bim":
+            // 二级页面
+            var flag = {
+              isshow: true,
+              selectid: 4,
+            };
+            that.rotateByPosition(flag);
+            break;
+          default:
+            break;
+        }
+      }
+      // 获取到的是鼠标经过cesium的屏幕坐标
+    }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+  },
+  methods: {
+    // 二级给三级页面传值
+    child(name) {
+      switch (name) {
+        case "syb":
+          this.$emit("func", 1);
+          break;
+        case "innovate":
+          this.$emit("func", 2);
+          break;
+        case "hatch":
+          this.$emit("func", 3);
+          break;
+        default:
+          break;
+      }
+    },
+    // 点击跳转三级页面
+    flight(name) {
+      let viewer = this.viewer;
+      let _this = this;
+      console.log(name);
+      switch (name) {
         case "innovate":
           // 创新大厦
           viewer.camera.flyTo({
@@ -158,7 +209,7 @@ export default {
                 isshow: false,
                 selectid: 2,
               };
-              that.rotateByPosition(flag);
+              _this.rotateByPosition(flag);
             },
           });
           break;
@@ -181,7 +232,7 @@ export default {
                 isshow: false,
                 selectid: 3,
               };
-              that.rotateByPosition(flag);
+              _this.rotateByPosition(flag);
             },
           });
           break;
@@ -204,34 +255,10 @@ export default {
                 isshow: false,
                 selectid: 1,
               };
-              that.rotateByPosition(flag);
+              _this.rotateByPosition(flag);
             },
           });
           break;
-        default:
-          break;
-      }
-    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-  },
-  methods: {
-    // 停止按钮显示隐藏
-    hidden(data) {
-      this.$event.$emit("show", data);
-      this.hide = false;
-    },
-    // 二级给三级页面传值
-    child() {
-      switch (this.select) {
-        case "syb":
-          this.$emit("func", 1);
-          break;
-        case "innovate":
-          this.$emit("func", 2);
-          break;
-        case "hatch":
-          this.$emit("func", 3);
-          break;
-
         default:
           break;
       }
@@ -239,7 +266,6 @@ export default {
     // 建筑物旋转 传入不同flag 进行旋转
     rotateByPosition: function (flag) {
       console.log(flag);
-
       let viewer = this.viewer;
       switch (flag.selectid) {
         case 1:
@@ -253,8 +279,6 @@ export default {
             angle: 360 / 60,
             distance: 345,
           };
-          this.hide = true;
-          this.concel = false;
           break;
         case 2:
           var options = {
@@ -267,8 +291,6 @@ export default {
             angle: 360 / 60,
             distance: 350,
           };
-          this.hide = true;
-          this.concel = false;
           break;
         case 3:
           var options = {
@@ -281,8 +303,6 @@ export default {
             angle: 360 / 60,
             distance: 210,
           };
-          this.hide = true;
-          this.concel = false;
           break;
         case 4:
           var options = {
@@ -295,8 +315,6 @@ export default {
             angle: 360 / 180,
             distance: 2000,
           };
-          this.concel = true;
-          this.hide = false;
           break;
         default:
           break;
@@ -313,17 +331,20 @@ export default {
       var distance = options.distance;
       var startTime = Cesium.JulianDate.fromDate(new Date());
 
-      var stopTime = Cesium.JulianDate.addSeconds(
-        startTime,
-        100000,
-        new Cesium.JulianDate()
-      );
       if (flag.isshow == true) {
         var stopTime = Cesium.JulianDate.addSeconds(
           startTime,
           1,
           new Cesium.JulianDate()
         );
+        this.hide = false;
+      } else {
+        var stopTime = Cesium.JulianDate.addSeconds(
+          startTime,
+          100000,
+          new Cesium.JulianDate()
+        );
+        this.hide = true;
       }
       console.log(startTime, stopTime);
       viewer.clock.startTime = startTime.clone(); // 开始时间
@@ -378,6 +399,12 @@ export default {
         orientation: orientation,
         duration: 5, //持续时间
         complete: function callback() {
+          this.selectname = "bim";
+          var flag = {
+            isshow: false,
+            selectid: 4,
+          };
+          that.rotateByPosition(flag);
           // 扫描
           viewer.scene.scanEffect.show = true;
           viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
@@ -414,11 +441,6 @@ export default {
 
           viewer.scene.scanEffect.add(pos2);
           viewer.scene.scanEffect.add(pos3);
-          var flag = {
-            isshow: false,
-            selectid: 4,
-          };
-          that.rotateByPosition(flag);
         },
       });
     },
@@ -547,15 +569,11 @@ export default {
       let scene = this.scene;
       var layer = scene.layers.find("road");
       layer.style3D.fillForeColor = new Cesium.Color(6, 2, 0, 0.35);
-      // 关闭太阳光
-      scene.sun.show = false;
     },
     // 留创园样式
     addOverlay2: function () {
       let scene = this.scene;
       var layer = scene.layers.find("syb");
-      // 关闭太阳光
-      scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
       layer.style3D.lineColor = new Cesium.Color(
         196 / 255,
@@ -571,8 +589,6 @@ export default {
     addOverlay3: function () {
       let scene = this.scene;
       var layer = scene.layers.find("innovate");
-      // 关闭太阳光
-      scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
       layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 0.3);
       layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
@@ -583,8 +599,6 @@ export default {
     addOverlay4: function () {
       let scene = this.scene;
       var layer = scene.layers.find("hatch");
-      // 关闭太阳光
-      scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
       layer.style3D.lineColor = new Cesium.Color(
         121 / 255,
@@ -607,26 +621,5 @@ export default {
 }
 .container >>> .cesium-viewer-navigationContainer {
   display: none;
-}
-.button,
-.button1 {
-  position: absolute;
-  width: 1rem;
-  height: 0.38rem;
-  z-index: 10;
-  color: #fff;
-  top: 0;
-  bottom: 0;
-  right: 0.25rem;
-  margin: 0 auto;
-  top: 1.25rem;
-  line-height: 0.38rem;
-  font-size: 0.18rem;
-  border-radius: 0.15rem;
-  font-family: Microsoft YaHei;
-  font-weight: 400;
-  text-align: center;
-  background: #152e67;
-  cursor: pointer;
 }
 </style>

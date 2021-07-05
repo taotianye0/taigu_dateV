@@ -1,16 +1,6 @@
 <template>
   <div>
     <div id="cesium-container" class="container" @click="child"></div>
-    <div class="button" @click="hidden(true)" v-if="hide">
-      <ul>
-        <li v-if="this.select=='logistics'" @click="rotateByPosition(flag)">停止旋转</li>
-        <li
-          v-else-if="this.select=='biology1'||this.select=='biology2'"
-          @click="rotateByPosition(flag1)"
-        >停止旋转</li>
-      </ul>
-    </div>
-    <div class="button1" v-if="concel" @click="rotateByPosition(flag3)">停止旋转</div>
   </div>
 </template>
 <script>
@@ -20,22 +10,18 @@ export default {
       viewer: {},
       scene: {},
       camera: {},
-      select: "",
-      hide: false,
-      concel: false,
-      flag: {
-        isshow: true,
-        selectid: 1,
-      },
-      flag1: {
-        isshow: true,
-        selectid: 2,
-      },
-      flag3: {
-        isshow: true,
-        selectid: 4,
-      },
+      select: undefined,
+      selectname: "bim",
+      hide: true,
     };
+  },
+  watch: {
+    select(newval, oldval) {
+      console.log(newval, oldval);
+      this.flight(newval);
+      this.child(newval);
+      this.selectname = newval;
+    },
   },
   mounted: function () {
     let viewer = new Cesium.Viewer("cesium-container", {
@@ -50,7 +36,6 @@ export default {
     this.scene.globe.show = true;
     this.camera.flyCircleLoop = true;
     this.scene.viewFlag = true;
-    this.child();
     let url =
       "http://117.50.11.239:7090/iserver/services/3D-lz/rest/realspace/datas/JZ/config"; //楼层超图
     let url1 =
@@ -107,8 +92,9 @@ export default {
     that.flyTosecond();
     // 点击建筑页面的返回按钮  ====》 接收的值
     that.$event.$on("dl", (e) => {
-      this.hide = false;
       if (e == false) {
+        that.selectname = "bim";
+        that.hide = false;
         that.flyTosecond();
       }
     });
@@ -124,26 +110,63 @@ export default {
       // var ray = viewer.camera.getPickRay(event.position);
       // var earthPosition = viewer.scene.globe.pick(ray, viewer.scene);
       // console.log(event);
-      if (Cesium.defined(earthPosition)) {
-        console.log(earthPosition);
-      }
-      // var position = viewer.scene.pickPosition(event.position);
-      // //将笛卡尔坐标转化为经纬度坐标
-      // var cartographic = Cesium.Cartographic.fromCartesian(position);
-      // var x = Cesium.Math.toDegrees(cartographic.longitude);
-      // var y = Cesium.Math.toDegrees(cartographic.latitude);
-      // var z = cartographic.height;
-      // var h = viewer.scene.camera.heading;
-      // var p = viewer.scene.camera.pitch;
-      // var r = viewer.scene.camera.roll;
-      // console.log(x, y, z, h, p, r);
+      // if (Cesium.defined(earthPosition)) {
+      //   console.log(earthPosition);
+      // }
       // 获取选中的S3M图层
       let selectlayer = viewer.scene.layers.getSelectedLayer();
       console.log(selectlayer.name);
       if (selectlayer.name !== undefined) {
         that.select = selectlayer.name;
       }
-      if (selectlayer.name == "logistics") {
+    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+    handler.setInputAction(function (e) {
+      console.log(that.selectname, that.hide);
+      if (that.hide == true) {
+        if (that.selectname == "logistics") {
+          // 物流园
+          var flag = {
+            isshow: true,
+            selectid: 1,
+          };
+          that.rotateByPosition(flag);
+        } else if (
+          that.selectname == "biology1" ||
+          that.selectname == "biology2"
+        ) {
+          // 生物园
+          var flag = {
+            isshow: true,
+            selectid: 2,
+          };
+          that.rotateByPosition(flag);
+        } else if (that.selectname == "bim") {
+          // 二级页面
+          var flag = {
+            isshow: true,
+            selectid: 4,
+          };
+          that.rotateByPosition(flag);
+        }
+      }
+      // 获取到的是鼠标经过cesium的屏幕坐标
+    }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+  },
+  methods: {
+    // 二级给三级页面传值
+    child(name) {
+      if (name == "logistics") {
+        this.$emit("func", 1);
+      } else if (name == "biology1" || name == "biology2") {
+        this.$emit("func", 2);
+      }
+    },
+    // 点击跳转三级页面
+    flight(name) {
+      let viewer = this.viewer;
+      let _this = this;
+      console.log(name);
+      if (name == "logistics") {
         // 物流园
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
@@ -162,13 +185,10 @@ export default {
               isshow: false,
               selectid: 1,
             };
-            that.rotateByPosition(flag);
+            _this.rotateByPosition(flag);
           },
         });
-      } else if (
-        selectlayer.name == "biology1" ||
-        selectlayer.name == "biology2"
-      ) {
+      } else if (name == "biology1" || name == "biology2") {
         // 生物园
         viewer.camera.flyTo({
           destination: new Cesium.Cartesian3(
@@ -187,24 +207,9 @@ export default {
               isshow: false,
               selectid: 2,
             };
-            that.rotateByPosition(flag);
+            _this.rotateByPosition(flag);
           },
         });
-      }
-    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
-  },
-  methods: {
-    // 停止按钮显示隐藏
-    hidden(data) {
-      this.$event.$emit("show", data);
-      this.hide = false;
-    },
-    // 二级给三级页面传值
-    child() {
-      if (this.select == "logistics") {
-        this.$emit("func", 1);
-      } else if (this.select == "biology1" || this.select == "biology2") {
-        this.$emit("func", 2);
       }
     },
     // 建筑物旋转 传入不同flag 进行旋转
@@ -224,8 +229,6 @@ export default {
             angle: 360 / 60,
             distance: 2100,
           };
-          this.hide = true;
-          this.concel = false;
           break;
         case 2:
           var options = {
@@ -238,8 +241,6 @@ export default {
             angle: 360 / 60,
             distance: 1000,
           };
-          this.hide = true;
-          this.concel = false;
           break;
         case 4:
           var options = {
@@ -252,8 +253,6 @@ export default {
             angle: 360 / 180,
             distance: 5500,
           };
-          this.concel = true;
-          this.hide = false;
           break;
         default:
           break;
@@ -269,17 +268,21 @@ export default {
       // 给定相机距离点多少距离飞行，这里取值为5000m
       var distance = options.distance;
       var startTime = Cesium.JulianDate.fromDate(new Date());
-      var stopTime = Cesium.JulianDate.addSeconds(
-        startTime,
-        100000,
-        new Cesium.JulianDate()
-      );
+
       if (flag.isshow == true) {
         var stopTime = Cesium.JulianDate.addSeconds(
           startTime,
           1,
           new Cesium.JulianDate()
         );
+        this.hide = false;
+      } else {
+        var stopTime = Cesium.JulianDate.addSeconds(
+          startTime,
+          100000,
+          new Cesium.JulianDate()
+        );
+        this.hide = true;
       }
       console.log(startTime, stopTime);
       viewer.clock.startTime = startTime.clone(); // 开始时间
@@ -334,6 +337,7 @@ export default {
         orientation: orientation,
         duration: 5, //持续时间
         complete: function callback() {
+          this.selectname = "bim";
           // 扫描
           viewer.scene.scanEffect.show = true;
           viewer.scene.scanEffect.mode = Cesium.ScanEffectMode.CIRCLE; //利用圆环扫描效果
@@ -495,15 +499,11 @@ export default {
       let scene = this.scene;
       var layer = scene.layers.find("road");
       layer.style3D.fillForeColor = new Cesium.Color(6, 2, 0, 0.35);
-      // 关闭太阳光
-      scene.sun.show = false;
     },
     // 物流园样式
     addOverlay2: function () {
       let scene = this.scene;
-      var layer = scene.layers.find("logistics");
-      // 关闭太阳光
-      scene.sun.show = false;
+      var layer = scene.layers.find("logistics")
       layer.style3D.lineWidth = 1.5;
       layer.style3D.lineColor = new Cesium.Color(
         196 / 255,
@@ -519,8 +519,6 @@ export default {
     addOverlay3: function () {
       let scene = this.scene;
       var layer = scene.layers.find("biology1");
-      // 关闭太阳光
-      scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
       layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 0.3);
       layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
@@ -531,8 +529,6 @@ export default {
     addOverlay4: function () {
       let scene = this.scene;
       var layer = scene.layers.find("biology2");
-      // 关闭太阳光
-      scene.sun.show = false;
       layer.style3D.lineWidth = 1.5;
       layer.style3D.lineColor = new Cesium.Color(
         121 / 255,
@@ -556,22 +552,5 @@ export default {
 .container >>> .cesium-viewer-navigationContainer {
   display: none;
 }
-.button,
-.button1 {
-  position: absolute;
-  width: 1rem;
-  height: 0.38rem;
-  z-index: 1000;
-  color: #fff;
-  right: 2%;
-  top: 1.25rem;
-  line-height: 0.38rem;
-  font-size: 0.18rem;
-  border-radius: 0.15rem;
-  font-family: Microsoft YaHei;
-  font-weight: 400;
-  text-align: center;
-  background: #152e67;
-  cursor: pointer;
-}
+
 </style>

@@ -6,7 +6,7 @@
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
       <!-- 返回按钮 -->
-      <div class="button" @click="send(false)" v-if="isshow">
+      <div class="button" @click="send(false)">
         ⋘ 返回上一页面
       </div>
       <!-- 跳转至园区管理按钮 -->
@@ -221,7 +221,6 @@ export default {
       pageTitle_cn: "兰州高新区现代医药物流园", //页面标题
       pageTitle_en:
         "Modern Pharmaceutical Logistics Park of Lanzhou High Tech Zone", //页面标题
-      isshow: false,
       timer: null,
       companyList: [
         { companyName: "甘肃泛植生物科技有限公司", time: "2015-12-01" },
@@ -238,10 +237,6 @@ export default {
     this.wheel();
     this.teacherIn();
     this.teacherOut();
-    this.$event.$on("show", (e) => {
-      this.isshow = e;
-    });
-    
   },
   beforeDestroy() {
     clearInterval(this.timer);

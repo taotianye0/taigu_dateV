@@ -1,7 +1,6 @@
 <template>
   <div>
     <div id="cesium-container" class="container"></div>
-    <div class="button1" v-if="concel" @click="rotateByPosition(flag3)">停止旋转</div>
   </div>
 </template>
 <script>
@@ -11,13 +10,9 @@ export default {
       viewer: {},
       scene: {},
       camera: {},
-      select: "",
-      hide: false,
-      concel: false,
-      flag3: {
-        isshow: true,
-        selectid: 4,
-      },
+      select: undefined,
+      selectname: "bim",
+      hide: true,
     };
   },
   mounted: function () {
@@ -56,20 +51,22 @@ export default {
     let that = this;
     // 飞行到二级页面
     that.flyTosecond();
-    // 点击建筑页面的返回按钮  ====》 接收的值
-    that.$event.$on("dl", (e) => {
-      this.hide = false;
-      if (e == false) {
-        that.flyTosecond();
+    var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+    handler.setInputAction(function (e) {
+      console.log(that.selectname, that.hide);
+      if (that.hide == true) {
+        if (that.selectname) {
+          var flag = {
+            isshow: true,
+            selectid: 4,
+          };
+          that.rotateByPosition(flag);
+        }
       }
-    });
+      // 获取到的是鼠标经过cesium的屏幕坐标
+    }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
   },
   methods: {
-    // 停止按钮显示隐藏
-    hidden(data) {
-      this.$event.$emit("show", data);
-      this.hide = false;
-    },
     // 建筑物旋转 传入不同flag 进行旋转
     rotateByPosition: function (flag) {
       let viewer = this.viewer;
@@ -83,8 +80,6 @@ export default {
         angle: 360 / 180,
         distance: 8000,
       };
-      this.concel = true;
-      this.hide = false;
       var position = Cesium.Cartesian3.fromDegrees(
         options.lng,
         options.lat,
@@ -101,12 +96,20 @@ export default {
         100000,
         new Cesium.JulianDate()
       );
-      if (flag.isshow == true) {
+         if (flag.isshow == true) {
         var stopTime = Cesium.JulianDate.addSeconds(
           startTime,
           1,
           new Cesium.JulianDate()
         );
+        this.hide = false;
+      } else {
+        var stopTime = Cesium.JulianDate.addSeconds(
+          startTime,
+          100000,
+          new Cesium.JulianDate()
+        );
+        this.hide = true;
       }
       console.log(startTime, stopTime);
       viewer.clock.startTime = startTime.clone(); // 开始时间
@@ -294,8 +297,6 @@ export default {
       let scene = this.scene;
       var layer = scene.layers.find("road");
       layer.style3D.fillForeColor = new Cesium.Color(6, 2, 0, 0.35);
-      // 关闭太阳光
-      scene.sun.show = false;
     },
   },
 };
@@ -308,22 +309,5 @@ export default {
 .container >>> .cesium-viewer-navigationContainer {
   display: none;
 }
-.button,
-.button1 {
-  position: absolute;
-  width: 1rem;
-  height: 0.38rem;
-  z-index: 1000;
-  color: #fff;
-  right: 2%;
-  top: 1.25rem;
-  line-height: 0.38rem;
-  font-size: 0.18rem;
-  border-radius: 0.15rem;
-  font-family: Microsoft YaHei;
-  font-weight: 400;
-  text-align: center;
-  background: #152e67;
-  cursor: pointer;
-}
+
 </style>

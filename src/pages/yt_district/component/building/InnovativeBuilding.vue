@@ -6,7 +6,7 @@
       <div class="title_cn">{{ pageTitle_cn }}</div>
       <div class="title_en">{{ pageTitle_en }}</div>
       <!-- 返回按钮 -->
-      <div class="button" @click="send(false)" v-if="isshow">
+      <div class="button" @click="send(false)">
         ⋘ 返回上一页面
       </div>
       <!-- 跳转至园区管理按钮 -->
@@ -240,7 +240,6 @@ export default {
     return {
       pageTitle_cn: "兰州高新区创新大厦", //页面标题
       pageTitle_en: "Innovation Mansion of Lanzhou High Tech Zone", //页面标题
-      isshow: false,
       companyList: [
         { companyName: "兰州万桥智能科技有限公司", time: "2001-04-18" },
         { companyName: "甘肃泛植生物科技有限公司", time: "2015-12-01" },
@@ -275,9 +274,6 @@ export default {
     this.wheel();
     this.teacherIn();
     this.teacherOut();
-    this.$event.$on("show", (e) => {
-      this.isshow = e;
-    });
   },
   methods: {
     //入住企业模块  自动播放动画
