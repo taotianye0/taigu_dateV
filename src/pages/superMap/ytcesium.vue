@@ -166,6 +166,88 @@ export default {
       }
       // 获取到的是鼠标经过cesium的屏幕坐标
     }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+    // 添加广告牌实体
+    var enetity = viewer.entities.add({
+      name: "标点",
+      position: Cesium.Cartesian3.fromDegrees(
+        103.89156919082117,
+        36.05349164952365,
+        100
+      ),
+      label: {
+        //文字标签
+        text: "兰州高新区创新大厦",
+        font: "18px monospace", // 15pt monospace
+        // scale: 0.5,
+        style: Cesium.LabelStyle.FILL,
+        fillColor: Cesium.Color.WHITE,
+        pixelOffset: new Cesium.Cartesian2(0, -75), //偏移量
+        showBackground: true,
+        backgroundColor: new Cesium.Color(0.5, 0.6, 1, 0),
+      },
+      billboard: {
+        image: "./static/img/bg.jpg",
+        scale: 0.5,
+        width: 400,
+        height: 80,
+        pixelOffset: new Cesium.Cartesian2(0, -75),
+      },
+    });
+    viewer.zoomTo(enetity);
+    var enetity1 = viewer.entities.add({
+      name: "标点1",
+      position: Cesium.Cartesian3.fromDegrees(
+        103.89658963464912,
+        36.051262177199426,
+        100
+      ),
+      label: {
+        //文字标签
+        text: "兰州留学人员创业园",
+        font: "18px monospace", // 15pt monospace
+        // scale: 0.5,
+        style: Cesium.LabelStyle.FILL,
+        fillColor: Cesium.Color.WHITE,
+        pixelOffset: new Cesium.Cartesian2(0, -75), //偏移量
+        showBackground: true,
+        backgroundColor: new Cesium.Color(0.5, 0.6, 1, 0),
+      },
+      billboard: {
+        image: "./static/img/bg.jpg",
+        scale: 0.5,
+        width: 400,
+        height: 80,
+        pixelOffset: new Cesium.Cartesian2(0, -75),
+      },
+    });
+    viewer.zoomTo(enetity1);
+    var enetity2 = viewer.entities.add({
+      name: "标点2",
+      position: Cesium.Cartesian3.fromDegrees(
+        103.88325184141213,
+        36.05525210245023,
+        100
+      ),
+      label: {
+        //文字标签
+        text: "兰州高新区科技孵化大厦",
+        font: "18px monospace", // 15pt monospace
+        // scale: 0.5,
+        style: Cesium.LabelStyle.FILL,
+        fillColor: Cesium.Color.WHITE,
+        pixelOffset: new Cesium.Cartesian2(0, -75), //偏移量
+        showBackground: true,
+        backgroundColor: new Cesium.Color(0.5, 0.6, 1, 0),
+      },
+      billboard: {
+        image: "./static/img/bg.jpg",
+        scale: 0.5,
+        width: 450,
+        height: 80,
+        pixelOffset: new Cesium.Cartesian2(0, -75),
+      },
+    });
+    viewer.zoomTo(enetity2);
   },
   methods: {
     // 二级给三级页面传值
@@ -184,6 +266,7 @@ export default {
           break;
       }
     },
+
     // 点击跳转三级页面
     flight(name) {
       let viewer = this.viewer;

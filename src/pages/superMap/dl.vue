@@ -151,6 +151,61 @@ export default {
       }
       // 获取到的是鼠标经过cesium的屏幕坐标
     }, Cesium.ScreenSpaceEventType.MOUSE_MOVE);
+    // 添加广告牌实体
+    var enetity = viewer.entities.add({
+      name: "标点",
+      position: Cesium.Cartesian3.fromDegrees(
+        104.05073538965229,
+        35.94020404969259,
+        100
+      ),
+      label: {
+        //文字标签
+        text: "兰州高新区现代医药物流园",
+        font: "18px monospace", // 15pt monospace
+        // scale: 0.5,
+        style: Cesium.LabelStyle.FILL,
+        fillColor: Cesium.Color.WHITE,
+        pixelOffset: new Cesium.Cartesian2(0, -75), //偏移量
+        showBackground: true,
+        backgroundColor: new Cesium.Color(0.5, 0.6, 1, 0),
+      },
+      billboard: {
+        image: "./static/img/bg.jpg",
+        scale: 0.5,
+        width: 500,
+        height: 80,
+        pixelOffset: new Cesium.Cartesian2(0, -75),
+      },
+    });
+    viewer.zoomTo(enetity);
+    var enetity1 = viewer.entities.add({
+      name: "标点1",
+      position: Cesium.Cartesian3.fromDegrees(
+        104.01275438329772,
+        35.941837523205685,
+        100
+      ),
+      label: {
+        //文字标签
+        text: "兰州国家生物医药产业基地创新园",
+        font: "18px monospace", // 15pt monospace
+        // scale: 0.5,
+        style: Cesium.LabelStyle.FILL,
+        fillColor: Cesium.Color.WHITE,
+        pixelOffset: new Cesium.Cartesian2(0, -75), //偏移量
+        showBackground: true,
+        backgroundColor: new Cesium.Color(0.5, 0.6, 1, 0),
+      },
+      billboard: {
+        image: "./static/img/bg.jpg",
+        scale: 0.5,
+        width: 600,
+        height: 80,
+        pixelOffset: new Cesium.Cartesian2(0, -75),
+      },
+    });
+    viewer.zoomTo(enetity1);
   },
   methods: {
     // 二级给三级页面传值
@@ -503,7 +558,7 @@ export default {
     // 物流园样式
     addOverlay2: function () {
       let scene = this.scene;
-      var layer = scene.layers.find("logistics")
+      var layer = scene.layers.find("logistics");
       layer.style3D.lineWidth = 1.5;
       layer.style3D.lineColor = new Cesium.Color(
         196 / 255,
@@ -552,5 +607,4 @@ export default {
 .container >>> .cesium-viewer-navigationContainer {
   display: none;
 }
-
 </style>
