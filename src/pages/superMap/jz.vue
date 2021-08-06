@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="cesium-container" class="container"></div>
+    <div id="cesium-container" class="container" ></div>
   </div>
 </template>
 <script>
@@ -20,6 +20,7 @@ export default {
       infoBox: false,
       selectionIndicator: false,
       isShowGlobe: true,
+      selectEnabled: true,
     });
     this.viewer = viewer;
     this.scene = this.viewer.scene;
@@ -29,9 +30,10 @@ export default {
     this.camera.flyCircleLoop = true;
     this.scene.viewFlag = true;
     let url =
-      "http://117.50.11.239:7090/iserver/services/3D-JZ/rest/realspace/datas/JZ/config"; //楼层超图
+      "http://bg.gsbim.cn:7090/iserver/services/3D-JZ/rest/realspace/datas/JZ/config"; //楼层超图
     let url1 =
-      "http://117.50.11.239:7090/iserver/services/3D-JZ/rest/realspace/datas/DL/config"; //道路超图
+      "http://bg.gsbim.cn:7090/iserver/services/3D-JZ/rest/realspace/datas/DL/config"; //道路超图
+
     this.scene
       .addS3MTilesLayerByScp(url, {
         name: "bim",
@@ -48,9 +50,11 @@ export default {
       .then(() => {
         this.addOverlay1();
       });
+
     let that = this;
     // 飞行到二级页面
     that.flyTosecond();
+    // 点击事件
     var handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
     handler.setInputAction(function (e) {
       console.log(that.selectname, that.hide);
@@ -298,7 +302,48 @@ export default {
     addOverlay1: function () {
       let scene = this.scene;
       var layer = scene.layers.find("road");
-      layer.style3D.fillForeColor = new Cesium.Color(6, 2, 0, 0.2);
+      layer.style3D.fillForeColor = new Cesium.Color(6, 2, 0, 0.35);
+    },
+    // 留创园样式
+    addOverlay2: function () {
+      let scene = this.scene;
+      var layer = scene.layers.find("syb");
+      layer.style3D.lineWidth = 1.5;
+      layer.style3D.lineColor = new Cesium.Color(
+        196 / 255,
+        196 / 255,
+        196 / 255,
+        0.3
+      );
+      layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
+      layer.style3D.fillForeColor = new Cesium.Color.CYAN();
+      layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
+    },
+    // 创新大厦样式
+    addOverlay3: function () {
+      let scene = this.scene;
+      var layer = scene.layers.find("innovate");
+      layer.style3D.lineWidth = 1.5;
+      layer.style3D.lineColor = new Cesium.Color(0.16, 0.48, 0.86, 0.3);
+      layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
+      layer.style3D.fillForeColor = new Cesium.Color.CYAN();
+      layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
+    },
+    // 孵化大厦样式
+    addOverlay4: function () {
+      let scene = this.scene;
+      var layer = scene.layers.find("hatch");
+      layer.style3D.lineWidth = 1.5;
+      layer.style3D.lineColor = new Cesium.Color(
+        121 / 255,
+        196 / 255,
+        255 / 255,
+        0.3
+      );
+      layer.style3D.fillStyle = Cesium.FillStyle.Fill_And_WireFrame;
+      layer.style3D.fillForeColor = new Cesium.Color.CYAN();
+      layer.wireFrameMode = Cesium.WireFrameType.EffectOutline;
+      scene.skyAtmosphere.show = false;
     },
   },
 };
@@ -311,5 +356,4 @@ export default {
 .container >>> .cesium-viewer-navigationContainer {
   display: none;
 }
-
 </style>
