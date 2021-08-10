@@ -324,7 +324,6 @@ export default {
           name: "name1",
           itemStyle: {
             normal: {
-              // color: 'rgba(42,42,187,1)'
               color: {
                 //图形渐变颜色方法，四个数字分别代表，右，下，左，上，offset表示0%到100%
                 type: "linear",
