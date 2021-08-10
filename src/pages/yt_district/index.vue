@@ -8,17 +8,7 @@
 
     <!--留学生创业园 建筑 的组件 -->
     <leave-garden v-if="isshow == 1" @back="districtBack()"></leave-garden>
-    <!--创新大厦 建筑 的组件 -->
-    <Innovative-building
-      v-else-if="isshow == 2"
-      @back="districtBack()"
-    ></Innovative-building>
-    <!--孵化大厦 建筑 的组件 -->
-    <Incubation-building
-      v-else-if="isshow == 3"
-      @back="districtBack()"
-    ></Incubation-building>
-    <!-- 区的页面组件 -->
+        <!-- 区的页面组件 -->
     <v-district v-else></v-district>
   </div>
 </template>
@@ -27,13 +17,11 @@
 import vDistrict from "./component/district.vue";
 import ytCesiumCom from "../superMap/ytcesium.vue";
 import leaveGarden from "./component/building/leaveGarden.vue";
-import IncubationBuilding from "./component/building/IncubationBuilding.vue";
-import InnovativeBuilding from "./component/building/InnovativeBuilding.vue";
 
 export default {
   data() {
     return {
-      // 显示隐藏区组件与建筑组件 1显示留学生创业园的组件 2表示创新大厦  3表示孵化大厦
+      // 显示隐藏区组件与建筑组件 1显示留学生创业园的组件
       isshow: 0,
       // isshow: 3,
     };
@@ -42,8 +30,6 @@ export default {
     vDistrict,
     ytCesiumCom,
     leaveGarden, //留创园
-    IncubationBuilding, //孵化大厦
-    InnovativeBuilding, //创新大厦
   },
   methods: {
     // 超图的点击事件
