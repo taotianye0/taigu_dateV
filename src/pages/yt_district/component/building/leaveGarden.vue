@@ -248,7 +248,7 @@
 export default {
   data() {
     return {
-      pageTitle_cn: "甘肃海创梧桐港", //页面标题
+      pageTitle_cn: "甘肃海创梧桐港", //标题
       pageTitle_en: "Gansu Sea to create wutong port", //页面标题
       timer: null,
       companyList: [
