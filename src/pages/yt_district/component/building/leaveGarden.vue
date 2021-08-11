@@ -249,7 +249,7 @@ export default {
   data() {
     return {
       pageTitle_cn: "甘肃海创梧桐港", //标题
-      pageTitle_en: "Gansu Sea to create wutong port", //页面标题
+      pageTitle_en: "Gansu Sea to create wutong port", //标题
       timer: null,
       companyList: [
         { companyName: "兰州明达光电有限责任公司", time: "2014-08-28" },
